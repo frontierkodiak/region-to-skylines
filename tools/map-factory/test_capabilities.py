@@ -1121,8 +1121,14 @@ def terrain_interest_metrics(ground):
             self.assertNotEqual(
                 deposited["evidence_inputs"]["deposits"]["sha256"], before
             )
-            self.assertEqual(built["capabilities"]["resources"]["level"], "unknown")
-            self.assertEqual(deposited["capabilities"]["resources"]["level"], "likely")
+            self.assertEqual(built["capabilities"]["resources"]["level"], "yes")
+            self.assertEqual(
+                built["capabilities"]["resources"]["reason"], "default_resource_plan"
+            )
+            self.assertEqual(
+                built["capabilities"]["resources"]["details"]["forest"]["level"], "no"
+            )
+            self.assertEqual(deposited["capabilities"]["resources"]["level"], "yes")
             cover.unlink()
             evidence.unlink()
             absent = assess_prepared(folder)

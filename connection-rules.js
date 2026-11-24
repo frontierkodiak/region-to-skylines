@@ -74,5 +74,5 @@ export function connectionRules(input, rules = CONNECTION_RULES) {
   return { road, rail,
     ship: { level: width === 0 || delta <= -rules.margin_m ? "no" : delta >= rules.margin_m ? "yes" : "maybe",
       reason: width === 0 ? "no_edge_waterway" : "mapped_water_width", width_m: width, threshold_m: rules.ship_width_m, margin_m: rules.margin_m },
-    air: { level: "yes", reason: "air_paths_stock_default" } };
+    air: { level: "yes", reason: "plane_entries_always_written" } };
 }

@@ -702,6 +702,19 @@ def check(data, ledger):
         place = place_capabilities(grid, data["place"], ledger["model_rules"]["place"])
         result["resources"] = place["resources"]
         result["trees"] = place["trees"]
+    if data.get("plane_entries_policy") == "always":
+        result["air"] = {"level": "yes", "reason": "plane_entries_always_written"}
+    if data.get("place_metrics") is not None:
+        from place_rules import place_decisions
+
+        result.update(
+            place_decisions(
+                data["place_metrics"],
+                result["resources"].get("evidence"),
+                data.get("start_footprint"),
+                ledger.get("place_rules"),
+            )
+        )
     return qualify_exact_export(
         {
             "schema": 1,
@@ -889,6 +902,25 @@ def prepared_input(folder):
     )
     hydro = json.loads((folder / "hydrology.json").read_text())
     geometry_file = folder / "geometry.json"
+    from place_rules import measure_place
+
+    prepared_place = place_input(folder)
+    place_metrics = measure_place(
+        np.flipud(ground),
+        np.flipud(depth),
+        prepared_place["landcover"].get("values")
+        if prepared_place.get("landcover", {}).get("status") == "available"
+        else None,
+    )
+    from start_model import dry_centers
+
+    footprint_centers = dry_centers(ground, depth, {"nodes": [], "edges": []}, 12)
+    start_footprint = {
+        "footprint": "candidate" if footprint_centers else "unknown",
+        "reason": "sampled_dry_flat_footprint"
+        if footprint_centers
+        else "no_footprint_in_finite_search",
+    }
     connection_geometry = None
     if geometry_file.exists():
         from connection_rules import from_geometry
@@ -915,6 +947,14 @@ def prepared_input(folder):
         "mode": "export",
         "graph": hydro.get("highways"),
         "connection_geometry": connection_geometry,
+        "place_metrics": place_metrics,
+        "plane_entries_policy": "always"
+        if any(
+            e.get("kind") == "air"
+            for e in (hydro.get("highways") or {}).get("edges", [])
+        )
+        else None,
+        "start_footprint": start_footprint,
         "start_input": start_input,
         "water_plan": {"samples": hydro.get("samples")},
         "planner_enabled": {
@@ -924,7 +964,7 @@ def prepared_input(folder):
         },
         "grid": {"size": 271, "spacing_m": 64, "depth_m": coarse.ravel().tolist()},
         "buildable_fraction": float(dry[central].mean()),
-        "place": place_input(folder),
+        "place": prepared_place,
     }
 
 

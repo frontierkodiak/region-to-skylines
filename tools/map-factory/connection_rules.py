@@ -201,5 +201,5 @@ def check(data, rules=None):
             threshold_m=rules["ship_width_m"],
             margin_m=rules["margin_m"],
         ),
-        air=dict(level="yes", reason="air_paths_stock_default"),
+        air=dict(level="yes", reason="plane_entries_always_written"),
     )

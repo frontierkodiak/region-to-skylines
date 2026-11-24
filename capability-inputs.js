@@ -1,3 +1,4 @@
+import { measurePlace } from "./place-rules.js";
 import { liveShore } from "./water-model.js";
 import { liveFootprint } from "./start-model.js";
 // The pan-time approximation uses captured initial terrain, not a water simulation.
@@ -88,7 +89,7 @@ export function estimateInputs(capture, depth = captureDepth(capture), evidence 
     }
   }
   const roads = geometry.roads ?? [];
-  return { schema: 1, mode: "estimate", connection_geometry: connectionGeometry(geometry), grid: { size: coarse, spacing_m: 64, depth_m: Array.from(ship) },
+  return { schema: 1, mode: "estimate", plane_entries_policy: "always", place_metrics: measurePlace(game, depth, evidence.landcover?.status === "available" ? evidence.landcover.values : null), connection_geometry: connectionGeometry(geometry), grid: { size: coarse, spacing_m: 64, depth_m: Array.from(ship) },
     transport: { road: roads.some((r) => ["motorway", "trunk"].includes(r.class)), rail: roads.some((r) => r.class === "rail"), air: !!geometry.airport },
     buildable_fraction: central ? dry / central : null,
     start_footprint: liveFootprint(game, depth),

@@ -19,7 +19,7 @@ const REASONS = {
   near_map_edge: "The mapped line ends within 32 m of the edge.",
   no_edge_waterway: "No connected mapped water reaches the edge.",
   mapped_water_width: "Connected mapped water is checked against the stock-map width threshold.",
-  air_paths_stock_default: "Plane paths occur on 103 of 104 stock maps; no geographic restriction was found.",
+  plane_entries_always_written: "The exporter writes two plane entries on every map, using an overflight when no runway axis crosses the square.",
   initial_deep_corridor: "The initial water estimate has a broad deep corridor reaching two map-edge points and the central 25 tiles. The game's ship path and stable water still need checking.",
   no_corridor_in_estimate: "No broad deep corridor was found in the initial water estimate. This estimate cannot rule out another route or establish what remains wet in the game.",
   mapped_candidate_not_routed: "Mapped transport supplies a candidate. An outside route, legal grades and native pathfinding have not been established.",
@@ -54,6 +54,16 @@ const PLACE_DETAIL = {
   landcover_evidence_unavailable: () => "Deposits were checked; land cover could not be loaded, so fertile land is unknown.",
   no_place_evidence: () => "Neither land cover nor deposits could be loaded. Move the square to retry.",
 };
+export function planDetail(result) {
+  if (result?.reason === "stock_relative_buildable_land") return `${pct(result.fraction)} of the central 25 tiles is dry with slope below 15%. Yes starts at ${pct(result.stock_threshold)}, fitted against stock maps.`;
+  if (result?.reason !== "default_resource_plan") return null;
+  return Object.entries(result.details).map(([kind, value]) => {
+    const state = LEVELS[value.level][1], name = kind[0].toUpperCase() + kind.slice(1);
+    if (kind === "forest") return `${name}: ${state} · ${value.suitability == null ? "cover data unavailable" : value.level === "yes" ? "planting support in captured land cover" : "no planting support in captured land cover"}`;
+    return `${name}: ${state} · ${pct(value.eligible_fraction)} eligible land for the default balanced plan (${pct(value.target_fraction)} target)`;
+  }).join("\n");
+}
+
 /** The exact text a capability detail shows; exported so tests read the copy itself. */
 export const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
 
@@ -202,13 +212,18 @@ export function mountCapabilities(root) {
       startValue.textContent = `: ${capture.input.start_footprint?.footprint === "candidate" ? "384 × 384 m candidate" : "Unknown"} · Hookup: Unknown`;
       startReadout.title = "Central 1,920 m square; initial terrain/depth estimate. Stock: Not comparable.";
       const report = checkCapabilities(capture.input, catalog);
+      const fp = report.capabilities.start_footprint;
+      if (fp) {
+        startValue.textContent = `: ${LEVELS[fp.level][1]} · 384 × 384 m · Hookup: Unknown`;
+        startReadout.title = fp.level === "yes" ? "A sampled 384 × 384 m dry patch with slope ≤15% and relief ≤8 m in the central tile." : fp.level === "no" ? "No 384 × 384 m dry, low-slope patch at the 64 m search centers in the central tile." : "The footprint grid is incomplete.";
+      }
       for (const [id, button] of buttons) {
         const cap = catalog.capabilities.find((c) => c.id === id), result = report.capabilities[id];
         const [mark, name] = LEVELS[result.level];
         button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark; button.querySelector(".capability-state").textContent = name;
         const area = id === "buildable" && result.fraction != null ? ` ${Math.round(result.fraction * 100)}% of sampled central land qualifies.` : "";
         const footprint = id === "buildable" ? footprintDetail(capture.input.start_footprint) : "";
-        button.title = `${cap.name}: ${name}. ${(id === "water" ? waterDetail(result) : placeDetail(result)) ?? (result.reason === "mapped_water_width" ? `Mapped water corridor: ${result.width_m} m; threshold ${result.threshold_m} m, margin ±${result.margin_m} m.` : REASONS[result.reason]) ?? cap.limits}${area}${footprint}`;
+        button.title = `${cap.name}: ${name}. ${(id === "water" ? waterDetail(result) : planDetail(result) ?? placeDetail(result)) ?? (result.reason === "mapped_water_width" ? `Mapped water corridor: ${result.width_m} m; threshold ${result.threshold_m} m, margin ±${result.margin_m} m.` : REASONS[result.reason]) ?? cap.limits}${area}${footprint}`;
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;

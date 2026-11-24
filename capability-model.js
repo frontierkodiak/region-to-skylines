@@ -1,3 +1,4 @@
+import { placeDecisions } from "./place-rules.js";
 import { connectionRules } from "./connection-rules.js";
 import { evaluateWater, normalizeWaterOpportunity } from "./water-model.js";
 import { evaluateStart } from "./start-model.js";
@@ -306,6 +307,8 @@ export function checkCapabilities(data, ledger) {
     result.resources = place.resources;
     result.trees = place.trees;
   }
+  if (data.plane_entries_policy === "always") result.air = { level: "yes", reason: "plane_entries_always_written" };
+  if (data.place_metrics != null) Object.assign(result, placeDecisions(data.place_metrics, result.resources.evidence, data.start_footprint, ledger.place_rules));
   return qualifyExactExport({ schema: 1, model: ledger.model, mode: data.mode, capabilities: result }, data.export_identity, ledger);
 }
 

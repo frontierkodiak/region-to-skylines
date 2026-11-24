@@ -9,6 +9,27 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "tools/map-factory/real_roads.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py",
+    ".gitattributes",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/.gitattributes",
+    "mapgen.js",
+    "tools/map-factory/generate.py",
+    "tools/map-factory/network_writer.py",
+    "tools/map-factory/netcodec.py",
+    "tools/map-factory/plane_entries.py",
+    "tools/map-factory/check_authored_air.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/generate.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/mapgen.js",
+    "place-rules.js",
+    "tools/map-factory/place_rules.py",
+    "tools/map-factory/survey/fit_place_rules.py",
+    "tools/map-factory/survey/place-fit.json",
+    "tools/map-factory/test_plane_entries.py",
+    "tools/map-factory/test_place_rules.py",
+    "tools/map-factory/transport_paths.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/transport_paths.py",
+    "test/place-rules.test.mjs",
     "test/connection-browser.mjs",
     "connection-rules.js",
     "tools/map-factory/connection_rules.py",
@@ -230,7 +251,6 @@ ADDITIONS = [
     "tools/map-factory/capability-evidence/pl1078-components/report_start_water.py",
     "tools/map-factory/capability-evidence/pl1078-components/start_capabilities.py",
     "tools/map-factory/capability-evidence/pl1078-components/surface_intake.py",
-
     "water-calibration.mjs",
     "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/HOLDOUT_REPORT.md",
     "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/final-pre-score-verification.json",
@@ -248,7 +268,6 @@ ADDITIONS = [
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py",
-
     "capabilities.json",
     "capability-evidence.js",
     "capability-evidence-worker.js",
@@ -631,7 +650,43 @@ def refresh():
         }
     adoption = {
         "schema": 1,
-        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged",
+        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; automatic plane entries added; other physical writers and historical native qualification unchanged",
+        "plane_writer": {
+            name: {
+                "historical_file": PREFIX + "/baseline/" + Path(name).name,
+                "historical_sha256": sha(
+                    (FOLDER / PREFIX / "baseline" / Path(name).name).read_bytes()
+                ),
+                "current_sha256": sha((ROOT / name).read_bytes()),
+            }
+            for name in [
+                ".gitattributes",
+                "mapgen.js",
+                "tools/map-factory/generate.py",
+                "tools/map-factory/transport_paths.py",
+                "tools/map-factory/real_roads.py",
+            ]
+        },
+        "historical_factory_files": [
+            "generate.py",
+            "region.py",
+            "prepare.py",
+            "surface_water.py",
+            "crp.py",
+            "template.py",
+            "map_metadata.py",
+            "paint.py",
+            "resources.py",
+            "landcover.py",
+            "evidence.py",
+            "web.py",
+            "wet_reach_admission.py",
+            "native-water-admission.json",
+            "water_risk.py",
+            "water-risk-model.json",
+            "templates/native-corridors.crp",
+            "templates/native-corridors.json",
+        ],
         "predecessor_active_sha256": sha(active_raw),
         "predecessor_contract_sha256": sha(current_raw),
         "archived_gates": gates,

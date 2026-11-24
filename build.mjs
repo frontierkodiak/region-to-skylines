@@ -12,7 +12,7 @@ import { outsideStock, outsideStockFiles } from "./outside-stock.mjs";
 import { outsideReadiness, outsideReadinessFiles } from "./outside-readiness.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "place-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
@@ -85,6 +85,7 @@ writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
 // The terrain-shape survey the stock reference cites, byte for byte.
 mkdirSync("dist/tools/map-factory/survey", { recursive: true });
 copyFileSync("tools/map-factory/survey/terrain-interest.json", "dist/tools/map-factory/survey/terrain-interest.json");
+copyFileSync("tools/map-factory/survey/place-fit.json", "dist/tools/map-factory/survey/place-fit.json");
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {
   mkdirSync(dirname(`dist/tools/map-factory/${f}`), { recursive: true });

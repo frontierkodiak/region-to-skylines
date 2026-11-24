@@ -37,10 +37,16 @@
     "tools/map-factory/templates/native-corridors.crp",
     "tools/map-factory/templates/native-corridors.json",
     "connection-rules.js",
-    "tools/map-factory/connection_rules.py"
+    "tools/map-factory/connection_rules.py",
+    "place-rules.js",
+    "tools/map-factory/place_rules.py",
+    "tools/map-factory/plane_entries.py",
+    "tools/map-factory/network_writer.py",
+    "tools/map-factory/netcodec.py",
+    "tools/map-factory/transport_paths.py"
   ],
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs",
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs test/place-rules.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
   },
   "engines": {

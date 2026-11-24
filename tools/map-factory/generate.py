@@ -86,6 +86,17 @@ def generate(
                 output / "hydrology.json",
                 output / (summary["map_id"] + ".crp"),
             )
+    from plane_entries import ensure_plane_entries
+
+    plane_entries = ensure_plane_entries(
+        output / (summary["map_id"] + ".crp"),
+        json.loads(geometry_snapshot.read_text()),
+        output,
+    )
+    final_bytes = (output / (summary["map_id"] + ".crp")).read_bytes()
+    result["sha256"] = hashlib.sha256(final_bytes).hexdigest()
+    result["bytes"] = len(final_bytes)
+    result["simulation_sha256"] = plane_entries["simulation_sha256"]
     receipt = {
         "preparation": summary,
         "package": result,
@@ -108,6 +119,7 @@ def generate(
         },
         "source": {"inputs_sha256": {"geometry.json": geometry_sha256}},
         "prefill": prefill,
+        "plane_entries": plane_entries,
         "in_game_verified": False,
         "native_admission": admission,
     }

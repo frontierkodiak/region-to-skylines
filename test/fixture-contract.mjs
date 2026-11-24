@@ -19,17 +19,18 @@ export async function loadFixtureContract(read, readSource) {
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const currentBytes = await read("fixtures/" + active.current), current = parse(currentBytes);
   readSource = await capabilityUISources({ read, readSource, activeBytes, currentBytes, current });
+  const factoryFiles = readSource.historicalFactoryFiles ?? FACTORY_FILES;
   if (current.version === "pl1066-optional-runways-v1")
-    return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl912-water-risk-v1")
-    return loadWaterRiskContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadWaterRiskContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl912-transient-storage-v1")
-    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   assert.equal(current.previous_contracts.accepted_presentation.file, "current.json");
   assert.equal(current.previous_contracts.native_baseline.file, "contracts/pl912-native-dry-subreach-v1/current.json");
   for (const parent of Object.values(current.previous_contracts))
     assert.equal(sha(await read("fixtures/" + parent.file)), parent.sha256, "predecessor contract changed");
-  assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...FACTORY_FILES.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
+  assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...factoryFiles.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
   assert.equal(current.format, 1);
   assert.equal(current.status, "partial_not_accepted");
   assert.equal(sha(historicalBytes), current.historical_manifest_sha256, "historical fixture contract changed");

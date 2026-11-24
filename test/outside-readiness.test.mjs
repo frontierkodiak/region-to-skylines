@@ -366,6 +366,6 @@ test("only this study's ledger fields differ from the exact source ledger", () =
   for (const c of stripped) if (["start", "water"].includes(c.id)) delete c.runtime_model;
   assert.equal(digest(stripped), "1f96f2e53a5f4f23b2f76337b1d406d453abd4abb1afe1360103554c37ff8e3b");
   // Exactly one top-level key was added, and it is this study's.
-  assert.deepEqual(Object.keys(ledger).filter((k) => !["connection_rules", "connection_agreement"].includes(k)).slice(-1), ["outside_readiness_studies"]);
+  assert.deepEqual(Object.keys(ledger).filter((k) => !["connection_rules", "connection_agreement", "place_rules", "place_validation"].includes(k)).slice(-1), ["outside_readiness_studies"]);
   assert.equal(Object.keys(ledger).filter((key) => key === "outside_readiness_studies").length, 1);
 });

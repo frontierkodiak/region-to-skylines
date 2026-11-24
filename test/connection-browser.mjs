@@ -36,9 +36,15 @@ try{
     await page.waitForFunction(()=>['yes','no','maybe'].includes(document.querySelector('[data-capability=ship]')?.dataset.level),{},{timeout:180000});
     const row=await page.locator('[data-capability]').evaluateAll(es=>Object.fromEntries(es.map(e=>[e.dataset.capability,e.dataset.level])));
     assert.equal(row.ship,ship,slug);if(slug==='asheville')assert.equal(row.road,'yes');
+    assert.equal(Object.keys(row).length,8);assert.equal(row.air,'yes');
+    for(const k of ['buildable','resources'])assert.ok(['yes','no','maybe'].includes(row[k]));
+    assert.match(await page.locator('[data-capability=air]').getAttribute('title'),/writes two plane entries/);
+    const footprint=await page.locator('.start-footprint').innerText();assert.match(footprint,/(Yes|Maybe|No).*384.*Hookup: Unknown/);
+    await page.locator('[data-capability=resources]').focus();await page.keyboard.press('Enter');
+    for(const k of ['Ore:','Oil:','Fertile:','Forest:'])assert.match(await page.locator('.capability-detail').innerText(),new RegExp(k));
     await page.locator('#capabilities').scrollIntoViewIfNeeded();
     await page.screenshot({path:resolve(out,`${name}-${slug}.png`),fullPage:true});
-    results.push({browser:name,place:slug,row});console.log(name,slug,JSON.stringify(row));
+    results.push({browser:name,place:slug,row,footprint});console.log(name,slug,JSON.stringify(row));
    }
    await page.setViewportSize({width:390,height:844});
    await page.goto('about:blank');
@@ -47,8 +53,11 @@ try{
    await page.locator('#capabilities').scrollIntoViewIfNeeded();
    await page.screenshot({path:resolve(out,`${name}-boston-390.png`),fullPage:true});
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert.equal(overflow,false);
-   await page.locator('[data-capability=ship]').focus();await page.keyboard.press('Enter');
+   await page.locator('[data-capability=resources]').focus();await page.keyboard.press('Enter');
    await page.screenshot({path:resolve(out,`${name}-boston-detail-390.png`),fullPage:true});
+   await page.setViewportSize({width:320,height:740});
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+   await page.screenshot({path:resolve(out,`${name}-boston-detail-320.png`),fullPage:true});
    await page.setViewportSize({width:1280,height:950});
    await page.locator('#map').scrollIntoViewIfNeeded();const box=await page.locator('#map').boundingBox();
    await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+35,box.y+box.height/2+15,{steps:6});await page.mouse.up();

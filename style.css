@@ -204,3 +204,5 @@ footer li { margin-bottom: 3px; }
 .capability-row [data-level="yes"] { color: var(--accent); border-color: var(--accent); }
 .capability-row [data-level="no"] { color: var(--square); }
 .capability-state { font-size: .7rem; }
+
+.capability-detail { white-space: pre-line; }

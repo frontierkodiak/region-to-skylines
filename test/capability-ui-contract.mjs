@@ -9,7 +9,7 @@ const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
   const adoption = parse(await read("fixtures/contracts/pl1119-capability-ui-v1/adoption.json"));
   assert.equal(adoption.schema, 1);
-  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged");
+  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; automatic plane entries added; other physical writers and historical native qualification unchanged");
   assert.equal(adoption.predecessor_active_sha256, sha(activeBytes), "capability predecessor active pointer changed");
   assert.equal(adoption.predecessor_contract_sha256, sha(currentBytes), "capability predecessor contract changed");
   assert.deepEqual(Object.keys(adoption.archived_gates).sort(), GATES.sort());
@@ -23,6 +23,27 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [
+    "tools/map-factory/real_roads.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py",
+    ".gitattributes",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/.gitattributes",
+    "mapgen.js",
+    "tools/map-factory/generate.py",
+    "tools/map-factory/network_writer.py",
+    "tools/map-factory/netcodec.py",
+    "tools/map-factory/plane_entries.py",
+    "tools/map-factory/check_authored_air.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/generate.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/mapgen.js",
+    "place-rules.js",
+    "tools/map-factory/place_rules.py",
+    "tools/map-factory/survey/fit_place_rules.py",
+    "tools/map-factory/survey/place-fit.json",
+    "tools/map-factory/test_plane_entries.py",
+    "tools/map-factory/test_place_rules.py",
+    "tools/map-factory/transport_paths.py",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/transport_paths.py",
+    "test/place-rules.test.mjs",
     "test/connection-browser.mjs",
     "connection-rules.js",
     "tools/map-factory/connection_rules.py",
@@ -619,5 +640,18 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz",
   ].sort());
   for (const [name, digest] of Object.entries(adoption.added_files_sha256)) assert.equal(sha(await readSource(name)), digest, `${name}: capability source changed`);
-  return (name) => archived[name] ?? readSource(name);
+  const planes = adoption.plane_writer;
+  assert.deepEqual(Object.keys(planes).sort(), [".gitattributes", "mapgen.js", "tools/map-factory/generate.py", "tools/map-factory/real_roads.py", "tools/map-factory/transport_paths.py"]);
+  for (const [file, binding] of Object.entries(planes)) {
+    assert.equal(binding.historical_file, "contracts/pl1119-capability-ui-v1/baseline/" + file.split("/").at(-1));
+    const original = await read("fixtures/" + binding.historical_file);
+    assert.equal(sha(original), binding.historical_sha256, "historical plane writer changed");
+    assert.equal(sha(await readSource(file)), binding.current_sha256, "current plane writer changed");
+    archived[file] = original;
+  }
+  const historicalFactory = Object.keys(current.source_files_sha256).filter(k => k.startsWith("tools/map-factory/")).map(k => k.slice("tools/map-factory/".length)).sort();
+  assert.deepEqual([...adoption.historical_factory_files].sort(), historicalFactory);
+  const historicalRead = (name) => archived[name] ?? readSource(name);
+  historicalRead.historicalFactoryFiles = adoption.historical_factory_files;
+  return historicalRead;
 }
