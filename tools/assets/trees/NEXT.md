@@ -29,7 +29,7 @@ within the authorised $10 total. Do not create accounts or buy credit.
 No phone pairs, native snow result or pipeline promotion is claimed.
 
 The outdated producer-terminal peer-review wakeup was disabled. The new
-continuation is tied to the running PL-1326 supply task completing, not a
+continuation is tied to PL-1326 reaching in_review, not a
 sleeping background worker. Read newer steering before resuming.
 
 2026-11-25 steering: keep generation-route selection open pending the separate
