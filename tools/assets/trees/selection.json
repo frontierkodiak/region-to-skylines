@@ -1,0 +1,35 @@
+{
+  "demand_ref": "3940613c28fde8720c40a1c0ff5b9899dd3eee00 (reviewed PR101 head; identical Boston blob at integrated branch)",
+  "supply_ref": "c676ceec7e71d713b5a34b630bb19b6b737915ec",
+  "inventory_records": 52028,
+  "genera": [
+    {
+      "genus": "Gleditsia",
+      "boston_inventory_count": 7625,
+      "boston_inventory_share": 0.14655570077650495,
+      "base_identified_matches": [],
+      "workshop_established_passing_matches": 0,
+      "supply_caveat": "955 metadata candidates; 943 unreviewed, not an absence claim"
+    },
+    {
+      "genus": "Tilia",
+      "boston_inventory_count": 4747,
+      "boston_inventory_share": 0.09123933266702544,
+      "base_identified_matches": [
+        "mp9-YoungLinden"
+      ],
+      "workshop_established_passing_matches": 0,
+      "supply_caveat": "955 metadata candidates; 943 unreviewed, not an absence claim",
+      "gap": "YoungLinden is about 7.2 m unscaled; mature 15/22 m Tilia supply is not established."
+    },
+    {
+      "genus": "Ulmus",
+      "boston_inventory_count": 3689,
+      "boston_inventory_share": 0.07090412854616744,
+      "base_identified_matches": [],
+      "workshop_established_passing_matches": 0,
+      "supply_caveat": "955 metadata candidates; 943 unreviewed, not an absence claim"
+    }
+  ],
+  "demand_boston_git_blob": "99c7292d9a30cae904f245767d57f4796bc51ef9"
+}

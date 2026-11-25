@@ -1,0 +1,38 @@
+{
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": null,
+    "mem_used_before_mib": 8146,
+    "mem_total_mib": 11264
+  },
+  "mod_sha256": "a67b9ed0214748a62ca36eb531ec23355fea9427ee9a43d6525347e0deb36a26",
+  "game_gpu": [
+    {
+      "bus": "05:00.0",
+      "pid": 4086283,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1594
+    }
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "sampled_whole_card_peaks": {
+    "temperature.gpu": 77.0,
+    "power.draw [W]": 158.19,
+    "memory.used [MiB]": 10821.0
+  },
+  "observed_power_limits_w": [
+    200.0
+  ],
+  "sample_count": 310,
+  "first_sample": "2026/11/24 14:03:33.639",
+  "last_sample": "2026/11/24 14:29:26.466",
+  "performance_valid": false,
+  "reason": "Retarget failed to flush distant render groups while paused. Discard v5 frame comparisons."
+}

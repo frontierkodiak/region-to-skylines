@@ -1,0 +1,44 @@
+{
+  "cohort": "pl1328-tree-judge-ref-pilot-v1",
+  "description": "PL-1328: 32 independent-observer candidate photos per tree genus; whole-crown QA pending; observer-v1 split frozen before optimisation",
+  "snapshot": "20261027",
+  "query": "-- Candidate references only: whole-crown/mask QA is required before shape fitting.\n-- Cabinet adds the frozen observer-v1 train/val/test split after selection.\nWITH labelled AS (\n  SELECT p.*, CASE\n    WHEN {{subtree:48498:p}} THEN 'Gleditsia'\n    WHEN {{subtree:54856:p}} THEN 'Tilia'\n    WHEN {{subtree:53549:p}} THEN 'Ulmus'\n  END AS genus\n  FROM photos p\n  WHERE ({{subtree:48498:p}} OR {{subtree:54856:p}} OR {{subtree:53549:p}})\n    AND p.quality_grade = 'research'\n    AND lower(p.license) IN ('cc0', 'cc-by', 'cc-by-sa')\n    AND p.width >= 640 AND p.height >= 640\n    AND p.observer_id IS NOT NULL\n), independent AS (\n  SELECT * EXCLUDE (observer_row) FROM (\n    SELECT *, row_number() OVER (\n      PARTITION BY genus, observer_id ORDER BY sha256(CAST(photo_id AS VARCHAR))\n    ) AS observer_row FROM labelled\n  ) WHERE observer_row = 1\n)\nSELECT * EXCLUDE (genus_row) FROM (\n  SELECT *, row_number() OVER (\n    PARTITION BY genus ORDER BY sha256(CAST(photo_id AS VARCHAR))\n  ) AS genus_row FROM independent\n) WHERE genus_row <= 32\n",
+  "query_resolved": "-- Candidate references only: whole-crown/mask QA is required before shape fitting.\n-- Cabinet adds the frozen observer-v1 train/val/test split after selection.\nWITH labelled AS (\n  SELECT p.*, CASE\n    WHEN (p.taxon_pre BETWEEN 1131061 AND 1131082) THEN 'Gleditsia'\n    WHEN (p.taxon_pre BETWEEN 1367944 AND 1368016) THEN 'Tilia'\n    WHEN (p.taxon_pre BETWEEN 1172215 AND 1172301) THEN 'Ulmus'\n  END AS genus\n  FROM photos p\n  WHERE ((p.taxon_pre BETWEEN 1131061 AND 1131082) OR (p.taxon_pre BETWEEN 1367944 AND 1368016) OR (p.taxon_pre BETWEEN 1172215 AND 1172301))\n    AND p.quality_grade = 'research'\n    AND lower(p.license) IN ('cc0', 'cc-by', 'cc-by-sa')\n    AND p.width >= 640 AND p.height >= 640\n    AND p.observer_id IS NOT NULL\n), independent AS (\n  SELECT * EXCLUDE (observer_row) FROM (\n    SELECT *, row_number() OVER (\n      PARTITION BY genus, observer_id ORDER BY sha256(CAST(photo_id AS VARCHAR))\n    ) AS observer_row FROM labelled\n  ) WHERE observer_row = 1\n)\nSELECT * EXCLUDE (genus_row) FROM (\n  SELECT *, row_number() OVER (\n    PARTITION BY genus ORDER BY sha256(CAST(photo_id AS VARCHAR))\n  ) AS genus_row FROM independent\n) WHERE genus_row <= 32\n",
+  "split_policy": {
+    "name": "observer-v1",
+    "salt": "cabinet-split-v1",
+    "train": [
+      0,
+      79
+    ],
+    "val": [
+      80,
+      89
+    ],
+    "test": [
+      90,
+      99
+    ]
+  },
+  "held_out_taxa": [],
+  "created_at": "2026-11-25T21:15:38+00:00",
+  "code_version": null,
+  "rows": 96,
+  "photos": 96,
+  "observations": 96,
+  "observers": 90,
+  "taxa": 14,
+  "by_split": {
+    "test": 6,
+    "train": 84,
+    "val": 6
+  },
+  "by_split_heldout_taxon": {},
+  "by_license": {
+    "CC-BY": 71,
+    "CC0": 21,
+    "CC-BY-SA": 4
+  },
+  "photo_ids_sha256": "736eb6a53787caf54b0fe1c26d595cc3fe37b7fb930b598a35c614463518ae4c",
+  "photos_in_several_splits": 0
+}

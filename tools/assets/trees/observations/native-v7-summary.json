@@ -1,0 +1,42 @@
+{
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": null,
+    "mem_used_before_mib": 8146,
+    "mem_total_mib": 11264
+  },
+  "mod_sha256": "877b7a7b2084553a39203cfa13ccd0a6d88903955a79bc794c396ad07d1ece18",
+  "game_gpu": [
+    {
+      "bus": "05:00.0",
+      "pid": 2415311,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1576
+    }
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "sampled_whole_card_peaks": {
+    "temperature.gpu": 76.0,
+    "power.draw [W]": 155.76,
+    "memory.used [MiB]": 10821.0
+  },
+  "first_sample": "2026/11/24 15:26:06.036",
+  "last_sample": "2026/11/24 15:34:46.773",
+  "native_driver_commit": "4b4cdacfa94e90962bc5ccaeda866711f76a8065",
+  "native_driver_sha256": "b99dcbcaef0e950ae91b3bba418c27cbf3268ef7698008ee3ed54f2c71592e7f",
+  "frame_windows": 6,
+  "timing_ui_visible": false,
+  "specimen_pairs": 18,
+  "shots": 60,
+  "live_tree_count_after_pair": 2,
+  "redundant_pre_release_invalidation": true,
+  "final_csharp_source_matches_native_v6": true,
+  "background_hypothesis": "Low background vegetation was not established as phantom trees. Live TreeManager count is 2, and the engine FinalizeTree already invalidates old groups. Extra pre-release mark removed; no new deletion-fix claim."
+}

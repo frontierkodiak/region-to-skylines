@@ -1,0 +1,182 @@
+{
+  "model": "gemini-4-hydrogen",
+  "usage": {
+    "promptTokenCount": 13396,
+    "candidatesTokenCount": 772,
+    "totalTokenCount": 15630,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 403
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 12993
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 772
+      }
+    ],
+    "thoughtsTokenCount": 1462,
+    "serviceTier": "standard"
+  },
+  "wall_seconds": 16.85945370799891,
+  "prompt": "Independent blind pairwise review of 15m tree authoring previews, NOT native game renders. Do not infer authoring method or prefer complexity. Image groups: Gleditsia reference photo1, candidates2/3/4; Tilia reference5, candidates6/7/8; Ulmus reference9, candidates10/11/12. Photos establish broad crown/foliage character, not a pixel matching or photorealism target. Treat background, lighting and the Gleditsia Sunburst cultivar colour as nuisance differences. Judge canopy texture at gameplay scale, silhouette, card visibility, plausible leaf scale and genus character. Strong normal maps can make leaves look like shingles; do not reward detail just because it exists.\n\nFor these pairs return first/second/tie/abstain with a short concrete reason: [2,3],[3,2],[3,4],[4,3],[6,7],[7,6],[7,8],[8,7],[10,11],[11,10],[11,12],[12,11]. Reversed order must not change the underlying preference. A candidate can lose for unusable foliage even if its texture has more detail. Do not award a botanical or native-quality pass. Return JSON {\"pairs\":[{\"images\":[...],\"choice\":\"...\",\"reason\":\"...\"}],\"limitations\":[...]}.\n",
+  "images": [
+    {
+      "name": "Gleditsia.jpg",
+      "sha256": "32412f2feb20e655ee8a65bd87925713204eea3ad6823347e885c41eac4f8068"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "802d1a8c9ba2a2fe18694ab827dffaad2151a00dd3997f1cb44250ec2b5c7219"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "74e6a5005b9c5257e5ec999e93630c4c2e26654ff5c1fbc74de2a83131bf59da"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "8ee46968a6fa2bcf8f3baa8cda3e8e3bbcca39da7927d5b4bed67c09377221f6"
+    },
+    {
+      "name": "Tilia.jpg",
+      "sha256": "60563ba61cdf6a10bd1e83f68026f0a3e847d9d3adff28dba06837a35a047d80"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "372611c7bf18c9d9a4370cf717968d6cf5c8b5fcf9bf415dd8dabe26c4bd7389"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "29b0b1f679687626e06ffd45c79dcfb1b41f46cbf932c4ab8b5c015ae9af8dd6"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "3b53a39f357fb0ddf64aa1b0d62bed8f2dbc9bc58e155be1e3f18fe150c69705"
+    },
+    {
+      "name": "Ulmus.jpg",
+      "sha256": "81907ea25f2d563a583f4fb91f937273b8fae9830e752d26d3a64ec99cef31ae"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "e3df420487cbd2f8acf3561f689e2188fe449595e566b0824d4178b25daa9147"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "fe1077a7269eaf04fd6f526e16863324831351d4506dea73926fa35c188be1f5"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "53e3740294074586893b3de4b81c1bc548faa2554b79d4898c698ea8b0b671e5"
+    }
+  ],
+  "result": {
+    "pairs": [
+      {
+        "images": [
+          2,
+          3
+        ],
+        "choice": "tie",
+        "reason": "Both have overly dense canopies for Gleditsia; 2 is too dark and uniform while 3 has overly large, shingled cards."
+      },
+      {
+        "images": [
+          3,
+          2
+        ],
+        "choice": "tie",
+        "reason": "Both have overly dense canopies for Gleditsia; 3 has overly large, shingled cards while 2 is too dark and uniform."
+      },
+      {
+        "images": [
+          3,
+          4
+        ],
+        "choice": "second",
+        "reason": "4 has much finer, more plausible leaf scale and an airier outer silhouette than 3's large shingled cards."
+      },
+      {
+        "images": [
+          4,
+          3
+        ],
+        "choice": "first",
+        "reason": "4 has much finer, more plausible leaf scale and an airier outer silhouette than 3's large shingled cards."
+      },
+      {
+        "images": [
+          6,
+          7
+        ],
+        "choice": "tie",
+        "reason": "Both suffer from overly large, artificial-looking cards; 6 shows flat disc-like leaves and 7 shows heavy shingling."
+      },
+      {
+        "images": [
+          7,
+          6
+        ],
+        "choice": "tie",
+        "reason": "Both suffer from overly large, artificial-looking cards; 7 shows heavy shingling and 6 shows flat disc-like leaves."
+      },
+      {
+        "images": [
+          7,
+          8
+        ],
+        "choice": "second",
+        "reason": "8 provides a much finer, more plausible leaf scale and better canopy texture than 7's huge shingled cards."
+      },
+      {
+        "images": [
+          8,
+          7
+        ],
+        "choice": "first",
+        "reason": "8 provides a much finer, more plausible leaf scale and better canopy texture than 7's huge shingled cards."
+      },
+      {
+        "images": [
+          10,
+          11
+        ],
+        "choice": "tie",
+        "reason": "Both have overly large, unnatural leaf cards for Ulmus; 10 is very dark with disc-like cards and 11 is heavily shingled."
+      },
+      {
+        "images": [
+          11,
+          10
+        ],
+        "choice": "tie",
+        "reason": "Both have overly large, unnatural leaf cards for Ulmus; 11 is heavily shingled and 10 is very dark with disc-like cards."
+      },
+      {
+        "images": [
+          11,
+          12
+        ],
+        "choice": "second",
+        "reason": "12 has a finer, more plausible leaf scale and better edge breakup than 11's large shingled cards."
+      },
+      {
+        "images": [
+          12,
+          11
+        ],
+        "choice": "first",
+        "reason": "12 has a finer, more plausible leaf scale and better edge breakup than 11's large shingled cards."
+      }
+    ],
+    "limitations": [
+      "Authoring previews are not native game renders, so in-engine lighting, LOD transitions, and wind animation cannot be assessed.",
+      "Static single-angle views limit evaluation of 3D crown volume and card orientation from other angles."
+    ]
+  }
+}

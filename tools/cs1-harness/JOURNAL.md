@@ -3905,3 +3905,99 @@ pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
 of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
 display/bus context exited normally. The earlier eight-minute blocked attempt
 is not rewritten. Existing current-source build/Ruff receipts remain valid.
+
+## PL-1328 budgeted parametric tree trial — 2026-11-24
+
+On blade's disposable install, imported 18 authored tree packages in one
+serial Asset Editor session, then loaded all 18 in a separate fresh Grand
+River city. Nine Sand3D variants cover Gleditsia/Tilia/Ulmus at 9/15/22 m;
+Blender, Sapling and TRELLIS controls cover 15 m. Actual native main counts
+518–1339 triangles; generated native billboards are two triangles. All 18
+exported FBXs reimport at their stated metre height and ground pivot.
+Sapling's 28 zero-area triangles per export are removed by the native importer.
+Procedural textures are 512px with flat normals, not photographic bakes.
+The template import logs contain 163 native mesh-readability errors; these
+are retained, not represented as error-free builds. The fresh city reports
+three missing stock panel assemblies. Detailed evidence and limits are in
+`../assets/trees/REPORT.md` and its `observations/` directory.
+
+Build, 170 harness tests, full harness Ruff/format and a real doctor pass.
+Native editor batch wall 1461.90 s includes queue; warm build median14.82 s,
+import jobs6.90–7.70 s. Doctor/editor/fresh-city GPU: RTX2080 Ti bus05:00.0,
+egl0, 8146 MiB pre-existing use of11264 MiB. The v5 city session's sampled
+whole-card peaks were10821 MiB,158.19 W,77°C over25m53s of telemetry; its
+menu-only game share was1594 MiB, not a continuous game peak. Live observed
+power.limit was200 W, not the150 W noted above; no power setting was changed.
+Editor and v5 city teardown receipts show no owned game, Steam or unit left.
+
+V5 performance comparisons are discarded. A forest screenshot exposed
+nearby authored crowns but distant stock sprites: `UpdateTree` queues work
+that is not flushed while paused. The fix explicitly invalidates tree
+renderers and flushes RenderManager groups from the simulation action.
+No claim that a normal run exit proves renderer validity or performance.
+Native pair billboards are recaptured with the same fix. See the follow-up
+run observations for corrected frame screening; no certification is claimed.
+
+TRELLIS reconstruction used the held3090 (model revision and exact timings
+in `../assets/trees/observations/trellis.json`), with peak Torch allocation
+2.63/6.87/4.83 GiB for the three genera, then exited and released its load.
+No commercial generation API calls. Full dollar cost remains unestablished:
+subscription allocation, hardware rates and review/rework are not priced.
+
+V6 follow-up completed36 retarget windows and18 specimen pairs/90 shots.
+Actual mod685229c1 matches its compiled source receipt; driver2e089735 is
+frozen. Sampled native GPU span14m23s (after13m45s slot wait), whole-card
+peaks10821 MiB,156.94 W,77°C, menu game1576 MiB. Teardown empty. Retarget
+photos at180/500 visibly change the forest; one global pending-update flag
+was still true at a job receipt, not treated as a per-tree pass/fail probe.
+Screenshot helper restores the HUD: first A1 per zoom differs, so reported
+numbers use only matched HUD-visible B/A2 pairs for all six candidates.
+Blender500 p95 +64% and Tilia180 +10.3% remain in the data; one pair and an
+unattributed limiter cannot certify performance. The final driver hides the
+HUD explicitly before every arm; v7 subsequently exercised six such windows.
+
+The suspected deletion defect was not established. V7 still showed low
+background vegetation, but a live native catalog showed exactly two
+TreeManager instances, and source inspection confirmed `FinalizeTree`
+already invalidates the old groups. The extra pre-release invalidation was
+redundant and removed; no phantom-tree fix is claimed. Final C# source hash
+matches native v6 exactly. V7 exercised the final driver's HUD reset (six
+windows, all explicitly hidden) and18 specimen pairs/60 shots at source
+4b4cdac. These focused windows are not mixed into v6's post-hoc screening.
+V7 GPU sample span8m41s after4m35s queue wait: whole-card peaks10821 MiB,
+155.76 W,76°C; menu game1576 MiB. Teardown empty. Final combined head was
+not rerun after rolling back the redundant call; source-level provenance is
+explicit in the report and both native receipts remain. Asset quality and
+full <$5 cost remain unestablished, independent of fixture verification.
+
+V8 closes a real distant-render failure: original Gleditsia cutouts lost
+crowns across Sand3D, Blender and Sapling, unlike the other genera/opaque
+controls. Native LOD count and screenshot existence were insufficient. A
+shared atlas115->480 blades changes mean leaf alpha0.343–0.363->0.690–0.713
+without geometry/seed/triangle changes. The mip proxy alone was not accepted:
+all five repaired assets visibly retain crowns in actual camera-size550
+native images. Before/after pixel crops and raw hashes are retained.
+
+Runtime2348a9e, input-v4, native-v8: five changed assets reimported,13 unchanged
+packages retained, all18 loaded in a new Grand River process.36 timed windows
+have explicit hidden HUD and matching A/B/A counts139362;18 pairs/90 images,
+automatic final TreeManager count2, empty owned teardown. Actual DLL685229c1
+matches final-build.json. Editor batch1167.44 s includes queue. City GPU
+sample span13m45s, whole-card peaks10821 MiB,157.66 W,77°C; pre-existing8146
+MiB, menu game1576 MiB, limit200 W unchanged. The 36 windows replace the old
+missing-crown/HUD-variant screening; one repeat and an unknown limiter are
+not performance certification. The retained TRELLIS Gleditsia input remains
+pre-density-fix and is not image-matched to the revised procedural masks.
+No native job or queue waiter remains; full dollars and palette quality are
+unestablished. Independent review/acceptance still required; no self-merge.
+
+### 2026-11-25 — PL-1328 bake layer, queue-only native attempt
+
+Blender on carbon baked B and two model-edited rounds; six B/C2 FBX roundtrips
+retain custom normals and 518/628/568 main triangles. The blade harness
+compiled against installed game assemblies. Native B waited 791.40 s behind
+PL-1326's authorised Workshop acquisition and was interrupted before slot
+acquisition; the owned waiter was removed and no game/Steam session started.
+No game GPU/VRAM/power/temperature peak or native bake-quality result is
+claimed. Frozen v8 is A evidence only. Native B/C2, snow and winner timing
+remain pending. The existing owner and its Steam work were left untouched.

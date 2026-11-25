@@ -1,0 +1,120 @@
+{
+  "method": "Leaf UV crop, BOX-filter proxy at alpha-test threshold128; not a native pass",
+  "assets": [
+    {
+      "name": "KudzuGleditsia9sand3d",
+      "leaf_alpha_mean": {
+        "inputs-v3": 0.342551896331146,
+        "inputs-v4": 0.6895093062605754
+      },
+      "inputs-v3_threshold_coverage": {
+        "32": 0.337890625,
+        "16": 0.3671875,
+        "8": 0.3125,
+        "4": 0.25,
+        "2": 0.0,
+        "1": 0.0
+      },
+      "inputs-v4_threshold_coverage": {
+        "32": 0.69921875,
+        "16": 0.69921875,
+        "8": 0.71875,
+        "4": 0.75,
+        "2": 1.0,
+        "1": 1.0
+      }
+    },
+    {
+      "name": "KudzuGleditsia15sand3d",
+      "leaf_alpha_mean": {
+        "inputs-v3": 0.36333622219470924,
+        "inputs-v4": 0.7125995625438488
+      },
+      "inputs-v3_threshold_coverage": {
+        "32": 0.3623046875,
+        "16": 0.390625,
+        "8": 0.3125,
+        "4": 0.1875,
+        "2": 0.0,
+        "1": 0.0
+      },
+      "inputs-v4_threshold_coverage": {
+        "32": 0.7275390625,
+        "16": 0.74609375,
+        "8": 0.78125,
+        "4": 0.75,
+        "2": 1.0,
+        "1": 1.0
+      }
+    },
+    {
+      "name": "KudzuGleditsia22sand3d",
+      "leaf_alpha_mean": {
+        "inputs-v3": 0.34387767735545377,
+        "inputs-v4": 0.6909692129916224
+      },
+      "inputs-v3_threshold_coverage": {
+        "32": 0.353515625,
+        "16": 0.3359375,
+        "8": 0.28125,
+        "4": 0.1875,
+        "2": 0.0,
+        "1": 0.0
+      },
+      "inputs-v4_threshold_coverage": {
+        "32": 0.7060546875,
+        "16": 0.70703125,
+        "8": 0.75,
+        "4": 0.75,
+        "2": 1.0,
+        "1": 1.0
+      }
+    },
+    {
+      "name": "KudzuGleditsia15blender",
+      "leaf_alpha_mean": {
+        "inputs-v3": 0.342551896331146,
+        "inputs-v4": 0.6895093062605754
+      },
+      "inputs-v3_threshold_coverage": {
+        "32": 0.337890625,
+        "16": 0.3671875,
+        "8": 0.3125,
+        "4": 0.25,
+        "2": 0.0,
+        "1": 0.0
+      },
+      "inputs-v4_threshold_coverage": {
+        "32": 0.69921875,
+        "16": 0.69921875,
+        "8": 0.71875,
+        "4": 0.75,
+        "2": 1.0,
+        "1": 1.0
+      }
+    },
+    {
+      "name": "KudzuGleditsia15sapling",
+      "leaf_alpha_mean": {
+        "inputs-v3": 0.342551896331146,
+        "inputs-v4": 0.6895093062605754
+      },
+      "inputs-v3_threshold_coverage": {
+        "32": 0.337890625,
+        "16": 0.3671875,
+        "8": 0.3125,
+        "4": 0.25,
+        "2": 0.0,
+        "1": 0.0
+      },
+      "inputs-v4_threshold_coverage": {
+        "32": 0.69921875,
+        "16": 0.69921875,
+        "8": 0.71875,
+        "4": 0.75,
+        "2": 1.0,
+        "1": 1.0
+      }
+    }
+  ]
+}

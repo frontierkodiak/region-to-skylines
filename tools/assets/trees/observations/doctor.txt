@@ -1,0 +1,10 @@
+{
+  "host": "blade",
+  "steam": "flatpak",
+  "bus": "05:00.0",
+  "name": "NVIDIA GeForce RTX 2080 Ti",
+  "egl": "egl0",
+  "label": null,
+  "mem_used_before_mib": 8146,
+  "mem_total_mib": 11264
+}

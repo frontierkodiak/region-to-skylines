@@ -1,0 +1,481 @@
+[
+  {
+    "name": "KudzuGleditsia15blender",
+    "genus": "Gleditsia",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "atlas_leaves": 480,
+    "route": "blender",
+    "main_triangles": 570,
+    "size_xyz_z_up_m": [
+      14.836824417114258,
+      14.914820194244385,
+      15.000000953674316
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 5.233594374964014,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuGleditsia15blender_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuGleditsia15blender.blend": "bfc4aa92b41c3732d7178e40a9bea476ccac0f8fc6ef91833c7da8c0ffab266c",
+      "billboard-preview.png": "c9ea46dfcac0154da34f7c8a9b8362494364e4fa42d730d2736e323485756bec",
+      "KudzuGleditsia15blender.fbx": "07c5b6c64541724a3817449598b6c9e48003761f0f5374287b96271a0a250cb1",
+      "KudzuGleditsia15blender_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "KudzuGleditsia15blender_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
+      "KudzuGleditsia15blender_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54"
+    }
+  },
+  {
+    "name": "KudzuGleditsia15sand3d",
+    "genus": "Gleditsia",
+    "nominal_height_m": 15,
+    "seed": 1329,
+    "atlas_leaves": 480,
+    "route": "sand3d",
+    "main_triangles": 518,
+    "size_xyz_z_up_m": [
+      14.357676029205322,
+      14.818108558654785,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.365488708019257,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuGleditsia15sand3d.fbx": "360183830ede2f404918dad7fdce87deff97bd630e37bd4d0f2ce57956b83079",
+      "KudzuGleditsia15sand3d.blend": "0c32eef6899103453ec996d58249fbab3e6cd55cd432d47edfd8e30ec2e603d9",
+      "KudzuGleditsia15sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "billboard-preview.png": "802d1a8c9ba2a2fe18694ab827dffaad2151a00dd3997f1cb44250ec2b5c7219",
+      "KudzuGleditsia15sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuGleditsia15sand3d_a.png": "7fbfbf66dbc525342ea4fd416c1e29058fcbedffbebcff31e4d124d4e95ada4c",
+      "KudzuGleditsia15sand3d_d.png": "60aad4be0270e8cabee4d097a49bf8590786c9c31fc92a1a53bea77998407ab9"
+    }
+  },
+  {
+    "name": "KudzuGleditsia15sapling",
+    "genus": "Gleditsia",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "atlas_leaves": 480,
+    "route": "sapling",
+    "main_triangles": 1142,
+    "size_xyz_z_up_m": [
+      14.011651039123535,
+      14.085309505462646,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.800415374804288,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuGleditsia15sapling_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuGleditsia15sapling_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
+      "KudzuGleditsia15sapling_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "billboard-preview.png": "a8737e27ae0321ccf49e9f8c12e3a148afc4a96562d7250b4b5ff25400b21d59",
+      "KudzuGleditsia15sapling.fbx": "d09c9149ba255cc596eb740fbb17e80fe75a8282382b5e5654408f3f75840ae4",
+      "KudzuGleditsia15sapling.blend": "d41230c7839f8eb321aee48b84381a34c27cd3fdf4664ef107c37a0680ffe89c",
+      "KudzuGleditsia15sapling_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    }
+  },
+  {
+    "name": "KudzuGleditsia15trellis",
+    "genus": "Gleditsia",
+    "route": "trellis",
+    "nominal_height_m": 15,
+    "main_triangles": 1339,
+    "size_xyz_z_up_m": [
+      14.970460891723633,
+      16.713884353637695,
+      14.999999046325684
+    ],
+    "conversion_seconds": 0.25753454212099314,
+    "semantic_limit": "All-leaf mask: no bark segmentation. Diagnostic, not snow-ready.",
+    "alpha_policy": "Opaque mesh; no invented card alpha. Topology must carry gaps.",
+    "source_sha256": "b6ab3d683e43529b0c9206f36baab564ccf1f58f3275069d52a4dc25f191b304",
+    "files": {
+      "KudzuGleditsia15trellis_d.png": "0445962a67ca05722341c65f06fdd51f232ca3453488187985333fc2b9fb5dd5",
+      "KudzuGleditsia15trellis_c.png": "55aea7bfe6f9c90c71df2379611c12eada3014444ccbce4f3352d3303077a44f",
+      "KudzuGleditsia15trellis_a.png": "5c31911e89276ba08e1813cbb95bc7bb516a8d22ce188d6fc4a379ac9cb3e3a9",
+      "KudzuGleditsia15trellis.fbx": "6a90aeb70b5c20a9316eb0fae37d14de34f7a2c44be7da675bafc71807e35da1",
+      "KudzuGleditsia15trellis_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    }
+  },
+  {
+    "name": "KudzuGleditsia22sand3d",
+    "genus": "Gleditsia",
+    "nominal_height_m": 22,
+    "seed": 1330,
+    "atlas_leaves": 480,
+    "route": "sand3d",
+    "main_triangles": 518,
+    "size_xyz_z_up_m": [
+      20.67362880706787,
+      22.288740158081055,
+      22.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.469585207989439,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuGleditsia22sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuGleditsia22sand3d.blend": "6fb3c502b5200da6153d02e2ac199d19cc4e5501c8dd220bf2108c433cdc0dbc",
+      "billboard-preview.png": "7e5769c551fe8bafa271d03588880e9c2a684caae1039e2384221c516fb133ca",
+      "KudzuGleditsia22sand3d_d.png": "fb1604d5134fc5884477e7676171c0b02b054d6b28a14564cef192775ad457d5",
+      "KudzuGleditsia22sand3d_a.png": "45c66ac22dfa26cfac80b792277e615a182eeea323fed8b360b51e7a8b4cf562",
+      "KudzuGleditsia22sand3d.fbx": "f0e3feccd0ec53d105d6f080e9fdd5f7b9e7cea8040dbc390624f0b769d91daf",
+      "KudzuGleditsia22sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54"
+    }
+  },
+  {
+    "name": "KudzuGleditsia9sand3d",
+    "genus": "Gleditsia",
+    "nominal_height_m": 9,
+    "seed": 1328,
+    "atlas_leaves": 480,
+    "route": "sand3d",
+    "main_triangles": 518,
+    "size_xyz_z_up_m": [
+      8.911318302154541,
+      8.958163738250732,
+      9.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 5.230604957789183,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuGleditsia9sand3d_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "KudzuGleditsia9sand3d_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
+      "KudzuGleditsia9sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuGleditsia9sand3d.fbx": "9f1ee91df59463529f8930b17699b366bdeabd2ec98bebefae08ac03006c03e5",
+      "billboard-preview.png": "73cdf249c5ce4012c7b4d3d1968ac494e2fe5532c0af1207b298a64f02ef0f44",
+      "KudzuGleditsia9sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuGleditsia9sand3d.blend": "d8cb4af94a93abd0fbb31371f77c4a07429003c5675c705e82f3499da0d32765"
+    }
+  },
+  {
+    "name": "KudzuTilia15blender",
+    "genus": "Tilia",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "route": "blender",
+    "main_triangles": 680,
+    "size_xyz_z_up_m": [
+      11.420582294464111,
+      11.728063106536865,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 8.434711917070672,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuTilia15blender_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuTilia15blender_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "KudzuTilia15blender.fbx": "cc9fe91923db1f330630e9ecfc6ddda429d83a092648459a5407796099f4952b",
+      "KudzuTilia15blender_d.png": "fc7accda51edfaafa82c774c2a7b2db9f73fa60e67b54f9f06b7ed370a4637bd",
+      "billboard-preview.png": "5df91fc82cdf444592acfdd84f7c882c884a97ddfaeb65a9442aaaf8a8b73f1c",
+      "KudzuTilia15blender.blend": "2a8543ddd4d90ebf61b4e95c409dc8f6a05eeac613dd2dd614e73982c9a30020",
+      "KudzuTilia15blender_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    }
+  },
+  {
+    "name": "KudzuTilia15sand3d",
+    "genus": "Tilia",
+    "nominal_height_m": 15,
+    "seed": 1329,
+    "route": "sand3d",
+    "main_triangles": 628,
+    "size_xyz_z_up_m": [
+      11.609524250030518,
+      11.732987880706787,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 6.165885124821216,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuTilia15sand3d.blend": "977962206eb632789bf84a378a1c0bdf1eeba9009013de72b16e4d03693a58fe",
+      "KudzuTilia15sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuTilia15sand3d.fbx": "c0a5fa9b4d8547400da2d7b24940f0574d734c0feae493ef57eaeec19d2861fe",
+      "billboard-preview.png": "372611c7bf18c9d9a4370cf717968d6cf5c8b5fcf9bf415dd8dabe26c4bd7389",
+      "KudzuTilia15sand3d_d.png": "1db4fbbf1163b05ed7aa5358d461cf9c01a3cc780dbe26b9f14638f889a44311",
+      "KudzuTilia15sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuTilia15sand3d_a.png": "a4a9a989b6ab9448dbcbf474d191b8c12ee1ec6edb6d9e3be8140e4337c663d7"
+    }
+  },
+  {
+    "name": "KudzuTilia15sapling",
+    "genus": "Tilia",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "route": "sapling",
+    "main_triangles": 1252,
+    "size_xyz_z_up_m": [
+      11.431540966033936,
+      11.739316940307617,
+      14.999999046325684
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.3271854592021555,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuTilia15sapling.fbx": "db28c001ad353fcce308ffe4c32cbb838313b6acc65f1ca071f560a06a05a5c6",
+      "KudzuTilia15sapling_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuTilia15sapling.blend": "50284043e0b6cc796b1071f4f8f525d0e2ba89ec694b2c9a6d1f4fcbaf7c90b9",
+      "billboard-preview.png": "46c80cf522ae64621a764d94812923b6104879f6c8b5ab819a088622da8374b4",
+      "KudzuTilia15sapling_d.png": "fc7accda51edfaafa82c774c2a7b2db9f73fa60e67b54f9f06b7ed370a4637bd",
+      "KudzuTilia15sapling_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "KudzuTilia15sapling_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54"
+    }
+  },
+  {
+    "name": "KudzuTilia15trellis",
+    "genus": "Tilia",
+    "route": "trellis",
+    "nominal_height_m": 15,
+    "main_triangles": 944,
+    "size_xyz_z_up_m": [
+      11.252059936523438,
+      11.108647346496582,
+      15.0
+    ],
+    "conversion_seconds": 0.18778274999931455,
+    "semantic_limit": "All-leaf mask: no bark segmentation. Diagnostic, not snow-ready.",
+    "alpha_policy": "Opaque mesh; no invented card alpha. Topology must carry gaps.",
+    "source_sha256": "9661ca5e624c27cdba16477ebe816bbed486027444131c182be415b7312f0616",
+    "files": {
+      "KudzuTilia15trellis_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuTilia15trellis.fbx": "1c568e8642216c140e29098bca28c3a7b1a4c450ffe79ebaf03d400a0f2256f4",
+      "KudzuTilia15trellis_a.png": "5c31911e89276ba08e1813cbb95bc7bb516a8d22ce188d6fc4a379ac9cb3e3a9",
+      "KudzuTilia15trellis_c.png": "55aea7bfe6f9c90c71df2379611c12eada3014444ccbce4f3352d3303077a44f",
+      "KudzuTilia15trellis_d.png": "3139c2bac615933039252daf9c5ddf79f0ba2d33a52464e607db2d934027a332"
+    }
+  },
+  {
+    "name": "KudzuTilia22sand3d",
+    "genus": "Tilia",
+    "nominal_height_m": 22,
+    "seed": 1330,
+    "route": "sand3d",
+    "main_triangles": 628,
+    "size_xyz_z_up_m": [
+      17.26662254333496,
+      18.318942070007324,
+      22.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 5.9300283750053495,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuTilia22sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuTilia22sand3d.blend": "af1f0f9b22032460a0ff162f678e9b3c30430c4f0cc691aa559d36341126a8dd",
+      "billboard-preview.png": "4ac5607e835431b53aa11f2db67678877bdf482587bb90b093caa2b17d37b53a",
+      "KudzuTilia22sand3d_a.png": "8cbd5ffcd58902b34b669575f798e936746146351d863273927d80904a9dc728",
+      "KudzuTilia22sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuTilia22sand3d.fbx": "cce3c7a18ef33960c5a3c42627d332a6203d5f42e626749c5e9533a22b03352e",
+      "KudzuTilia22sand3d_d.png": "7b7dfa4f4b309916cb0506a14de6f3c294b7ca5c04ce1f5ec400a4b9e982154c"
+    }
+  },
+  {
+    "name": "KudzuTilia9sand3d",
+    "genus": "Tilia",
+    "nominal_height_m": 9,
+    "seed": 1328,
+    "route": "sand3d",
+    "main_triangles": 628,
+    "size_xyz_z_up_m": [
+      6.859034538269043,
+      7.043703317642212,
+      9.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.823874792084098,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuTilia9sand3d.blend": "a7c80d5f3c19de038dc46ea50a11fad107b8141c42750e5ce2e13270814fdd95",
+      "KudzuTilia9sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "billboard-preview.png": "d70248db01e237676cd820d2779d256ddc2265cec0caa8032da53a1912bf5f76",
+      "KudzuTilia9sand3d_d.png": "fc7accda51edfaafa82c774c2a7b2db9f73fa60e67b54f9f06b7ed370a4637bd",
+      "KudzuTilia9sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuTilia9sand3d_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "KudzuTilia9sand3d.fbx": "2183e64e425dc7094b8b8b0cc06e8dc12de83916fcd7bca437d2d27ad388b1dc"
+    }
+  },
+  {
+    "name": "KudzuUlmus15blender",
+    "genus": "Ulmus",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "route": "blender",
+    "main_triangles": 620,
+    "size_xyz_z_up_m": [
+      14.588655471801758,
+      14.68162488937378,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 5.2833043748978525,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuUlmus15blender_d.png": "7bf096fcb0183f827fdfd0ac021a6039a6ac55bd95e5390e18485afe2b21b097",
+      "KudzuUlmus15blender_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuUlmus15blender_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "billboard-preview.png": "2048eef40ed14f7c82f0a6d44a27868665430fcbd80cbf8cfda6719e75db1e82",
+      "KudzuUlmus15blender.fbx": "9b343709b9a2dfafb3b5e19b1a835e73845e5346b2327bea7c68d4894de223fd",
+      "KudzuUlmus15blender.blend": "20bc77146d84e7622e0366c69e32fbe77e5e7bd1d6a2b6532e4c3c470167bc57",
+      "KudzuUlmus15blender_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    }
+  },
+  {
+    "name": "KudzuUlmus15sand3d",
+    "genus": "Ulmus",
+    "nominal_height_m": 15,
+    "seed": 1329,
+    "route": "sand3d",
+    "main_triangles": 568,
+    "size_xyz_z_up_m": [
+      14.244668960571289,
+      14.68083143234253,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 3.8771887498442084,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuUlmus15sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuUlmus15sand3d_a.png": "a4a9a989b6ab9448dbcbf474d191b8c12ee1ec6edb6d9e3be8140e4337c663d7",
+      "KudzuUlmus15sand3d_d.png": "25e8e5c810dd2e91fe4dbf39506a7bde1449b0a018b85966564bce74f493e57b",
+      "billboard-preview.png": "e3df420487cbd2f8acf3561f689e2188fe449595e566b0824d4178b25daa9147",
+      "KudzuUlmus15sand3d.fbx": "e012fb13735b51a428205105110b320e41a34058ea39381dd100711f9e579fe6",
+      "KudzuUlmus15sand3d.blend": "9a600b96f1566c636972832b912e2182b17dbd9667848178f7565ac6cbefc322",
+      "KudzuUlmus15sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    }
+  },
+  {
+    "name": "KudzuUlmus15sapling",
+    "genus": "Ulmus",
+    "nominal_height_m": 15.0,
+    "seed": 1328,
+    "route": "sapling",
+    "main_triangles": 1192,
+    "size_xyz_z_up_m": [
+      14.473140239715576,
+      14.56537389755249,
+      15.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.14578775013797,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuUlmus15sapling_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "billboard-preview.png": "1f17f2c50f201c12ae48aa21c9f16e054332452a37017520a72a56f9b4012762",
+      "KudzuUlmus15sapling.blend": "f42d39e3daecd79eac3723ef579b9e131b85c0eec5b83b715d05a776f9a9ccb5",
+      "KudzuUlmus15sapling_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "KudzuUlmus15sapling_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuUlmus15sapling_d.png": "7bf096fcb0183f827fdfd0ac021a6039a6ac55bd95e5390e18485afe2b21b097",
+      "KudzuUlmus15sapling.fbx": "39fce5b617a5a7fc467d4459489b03ac39cb0d273eaa350cb97a4aa7a70e947d"
+    }
+  },
+  {
+    "name": "KudzuUlmus15trellis",
+    "genus": "Ulmus",
+    "route": "trellis",
+    "nominal_height_m": 15,
+    "main_triangles": 1116,
+    "size_xyz_z_up_m": [
+      20.941102981567383,
+      22.214303970336914,
+      14.999999046325684
+    ],
+    "conversion_seconds": 0.3420727918855846,
+    "semantic_limit": "All-leaf mask: no bark segmentation. Diagnostic, not snow-ready.",
+    "alpha_policy": "Opaque mesh; no invented card alpha. Topology must carry gaps.",
+    "source_sha256": "5a3ba5fe18f1e68473273f25439a79b60e8fa334659b8f34d692d62ae89dfb56",
+    "files": {
+      "KudzuUlmus15trellis_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuUlmus15trellis.fbx": "6194d787f9dd0730250a0c329309b9dc5ceb0daf14efac91c409f78cf25b86f9",
+      "KudzuUlmus15trellis_d.png": "d31fb94323a1caa57b670fc11bd7acceee98f9908aaa479f49be55e94d6baf9c",
+      "KudzuUlmus15trellis_a.png": "5c31911e89276ba08e1813cbb95bc7bb516a8d22ce188d6fc4a379ac9cb3e3a9",
+      "KudzuUlmus15trellis_c.png": "55aea7bfe6f9c90c71df2379611c12eada3014444ccbce4f3352d3303077a44f"
+    }
+  },
+  {
+    "name": "KudzuUlmus22sand3d",
+    "genus": "Ulmus",
+    "nominal_height_m": 22,
+    "seed": 1330,
+    "route": "sand3d",
+    "main_triangles": 568,
+    "size_xyz_z_up_m": [
+      20.48694610595703,
+      21.66187286376953,
+      22.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 3.730762624880299,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuUlmus22sand3d_d.png": "cc893f238e113c281c08a517a2a5dcf99c8525723cace18df486ac50576d9f78",
+      "KudzuUlmus22sand3d_a.png": "8cbd5ffcd58902b34b669575f798e936746146351d863273927d80904a9dc728",
+      "KudzuUlmus22sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuUlmus22sand3d.fbx": "4011070bb58ee304cd66eb61f75f2985878910ad27392d6a7781e46053bd3102",
+      "billboard-preview.png": "356960b24983f9ee6acd878a25dd1f6ddd3365700f7953e5ead1e64d3a7a5b23",
+      "KudzuUlmus22sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuUlmus22sand3d.blend": "738dc730412ff25a29ab118f3aacf115747fea8d355f40412c0a5c63646f1ffd"
+    }
+  },
+  {
+    "name": "KudzuUlmus9sand3d",
+    "genus": "Ulmus",
+    "nominal_height_m": 9,
+    "seed": 1328,
+    "route": "sand3d",
+    "main_triangles": 568,
+    "size_xyz_z_up_m": [
+      8.761826992034912,
+      8.817663669586182,
+      9.0
+    ],
+    "scale_at_import": 100,
+    "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
+    "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
+    "generation_and_preview_seconds": 4.150039667030796,
+    "blender": "5.2.1 LTS",
+    "files": {
+      "KudzuUlmus9sand3d_a.png": "efbf7315609f5f6edb9a8b68eb4f3ed8514196c52da502147f6a45c447557133",
+      "KudzuUlmus9sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
+      "KudzuUlmus9sand3d_d.png": "7bf096fcb0183f827fdfd0ac021a6039a6ac55bd95e5390e18485afe2b21b097",
+      "billboard-preview.png": "532436ca9216d4ddb7f360739be4244227bb0946cb1c3544b0bfc8d5f57b7716",
+      "KudzuUlmus9sand3d.fbx": "7a43680c93889ffefb0b095695a4f9214c3e895fd563308ab2c973cd344430b6",
+      "KudzuUlmus9sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
+      "KudzuUlmus9sand3d.blend": "c956ce30db94c8c059911edfacad0f17daf1164c62538e71c85260c410ed0140"
+    }
+  }
+]

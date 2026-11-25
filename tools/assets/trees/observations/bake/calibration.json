@@ -1,0 +1,70 @@
+{
+  "model": "gemini-4-hydrogen",
+  "usage": {
+    "promptTokenCount": 3703,
+    "candidatesTokenCount": 76,
+    "totalTokenCount": 3985,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 436
+      },
+      {
+        "modality": "IMAGE",
+        "tokenCount": 3267
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 76
+      }
+    ],
+    "thoughtsTokenCount": 206,
+    "serviceTier": "standard"
+  },
+  "wall_seconds": 8.604701333002595,
+  "prompt": "You are an independent visual judge of tree game assets. Do not prefer a named generation method, and do not infer quality from labels. Three images follow. Judge the tree object, not background or photographic realism.\n\nFor each requested pair, choose first, second, tie or abstain and give a short reason. A tie is required for visually identical images. An image with a visible tree is preferred to an empty/missing tree. If a pair cannot be judged, abstain; do not invent detail. These are basic calibration sentinels, not a botanical certification.\n\nReturn JSON {\"pairs\":[{\"images\":[1,2],\"choice\":\"...\",\"reason\":\"...\"},{\"images\":[1,3],\"choice\":\"...\",\"reason\":\"...\"},{\"images\":[3,1],\"choice\":\"...\",\"reason\":\"...\"}]}.\n",
+  "images": [
+    {
+      "name": "billboard-preview.png",
+      "sha256": "29b0b1f679687626e06ffd45c79dcfb1b41f46cbf932c4ab8b5c015ae9af8dd6"
+    },
+    {
+      "name": "billboard-preview.png",
+      "sha256": "29b0b1f679687626e06ffd45c79dcfb1b41f46cbf932c4ab8b5c015ae9af8dd6"
+    },
+    {
+      "name": "calibration-empty.png",
+      "sha256": "153450cc9548607d068a11f676e0cce7bddc6bc6174eda10839385fe1c51b810"
+    }
+  ],
+  "result": {
+    "pairs": [
+      {
+        "images": [
+          1,
+          2
+        ],
+        "choice": "tie",
+        "reason": "Both images are visually identical."
+      },
+      {
+        "images": [
+          1,
+          3
+        ],
+        "choice": "first",
+        "reason": "First image shows a tree; second is empty/black."
+      },
+      {
+        "images": [
+          3,
+          1
+        ],
+        "choice": "second",
+        "reason": "Second image shows a tree; first is empty/black."
+      }
+    ]
+  }
+}

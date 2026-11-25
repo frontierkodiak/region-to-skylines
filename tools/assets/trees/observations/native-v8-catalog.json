@@ -1,0 +1,971 @@
+{
+  "trees": [
+    {
+      "name": "Tree2",
+      "main": {
+        "triangles": null,
+        "vertices": 891,
+        "cpu_readable": false,
+        "renderer_bounds_size_m": [
+          6.793405532836914,
+          6.54540491104126,
+          6.50567626953125
+        ],
+        "size_m": [
+          7.111978530883789,
+          6.4354681968688965,
+          6.954392433166504
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          7.111978530883789,
+          6.4354681968688965,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 256,
+          "height": 256
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 256,
+          "height": 256
+        }
+      ],
+      "scale_range": [
+        0.75,
+        1.25
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": null
+    },
+    {
+      "name": "mp9-YoungLinden",
+      "main": {
+        "triangles": null,
+        "vertices": 1020,
+        "cpu_readable": false,
+        "renderer_bounds_size_m": [
+          4.861860275268555,
+          7.250918865203857,
+          5.025860786437988
+        ],
+        "size_m": [
+          4.995081901550293,
+          7.153505802154541,
+          5.452136039733887
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          5.452136039733887,
+          7.153505802154541,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 1024,
+          "height": 1024
+        }
+      ],
+      "scale_range": [
+        1,
+        1.2999999523162842
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": null
+    },
+    {
+      "name": "KudzuGleditsia15blender.KudzuGleditsia15blender_Data",
+      "main": {
+        "triangles": 570,
+        "vertices": 1088,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.836824417114258,
+          15.000000953674316,
+          14.914819717407227
+        ],
+        "size_m": [
+          15.059368133544922,
+          15.000000953674316,
+          15.415220260620117
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          15.415220260620117,
+          15.000000953674316,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1088
+    },
+    {
+      "name": "KudzuGleditsia15sand3d.KudzuGleditsia15sand3d_Data",
+      "main": {
+        "triangles": 518,
+        "vertices": 961,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.357675552368164,
+          14.999999046325684,
+          14.818107604980469
+        ],
+        "size_m": [
+          14.99772834777832,
+          14.999999046325684,
+          14.993609428405762
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.99772834777832,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 961
+    },
+    {
+      "name": "KudzuGleditsia15sapling.KudzuGleditsia15sapling_Data",
+      "main": {
+        "triangles": 1114,
+        "vertices": 1495,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.011650085449219,
+          14.999999046325684,
+          14.085309028625488
+        ],
+        "size_m": [
+          14.221817016601562,
+          14.999999046325684,
+          14.557878494262695
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.557878494262695,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1495
+    },
+    {
+      "name": "KudzuGleditsia15trellis.KudzuGleditsia15trellis_Data",
+      "main": {
+        "triangles": 1339,
+        "vertices": 1626,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.970460891723633,
+          14.999999046325684,
+          16.713884353637695
+        ],
+        "size_m": [
+          14.970460891723633,
+          14.999999046325684,
+          16.713884353637695
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          16.713884353637695,
+          15,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1626
+    },
+    {
+      "name": "KudzuGleditsia22sand3d.KudzuGleditsia22sand3d_Data",
+      "main": {
+        "triangles": 518,
+        "vertices": 965,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          20.673629760742188,
+          22,
+          22.288738250732422
+        ],
+        "size_m": [
+          21.512075424194336,
+          22,
+          24.027790069580078
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          24.027790069580078,
+          22,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 965
+    },
+    {
+      "name": "KudzuGleditsia9sand3d.KudzuGleditsia9sand3d_Data",
+      "main": {
+        "triangles": 518,
+        "vertices": 962,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          8.911317825317383,
+          9,
+          8.95816421508789
+        ],
+        "size_m": [
+          9.044983863830566,
+          9,
+          9.25871467590332
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          9.25871467590332,
+          9,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 962
+    },
+    {
+      "name": "KudzuTilia15blender.KudzuTilia15blender_Data",
+      "main": {
+        "triangles": 680,
+        "vertices": 1308,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.420581817626953,
+          14.999999046325684,
+          11.728063583374023
+        ],
+        "size_m": [
+          11.740357398986816,
+          14.999999046325684,
+          11.766653060913086
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.766653060913086,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1308
+    },
+    {
+      "name": "KudzuTilia15sand3d.KudzuTilia15sand3d_Data",
+      "main": {
+        "triangles": 628,
+        "vertices": 1193,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.60952377319336,
+          14.999999046325684,
+          11.732988357543945
+        ],
+        "size_m": [
+          11.835161209106445,
+          14.999999046325684,
+          12.237700462341309
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          12.237700462341309,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1193
+    },
+    {
+      "name": "KudzuTilia15sapling.KudzuTilia15sapling_Data",
+      "main": {
+        "triangles": 1224,
+        "vertices": 1715,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.431541442871094,
+          14.999999046325684,
+          11.739316940307617
+        ],
+        "size_m": [
+          11.751623153686523,
+          14.999999046325684,
+          11.77794361114502
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.77794361114502,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1715
+    },
+    {
+      "name": "KudzuTilia15trellis.KudzuTilia15trellis_Data",
+      "main": {
+        "triangles": 944,
+        "vertices": 2703,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.252059936523438,
+          14.999999046325684,
+          11.108647346496582
+        ],
+        "size_m": [
+          11.252059936523438,
+          14.999999046325684,
+          11.108647346496582
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          11.252059936523438,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 2703
+    },
+    {
+      "name": "KudzuTilia22sand3d.KudzuTilia22sand3d_Data",
+      "main": {
+        "triangles": 628,
+        "vertices": 1181,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          17.26662254333496,
+          22,
+          18.31894302368164
+        ],
+        "size_m": [
+          17.559494018554688,
+          22,
+          19.806785583496094
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          19.806785583496094,
+          22,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1181
+    },
+    {
+      "name": "KudzuTilia9sand3d.KudzuTilia9sand3d_Data",
+      "main": {
+        "triangles": 628,
+        "vertices": 1179,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          6.859034538269043,
+          9,
+          7.043703079223633
+        ],
+        "size_m": [
+          7.05108642578125,
+          9,
+          7.066880226135254
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          7.066880226135254,
+          9,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1179
+    },
+    {
+      "name": "KudzuUlmus15blender.KudzuUlmus15blender_Data",
+      "main": {
+        "triangles": 620,
+        "vertices": 1188,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.588655471801758,
+          14.999999046325684,
+          14.681625366210938
+        ],
+        "size_m": [
+          14.810882568359375,
+          14.999999046325684,
+          15.187019348144531
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          15.187019348144531,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1188
+    },
+    {
+      "name": "KudzuUlmus15sand3d.KudzuUlmus15sand3d_Data",
+      "main": {
+        "triangles": 568,
+        "vertices": 1061,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.244668006896973,
+          14.999999046325684,
+          14.680830001831055
+        ],
+        "size_m": [
+          14.85920238494873,
+          14.999999046325684,
+          14.833495140075684
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.85920238494873,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1061
+    },
+    {
+      "name": "KudzuUlmus15sapling.KudzuUlmus15sapling_Data",
+      "main": {
+        "triangles": 1164,
+        "vertices": 1595,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          14.473138809204102,
+          14.999999046325684,
+          14.565374374389648
+        ],
+        "size_m": [
+          14.693607330322266,
+          14.999999046325684,
+          15.066766738891602
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          15.066766738891602,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1595
+    },
+    {
+      "name": "KudzuUlmus15trellis.KudzuUlmus15trellis_Data",
+      "main": {
+        "triangles": 1116,
+        "vertices": 2070,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          20.941102981567383,
+          14.999999046325684,
+          22.214303970336914
+        ],
+        "size_m": [
+          20.941102981567383,
+          14.999999046325684,
+          22.214303970336914
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          22.214303970336914,
+          14.999999046325684,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 2070
+    },
+    {
+      "name": "KudzuUlmus22sand3d.KudzuUlmus22sand3d_Data",
+      "main": {
+        "triangles": 568,
+        "vertices": 1065,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          20.48694610595703,
+          22,
+          21.66187286376953
+        ],
+        "size_m": [
+          21.278980255126953,
+          22,
+          23.004343032836914
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          23.004343032836914,
+          22,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1065
+    },
+    {
+      "name": "KudzuUlmus9sand3d.KudzuUlmus9sand3d_Data",
+      "main": {
+        "triangles": 568,
+        "vertices": 1062,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          8.76182746887207,
+          9,
+          8.817663192749023
+        ],
+        "size_m": [
+          8.895295143127441,
+          9,
+          9.121199607849121
+        ],
+        "size_basis": "TreeInfoGen.m_size, before instance random scale"
+      },
+      "lod": {
+        "triangles": 2,
+        "vertices": 4,
+        "cpu_readable": true,
+        "renderer_bounds_size_m": [
+          9.121199607849121,
+          9,
+          0
+        ]
+      },
+      "textures": [
+        {
+          "channel": "_MainTex",
+          "width": 512,
+          "height": 512
+        },
+        {
+          "channel": "_XYCAMap",
+          "width": 512,
+          "height": 512
+        }
+      ],
+      "scale_range": [
+        1,
+        1
+      ],
+      "shader": "Custom/Trees/Default",
+      "lod_distance_m": 300,
+      "vertex_color_count": 1062
+    }
+  ],
+  "instances": 139362,
+  "forest_patch": [
+    -1350,
+    -1350
+  ],
+  "patch_trees": 590,
+  "ok": true
+}

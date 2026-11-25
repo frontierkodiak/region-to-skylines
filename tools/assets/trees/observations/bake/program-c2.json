@@ -1,0 +1,26 @@
+{
+  "Gleditsia": {
+    "leaves": 420,
+    "leaf_scale": 0.3,
+    "width_ratio": 0.22,
+    "bulge": 0.006,
+    "color_gain": 1.0,
+    "soft_normals": 0.85
+  },
+  "Tilia": {
+    "leaves": 380,
+    "leaf_scale": 0.3,
+    "width_ratio": 0.68,
+    "bulge": 0.008,
+    "color_gain": 1.0,
+    "soft_normals": 0.82
+  },
+  "Ulmus": {
+    "leaves": 360,
+    "leaf_scale": 0.31,
+    "width_ratio": 0.45,
+    "bulge": 0.007,
+    "color_gain": 1.0,
+    "soft_normals": 0.84
+  }
+}

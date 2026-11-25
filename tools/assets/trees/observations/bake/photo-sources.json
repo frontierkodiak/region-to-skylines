@@ -1,0 +1,17 @@
+{
+  "Gleditsia": [
+    "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Sunburst_Honeylocust_ccbysa30.jpg",
+    "https://plants.ces.ncsu.edu/plants/gleditsia-triacanthos/",
+    "Famartin, CC BY-SA 3.0, Sunburst cultivar"
+  ],
+  "Tilia": [
+    "https://eit-planttoolbox-prod.s3.amazonaws.com/media/images/Winterlinde_Tilia_cordataHaeferl_ccbysa30.jpg",
+    "https://plants.ces.ncsu.edu/plants/tilia-cordata/",
+    "Haeferl, CC BY-SA 3.0"
+  ],
+  "Ulmus": [
+    "https://upload.wikimedia.org/wikipedia/commons/f/f6/Elm_Tree_in_Massachusetts_June_2012.jpg",
+    "https://en.wikipedia.org/wiki/Ulmus_americana",
+    "Wikimedia Commons; license verification pending, internal judge input only"
+  ]
+}
