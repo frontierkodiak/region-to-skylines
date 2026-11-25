@@ -266,6 +266,8 @@ Left out of the gate, and why:
   not suites. `fixtures/admission-rejected/test_admission.py` calls a prototype
   `hydrology(deferred=…)` API that never landed, so discovery does not collect it.
 - Three `tools/save-reader` tests need licensed game saves (`CS1SAVE_PRIVATE_SAVES`).
+- Nine `tools/cs1-harness` tests read a fleet host profile (`blade` or `worm`) and skip with
+  that reason elsewhere; run them on that host.
 - The CLI's ready-to-play `.crp` path needs Pyodide's wheels and WorldCover byte ranges at run
   time, so the gate's CLI run is the heightmap path. The writer behind the `.crp` is covered
   byte for byte by the fixtures.
