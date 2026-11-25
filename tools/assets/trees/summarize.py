@@ -7,6 +7,8 @@ import pathlib
 import shutil
 import statistics
 
+from comparisons import specimen_references
+
 
 def read(path, default=None):
     return json.loads(path.read_text()) if path.exists() else default
@@ -51,6 +53,9 @@ def main():
     assets = []
     cards = []
     inference = read(a.trellis, {}) if a.trellis else {}
+    references = specimen_references(
+        read(a.native / "fresh-city" / "specimens.json", [])
+    )
     for path in sorted(a.inputs.glob("*/receipt.json")):
         r = read(path)
         name = r["name"]
@@ -141,6 +146,7 @@ def main():
             "shots": shots,
             "preview": preview_name,
             "frames": comparisons,
+            "specimen_comparison": references.get(name),
             "dollars": {
                 "new_external_generation_api_spend": 0,
                 "full_cost": None,
@@ -174,7 +180,9 @@ def main():
             if picture
             else '<div class="empty">Native image pending</div>'
         )
-        reference = "YoungLinden" if r["genus"] == "Tilia" else "Tree2"
+        reference = html.escape(
+            references.get(name, {}).get("prefab", "unrecorded reference")
+        )
         stage = (
             f"CS1 · generated left, {reference} right"
             if actual

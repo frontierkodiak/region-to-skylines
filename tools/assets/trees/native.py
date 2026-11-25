@@ -1,11 +1,14 @@
 """Foreground, FIFO-owned tree import and fresh-city comparison on blade only."""
 
 import argparse
+import hashlib
 import json
 import pathlib
 import shutil
 import sys
 import time
+
+from comparisons import load_plan, resolve_plan
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "cs1-harness"))
 
@@ -23,6 +26,16 @@ def main():
     p.add_argument("inputs", type=pathlib.Path)
     p.add_argument("out", type=pathlib.Path)
     p.add_argument("--template", default="Tree2")
+    p.add_argument(
+        "--comparisons", type=pathlib.Path, help="JSON specimen reference plan"
+    )
+    p.add_argument(
+        "--reference-asset",
+        type=pathlib.Path,
+        action="append",
+        default=[],
+        help="local reference CRP to stage for this city only; never redistributed",
+    )
     p.add_argument("--build-only", action="store_true")
     p.add_argument("--check-only", action="store_true")
     p.add_argument("--wait-minutes", type=float, default=60)
@@ -37,6 +50,29 @@ def main():
     a = p.parse_args()
     if a.repeats < 1 or not 60 <= a.frames <= 3000:
         p.error("repeats must be positive; frames must be 60..3000")
+    names = [
+        json.loads(r.read_text())["name"]
+        for r in sorted(a.inputs.glob("*/receipt.json"))
+    ]
+    if not names or len(set(names)) != len(names):
+        p.error("Expected a nonempty, unique input package set")
+    plan = load_plan(names, a.template, a.comparisons)
+    references = []
+    for reference in a.reference_asset:
+        if reference.suffix.lower() != ".crp" or not reference.is_file():
+            p.error(f"Reference asset must be an existing CRP: {reference}")
+        references.append(
+            {
+                "file": reference.name,
+                "sha256": hashlib.sha256(reference.read_bytes()).hexdigest(),
+            }
+        )
+    if len({r["file"] for r in references}) != len(references) or any(
+        r["file"] in {name + ".crp" for name in names} for r in references
+    ):
+        p.error(
+            "Reference package filenames must be unique and distinct from candidates"
+        )
     cfg = Config.for_host("blade")
     a.out.mkdir(parents=True, exist_ok=True)
     if not a.check_only:
@@ -106,6 +142,18 @@ def main():
                 )
             for crp in packages:
                 s.install_file(crp, cfg.data_dir / "Addons" / "Assets")
+            for reference, record in zip(a.reference_asset, references):
+                installed = s.install_file(
+                    reference, cfg.data_dir / "Addons" / "Assets"
+                )
+                if (
+                    hashlib.sha256(installed.read_bytes()).hexdigest()
+                    != record["sha256"]
+                ):
+                    raise RuntimeError(
+                        f"Reference package changed while queued: {reference.name}"
+                    )
+            write(out / "reference-packages.json", references)
             s.launch(["--noWorkshop"])
             c = s.client
             maps = c.call("maps")["maps"]
@@ -118,6 +166,8 @@ def main():
             c.call("time_of_day", hour=12)
             catalog = c.call("vegetation_catalog")
             write(out / "catalog.json", catalog)
+            resolved = resolve_plan(plan, catalog["trees"])
+            write(out / "comparison-plan.json", resolved)
             ours = [t for t in catalog["trees"] if t["name"].split(".")[0] in expected]
             if {t["name"].split(".")[0] for t in ours} != expected:
                 raise RuntimeError(
@@ -179,14 +229,12 @@ def main():
             c.call("ui", visible=True)
             specimens = []
             for t in [] if a.skip_specimens else ours:
-                comparison = (
-                    "mp9-YoungLinden" if t["name"].startswith("KudzuTilia") else control
-                )
+                comparison = resolved[t["name"].split(".")[0]]
                 placed = d.job(
                     c.call(
                         "vegetation_pair",
                         left=t["name"],
-                        right=comparison,
+                        right=comparison["prefab"],
                         x=0,
                         z=300,
                         gap=25,
@@ -194,11 +242,8 @@ def main():
                     60,
                     "pair",
                 )
-                placed["comparison_basis"] = (
-                    "Named Tilia age-class match"
-                    if comparison != control
-                    else "Generic stock control, not a vetted genus match"
-                )
+                placed["comparison_basis"] = comparison["basis"]
+                placed["comparison_evidence"] = comparison["evidence"]
                 specimens.append(placed)
                 y = max(s["position"][1] for s in placed["specimens"])
                 for label, size in (

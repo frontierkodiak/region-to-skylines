@@ -1,5 +1,13 @@
 # Review and remaining acceptance
 
+2026-11-25 steering: keep generation-route selection open pending the separate
+bookmarks/current-methods research. The bench now accepts explicit specimen
+references and temporary local reference CRPs (see README). Pure selection
+tests and retained-v8 gallery replay verify the new plumbing; a real Workshop
+pair still needs a reviewed PL-1326 reference and a native run. Do not confuse
+the dataset's 70k–300k meshes with our separately authored 518–628-triangle
+Sand3D prototypes, or treat those prototypes as quality acceptance.
+
 Native v8 is complete at runtime source 2348a9e2c3456401e55b50594042a813a60d2583.
 It loads all 18 input-v4 packages, records 36 common-HUD A/B/A windows,
 18 specimen pairs/90 screenshots and exactly two post-pair TreeManager

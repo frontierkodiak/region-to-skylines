@@ -135,6 +135,38 @@ CS1 generates a camera-updated, two-triangle tree billboard itself. There
 is no authored `_lod.fbx` in these tree import sets. Native distant captures,
 not a building LOD or the Blender preview, are the LOD evidence.
 
+### Reference assets for new routes
+
+The import bench is independent of the generation route. Use the existing
+FBX/maps/receipt contract for each candidate. `--comparisons plan.json` selects
+the exact native prefab for each specimen pair; unspecified candidates keep
+the recorded v8 stock defaults. Keys are candidate package stems:
+
+```json
+{
+  "NewElm15": {
+    "prefab": "123456789.Mature Elm_Data",
+    "basis": "Reviewed mature genus/height match",
+    "evidence": "Pinned supply-ledger review or issue comment URL"
+  }
+}
+```
+
+The prefab above is an example, not a vetted asset. Use an actual reviewed
+reference from PL-1326. Stage a locally held reference with repeatable
+`--reference-asset /path/to/reference.crp`; the session owns its temporary game
+installation and cleanup. Missing exact prefab names stop the run before
+retargeting the forest. `comparison-plan.json` records the loaded reference's
+catalog geometry, selection basis and evidence; `reference-packages.json`
+records package hashes. Reference CRPs never enter the gallery archive.
+The gallery labels and measurements use the actual placed right-hand tree,
+not a genus-based guess. This selects a visual comparator only: forest timing
+continues to use `--template` as its common stock control.
+
+No Workshop reference has been selected or natively verified by this change.
+The retained v8 images remain stock comparisons. Do not describe them as the
+best existing asset, or a route winner, while the research/supply reviews run.
+
 Timing is a stock-count A/B/A **screening measurement**, with the same
 positions and count but different crown extents and random-scale policies.
 It does not isolate per-triangle GPU cost. The default three repeats of
