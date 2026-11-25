@@ -62,16 +62,20 @@ before sharing. It cannot substitute authoring previews for missing native shots
 
 ## Costs and unresolved controls
 
+**Superseded judging direction:** [JUDGES.md](JUDGES.md) now owns the frozen
+BioCLIP anchor screen, reference splits and teacher/held-out evaluation order.
+The Gemini preview rankings below remain historical, not calibrated fitness.
+
 Keep provider usage, bake/preview time, native job time, queue-inclusive wall
 time, VLM review time and human review time separate. Model list-valued token
 cost is not an invoice or full asset cost. Allocate shared three-genus calls
 explicitly; do not call emitted prototypes accepted yield. Codex subscription,
 hardware, human review and rework remain unknown unless actually measured.
 
-The $10 commercial-control budget is authorised, but no Tripo/Hunyuan credential
-was injected on carbon or blade at the initial check. No commercial request was
-made. Do not create an account, buy credit or substitute TRELLIS for D. PL-1326
-owns the vetted Workshop ceilings; stock trees are not substitutes for them.
+Tripo D was shelved by lead direction on November 25; no key is coming and it
+is not a dependency. No commercial request was made. Keep TRELLIS only as a
+control. PL-1326 owns the vetted Workshop ceilings; stock trees are not
+substitutes for them.
 
 ## Sources
 

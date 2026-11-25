@@ -1,5 +1,23 @@
 # Review and remaining acceptance
 
+## Latest direction: external biological judges first
+
+Read JUDGES.md. Tripo is shelved, not blocked on credentials. No commercial
+calls or key requests should resume. The old preview preferences do not
+qualify a fitness model. Before CMA-ES or further program tuning, obtain the
+three vetted Workshop anchors and score their nine native single-target
+close/gameplay/billboard views with biological_judge.py. Missing anchors
+close the gate. Gameplay failure restricts BioCLIP to close; close failure
+excludes it from fitness. No optimisation has started.
+
+Cabinet cohort pl1328-tree-judge-ref-pilot-v1 has 96 frozen candidate images;
+all byte hashes read back and no identical bytes cross splits. Whole-crown
+and mask QA are not done. Train84 and private val6/test6 manifests are separate
+on blade under ~/experiments/PL-1328-judges/. Keep the latter out of the
+optimiser and use them only for DINO/held-out evaluation. BioCLIP's pinned
+weight/config hashes match and its CPU blank-image loader smoke succeeded;
+this tests zero anchors, not genus recognition. Do not conflate those checks.
+
 ## New bake increment — 2026-11-25
 
 Read BAKE.md before resuming. Original native v8 below remains valid for A,
@@ -22,10 +40,10 @@ human review time remain unknown.
 
 Next: read PL-1326's actual returned ceiling assets, check the free native
 slot, import B and C2 against A, capture close/gameplay/billboard and a real
-winter `_c` witness, then use blind_pairs.py for the six phone pairs. Choose
-a winner before any new forest benchmark. Tripo D remains uncalled: no key
-was injected on carbon/blade; use an existing approved route if supplied,
-within the authorised $10 total. Do not create accounts or buy credit.
+winter `_c` witness, then prepare an anchor-inclusive six-pair teacher pack.
+The old blind_pairs.py builds A/B/C comparisons only; do not call it the new
+teacher pack. Choose a winner before any new forest benchmark. Tripo D is
+shelved and must not resume.
 No phone pairs, native snow result or pipeline promotion is claimed.
 
 The outdated producer-terminal peer-review wakeup was disabled. The new

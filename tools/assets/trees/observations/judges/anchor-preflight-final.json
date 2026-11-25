@@ -1,0 +1,28 @@
+{
+  "scorer_sha256": "5101dafb8542ecef0013bbbfaff6a8aff89c479a8e1c6278f238ed2536b14c87",
+  "anchor_manifest_sha256": "e24dbbedfe9d4972dd6c15de4c626c5ce79b99b3ca5f029f791f594a83ab6eee",
+  "weights_sha256": "ac2e37c2f89ef8e6b889176a9a3f418970ad9db15a218bd29e3321e95c46ae97",
+  "config_sha256": "4c131846348300c77b5bee06690b0e94ee85ca9ce9a30a853b36084d00dcd25c",
+  "prompts": [
+    "a photo of a {genus} tree",
+    "a photo of {genus} leaves",
+    "a photo of the crown of a {genus} tree"
+  ],
+  "genera": [
+    "Gleditsia",
+    "Tilia",
+    "Ulmus"
+  ],
+  "views": {
+    "close": 52,
+    "gameplay": 140,
+    "billboard": 550
+  },
+  "blocked": true,
+  "errors": [
+    "Gleditsia: no vetted Workshop anchor",
+    "Tilia: no vetted Workshop anchor",
+    "Ulmus: no vetted Workshop anchor"
+  ],
+  "optimisation_started": false
+}

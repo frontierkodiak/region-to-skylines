@@ -1,0 +1,9 @@
+{
+  "cohort": "pl1328-tree-judge-ref-pilot-v1",
+  "rows": 96,
+  "readback_verified": 96,
+  "cross_split_identical_bytes": 0,
+  "whole_crown_qa_complete": false,
+  "train_manifest_sha256": "982862080df875e8c352f8ea31ab8f2ba98d9891fb547e9a168faa90bc9234a1",
+  "heldout_manifest_sha256": "3ee4e1c280c26bdb369eb394d911baf696b90244f895f731541afb500b5d9084"
+}
