@@ -106,10 +106,6 @@ export async function collectRaster(sq, kind, { fromUrl, size = 432, signal, can
 async function json(url, { signal, fetchImpl = fetch } = {}) {
   const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000);
   requestSignal.throwIfAborted();
-  if (IS_NODE && String(url).startsWith("file:")) {
-    const { readFile } = await import("node:fs/promises");
-    return JSON.parse(await readFile(new URL(url), { encoding: "utf8", signal: requestSignal }));
-  }
   const headers = IS_NODE ? { "User-Agent": PROJECT_USER_AGENT } : undefined;
   const response = await fetchImpl(url, { signal: requestSignal, headers });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);

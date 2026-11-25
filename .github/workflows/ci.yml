@@ -1,0 +1,44 @@
+# Demonstration copy of the gate workflow for the capabilities source (PL-1359).
+# This branch exists to show the required check catching the replay defects; it is
+# not for merge. The main-branch workflow runs `npm run gate`; this line has no
+# `gate` script, so it runs the same script directly.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: gate
+    runs-on: ${{ vars.POLLI_LINUX_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: "0.11.11"
+          enable-cache: true
+          ignore-nothing-to-cache: true
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Sync the Python tools
+        run: |
+          uv sync --locked --project tools/map-factory
+          uv sync --locked --project tools/cs1-harness
+          uv sync --locked --project tools/save-reader
+      - name: Gate
+        run: node gate.mjs
