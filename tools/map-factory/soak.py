@@ -387,7 +387,10 @@ def stage_prepared(inputs, output, slugs):
             if geometry_raw is None:
                 raise ValueError(f"Plane entries need bound geometry: {slug}")
             planes = ensure_plane_entries(crp, json.loads(geometry_raw), folder)
-            if planes != generation["plane_entries"]:
+            # A later road-writing stage may already have supplied the entries.
+            # Its final package hash, below, binds the complete result; the
+            # earlier component's authored flag and payload hash are not final.
+            if planes["entries"] != generation["plane_entries"]["entries"]:
                 raise ValueError(f"Prepared plane entries changed: {slug}")
             written = crp.read_bytes()
             receipt.update(
