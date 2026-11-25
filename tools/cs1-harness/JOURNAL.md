@@ -3990,3 +3990,14 @@ not performance certification. The retained TRELLIS Gleditsia input remains
 pre-density-fix and is not image-matched to the revised procedural masks.
 No native job or queue waiter remains; full dollars and palette quality are
 unestablished. Independent review/acceptance still required; no self-merge.
+
+### 2026-11-25 — PL-1328 bake layer, queue-only native attempt
+
+Blender on carbon baked B and two model-edited rounds; six B/C2 FBX roundtrips
+retain custom normals and 518/628/568 main triangles. The blade harness
+compiled against installed game assemblies. Native B waited 791.40 s behind
+PL-1326's authorised Workshop acquisition and was interrupted before slot
+acquisition; the owned waiter was removed and no game/Steam session started.
+No game GPU/VRAM/power/temperature peak or native bake-quality result is
+claimed. Frozen v8 is A evidence only. Native B/C2, snow and winner timing
+remain pending. The existing owner and its Steam work were left untouched.

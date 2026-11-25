@@ -1,5 +1,9 @@
 # Parametric tree trial (PL-1328)
 
+The next A/B/C bake experiment is documented in [BAKE.md](BAKE.md). It keeps
+the original trial below frozen; no bake-layer or generation-route winner
+has been accepted.
+
 Final evidence is native v8 with input set `inputs-v4`; see `REPORT.md`.
 Gleditsia uses denser cutout clusters after the original distant crown failure.
 This is an asset-generation and native-import experiment, not an exporter

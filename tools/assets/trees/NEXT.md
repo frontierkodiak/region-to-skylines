@@ -1,5 +1,37 @@
 # Review and remaining acceptance
 
+## New bake increment — 2026-11-25
+
+Read BAKE.md before resuming. Original native v8 below remains valid for A,
+not for new B/C assets. `~/experiments/PL-1328-bake/` on carbon holds B
+`inputs-v2`, C1 `inputs-c1`, C2 `inputs-c2`, both model edit receipts, the
+independent preview ranking, real-normal FBX roundtrips and review gallery.
+Blade has B staged as `inputs-b`, `comparisons-b.json` and a source mirror at
+`~/scratch/2026-11-25-pl1328-bake/`. The queued B native attempt was interrupted
+after 791.40 seconds without ever acquiring the slot or starting a game;
+`native-b` has no completed import. That output directory is not resumable
+as a completed native witness. Use a new output suffix for a retry.
+
+There is no bake-layer win yet: Hydrogen ties A/B for all three preview
+genera and prefers C2/B in all three, consistently under order reversal.
+Those are authoring previews, not native evidence or calibrated human taste.
+Two C rounds tune six declarative leaf/normal parameters, not branching code.
+Basic judge identity/empty controls pass. Calls total $0.1519635 at published
+Standard list rates, not a verified invoice or full cost. Full dollars and
+human review time remain unknown.
+
+Next: read PL-1326's actual returned ceiling assets, check the free native
+slot, import B and C2 against A, capture close/gameplay/billboard and a real
+winter `_c` witness, then use blind_pairs.py for the six phone pairs. Choose
+a winner before any new forest benchmark. Tripo D remains uncalled: no key
+was injected on carbon/blade; use an existing approved route if supplied,
+within the authorised $10 total. Do not create accounts or buy credit.
+No phone pairs, native snow result or pipeline promotion is claimed.
+
+The outdated producer-terminal peer-review wakeup was disabled. The new
+continuation is tied to the running PL-1326 supply task completing, not a
+sleeping background worker. Read newer steering before resuming.
+
 2026-11-25 steering: keep generation-route selection open pending the separate
 bookmarks/current-methods research. The bench now accepts explicit specimen
 references and temporary local reference CRPs (see README). Pure selection

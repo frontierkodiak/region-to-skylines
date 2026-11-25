@@ -1,0 +1,135 @@
+{
+  "calls": [
+    {
+      "call": "edit-round1",
+      "model": "gemini-4-neon",
+      "usage": {
+        "promptTokenCount": 6975,
+        "candidatesTokenCount": 448,
+        "totalTokenCount": 8891,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 516
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 6459
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 448
+          }
+        ],
+        "thoughtsTokenCount": 1468,
+        "serviceTier": "standard"
+      },
+      "wall_seconds": 22.640535667000222,
+      "standard_list_value_usd": 0.049665
+    },
+    {
+      "call": "edit-round2",
+      "model": "gemini-4-neon",
+      "usage": {
+        "promptTokenCount": 6965,
+        "candidatesTokenCount": 709,
+        "totalTokenCount": 9424,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 506
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 6459
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 709
+          }
+        ],
+        "thoughtsTokenCount": 1750,
+        "serviceTier": "standard"
+      },
+      "wall_seconds": 24.401666167002986,
+      "standard_list_value_usd": 0.05778
+    },
+    {
+      "call": "calibration",
+      "model": "gemini-4-hydrogen",
+      "usage": {
+        "promptTokenCount": 3703,
+        "candidatesTokenCount": 76,
+        "totalTokenCount": 3985,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 436
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 3267
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 76
+          }
+        ],
+        "thoughtsTokenCount": 206,
+        "serviceTier": "standard"
+      },
+      "wall_seconds": 8.604701333002595,
+      "standard_list_value_usd": 0.0076695
+    },
+    {
+      "call": "preview-ranking",
+      "model": "gemini-4-hydrogen",
+      "usage": {
+        "promptTokenCount": 13396,
+        "candidatesTokenCount": 772,
+        "totalTokenCount": 15630,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 403
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 12993
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 772
+          }
+        ],
+        "thoughtsTokenCount": 1462,
+        "serviceTier": "standard"
+      },
+      "wall_seconds": 16.85945370799891,
+      "standard_list_value_usd": 0.036849
+    }
+  ],
+  "standard_list_value_usd": 0.1519635,
+  "rate_source": "https://aistudio.google.com/docs/pricing",
+  "rate_checked": "2026-11-25",
+  "invoice_verified": false,
+  "tripo_spend_usd": 0,
+  "full_dollars_per_quality_accepted_asset": null,
+  "human_review_seconds": null,
+  "allocation": "Shared three-genus edit/review calls; dividing by 3 is an explicit allocation, not a measured marginal per-tree bill.",
+  "unknowns": [
+    "Codex subscription allocation",
+    "hardware/electricity",
+    "human review",
+    "quality-accepted yield",
+    "unisolated development/rework time"
+  ]
+}

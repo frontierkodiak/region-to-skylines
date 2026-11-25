@@ -27,6 +27,16 @@ def main():
     p.add_argument("out", type=pathlib.Path)
     p.add_argument("--template", default="Tree2")
     p.add_argument(
+        "--map",
+        default="Grand River",
+        help="exact installed map name; winter map for snow witnesses",
+    )
+    p.add_argument(
+        "--skip-frames",
+        action="store_true",
+        help="specimen screening before a winner is selected",
+    )
+    p.add_argument(
         "--comparisons", type=pathlib.Path, help="JSON specimen reference plan"
     )
     p.add_argument(
@@ -157,7 +167,8 @@ def main():
             s.launch(["--noWorkshop"])
             c = s.client
             maps = c.call("maps")["maps"]
-            entry = next(m for m in maps if m["name"] == "Grand River")
+            write(out / "maps.json", maps)
+            entry = next(m for m in maps if m["name"] == a.map)
             write(out / "map.json", entry)
             c.call("new_game", path=entry["path"])
             d = Driver(s, out, log=lambda t: print(t, flush=True))
@@ -190,7 +201,7 @@ def main():
             x, z = catalog["forest_patch"]
             # Preserve the same 139k stock instance positions for the cost comparison.
             frames = []
-            for size in (180, 500):
+            for size in () if a.skip_frames else (180, 500):
                 c.call("camera", position=[x, z], size=size, pitch=40, yaw=0)
                 c.call("ui", visible=False)
                 for t in candidates:

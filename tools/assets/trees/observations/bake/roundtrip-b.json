@@ -1,0 +1,41 @@
+{
+  "passed": 3,
+  "assets": [
+    {
+      "name": "KudzuGleditsia15bake",
+      "triangles": 518,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "a4781d76f255de2e039228b9038736208a5e36538fe8930ed937ee982b6e8d2b",
+      "normal_xy_range": [
+        0.7450980991125107,
+        0.8039216250181198
+      ],
+      "custom_normals": true
+    },
+    {
+      "name": "KudzuTilia15bake",
+      "triangles": 628,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "2f4f23e03df6e9c3d3042dd28af39abcd3a021ee6294b5d5f2e55fdc8e2e82c7",
+      "normal_xy_range": [
+        0.3607843220233917,
+        0.3490196168422699
+      ],
+      "custom_normals": true
+    },
+    {
+      "name": "KudzuUlmus15bake",
+      "triangles": 568,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "23fd3a2c481f412b4feae4a0a627343e17e13a2fc69d6fac2af5790c1fff8137",
+      "normal_xy_range": [
+        0.35686275362968445,
+        0.3490196168422699
+      ],
+      "custom_normals": true
+    }
+  ]
+}

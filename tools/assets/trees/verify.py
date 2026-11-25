@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import bpy
+import numpy as np
 
 
 def main():
@@ -61,9 +62,12 @@ def main():
             -0.0001 <= loop.uv.x <= 1.0001 for loop in ob.data.uv_layers.active.data
         ):
             raise ValueError(f"{name}: U outside this atlas's columns")
+        pixels = {}
         for channel in ("d", "a", "c", "n"):
             texture = path.parent / f"{name}_{channel}.png"
             im = bpy.data.images.load(str(texture))
+            if channel != "d":
+                im.colorspace_settings.name = "Non-Color"
             if tuple(im.size) != (512, 512):
                 raise ValueError(f"{name}: wrong {channel} resolution")
             if (
@@ -71,6 +75,18 @@ def main():
                 != receipt["files"][texture.name]
             ):
                 raise ValueError(f"{name}: changed {channel} map")
+            pixels[channel] = np.array(im.pixels[:]).reshape(512, 512, 4)
+        normal_range = None
+        if receipt["route"] in {"bake", "c1", "c2"}:
+            # Bake maps are encoded data; inspect their stored samples, not a display transform.
+            leaf = (pixels["a"][..., 0] > 0.5) & (pixels["c"][..., 0] < 0.5)
+            if not leaf.any() or not ob.data.has_custom_normals:
+                raise ValueError(
+                    f"{name}: missing baked leaf coverage or exported canopy normals"
+                )
+            normal_range = np.ptp(pixels["n"][leaf, :2], axis=0).tolist()
+            if min(normal_range) < 0.05:
+                raise ValueError(f"{name}: normal map is effectively flat")
         rows.append(
             {
                 "name": name,
@@ -78,6 +94,8 @@ def main():
                 "zero_area_triangles": degenerate,
                 "roundtrip_error_m": error,
                 "fbx_sha256": hashlib.sha256(fbx.read_bytes()).hexdigest(),
+                "normal_xy_range": normal_range,
+                "custom_normals": ob.data.has_custom_normals,
             }
         )
     if not rows:

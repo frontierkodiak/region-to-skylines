@@ -1,0 +1,121 @@
+{
+  "native_verified": false,
+  "assets": [
+    {
+      "genus": "Gleditsia",
+      "arm": "B",
+      "main_triangles": 518,
+      "source_triangles": 238288,
+      "bake_and_preview_seconds": 3.8163834170045448,
+      "program": {}
+    },
+    {
+      "genus": "Gleditsia",
+      "arm": "C1",
+      "main_triangles": 518,
+      "source_triangles": 595408,
+      "bake_and_preview_seconds": 5.798227916995529,
+      "program": {
+        "leaves": 320,
+        "leaf_scale": 0.38,
+        "width_ratio": 0.24,
+        "bulge": 0.012,
+        "color_gain": 1.0,
+        "soft_normals": 0.75
+      }
+    },
+    {
+      "genus": "Gleditsia",
+      "arm": "C2",
+      "main_triangles": 518,
+      "source_triangles": 781408,
+      "bake_and_preview_seconds": 6.804049208003562,
+      "program": {
+        "leaves": 420,
+        "leaf_scale": 0.3,
+        "width_ratio": 0.22,
+        "bulge": 0.006,
+        "color_gain": 1.0,
+        "soft_normals": 0.85
+      }
+    },
+    {
+      "genus": "Tilia",
+      "arm": "B",
+      "main_triangles": 628,
+      "source_triangles": 161488,
+      "bake_and_preview_seconds": 3.195907832996454,
+      "program": {}
+    },
+    {
+      "genus": "Tilia",
+      "arm": "C1",
+      "main_triangles": 628,
+      "source_triangles": 554608,
+      "bake_and_preview_seconds": 5.374183749998338,
+      "program": {
+        "leaves": 220,
+        "leaf_scale": 0.48,
+        "width_ratio": 0.78,
+        "bulge": 0.018,
+        "color_gain": 1.0,
+        "soft_normals": 0.7
+      }
+    },
+    {
+      "genus": "Tilia",
+      "arm": "C2",
+      "main_triangles": 628,
+      "source_triangles": 957808,
+      "bake_and_preview_seconds": 7.4643257499992615,
+      "program": {
+        "leaves": 380,
+        "leaf_scale": 0.3,
+        "width_ratio": 0.68,
+        "bulge": 0.008,
+        "color_gain": 1.0,
+        "soft_normals": 0.82
+      }
+    },
+    {
+      "genus": "Ulmus",
+      "arm": "B",
+      "main_triangles": 568,
+      "source_triangles": 138448,
+      "bake_and_preview_seconds": 3.0059389590023784,
+      "program": {}
+    },
+    {
+      "genus": "Ulmus",
+      "arm": "C1",
+      "main_triangles": 568,
+      "source_triangles": 518608,
+      "bake_and_preview_seconds": 5.080274792002456,
+      "program": {
+        "leaves": 240,
+        "leaf_scale": 0.42,
+        "width_ratio": 0.52,
+        "bulge": 0.015,
+        "color_gain": 1.0,
+        "soft_normals": 0.72
+      }
+    },
+    {
+      "genus": "Ulmus",
+      "arm": "C2",
+      "main_triangles": 568,
+      "source_triangles": 777808,
+      "bake_and_preview_seconds": 6.551674374997674,
+      "program": {
+        "leaves": 360,
+        "leaf_scale": 0.31,
+        "width_ratio": 0.45,
+        "bulge": 0.007,
+        "color_gain": 1.0,
+        "soft_normals": 0.84
+      }
+    }
+  ],
+  "full_dollars_per_asset": null,
+  "human_review_seconds": null
+}
