@@ -1,0 +1,7 @@
+{
+  "pid": 395254,
+  "signal": "SIGTERM",
+  "reason": "Unresponsive disposable game after 216 completed near captures; no new asset crash attribution",
+  "checked_multica_daemon_pid": 20290,
+  "utc": "2026-11-25T21:26:46Z"
+}

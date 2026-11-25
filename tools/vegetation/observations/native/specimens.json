@@ -1,0 +1,1402 @@
+[
+  {
+    "candidate": "2129899406.Western Red Cedar 12_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2129899406.Western Red Cedar 12_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png",
+      "gameplay": "pair-01-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2262448384.Shore Pine 02 5m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2262448384.Shore Pine 02 5m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png",
+      "gameplay": "pair-02-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2421911409.Ponderosa 06m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2421911409.Ponderosa 06m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png",
+      "gameplay": "pair-03-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2242682818.Alder 03 8m_Data",
+    "base_neighbour": "Alder01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2242682818.Alder 03 8m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.04345703125,
+            159.61276245117188,
+            -1350
+          ]
+        },
+        {
+          "name": "Alder01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.95654296875,
+            159.42715454101562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png",
+      "gameplay": "pair-04-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          163.5132293701172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          163.5132293701172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2103511053.Hardwood Tree 04_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2103511053.Hardwood Tree 04_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1361.333984375,
+            159.60958862304688,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1338.666015625,
+            159.4320831298828,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png",
+      "gameplay": "pair-05-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.12782287597656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          162.12782287597656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2441391280.Western Redcedar 06m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2441391280.Western Redcedar 06m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png",
+      "gameplay": "pair-06-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2064797149.Pine Scrub Tree 03_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2064797149.Pine Scrub Tree 03_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png",
+      "gameplay": "pair-07-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "931378862.Generic Tree Small_Data",
+    "base_neighbour": "Tree3variant",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931378862.Generic Tree Small_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.51904296875,
+            159.6216583251953,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree3variant",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.48095703125,
+            159.4103546142578,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png",
+      "gameplay": "pair-08-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          163.7949676513672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          163.7949676513672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2058697648.Pine Forest 04_Data",
+    "base_neighbour": "Corsican Pine 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2058697648.Pine Forest 04_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.9769287109375,
+            159.6230010986328,
+            -1350
+          ]
+        },
+        {
+          "name": "Corsican Pine 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.0230712890625,
+            159.40731811523438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png",
+      "gameplay": "pair-09-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.71824645996094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.944610595703125,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          165.71824645996094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2262443894.Lodgepole Pine 02 11m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2262443894.Lodgepole Pine 02 11m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png",
+      "gameplay": "pair-10-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2129899406.Western Red Cedar 11_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2129899406.Western Red Cedar 11_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png",
+      "gameplay": "pair-11-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2262448384.Shore Pine 01 4m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2262448384.Shore Pine 01 4m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png",
+      "gameplay": "pair-12-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2421911409.Ponderosa 07m Thin_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2421911409.Ponderosa 07m Thin_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png",
+      "gameplay": "pair-13-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2242682818.Alder 02 5m_Data",
+    "base_neighbour": "Alder01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2242682818.Alder 02 5m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.04345703125,
+            159.61276245117188,
+            -1350
+          ]
+        },
+        {
+          "name": "Alder01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.95654296875,
+            159.42715454101562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png",
+      "gameplay": "pair-14-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          163.5132293701172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          163.5132293701172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2103511053.Hardwood Tree 05_Data",
+    "base_neighbour": "Tree2variant",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2103511053.Hardwood Tree 05_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.5718994140625,
+            159.61492919921875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2variant",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.4281005859375,
+            159.4235382080078,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png",
+      "gameplay": "pair-15-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.92431640625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          161.92431640625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2441391280.Western Redcedar 09m_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2441391280.Western Redcedar 09m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png",
+      "gameplay": "pair-16-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2064797149.Pine Scrub Tree 07_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2064797149.Pine Scrub Tree 07_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-17-close.png",
+      "gameplay": "pair-17-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "931378862.Generic Tree tiny_Data",
+    "base_neighbour": "Green Tree 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931378862.Generic Tree tiny_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1361.288330078125,
+            159.609375,
+            -1350
+          ]
+        },
+        {
+          "name": "Green Tree 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1338.711669921875,
+            159.43240356445312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-18-close.png",
+      "gameplay": "pair-18-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.83534240722656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          161.83534240722656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2058697648.Pine Forest 05_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2058697648.Pine Forest 05_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.3096923828125,
+            159.61387634277344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.6903076171875,
+            159.4253387451172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-19-close.png",
+      "gameplay": "pair-19-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000003814697266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          164.33880615234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  },
+  {
+    "candidate": "2262443894.Lodgepole Pine 03 19m_Data",
+    "base_neighbour": "mp9-BorealPine",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2262443894.Lodgepole Pine 03 19m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1363.8408203125,
+            159.6195068359375,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BorealPine",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1336.1591796875,
+            159.41490173339844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-20-close.png",
+      "gameplay": "pair-20-gameplay.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.276123046875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 43.7945671081543,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          168.276123046875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 50,
+        "size": 700,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660446166992188,
+          0.6427874565124512
+        ],
+        "ok": true
+      }
+    }
+  }
+]

@@ -1,0 +1,160 @@
+{
+  "stage": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/native-rest-01-189787",
+  "display": ":57",
+  "offline_steam": {
+    "flags": {
+      "wants_offline_mode": true,
+      "skip_offline_mode_warning": true
+    },
+    "preflight_sync": [
+      {
+        "timestamp": "2026-11-25 15:23:57",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "latest_sync": [
+      {
+        "timestamp": "2026-11-25 15:44:24",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "fresh_syncs": 3,
+    "cloud_initial_sha256": "25a90255557cce0d016cbabcd77ba49afe5e911f42384c735bebc59afe76f4b4"
+  },
+  "carbon_preflight": {
+    "idle": true,
+    "checked_utc": "2026-11-25T20:35:37Z"
+  },
+  "gpu": {
+    "bus": "0b:00.0",
+    "name": "NVIDIA GeForce RTX 3090",
+    "egl": "egl1",
+    "label": "PL-1326 vegetation supply",
+    "mem_used_before_mib": 6935,
+    "mem_total_mib": 24576
+  },
+  "control": true,
+  "mod_sha256": "ccef1057d804e18aba3d17aea800322be22950d98751a6584070dceaa5c6ab22",
+  "launch_args": [
+    "-silent",
+    "-applaunch",
+    "255710",
+    "-screen-width",
+    "1920",
+    "-screen-height",
+    "1080",
+    "-screen-fullscreen",
+    "1",
+    "--noWorkshop",
+    "-logFile",
+    "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/native-rest-01-189787/game.log"
+  ],
+  "observe": {
+    "record": null,
+    "live_dir": null,
+    "live_url": null
+  },
+  "menu_status": {
+    "protocol": 1,
+    "scene": "IntroScreen",
+    "in_game": false,
+    "in_asset_editor": false,
+    "modal": {
+      "count": 0,
+      "top": null,
+      "top_visible": false
+    },
+    "color_space": "Linear",
+    "safe_readback": {
+      "installed": false,
+      "reads": 0,
+      "from_cpu": 0,
+      "from_gpu": 0
+    },
+    "mode": "None",
+    "loading": false,
+    "loading_complete": false,
+    "unity": "5.6.7f1",
+    "gpu": "NVIDIA GeForce RTX 3090/PCIe/SSE2",
+    "gpu_memory_mb": 24576,
+    "screen": [
+      1920,
+      1080
+    ],
+    "fixed_delta_time": 0.01666666753590107,
+    "frame_ms": 16.675689697265625,
+    "render_fps": 59.967533111572266,
+    "enabled_mod_count": 0,
+    "plugins": [
+      {
+        "name": "HardMode",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+      },
+      {
+        "name": "UnlimitedMoney",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+      },
+      {
+        "name": "UnlimitedOilAndOre",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+      },
+      {
+        "name": "UnlimitedSoil",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+      },
+      {
+        "name": "UnlockAll",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+      },
+      {
+        "name": "CitiesBridge",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+      },
+      {
+        "name": "Cs1Harness",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+      }
+    ],
+    "error_count": 3,
+    "errors": [
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform."
+    ],
+    "ok": true
+  },
+  "game_gpu": [
+    {
+      "bus": "0b:00.0",
+      "pid": 194687,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1595
+    }
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "raw_receipt_sha256": "1b11b397da56d9c93889f9e25874ca86715efd695ae726f7dcec9300f5e241e9",
+  "projection": "Run/account guards, mod identity and teardown; audio graph/process dumps omitted"
+}

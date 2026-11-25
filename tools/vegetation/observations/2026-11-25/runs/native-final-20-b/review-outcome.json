@@ -1,0 +1,7 @@
+{
+  "state": "controller_stopped",
+  "complete_specimens": 14,
+  "reason": "Camera RPC timeout after 14 complete seven-view comparisons; owned game ignored quit and was terminated by session teardown. Not a spontaneous asset-crash claim.",
+  "gallery_reuse": "Only the completed fourteen comparisons, individually pinned and reviewed",
+  "cleanup_empty": true
+}

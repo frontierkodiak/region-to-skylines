@@ -1,0 +1,37 @@
+"""Read-only resource samples for this run's exact native driver/game PID."""
+import ast
+import csv
+import io
+import json
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+root = Path('/home/caleb/experiments/PL-1326-vegetation')
+driver_pid = int(sys.argv[1])
+run_label = sys.argv[2]
+cmdline = Path(f'/proc/{driver_pid}/cmdline')
+sys.path.insert(0, str(root / 'source/tools/cs1-harness'))
+from cs1_harness.gpu import game_placement
+
+rows = []
+output = root / f'resource-{run_label}.json'
+while cmdline.exists() and run_label.encode() in cmdline.read_bytes():
+    lines = (root / f'{run_label}.log').read_text().splitlines()
+    launch = next((line for line in lines if 'GPU processes ' in line), None)
+    if launch:
+        pids = {p['pid'] for p in ast.literal_eval(launch.split('GPU processes ', 1)[1])}
+        placements = [p for p in game_placement() if p['pid'] in pids]
+        board = subprocess.check_output([
+            'nvidia-smi', '--id=05:00.0',
+            '--query-gpu=temperature.gpu,power.draw,power.limit,utilization.gpu,memory.used,clocks.current.graphics',
+            '--format=csv,noheader,nounits'], text=True).strip()
+        values = next(csv.reader(io.StringIO(board)))
+        cpu = subprocess.run(['ps', '-p', ','.join(map(str, pids)), '-o', 'pid=,%cpu=,rss='], text=True, capture_output=True).stdout.strip()
+        rows.append({'utc': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'game': placements,
+                     'board': dict(zip(['temperature_c','power_w','power_limit_w','gpu_util_percent','memory_used_mib','graphics_clock_mhz'], [float(v) for v in values])),
+                     'process_cpu_rss': cpu})
+        output.write_text(json.dumps(rows, indent=2) + '\n')
+    time.sleep(5)
+print(json.dumps({'samples': len(rows), 'output': str(output)}))

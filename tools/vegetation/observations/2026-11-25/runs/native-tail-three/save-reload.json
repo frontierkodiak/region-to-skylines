@@ -1,0 +1,18 @@
+{
+  "save": {
+    "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Saves/PL1326_QA_866124_1795648257.crp",
+    "bytes": 3326634
+  },
+  "before_instances": {
+    "2787290146.Plumeria_Data": 1,
+    "2593482657.Canary Date Palm 15m_Data": 1,
+    "1547344928.Coast Redwood_Data": 1
+  },
+  "after_instances": {
+    "2787290146.Plumeria_Data": 1,
+    "2593482657.Canary Date Palm 15m_Data": 1,
+    "1547344928.Coast Redwood_Data": 1
+  },
+  "identity_stable": true,
+  "loaded_tree_names_stable": true
+}

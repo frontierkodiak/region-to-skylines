@@ -1,0 +1,2225 @@
+[
+  {
+    "candidate": "1547344928.Coast Redwood_Data",
+    "base_neighbour": "Giant Redwood 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "1547344928.Coast Redwood_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1378.328857421875,
+            159.66127014160156,
+            -1350
+          ]
+        },
+        {
+          "name": "Giant Redwood 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1321.671142578125,
+            159.3287353515625,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png",
+      "wind-second-frame": "pair-01-wind-second-frame.png",
+      "gameplay": "pair-01-gameplay.png",
+      "side": "pair-01-side.png",
+      "back": "pair-01-back.png",
+      "transition-near": "pair-01-transition-near.png",
+      "transition-far": "pair-01-transition-far.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          200.92428588867188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 190.82386779785156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.92428588867188,
+            -1350
+          ],
+          "current_size": 190.82386779785156,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0,
+            25
+          ],
+          "target_position": [
+            -1350,
+            180.15460205078125,
+            -1350
+          ],
+          "target_size": 190.82386779785156,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            282.7279357910156,
+            -1522.9451904296875
+          ],
+          "render_forward": [
+            0,
+            -0.4226182997226715,
+            0.9063077569007874
+          ],
+          "render_up": [
+            0,
+            0.9063077569007874,
+            0.4226182997226715
+          ],
+          "render_euler_degrees": [
+            25.000001907348633,
+            0,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269029
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          200.92428588867188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 190.82386779785156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.92428588867188,
+            -1350
+          ],
+          "current_size": 190.82386779785156,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0,
+            25
+          ],
+          "target_position": [
+            -1350,
+            180.15460205078125,
+            -1350
+          ],
+          "target_size": 190.82386779785156,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            282.7279357910156,
+            -1522.9451904296875
+          ],
+          "render_forward": [
+            0,
+            -0.4226182997226715,
+            0.9063077569007874
+          ],
+          "render_up": [
+            0,
+            0.9063077569007874,
+            0.4226182997226715
+          ],
+          "render_euler_degrees": [
+            25.000001907348633,
+            0,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269136
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          200.92428588867188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 49.999412536621094,
+        "size": 199.99977111816406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.7660378813743591,
+          0.6427954435348511
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.92428588867188,
+            -1350
+          ],
+          "current_size": 199.99978637695312,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0,
+            49.999454498291016
+          ],
+          "target_position": [
+            -1350,
+            180.69000244140625,
+            -1350
+          ],
+          "target_size": 200,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            355.369384765625,
+            -1478.558837890625
+          ],
+          "render_forward": [
+            0,
+            -0.7660383582115173,
+            0.6427948474884033
+          ],
+          "render_up": [
+            0,
+            0.6427948474884033,
+            0.7660383582115173
+          ],
+          "render_euler_degrees": [
+            49.99945831298828,
+            0,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269169
+      },
+      "side": {
+        "position": [
+          -1350,
+          200.9960479736328,
+          -1350
+        ],
+        "yaw": 89.99915313720703,
+        "heading_deg": 89.99915313720703,
+        "pitch": 25.000244140625,
+        "size": 190.82395935058594,
+        "max_size": 4000,
+        "forward": [
+          0.9063060283660889,
+          -0.4226221740245819,
+          1.3407319784164429e-05
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.9960479736328,
+            -1350
+          ],
+          "current_size": 190.82395935058594,
+          "current_height": 0,
+          "current_angle_degrees": [
+            89.99920654296875,
+            25.000225067138672
+          ],
+          "target_position": [
+            -1350,
+            180.15460205078125,
+            -1350
+          ],
+          "target_size": 190.82386779785156,
+          "target_angle_degrees": [
+            90,
+            25
+          ],
+          "render_position": [
+            -1522.9449462890625,
+            282.8004150390625,
+            -1350.00244140625
+          ],
+          "render_forward": [
+            0.9063061475753784,
+            -0.42262178659439087,
+            1.2520700693130493e-05
+          ],
+          "render_up": [
+            0.42262178659439087,
+            0.9063061475753784,
+            5.841255187988281e-06
+          ],
+          "render_euler_degrees": [
+            25.00022315979004,
+            89.99921417236328,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 89.99921417236328,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269169
+      },
+      "back": {
+        "position": [
+          -1350,
+          200.9243621826172,
+          -1350
+        ],
+        "yaw": 179.999267578125,
+        "heading_deg": 179.999267578125,
+        "pitch": 25.000009536743164,
+        "size": 190.82394409179688,
+        "max_size": 4000,
+        "forward": [
+          1.1373040251783095e-05,
+          -0.42261844873428345,
+          -0.9063078165054321
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.9243621826172,
+            -1350
+          ],
+          "current_size": 190.82394409179688,
+          "current_height": 0,
+          "current_angle_degrees": [
+            179.99932861328125,
+            25.000009536743164
+          ],
+          "target_position": [
+            -1350,
+            180.15460205078125,
+            -1350
+          ],
+          "target_size": 190.82386779785156,
+          "target_angle_degrees": [
+            180,
+            25
+          ],
+          "render_position": [
+            -1350.001953125,
+            282.72808837890625,
+            -1177.0548095703125
+          ],
+          "render_forward": [
+            1.0508718332857825e-05,
+            -0.42261844873428345,
+            -0.9063078165054321
+          ],
+          "render_up": [
+            4.900297881249571e-06,
+            0.9063076972961426,
+            -0.42261844873428345
+          ],
+          "render_euler_degrees": [
+            25.000011444091797,
+            179.9993438720703,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 179.9993438720703,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269169
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          200.92434692382812,
+          -1350
+        ],
+        "yaw": 0.0005675783031620085,
+        "heading_deg": 0.0005675783031620085,
+        "pitch": 49.99992370605469,
+        "size": 269.999755859375,
+        "max_size": 4000,
+        "forward": [
+          6.367536570905941e-06,
+          -0.7660436630249023,
+          0.6427885890007019
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.92434692382812,
+            -1350
+          ],
+          "current_size": 269.9997863769531,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0.0005255404976196587,
+            49.99992752075195
+          ],
+          "target_position": [
+            -1350,
+            184.7745361328125,
+            -1350
+          ],
+          "target_size": 270,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350.0015869140625,
+            409.6016540527344,
+            -1523.552734375
+          ],
+          "render_forward": [
+            5.895921276533045e-06,
+            -0.7660436630249023,
+            0.6427885293960571
+          ],
+          "render_up": [
+            7.0264677560771815e-06,
+            0.6427885293960571,
+            0.7660436630249023
+          ],
+          "render_euler_degrees": [
+            49.99993133544922,
+            0.0005255404976196587,
+            -2.0267244479899027e-11
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0.0005255404976196587,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269169
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          200.92434692382812,
+          -1350
+        ],
+        "yaw": 1.53769397215342e-09,
+        "heading_deg": 1.5376713236037176e-09,
+        "pitch": 49.999977111816406,
+        "size": 329.9952392578125,
+        "max_size": 4000,
+        "forward": [
+          1.7251032199960825e-11,
+          -0.7660441398620605,
+          0.6427879333496094
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            200.92434692382812,
+            -1350
+          ],
+          "current_size": 329.9955749511719,
+          "current_height": 0,
+          "current_angle_degrees": [
+            1.4254497582300019e-09,
+            49.999977111816406
+          ],
+          "target_position": [
+            -1350,
+            188.27450561523438,
+            -1350
+          ],
+          "target_size": 330,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            456.0840148925781,
+            -1562.1171875
+          ],
+          "render_forward": [
+            1.599178775513188e-11,
+            -0.7660441398620605,
+            0.6427879333496094
+          ],
+          "render_up": [
+            1.9058253239445655e-11,
+            0.6427879333496094,
+            0.7660441398620605
+          ],
+          "render_euler_degrees": [
+            49.99997329711914,
+            1.4254498692523043e-09,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 1.4254498692523043e-09,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269169
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1350,
+              158.8059539794922,
+              -1321.671142578125
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1350,
+              160.32772827148438,
+              -1378.328857421875
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "1547344928.Coast Redwood_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1378.328857421875,
+              159.66127014160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Giant Redwood 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1321.671142578125,
+              159.3287353515625,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2593482657.Canary Date Palm 15m_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2593482657.Canary Date Palm 15m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png",
+      "wind-second-frame": "pair-02-wind-second-frame.png",
+      "gameplay": "pair-02-gameplay.png",
+      "side": "pair-02-side.png",
+      "back": "pair-02-back.png",
+      "transition-near": "pair-02-transition-near.png",
+      "transition-far": "pair-02-transition-far.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.91848754882812,
+          -1350
+        ],
+        "yaw": 7.134640571039737e-17,
+        "heading_deg": 0,
+        "pitch": 25.000085830688477,
+        "size": 62.910064697265625,
+        "max_size": 4000,
+        "forward": [
+          1.1285606634118497e-18,
+          -0.42261964082717896,
+          0.9063071608543396
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91848754882812,
+            -1350
+          ],
+          "current_size": 62.909996032714844,
+          "current_height": 0,
+          "current_angle_degrees": [
+            6.605841872535818e-17,
+            25.000080108642578
+          ],
+          "target_position": [
+            -1350,
+            172.70053100585938,
+            -1350
+          ],
+          "target_size": 62.90915298461914,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            196.5597381591797,
+            -1407.0157470703125
+          ],
+          "render_forward": [
+            1.0449151258947218e-18,
+            -0.4226195812225342,
+            0.9063071608543396
+          ],
+          "render_up": [
+            4.872537383540815e-19,
+            0.9063071608543396,
+            0.4226195812225342
+          ],
+          "render_euler_degrees": [
+            25.000083923339844,
+            6.605842534280308e-17,
+            -1.6341711190978288e-24
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 6.605842534280308e-17,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269335
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          169.91847229003906,
+          -1350
+        ],
+        "yaw": 5.249213204018501e-20,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 62.909175872802734,
+        "max_size": 4000,
+        "forward": [
+          8.303234343994282e-22,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91847229003906,
+            -1350
+          ],
+          "current_size": 62.909175872802734,
+          "current_height": 0,
+          "current_angle_degrees": [
+            4.85787340998481e-20,
+            25.000011444091797
+          ],
+          "target_position": [
+            -1350,
+            172.70053100585938,
+            -1350
+          ],
+          "target_size": 62.90915298461914,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            196.55931091308594,
+            -1407.0150146484375
+          ],
+          "render_forward": [
+            7.684211026481774e-22,
+            -0.42261847853660583,
+            0.9063076972961426
+          ],
+          "render_up": [
+            3.583208432341062e-22,
+            0.9063076972961426,
+            0.42261847853660583
+          ],
+          "render_euler_degrees": [
+            25.00001335144043,
+            4.857873733102237e-20,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 4.857873733102237e-20,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269429
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          169.91847229003906,
+          -1350
+        ],
+        "yaw": 3.8628882258592197e-26,
+        "heading_deg": 0,
+        "pitch": 49.99941635131836,
+        "size": 199.99681091308594,
+        "max_size": 4000,
+        "forward": [
+          4.333733820132477e-28,
+          -0.7660379409790039,
+          0.6427953243255615
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91847229003906,
+            -1350
+          ],
+          "current_size": 199.99703979492188,
+          "current_height": 0,
+          "current_angle_degrees": [
+            3.580865213713259e-26,
+            49.99945831298828
+          ],
+          "target_position": [
+            -1350,
+            180.69000244140625,
+            -1350
+          ],
+          "target_size": 200,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            324.3612060546875,
+            -1478.5570068359375
+          ],
+          "render_forward": [
+            4.0173324192188203e-28,
+            -0.7660384178161621,
+            0.6427947878837585
+          ],
+          "render_up": [
+            4.787578730044843e-28,
+            0.6427947878837585,
+            0.7660384178161621
+          ],
+          "render_euler_degrees": [
+            49.99946594238281,
+            3.5808655218620503e-26,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 3.5808658300108414e-26,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269462
+      },
+      "side": {
+        "position": [
+          -1350,
+          169.95831298828125,
+          -1350
+        ],
+        "yaw": 89.99954986572266,
+        "heading_deg": 89.99954986572266,
+        "pitch": 25.000125885009766,
+        "size": 62.90983963012695,
+        "max_size": 4000,
+        "forward": [
+          0.9063069224357605,
+          -0.4226202368736267,
+          7.081776857376099e-06
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.95831298828125,
+            -1350
+          ],
+          "current_size": 62.9097900390625,
+          "current_height": 0,
+          "current_angle_degrees": [
+            89.99957275390625,
+            25.0001163482666
+          ],
+          "target_position": [
+            -1350,
+            172.70053100585938,
+            -1350
+          ],
+          "target_size": 62.90915298461914,
+          "target_angle_degrees": [
+            90,
+            25
+          ],
+          "render_position": [
+            -1407.015625,
+            196.59951782226562,
+            -1350.0003662109375
+          ],
+          "render_forward": [
+            0.906306803226471,
+            -0.42262014746665955,
+            6.768852472305298e-06
+          ],
+          "render_up": [
+            0.42262011766433716,
+            0.9063069224357605,
+            3.129243850708008e-06
+          ],
+          "render_euler_degrees": [
+            25.000123977661133,
+            89.99957275390625,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 89.99957275390625,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269462
+      },
+      "back": {
+        "position": [
+          -1350,
+          169.91847229003906,
+          -1350
+        ],
+        "yaw": 179.9991455078125,
+        "heading_deg": 179.9991455078125,
+        "pitch": 25.000001907348633,
+        "size": 62.90916061401367,
+        "max_size": 4000,
+        "forward": [
+          1.3533846868085675e-05,
+          -0.4226182997226715,
+          -0.9063078165054321
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91847229003906,
+            -1350
+          ],
+          "current_size": 62.90916061401367,
+          "current_height": 0,
+          "current_angle_degrees": [
+            179.9992218017578,
+            25.000001907348633
+          ],
+          "target_position": [
+            -1350,
+            172.70053100585938,
+            -1350
+          ],
+          "target_size": 62.90915298461914,
+          "target_angle_degrees": [
+            180,
+            25
+          ],
+          "render_position": [
+            -1350.000732421875,
+            196.55929565429688,
+            -1292.9849853515625
+          ],
+          "render_forward": [
+            1.2237362170708366e-05,
+            -0.4226182997226715,
+            -0.9063078165054321
+          ],
+          "render_up": [
+            5.706377123715356e-06,
+            0.9063077569007874,
+            -0.4226182997226715
+          ],
+          "render_euler_degrees": [
+            25.000001907348633,
+            179.9992218017578,
+            1.4374313371534608e-11
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 179.9992218017578,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269462
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          169.91847229003906,
+          -1350
+        ],
+        "yaw": 0.0006140076438896358,
+        "heading_deg": 0.0006140076438896358,
+        "pitch": 49.999916076660156,
+        "size": 269.9992980957031,
+        "max_size": 4000,
+        "forward": [
+          6.8884169195371214e-06,
+          -0.7660435438156128,
+          0.6427887082099915
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91847229003906,
+            -1350
+          ],
+          "current_size": 269.9993591308594,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0.0005687845405191183,
+            49.99992370605469
+          ],
+          "target_position": [
+            -1350,
+            184.7745361328125,
+            -1350
+          ],
+          "target_size": 270,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350.001708984375,
+            378.5952453613281,
+            -1523.552490234375
+          ],
+          "render_forward": [
+            6.381068487826269e-06,
+            -0.7660436630249023,
+            0.6427885890007019
+          ],
+          "render_up": [
+            7.604640359204495e-06,
+            0.6427885890007019,
+            0.7660436630249023
+          ],
+          "render_euler_degrees": [
+            49.99993133544922,
+            0.0005687846569344401,
+            4.05344785514572e-11
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0.000568784715142101,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269462
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          169.91845703125,
+          -1350
+        ],
+        "yaw": 1.8235494225748994e-09,
+        "heading_deg": 1.8235368770547211e-09,
+        "pitch": 49.99998474121094,
+        "size": 329.9948425292969,
+        "max_size": 4000,
+        "forward": [
+          2.045797212191225e-11,
+          -0.7660443782806396,
+          0.642787754535675
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            169.91845703125,
+            -1350
+          ],
+          "current_size": 329.9952392578125,
+          "current_height": 0,
+          "current_angle_degrees": [
+            1.68866576277793e-09,
+            49.99998474121094
+          ],
+          "target_position": [
+            -1350,
+            188.27450561523438,
+            -1350
+          ],
+          "target_size": 330,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            425.0777893066406,
+            -1562.116943359375
+          ],
+          "render_forward": [
+            1.894474334351859e-11,
+            -0.7660443782806396,
+            0.642787754535675
+          ],
+          "render_up": [
+            2.2577455530137236e-11,
+            0.642787754535675,
+            0.7660443782806396
+          ],
+          "render_euler_degrees": [
+            49.99999237060547,
+            1.6886658738002325e-09,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 1.688665984822535e-09,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269462
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1350,
+              158.9994659423828,
+              -1329.627685546875
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1350,
+              160.08843994140625,
+              -1370.372314453125
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "2593482657.Canary Date Palm 15m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2787290146.Plumeria_Data",
+    "base_neighbour": "Flower Tree 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2787290146.Plumeria_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1363.3621826171875,
+            159.6178741455078,
+            -1350
+          ]
+        },
+        {
+          "name": "Flower Tree 02",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1336.6378173828125,
+            159.41815185546875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png",
+      "wind-second-frame": "pair-03-wind-second-frame.png",
+      "gameplay": "pair-03-gameplay.png",
+      "side": "pair-03-side.png",
+      "back": "pair-03-back.png",
+      "transition-near": "pair-03-transition-near.png",
+      "transition-far": "pair-03-transition-far.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          163.18141174316406,
+          -1350
+        ],
+        "yaw": 6.220964659682244e-17,
+        "heading_deg": 0,
+        "pitch": 25.00005340576172,
+        "size": 36.911991119384766,
+        "max_size": 4000,
+        "forward": [
+          9.840352531962784e-19,
+          -0.422619104385376,
+          0.9063073992729187
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.18141174316406,
+            -1350
+          ],
+          "current_size": 36.91194534301758,
+          "current_height": 0,
+          "current_angle_degrees": [
+            5.761870817036944e-17,
+            25.000049591064453
+          ],
+          "target_position": [
+            -1350,
+            171.52206420898438,
+            -1350
+          ],
+          "target_size": 40,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            178.78109741210938,
+            -1383.45361328125
+          ],
+          "render_forward": [
+            9.114156196541761e-19,
+            -0.422619104385376,
+            0.9063073992729187
+          ],
+          "render_up": [
+            4.250010560315297e-19,
+            0.9063073992729187,
+            0.422619104385376
+          ],
+          "render_euler_degrees": [
+            25.00005340576172,
+            5.761870817036944e-17,
+            8.170854116374947e-25
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 5.761872140525924e-17,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269634
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          163.181396484375,
+          -1350
+        ],
+        "yaw": 4.57525390589157e-20,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 36.911376953125,
+        "max_size": 4000,
+        "forward": [
+          7.237161405791365e-22,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.181396484375,
+            -1350
+          ],
+          "current_size": 36.911376953125,
+          "current_height": 0,
+          "current_angle_degrees": [
+            4.236484347842465e-20,
+            25.000011444091797
+          ],
+          "target_position": [
+            -1350,
+            171.52206420898438,
+            -1350
+          ],
+          "target_size": 40,
+          "target_angle_degrees": [
+            0,
+            25
+          ],
+          "render_position": [
+            -1350,
+            178.78082275390625,
+            -1383.453125
+          ],
+          "render_forward": [
+            6.701293872673249e-22,
+            -0.42261847853660583,
+            0.9063076972961426
+          ],
+          "render_up": [
+            3.124866614891212e-22,
+            0.9063076972961426,
+            0.42261847853660583
+          ],
+          "render_euler_degrees": [
+            25.00001335144043,
+            4.236484347842465e-20,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 4.236484670959892e-20,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269728
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          163.18138122558594,
+          -1350
+        ],
+        "yaw": 2.1664930774343834e-26,
+        "heading_deg": 0,
+        "pitch": 49.9996223449707,
+        "size": 199.99754333496094,
+        "max_size": 4000,
+        "forward": [
+          2.43055584914326e-28,
+          -0.7660402655601501,
+          0.6427926421165466
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.18138122558594,
+            -1350
+          ],
+          "current_size": 199.9977264404297,
+          "current_height": 0,
+          "current_angle_degrees": [
+            2.0079704000094522e-26,
+            49.99964904785156
+          ],
+          "target_position": [
+            -1350,
+            180.69000244140625,
+            -1350
+          ],
+          "target_size": 200,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            317.6253662109375,
+            -1478.5570068359375
+          ],
+          "render_forward": [
+            2.252710663253682e-28,
+            -0.766040563583374,
+            0.642792284488678
+          ],
+          "render_up": [
+            2.68464234225881e-28,
+            0.642792284488678,
+            0.766040563583374
+          ],
+          "render_euler_degrees": [
+            49.999656677246094,
+            2.0079707081582433e-26,
+            1.072932560548539e-33
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 2.007970862232639e-26,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269761
+      },
+      "side": {
+        "position": [
+          -1350,
+          163.19580078125,
+          -1350
+        ],
+        "yaw": 89.99971771240234,
+        "heading_deg": 89.99971771240234,
+        "pitch": 25.000078201293945,
+        "size": 36.911869049072266,
+        "max_size": 4000,
+        "forward": [
+          0.9063071608543396,
+          -0.4226195216178894,
+          4.578381776809692e-06
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.19580078125,
+            -1350
+          ],
+          "current_size": 36.91183090209961,
+          "current_height": 0,
+          "current_angle_degrees": [
+            89.99974822998047,
+            25.000072479248047
+          ],
+          "target_position": [
+            -1350,
+            171.52206420898438,
+            -1350
+          ],
+          "target_size": 40,
+          "target_angle_degrees": [
+            90,
+            25
+          ],
+          "render_position": [
+            -1383.4534912109375,
+            178.7954559326172,
+            -1350.0001220703125
+          ],
+          "render_forward": [
+            0.9063072800636292,
+            -0.42261943221092224,
+            3.978610038757324e-06
+          ],
+          "render_up": [
+            0.42261943221092224,
+            0.9063072204589844,
+            1.8477439880371094e-06
+          ],
+          "render_euler_degrees": [
+            25.00007438659668,
+            89.99974822998047,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 89.99974822998047,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269761
+      },
+      "back": {
+        "position": [
+          -1350,
+          163.181396484375,
+          -1350
+        ],
+        "yaw": 179.9991455078125,
+        "heading_deg": 179.9991455078125,
+        "pitch": 25.000009536743164,
+        "size": 36.911373138427734,
+        "max_size": 4000,
+        "forward": [
+          1.3533845958590973e-05,
+          -0.42261844873428345,
+          -0.9063078165054321
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.181396484375,
+            -1350
+          ],
+          "current_size": 36.911373138427734,
+          "current_height": 0,
+          "current_angle_degrees": [
+            179.99920654296875,
+            25.000009536743164
+          ],
+          "target_position": [
+            -1350,
+            171.52206420898438,
+            -1350
+          ],
+          "target_size": 40,
+          "target_angle_degrees": [
+            180,
+            25
+          ],
+          "render_position": [
+            -1350.00048828125,
+            178.78082275390625,
+            -1316.546875
+          ],
+          "render_forward": [
+            1.2453444469429087e-05,
+            -0.42261844873428345,
+            -0.9063078165054321
+          ],
+          "render_up": [
+            5.807139132230077e-06,
+            0.9063076972961426,
+            -0.42261844873428345
+          ],
+          "render_euler_degrees": [
+            25.000011444091797,
+            179.9992218017578,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 179.9992218017578,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269761
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          163.18133544921875,
+          -1350
+        ],
+        "yaw": 0.0007969458820298314,
+        "heading_deg": 0.0007969458820298314,
+        "pitch": 49.99988555908203,
+        "size": 269.9989929199219,
+        "max_size": 4000,
+        "forward": [
+          8.940767656895332e-06,
+          -0.7660431861877441,
+          0.6427891254425049
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.18133544921875,
+            -1350
+          ],
+          "current_size": 269.9990539550781,
+          "current_height": 0,
+          "current_angle_degrees": [
+            0.0007382586481980979,
+            49.99989318847656
+          ],
+          "target_position": [
+            -1350,
+            184.7745361328125,
+            -1350
+          ],
+          "target_size": 270,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350.002197265625,
+            371.8576354980469,
+            -1523.5523681640625
+          ],
+          "render_forward": [
+            8.28236443339847e-06,
+            -0.7660433053970337,
+            0.6427889466285706
+          ],
+          "render_up": [
+            9.870502253761515e-06,
+            0.6427889466285706,
+            0.7660433053970337
+          ],
+          "render_euler_degrees": [
+            49.99989700317383,
+            0.000738258589990437,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 0.0007382587064057589,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269761
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          163.18133544921875,
+          -1350
+        ],
+        "yaw": 2.159627587872137e-09,
+        "heading_deg": 2.159652012778679e-09,
+        "pitch": 49.999977111816406,
+        "size": 329.9948425292969,
+        "max_size": 4000,
+        "forward": [
+          2.4228355433031368e-11,
+          -0.7660441398620605,
+          0.6427879333496094
+        ],
+        "ok": true,
+        "rendered_camera": {
+          "current_position": [
+            -1350,
+            163.18133544921875,
+            -1350
+          ],
+          "current_size": 329.9952392578125,
+          "current_height": 0,
+          "current_angle_degrees": [
+            1.9992287825232324e-09,
+            49.999977111816406
+          ],
+          "target_position": [
+            -1350,
+            188.27450561523438,
+            -1350
+          ],
+          "target_size": 330,
+          "target_angle_degrees": [
+            0,
+            50
+          ],
+          "render_position": [
+            -1350,
+            418.34063720703125,
+            -1562.116943359375
+          ],
+          "render_forward": [
+            2.242888166859025e-11,
+            -0.7660441398620605,
+            0.6427879333496094
+          ],
+          "render_up": [
+            2.672967749917099e-11,
+            0.6427879333496094,
+            0.7660441398620605
+          ],
+          "render_euler_degrees": [
+            49.99997329711914,
+            1.9992290045678374e-09,
+            -7.73134748911181e-17
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.7777777910232544,
+          "pixel_width": 1920,
+          "pixel_height": 1080,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            0,
+            1920,
+            1080
+          ],
+          "render_heading_degrees": 1.9992290045678374e-09,
+          "areas_visible": false
+        },
+        "simulation_frame": 9269761
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1350,
+              159.17323303222656,
+              -1336.6378173828125
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1350,
+              159.8918914794922,
+              -1363.3621826171875
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "2787290146.Plumeria_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1363.3621826171875,
+              159.6178741455078,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 02",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1336.6378173828125,
+              159.41815185546875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

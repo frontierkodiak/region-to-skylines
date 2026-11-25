@@ -1,0 +1,8549 @@
+[
+  {
+    "candidate": "3789320735.DatePalm_01_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3789320735.DatePalm_01_Data",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.03683471679688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 62.43648147583008,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3789320735.DatePalm_01_Data",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3789320735.DatePalm_01_curved_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3789320735.DatePalm_01_curved_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1375.9378662109375,
+            159.6510772705078,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1324.0621337890625,
+            159.34054565429688,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.92066955566406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 72.40654754638672,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3789320735.DatePalm_01_curved_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1375.9378662109375,
+              159.6510772705078,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1324.0621337890625,
+              159.34054565429688,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3789320735.DatePalm_02_normal_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3789320735.DatePalm_02_normal_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.91830444335938,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 62.99803161621094,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3789320735.DatePalm_02_normal_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3789320735.DatePalm_02_normal_curved_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3789320735.DatePalm_02_normal_curved_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1375.96044921875,
+            159.6511688232422,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1324.03955078125,
+            159.34042358398438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.9103240966797,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 71.7540054321289,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3789320735.DatePalm_02_normal_curved_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1375.96044921875,
+              159.6511688232422,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1324.03955078125,
+              159.34042358398438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3789320735.DatePalm_02_small_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3789320735.DatePalm_02_small_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.91830444335938,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 62.991722106933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3789320735.DatePalm_02_small_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3841399938.tomato plant_Data",
+    "base_neighbour": "Tree Sapling 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3841399938.tomato plant_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1352.4705810546875,
+            159.54464721679688,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree Sapling 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1347.5294189453125,
+            159.49974060058594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.6534881591797,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.71909713745117,
+        "size": 9.079540252685547,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163301348686218,
+          0.5775855779647827
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3841399938.tomato plant_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1352.4705810546875,
+              159.54464721679688,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree Sapling 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1347.5294189453125,
+              159.49974060058594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "412129816.Big Tree_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "412129816.Big Tree_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1378.3382568359375,
+            159.66131591796875,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1321.6617431640625,
+            159.3286895751953,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          172.02586364746094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.277774810791016,
+        "size": 87.86351013183594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4270072281360626,
+          0.9042482376098633
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "412129816.Big Tree_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1378.3382568359375,
+              159.66131591796875,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1321.6617431640625,
+              159.3286895751953,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "412601773.Palm Tree_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "412601773.Palm Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.37913513183594,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000093460083008,
+        "size": 62.53843307495117,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261970043182373,
+          0.9063071012496948
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "412601773.Palm Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "413126019.Yucca Tree_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "413126019.Yucca Tree_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.904296875,
+            159.622802734375,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.095703125,
+            159.40780639648438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.71746826171875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 41.969688415527344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "413126019.Yucca Tree_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1364.904296875,
+              159.622802734375,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1335.095703125,
+              159.40780639648438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "418351169.Birke_rot_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "418351169.Birke_rot_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.34266662597656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 68.67876434326172,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "418351169.Birke_rot_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "422171073.Birke_gr\u00fcn_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "422171073.Birke_gr\u00fcn_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.3770751953125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 68.93037414550781,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "422171073.Birke_gr\u00fcn_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "422474294.Cypress Tree_Data",
+    "base_neighbour": "Alder01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "422474294.Cypress Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1368.0870361328125,
+            159.6305694580078,
+            -1350
+          ]
+        },
+        {
+          "name": "Alder01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1331.9129638671875,
+            159.38702392578125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.5034942626953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 54.277061462402344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "422474294.Cypress Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1368.0870361328125,
+              159.6305694580078,
+              -1350
+            ]
+          },
+          {
+            "name": "Alder01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1331.9129638671875,
+              159.38702392578125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "423941442.Japanese Cherry Blossom v1.2_Data",
+    "base_neighbour": "CherryTree01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "423941442.Japanese Cherry Blossom v1.2_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.1798095703125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "CherryTree01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.8201904296875,
+            159.4126434326172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.89425659179688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 37.69132995605469,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "423941442.Japanese Cherry Blossom v1.2_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1364.1798095703125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "CherryTree01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1335.8201904296875,
+              159.4126434326172,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "427436428.Busch5_Data",
+    "base_neighbour": "Flame Tree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "427436428.Busch5_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1367.482177734375,
+            159.62925720214844,
+            -1350
+          ]
+        },
+        {
+          "name": "Flame Tree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1332.517822265625,
+            159.39089965820312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.72027587890625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 47.834449768066406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "427436428.Busch5_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1367.482177734375,
+              159.62925720214844,
+              -1350
+            ]
+          },
+          {
+            "name": "Flame Tree",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1332.517822265625,
+              159.39089965820312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "428309727.banana tree_Data",
+    "base_neighbour": "California Young Palm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "428309727.banana tree_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1369.9530029296875,
+            159.63450622558594,
+            -1350
+          ]
+        },
+        {
+          "name": "California Young Palm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1330.0469970703125,
+            159.37515258789062,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          166.47567749023438,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 59.01374053955078,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "428309727.banana tree_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1369.9530029296875,
+              159.63450622558594,
+              -1350
+            ]
+          },
+          {
+            "name": "California Young Palm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1330.0469970703125,
+              159.37515258789062,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "436125096.Widow Balloons_Data",
+    "base_neighbour": "Green Tree 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "436125096.Widow Balloons_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.9188232421875,
+            159.61627197265625,
+            -1350
+          ]
+        },
+        {
+          "name": "Green Tree 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.0811767578125,
+            159.42117309570312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.07745361328125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 35.223106384277344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "436125096.Widow Balloons_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1362.9188232421875,
+              159.61627197265625,
+              -1350
+            ]
+          },
+          {
+            "name": "Green Tree 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1337.0811767578125,
+              159.42117309570312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "438630267.WillowTree v1.2_Data",
+    "base_neighbour": "mp9-HorseChestnutvnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "438630267.WillowTree v1.2_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.6881103515625,
+            159.6360626220703,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-HorseChestnutvnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.3118896484375,
+            159.3705291748047,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-17-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.3306121826172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 65.591552734375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "438630267.WillowTree v1.2_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.6881103515625,
+              159.6360626220703,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-HorseChestnutvnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.3118896484375,
+              159.3705291748047,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "439080919.The Shady Tree Left_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "439080919.The Shady Tree Left_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1372.1243896484375,
+            159.63934326171875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1327.8756103515625,
+            159.36160278320312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-18-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.24488830566406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 62.82415771484375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "439080919.The Shady Tree Left_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1372.1243896484375,
+              159.63934326171875,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1327.8756103515625,
+              159.36160278320312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "439083705.The Shady Tree Right_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "439083705.The Shady Tree Right_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1372.1243896484375,
+            159.63934326171875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1327.8756103515625,
+            159.36160278320312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-19-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.2063446044922,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 62.79572677612305,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "439083705.The Shady Tree Right_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1372.1243896484375,
+              159.63934326171875,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1327.8756103515625,
+              159.36160278320312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "451041644.White Birch Tree_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "451041644.White Birch Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-20-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.9722137451172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.46591567993164,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "451041644.White Birch Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "451045420.Young Birch Tree_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "451045420.Young Birch Tree_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-21-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.00730895996094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.29461669921875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "451045420.Young Birch Tree_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "453386581.White Birch_Fall Red _Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "453386581.White Birch_Fall Red _Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-22-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.00732421875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.294578552246094,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "453386581.White Birch_Fall Red _Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "453392805.White Birch_Fall RedOrange_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "453392805.White Birch_Fall RedOrange_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-23-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.00733947753906,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.29457473754883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "453392805.White Birch_Fall RedOrange_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "453393480.White Birch_Fall Gold_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "453393480.White Birch_Fall Gold_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-24-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.00733947753906,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.29457473754883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "453393480.White Birch_Fall Gold_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "453981569.SShady Tree Right_Fall Version 1_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "453981569.SShady Tree Right_Fall Version 1_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1372.1243896484375,
+            159.63934326171875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1327.8756103515625,
+            159.36160278320312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-25-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.241455078125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 62.62434768676758,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "453981569.SShady Tree Right_Fall Version 1_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1372.1243896484375,
+              159.63934326171875,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1327.8756103515625,
+              159.36160278320312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "453982466.Shady Tree Left_Fall Version 1_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "453982466.Shady Tree Left_Fall Version 1_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1372.1243896484375,
+            159.63934326171875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1327.8756103515625,
+            159.36160278320312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-26-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.2063446044922,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 62.7956428527832,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "453982466.Shady Tree Left_Fall Version 1_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1372.1243896484375,
+              159.63934326171875,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1327.8756103515625,
+              159.36160278320312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "476710392.Fan Palm 1_Data",
+    "base_neighbour": "Chinese Windmill Palm 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "476710392.Fan Palm 1_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.6513671875,
+            159.615234375,
+            -1350
+          ]
+        },
+        {
+          "name": "Chinese Windmill Palm 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.3486328125,
+            159.42298889160156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-27-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.74826049804688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 42.746734619140625,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "476710392.Fan Palm 1_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1362.6513671875,
+              159.615234375,
+              -1350
+            ]
+          },
+          {
+            "name": "Chinese Windmill Palm 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1337.3486328125,
+              159.42298889160156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "519424524.Bush 05 - TPB Nature Series_Data",
+    "base_neighbour": "mp9-PacificRhododendronvnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "519424524.Bush 05 - TPB Nature Series_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1355.739013671875,
+            159.57289123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-PacificRhododendronvnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1344.260986328125,
+            159.4725799560547,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-28-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.35122680664062,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.722076416015625,
+        "size": 18.841230392456055,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163602352142334,
+          0.5775430798530579
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "519424524.Bush 05 - TPB Nature Series_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1355.739013671875,
+              159.57289123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-PacificRhododendronvnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1344.260986328125,
+              159.4725799560547,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "563846166.TOD_Medium_Green_Grass_Fix_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "563846166.TOD_Medium_Green_Grass_Fix_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-29-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1482391357422,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99989700317383,
+        "size": 32.24034118652344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.819150984287262,
+          0.573577880859375
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "563846166.TOD_Medium_Green_Grass_Fix_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "563846264.TOD_Light_Green_Grass_Fix_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "563846264.TOD_Light_Green_Grass_Fix_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-30-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15684509277344,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999977111816406,
+        "size": 32.377628326416016,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518187522888,
+          0.5735767483711243
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "563846264.TOD_Light_Green_Grass_Fix_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "563846352.TOD_Yellow_Green_Grass_Fix_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "563846352.TOD_Yellow_Green_Grass_Fix_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-31-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1568603515625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 32.37763214111328,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "563846352.TOD_Yellow_Green_Grass_Fix_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "563846459.TOD_Brown_Grass_Fix_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "563846459.TOD_Brown_Grass_Fix_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-32-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15687561035156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 32.37763595581055,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "563846459.TOD_Brown_Grass_Fix_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "587483693.TPB - Palm - Duo Bent_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "587483693.TPB - Palm - Duo Bent_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1383.66845703125,
+            159.6878204345703,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1316.33154296875,
+            159.30133056640625,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-33-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.83164978027344,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.299386978149414,
+        "size": 96.60811614990234,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42734819650650024,
+          0.9040871262550354
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "587483693.TPB - Palm - Duo Bent_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1383.66845703125,
+              159.6878204345703,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1316.33154296875,
+              159.30133056640625,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "587483693.TPB - Palm - Duo Straight_Data",
+    "base_neighbour": "mp9-CaliforniaPalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "587483693.TPB - Palm - Duo Straight_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.94287109375,
+            159.62803649902344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CaliforniaPalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.05712890625,
+            159.39439392089844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-34-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          172.8201141357422,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.001272201538086,
+        "size": 68.10482788085938,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226384162902832,
+          0.9062983989715576
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "587483693.TPB - Palm - Duo Straight_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.94287109375,
+              159.62803649902344,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CaliforniaPalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.05712890625,
+              159.39439392089844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "587483693.TPB - Palm - Single Bent_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "587483693.TPB - Palm - Single Bent_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1377.634033203125,
+            159.6581573486328,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1322.365966796875,
+            159.33212280273438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-35-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.9403839111328,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 76.44770812988281,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "587483693.TPB - Palm - Single Bent_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1377.634033203125,
+              159.6581573486328,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1322.365966796875,
+              159.33212280273438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "587483693.TPB - Palm - Single Straight_Data",
+    "base_neighbour": "mp9-CaliforniaPalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "587483693.TPB - Palm - Single Straight_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.94287109375,
+            159.62803649902344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CaliforniaPalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.05712890625,
+            159.39439392089844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-36-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          173.2042236328125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 64.07424926757812,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "587483693.TPB - Palm - Single Straight_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.94287109375,
+              159.62803649902344,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CaliforniaPalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.05712890625,
+              159.39439392089844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "587483693.TPB - Palm - Trio_Data",
+    "base_neighbour": "mp9-CaliforniaPalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "587483693.TPB - Palm - Trio_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.3990478515625,
+            159.6354522705078,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CaliforniaPalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.6009521484375,
+            159.37234497070312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-37-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          173.22775268554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 63.957550048828125,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "587483693.TPB - Palm - Trio_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.3990478515625,
+              159.6354522705078,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CaliforniaPalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.6009521484375,
+              159.37234497070312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "593210924.Weeping Willow 2_Data",
+    "base_neighbour": "mp9-HorseChestnutvnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "593210924.Weeping Willow 2_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1369.227783203125,
+            159.6329803466797,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-HorseChestnutvnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1330.772216796875,
+            159.37974548339844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-38-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.1500244140625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 57.193790435791016,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "593210924.Weeping Willow 2_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1369.227783203125,
+              159.6329803466797,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-HorseChestnutvnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1330.772216796875,
+              159.37974548339844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "608233136.OakTree_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "608233136.OakTree_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1376.5975341796875,
+            159.6537322998047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1323.4024658203125,
+            159.3372344970703,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-39-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.03208923339844,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 82.81864929199219,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "608233136.OakTree_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1376.5975341796875,
+              159.6537322998047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1323.4024658203125,
+              159.3372344970703,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "610065798.Scots Pine Tree_Data",
+    "base_neighbour": "mp9-BorealPine",
+    "pair": {
+      "specimens": [
+        {
+          "name": "610065798.Scots Pine Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1376.176513671875,
+            159.6520233154297,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BorealPine",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1323.823486328125,
+            159.33932495117188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-40-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          176.939697265625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 84.67396545410156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "610065798.Scots Pine Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1376.176513671875,
+              159.6520233154297,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BorealPine",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1323.823486328125,
+              159.33932495117188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "612529562.Shady Tree Red_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "612529562.Shady Tree Red_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1372.1243896484375,
+            159.63934326171875,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1327.8756103515625,
+            159.36160278320312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-41-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.31558227539062,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 62.99848175048828,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "612529562.Shady Tree Red_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1372.1243896484375,
+              159.63934326171875,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1327.8756103515625,
+              159.36160278320312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "638310122.The Shady Bush [Lighter]_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "638310122.The Shady Bush [Lighter]_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-42-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.2265167236328,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 35.25788497924805,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "638310122.The Shady Bush [Lighter]_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "638310122.The Shady Bush_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "638310122.The Shady Bush_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-43-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.19866943359375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.00004196166992,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "638310122.The Shady Bush_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "641457195.Shady Bush Bloom Pink_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "641457195.Shady Bush Bloom Pink_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-44-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1986541748047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.000022888183594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "641457195.Shady Bush Bloom Pink_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "641457195.Shady Bush Bloom White_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "641457195.Shady Bush Bloom White_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-45-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1986541748047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.00001907348633,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "641457195.Shady Bush Bloom White_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "641457195.Shady Bush Bloom_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "641457195.Shady Bush Bloom_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-46-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1986541748047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.00001907348633,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "641457195.Shady Bush Bloom_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "641457195.Shady Bush Orange Bloom_Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "641457195.Shady Bush Orange Bloom_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-47-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1986541748047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.00001907348633,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "641457195.Shady Bush Orange Bloom_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "641457195.Shady Red Rose Bush _Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "641457195.Shady Red Rose Bush _Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1363.115234375,
+            159.6169891357422,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1336.884765625,
+            159.41983032226562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-48-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.19863891601562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 35.00001525878906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "641457195.Shady Red Rose Bush _Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1363.115234375,
+              159.6169891357422,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1336.884765625,
+              159.41983032226562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "659116531.Scots Pine 2_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "659116531.Scots Pine 2_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.095458984375,
+            159.62599182128906,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.904541015625,
+            159.39993286132812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-49-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.98097229003906,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 47.064029693603516,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "659116531.Scots Pine 2_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.095458984375,
+              159.62599182128906,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericPineTree",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.904541015625,
+              159.39993286132812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "668089903.TOTOD_Vine_Green_Grass3_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "668089903.TOTOD_Vine_Green_Grass3_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-50-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.2114715576172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.721588134765625,
+        "size": 32.514949798583984,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163552284240723,
+          0.5775500535964966
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "668089903.TOTOD_Vine_Green_Grass3_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "668090216.TOD_Savannah_Green_Grass2_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "668090216.TOD_Savannah_Green_Grass2_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-51-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1570281982422,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99990463256836,
+        "size": 32.37770080566406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191510438919067,
+          0.573577880859375
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "668090216.TOD_Savannah_Green_Grass2_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "668090428.TOD_Plains_Yellow_Grass3_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "668090428.TOD_Plains_Yellow_Grass3_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-52-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15695190429688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 32.377655029296875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "668090428.TOD_Plains_Yellow_Grass3_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "668090624.TOD_Jungle_Green_Grass2_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "668090624.TOD_Jungle_Green_Grass2_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-53-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15695190429688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 32.377655029296875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "668090624.TOD_Jungle_Green_Grass2_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "668090857.TOD_Limerick_Green_b_Grass3_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "668090857.TOD_Limerick_Green_b_Grass3_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.7044677734375,
+            159.6009979248047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.2955322265625,
+            159.44354248046875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-54-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15695190429688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 32.377655029296875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "668090857.TOD_Limerick_Green_b_Grass3_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.7044677734375,
+              159.6009979248047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.2955322265625,
+              159.44354248046875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "678804415.Tall Grass Cluster_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "678804415.Tall Grass Cluster_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1368.0692138671875,
+            159.6305389404297,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1331.9307861328125,
+            159.3871307373047,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-55-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.46609497070312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.277450561523438,
+        "size": 49.71647644042969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42700204253196716,
+          0.9042506814002991
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "678804415.Tall Grass Cluster_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1368.0692138671875,
+              159.6305389404297,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1331.9307861328125,
+              159.3871307373047,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "678804415.Tall Grass_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "678804415.Tall Grass_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-56-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.15187072753906,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00005340576172,
+        "size": 42.137996673583984,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.422619104385376,
+          0.9063073992729187
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "678804415.Tall Grass_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "681579717.Horse-chestnut_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "681579717.Horse-chestnut_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1368.4376220703125,
+            159.63131713867188,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1331.5623779296875,
+            159.38478088378906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-57-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.93572998046875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 55.50193405151367,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "681579717.Horse-chestnut_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1368.4376220703125,
+              159.63131713867188,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1331.5623779296875,
+              159.38478088378906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "698327491.Kwanzan Cherry Blossoms_Data",
+    "base_neighbour": "CherryTree01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "698327491.Kwanzan Cherry Blossoms_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.1798095703125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "CherryTree01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.8201904296875,
+            159.4126434326172,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-58-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.9610137939453,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 37.6832275390625,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "698327491.Kwanzan Cherry Blossoms_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1364.1798095703125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "CherryTree01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1335.8201904296875,
+              159.4126434326172,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "705592251.Stone pine - Pinus pinea_Data",
+    "base_neighbour": "mp9-BorealPine",
+    "pair": {
+      "specimens": [
+        {
+          "name": "705592251.Stone pine - Pinus pinea_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1375.2569580078125,
+            159.6485137939453,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BorealPine",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1324.7430419921875,
+            159.3440399169922,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-59-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          176.8731689453125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 80.78987121582031,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "705592251.Stone pine - Pinus pinea_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1375.2569580078125,
+              159.6485137939453,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BorealPine",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1324.7430419921875,
+              159.3440399169922,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "708892511.Southern Live Oak_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "708892511.Southern Live Oak_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1380.9117431640625,
+            159.6736602783203,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1319.0882568359375,
+            159.31602478027344,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-60-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          170.5142059326172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 96.58839416503906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "708892511.Southern Live Oak_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1380.9117431640625,
+              159.6736602783203,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1319.0882568359375,
+              159.31602478027344,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "717407850.Decorative Tree 4 (Big) CC_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "717407850.Decorative Tree 4 (Big) CC_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1381.288818359375,
+            159.67555236816406,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1318.711181640625,
+            159.31411743164062,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-61-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          176.64942932128906,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 107.3465576171875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "717407850.Decorative Tree 4 (Big) CC_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1381.288818359375,
+              159.67555236816406,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1318.711181640625,
+              159.31411743164062,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "726752294.Yellow flower_Data",
+    "base_neighbour": "Bush01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "726752294.Yellow flower_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1354.2978515625,
+            159.56082153320312,
+            -1350
+          ]
+        },
+        {
+          "name": "Bush01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1345.7021484375,
+            159.48406982421875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-62-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.74789428710938,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.71194839477539,
+        "size": 14.93811321258545,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8162580728530884,
+          0.5776874423027039
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "726752294.Yellow flower_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1354.2978515625,
+              159.56082153320312,
+              -1350
+            ]
+          },
+          {
+            "name": "Bush01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1345.7021484375,
+              159.48406982421875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "727628864.Decorative Tree 6 (Big) CC_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "727628864.Decorative Tree 6 (Big) CC_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-63-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.83450317382812,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.27714729309082,
+        "size": 73.11249542236328,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42699727416038513,
+          0.9042528867721558
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "727628864.Decorative Tree 6 (Big) CC_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "739782376.Mountain Ash_Data",
+    "base_neighbour": "treeForest",
+    "pair": {
+      "specimens": [
+        {
+          "name": "739782376.Mountain Ash_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1380.4788818359375,
+            159.6715087890625,
+            -1350
+          ]
+        },
+        {
+          "name": "treeForest",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1319.5211181640625,
+            159.3181915283203,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-64-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.93280029296875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00014877319336,
+        "size": 95.04463195800781,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42262062430381775,
+          0.9063066840171814
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "739782376.Mountain Ash_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1380.4788818359375,
+              159.6715087890625,
+              -1350
+            ]
+          },
+          {
+            "name": "treeForest",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1319.5211181640625,
+              159.3181915283203,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "742114726.River Red Gum medium_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "742114726.River Red Gum medium_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1375.6298828125,
+            159.64990234375,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1324.3701171875,
+            159.34210205078125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-65-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.88084411621094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 81.45036315917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "742114726.River Red Gum medium_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1375.6298828125,
+              159.64990234375,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1324.3701171875,
+              159.34210205078125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "742114726.River Red Gum small_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "742114726.River Red Gum small_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-66-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.2998504638672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 69.08370971679688,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "742114726.River Red Gum small_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "742114726.River Red Gum_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "742114726.River Red Gum_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1382.136474609375,
+            159.67987060546875,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1317.863525390625,
+            159.30970764160156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-67-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          170.6372833251953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 102.72628784179688,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "742114726.River Red Gum_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1382.136474609375,
+              159.67987060546875,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1317.863525390625,
+              159.30970764160156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "744800461.Lantana_Data",
+    "base_neighbour": "mp9-Lantanavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "744800461.Lantana_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1356.49169921875,
+            159.57887268066406,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-Lantanavnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1343.50830078125,
+            159.4669189453125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-68-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.4841766357422,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.72203826904297,
+        "size": 21.222911834716797,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.81635981798172,
+          0.5775436758995056
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "744800461.Lantana_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1356.49169921875,
+              159.57887268066406,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-Lantanavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1343.50830078125,
+              159.4669189453125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "746572133.Cabbage Tree Small_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "746572133.Cabbage Tree Small_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.66748046875,
+            159.6153106689453,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.33251953125,
+            159.42288208007812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-69-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.36471557617188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.29933738708496,
+        "size": 34.85512924194336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42734742164611816,
+          0.904087483882904
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "746572133.Cabbage Tree Small_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1362.66748046875,
+              159.6153106689453,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1337.33251953125,
+              159.42288208007812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "746572133.Cabbage Tree_Data",
+    "base_neighbour": "Tree3variant",
+    "pair": {
+      "specimens": [
+        {
+          "name": "746572133.Cabbage Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1368.970703125,
+            159.6324462890625,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree3variant",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1331.029296875,
+            159.38137817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-70-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.87855529785156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000102996826172,
+        "size": 53.82020568847656,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261990904808044,
+          0.90630704164505
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "746572133.Cabbage Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1368.970703125,
+              159.6324462890625,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree3variant",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1331.029296875,
+              159.38137817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "748272044.Saguaro Cactus_Data",
+    "base_neighbour": "Flower Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "748272044.Saguaro Cactus_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1362.6541748046875,
+            159.61524963378906,
+            -1350
+          ]
+        },
+        {
+          "name": "Flower Tree 03",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1337.3458251953125,
+            159.4229736328125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-71-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          164.5664520263672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 35.189449310302734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "748272044.Saguaro Cactus_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1362.6541748046875,
+              159.61524963378906,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower Tree 03",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1337.3458251953125,
+              159.4229736328125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "749853704.Canary Island Date Palm Tall_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "749853704.Canary Island Date Palm Tall_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-72-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.40255737304688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 62.00254821777344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "749853704.Canary Island Date Palm Tall_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "749853704.Canary Island Date Palm_Data",
+    "base_neighbour": "mp9-GenericDatePalm",
+    "pair": {
+      "specimens": [
+        {
+          "name": "749853704.Canary Island Date Palm_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.372314453125,
+            159.63539123535156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericDatePalm",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.627685546875,
+            159.37252807617188,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-73-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.93270874023438,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 62.90300750732422,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "749853704.Canary Island Date Palm_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.372314453125,
+              159.63539123535156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericDatePalm",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.627685546875,
+              159.37252807617188,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "754129192.Norfolk Island Pine Young_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "754129192.Norfolk Island Pine Young_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.095458984375,
+            159.62599182128906,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.904541015625,
+            159.39993286132812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-74-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.24867248535156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 47.66239929199219,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "754129192.Norfolk Island Pine Young_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.095458984375,
+              159.62599182128906,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericPineTree",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.904541015625,
+              159.39993286132812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "754129192.Norfolk Island Pine_Data",
+    "base_neighbour": "mp9-BorealPine",
+    "pair": {
+      "specimens": [
+        {
+          "name": "754129192.Norfolk Island Pine_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1373.1143798828125,
+            159.64187622070312,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BorealPine",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1326.8856201171875,
+            159.35572814941406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-75-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          179.34393310546875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 92.40982818603516,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "754129192.Norfolk Island Pine_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1373.1143798828125,
+              159.64187622070312,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BorealPine",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1326.8856201171875,
+              159.35572814941406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "759858371.Blooming Jacaranda_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "759858371.Blooming Jacaranda_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1371.1802978515625,
+            159.63714599609375,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1328.8197021484375,
+            159.36746215820312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-76-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.86795043945312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 59.642642974853516,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "759858371.Blooming Jacaranda_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1371.1802978515625,
+              159.63714599609375,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1328.8197021484375,
+              159.36746215820312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "765126845.Weeping Silver Birch_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "765126845.Weeping Silver Birch_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-77-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.97482299804688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 44.44487762451172,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "765126845.Weeping Silver Birch_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "782325225.Lotus_Data",
+    "base_neighbour": "Flame Tree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "782325225.Lotus_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1367.482177734375,
+            159.62925720214844,
+            -1350
+          ]
+        },
+        {
+          "name": "Flame Tree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1332.517822265625,
+            159.39089965820312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-78-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.7772979736328,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 47.89706039428711,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "782325225.Lotus_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1367.482177734375,
+              159.62925720214844,
+              -1350
+            ]
+          },
+          {
+            "name": "Flame Tree",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1332.517822265625,
+              159.39089965820312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "789419398.Quercus ilex (Medium)_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "789419398.Quercus ilex (Medium)_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1376.5975341796875,
+            159.6537322998047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1323.4024658203125,
+            159.3372344970703,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-79-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.99305725097656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 82.75234985351562,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "789419398.Quercus ilex (Medium)_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1376.5975341796875,
+              159.6537322998047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1323.4024658203125,
+              159.3372344970703,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "789419398.Quercus ilex (Big)_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "789419398.Quercus ilex (Big)_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1376.5975341796875,
+            159.6537322998047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1323.4024658203125,
+            159.3372344970703,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-80-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.05157470703125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 83.07752227783203,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "789419398.Quercus ilex (Big)_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1376.5975341796875,
+              159.6537322998047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1323.4024658203125,
+              159.3372344970703,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "789419398.Quercus ilex (Small)_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "789419398.Quercus ilex (Small)_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1376.5975341796875,
+            159.6537322998047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1323.4024658203125,
+            159.3372344970703,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-81-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.0515899658203,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 83.07759094238281,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "789419398.Quercus ilex (Small)_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1376.5975341796875,
+              159.6537322998047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1323.4024658203125,
+              159.3372344970703,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "793658461.Sugar Maple Gold_Data",
+    "base_neighbour": "Sugar Maple 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "793658461.Sugar Maple Gold_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1370.451171875,
+            159.63555908203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Sugar Maple 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1329.548828125,
+            159.3720245361328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-82-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.84857177734375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 64.00465393066406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "793658461.Sugar Maple Gold_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.451171875,
+              159.63555908203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Sugar Maple 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.548828125,
+              159.3720245361328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "793658461.Sugar Maple Mix_Data",
+    "base_neighbour": "Sugar Maple 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "793658461.Sugar Maple Mix_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.451171875,
+            159.63555908203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Sugar Maple 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.548828125,
+            159.3720245361328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-83-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.85594177246094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 63.826534271240234,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "793658461.Sugar Maple Mix_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.451171875,
+              159.63555908203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Sugar Maple 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.548828125,
+              159.3720245361328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "793658461.Sugar Maple Red_Data",
+    "base_neighbour": "Sugar Maple 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "793658461.Sugar Maple Red_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1370.451171875,
+            159.63555908203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Sugar Maple 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1329.548828125,
+            159.3720245361328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-84-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.85595703125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.00000762939453,
+        "size": 63.82649230957031,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "793658461.Sugar Maple Red_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1370.451171875,
+              159.63555908203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Sugar Maple 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1329.548828125,
+              159.3720245361328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "793658461.Sugar Maple_Data",
+    "base_neighbour": "Sugar Maple 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "793658461.Sugar Maple_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1370.451171875,
+            159.63555908203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Sugar Maple 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1329.548828125,
+            159.3720245361328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-85-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.8560028076172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 63.82647705078125,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "793658461.Sugar Maple_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1370.451171875,
+              159.63555908203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Sugar Maple 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1329.548828125,
+              159.3720245361328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "794163923.London Planetree Fall_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "794163923.London Planetree Fall_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1373.04541015625,
+            159.64169311523438,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1326.95458984375,
+            159.3561248779297,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-86-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          170.2493438720703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 71.75467681884766,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "794163923.London Planetree Fall_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1373.04541015625,
+              159.64169311523438,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1326.95458984375,
+              159.3561248779297,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "794163923.Oak Tree Fall_Data",
+    "base_neighbour": "mp9-LiveOaknvl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "794163923.Oak Tree Fall_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1376.5975341796875,
+            159.6537322998047,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-LiveOaknvl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1323.4024658203125,
+            159.3372344970703,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-87-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.0628204345703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 82.97328186035156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "794163923.Oak Tree Fall_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1376.5975341796875,
+              159.6537322998047,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-LiveOaknvl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1323.4024658203125,
+              159.3372344970703,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "794163923.Silver Birch Fall_Data",
+    "base_neighbour": "Silver Birch",
+    "pair": {
+      "specimens": [
+        {
+          "name": "794163923.Silver Birch Fall_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1364.3712158203125,
+            159.6212158203125,
+            -1350
+          ]
+        },
+        {
+          "name": "Silver Birch",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1335.6287841796875,
+            159.41136169433594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-88-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.0078582763672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 44.682228088378906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "794163923.Silver Birch Fall_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1364.3712158203125,
+              159.6212158203125,
+              -1350
+            ]
+          },
+          {
+            "name": "Silver Birch",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1335.6287841796875,
+              159.41136169433594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "794561004.Golden Phragmites Cluster_Data",
+    "base_neighbour": "Tree Sapling 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "794561004.Golden Phragmites Cluster_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1358.22314453125,
+            159.59156799316406,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree Sapling 01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1341.77685546875,
+            159.45419311523438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-89-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.26380920410156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.69960403442383,
+        "size": 26.555986404418945,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8161336183547974,
+          0.5778632164001465
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "794561004.Golden Phragmites Cluster_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1358.22314453125,
+              159.59156799316406,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree Sapling 01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1341.77685546875,
+              159.45419311523438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "794561004.Golden Phragmites_Data",
+    "base_neighbour": "Tree Sapling 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "794561004.Golden Phragmites_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1354.8602294921875,
+            159.5656280517578,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree Sapling 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1345.1397705078125,
+            159.47947692871094,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-90-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.536865234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99989700317383,
+        "size": 16.994403839111328,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.819150984287262,
+          0.573577880859375
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "794561004.Golden Phragmites_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1354.8602294921875,
+              159.5656280517578,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree Sapling 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1345.1397705078125,
+              159.47947692871094,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "843982695.Stone Pine Medium_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "843982695.Stone Pine Medium_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1368.767333984375,
+            159.63201904296875,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1331.232666015625,
+            159.38265991210938,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-91-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.16139221191406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.299341201782227,
+        "size": 54.99015426635742,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42734748125076294,
+          0.9040874242782593
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "843982695.Stone Pine Medium_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1368.767333984375,
+              159.63201904296875,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericPineTree",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1331.232666015625,
+              159.38265991210938,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "843982695.Stone Pine Old_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "843982695.Stone Pine Old_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1367.490966796875,
+            159.6292724609375,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1332.509033203125,
+            159.39083862304688,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-92-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.22068786621094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000093460083008,
+        "size": 49.801204681396484,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261970043182373,
+          0.9063071012496948
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "843982695.Stone Pine Old_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1367.490966796875,
+              159.6292724609375,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericPineTree",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1332.509033203125,
+              159.39083862304688,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "843982695.Stone Pine Tall_Data",
+    "base_neighbour": "mp9-GenericPineTree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "843982695.Stone Pine Tall_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1369.0589599609375,
+            159.63262939453125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-GenericPineTree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1330.9410400390625,
+            159.3808135986328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-93-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.41761779785156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 60.26276397705078,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "843982695.Stone Pine Tall_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1369.0589599609375,
+              159.63262939453125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-GenericPineTree",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1330.9410400390625,
+              159.3808135986328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "849060007.Tree Privet_Data",
+    "base_neighbour": "Tree2",
+    "pair": {
+      "specimens": [
+        {
+          "name": "849060007.Tree Privet_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1362.66748046875,
+            159.6153106689453,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree2",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1337.33251953125,
+            159.42288208007812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-94-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.81781005859375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 35.23549270629883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "849060007.Tree Privet_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1362.66748046875,
+              159.6153106689453,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree2",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1337.33251953125,
+              159.42288208007812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "874037042.Coconut Tree Bent_Data",
+    "base_neighbour": "mp9-CoconutTreevnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "874037042.Coconut Tree Bent_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1398.55224609375,
+            159.75547790527344,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CoconutTreevnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1301.44775390625,
+            159.16851806640625,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-95-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.42518615722656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 148.56558227539062,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "874037042.Coconut Tree Bent_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1398.55224609375,
+              159.75547790527344,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CoconutTreevnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1301.44775390625,
+              159.16851806640625,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "874037042.Coconut Tree Small_Data",
+    "base_neighbour": "mp9-CoconutTreevnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "874037042.Coconut Tree Small_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1368.6865234375,
+            159.63185119628906,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CoconutTreevnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1331.3134765625,
+            159.38316345214844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-96-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.83645629882812,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000009536743164,
+        "size": 56.72101974487305,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261844873428345,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "874037042.Coconut Tree Small_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1368.6865234375,
+              159.63185119628906,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CoconutTreevnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1331.3134765625,
+              159.38316345214844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "874037042.Coconut Tree Tall_Data",
+    "base_neighbour": "mp9-CoconutTreevnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "874037042.Coconut Tree Tall_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1374.73046875,
+            159.64671325683594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CoconutTreevnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1325.26953125,
+            159.3468017578125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-97-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          177.35581970214844,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.0000057220459,
+        "size": 84.60916137695312,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "874037042.Coconut Tree Tall_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.73046875,
+              159.64671325683594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CoconutTreevnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.26953125,
+              159.3468017578125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "874037042.Coconut Tree_Data",
+    "base_neighbour": "mp9-CoconutTreevnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "874037042.Coconut Tree_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1369.508544921875,
+            159.63356018066406,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-CoconutTreevnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1330.491455078125,
+            159.37796020507812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-98-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.88973999023438,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.0000057220459,
+        "size": 58.6301155090332,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "874037042.Coconut Tree_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1369.508544921875,
+              159.63356018066406,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-CoconutTreevnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1330.491455078125,
+              159.37796020507812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887048609.Pampas Grass Gold_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887048609.Pampas Grass Gold_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-99-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.21067810058594,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.0000057220459,
+        "size": 42.216983795166016,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261838912963867,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887048609.Pampas Grass Gold_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887048609.Pampas Grass Pink_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887048609.Pampas Grass Pink_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-100-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.1490020751953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000003814697266,
+        "size": 42.06578826904297,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226183593273163,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887048609.Pampas Grass Pink_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887048609.Pampas Grass Purple_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887048609.Pampas Grass Purple_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-101-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.14892578125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 42.06568908691406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887048609.Pampas Grass Purple_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887048609.Pampas Grass Red_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887048609.Pampas Grass Red_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-102-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.14892578125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 42.06568908691406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887048609.Pampas Grass Red_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887048609.Pampas Grass White_Data",
+    "base_neighbour": "mp9-TallGrassClustervnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887048609.Pampas Grass White_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1365.4544677734375,
+            159.62432861328125,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-TallGrassClustervnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1334.5455322265625,
+            159.40415954589844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-103-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.14892578125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 42.06568908691406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887048609.Pampas Grass White_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1365.4544677734375,
+              159.62432861328125,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-TallGrassClustervnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1334.5455322265625,
+              159.40415954589844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "890859028.Weeping Willow 3_Data",
+    "base_neighbour": "mp9-EasternCottonwood",
+    "pair": {
+      "specimens": [
+        {
+          "name": "890859028.Weeping Willow 3_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1369.4449462890625,
+            159.63343811035156,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-EasternCottonwood",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1330.5550537109375,
+            159.37835693359375,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-104-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.54000854492188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 58.09856414794922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "890859028.Weeping Willow 3_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1369.4449462890625,
+              159.63343811035156,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-EasternCottonwood",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1330.5550537109375,
+              159.37835693359375,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "891807583.Cluster of bushes _Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "891807583.Cluster of bushes _Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1365.735107421875,
+            159.62506103515625,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1334.264892578125,
+            159.4022979736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-105-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.26251220703125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 43.188568115234375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "891807583.Cluster of bushes _Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1365.735107421875,
+              159.62506103515625,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1334.264892578125,
+              159.4022979736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "892494281.Bush Shrubs _Data",
+    "base_neighbour": "Large Shrub",
+    "pair": {
+      "specimens": [
+        {
+          "name": "892494281.Bush Shrubs _Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1368.1473388671875,
+            159.63070678710938,
+            -1350
+          ]
+        },
+        {
+          "name": "Large Shrub",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1331.8526611328125,
+            159.38662719726562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-106-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.18893432617188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 49.525875091552734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "892494281.Bush Shrubs _Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1368.1473388671875,
+              159.63070678710938,
+              -1350
+            ]
+          },
+          {
+            "name": "Large Shrub",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1331.8526611328125,
+              159.38662719726562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "894364022.Paperbark_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "894364022.Paperbark_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-107-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          166.7755126953125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 69.4037094116211,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "894364022.Paperbark_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "895883932.Lotus no underwater part_Data",
+    "base_neighbour": "Tree Sapling 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "895883932.Lotus no underwater part_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1354.4674072265625,
+            159.56227111816406,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree Sapling 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1345.5325927734375,
+            159.48268127441406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-108-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.62420654296875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.721561431884766,
+        "size": 14.45306396484375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163549900054932,
+          0.57755047082901
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "895883932.Lotus no underwater part_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1354.4674072265625,
+              159.56227111816406,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree Sapling 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1345.5325927734375,
+              159.48268127441406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "898719053.Cherry Blossom_Data",
+    "base_neighbour": "CherryTree01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "898719053.Cherry Blossom_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1365.781982421875,
+            159.6251983642578,
+            -1350
+          ]
+        },
+        {
+          "name": "CherryTree01",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1334.218017578125,
+            159.40199279785156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-109-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          163.90457153320312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.299488067626953,
+        "size": 43.265586853027344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4273497760295868,
+          0.9040863513946533
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "898719053.Cherry Blossom_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1365.781982421875,
+              159.6251983642578,
+              -1350
+            ]
+          },
+          {
+            "name": "CherryTree01",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1334.218017578125,
+              159.40199279785156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "899975355.Japanese Pieris_Data",
+    "base_neighbour": "Tree Sapling 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "899975355.Japanese Pieris_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1359.2276611328125,
+            159.59812927246094,
+            -1350
+          ]
+        },
+        {
+          "name": "Tree Sapling 01",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1340.7723388671875,
+            159.4469451904297,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-110-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.0092010498047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000102996826172,
+        "size": 35.07921600341797,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261990904808044,
+          0.90630704164505
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "899975355.Japanese Pieris_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1359.2276611328125,
+              159.59812927246094,
+              -1350
+            ]
+          },
+          {
+            "name": "Tree Sapling 01",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1340.7723388671875,
+              159.4469451904297,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "902421031.Autumn Yard Tree_HD_Data",
+    "base_neighbour": "Flame Tree",
+    "pair": {
+      "specimens": [
+        {
+          "name": "902421031.Autumn Yard Tree_HD_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1367.482177734375,
+            159.62925720214844,
+            -1350
+          ]
+        },
+        {
+          "name": "Flame Tree",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1332.517822265625,
+            159.39089965820312,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-111-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.70298767089844,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25.000011444091797,
+        "size": 47.81095504760742,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.42261847853660583,
+          0.9063076972961426
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "902421031.Autumn Yard Tree_HD_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1367.482177734375,
+              159.62925720214844,
+              -1350
+            ]
+          },
+          {
+            "name": "Flame Tree",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1332.517822265625,
+              159.39089965820312,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

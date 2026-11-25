@@ -1,0 +1,25 @@
+{
+  "passed": [
+    "Workshop results render",
+    "Unestablished built-in mangrove coverage is empty",
+    "No unreviewed asset appears as a pass",
+    "Forest-fill failures can be browsed",
+    "Search and empty state work",
+    "Pagination adds the next results",
+    "Author-provided HTML-like titles stay text",
+    "Native contact sheet captured",
+    "Mobile layout and source filter work"
+  ],
+  "pageErrors": [],
+  "tested_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/",
+  "container": "mcr.microsoft.com/playwright:v1.65.0-noble",
+  "client": "playwright-core@1.65.0",
+  "desktop": [
+    1440,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ]
+}

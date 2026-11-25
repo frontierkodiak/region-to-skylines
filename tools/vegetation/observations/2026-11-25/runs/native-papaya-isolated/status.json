@@ -1,0 +1,100 @@
+{
+  "protocol": 1,
+  "scene": "Game",
+  "in_game": true,
+  "in_asset_editor": false,
+  "modal": {
+    "count": 0,
+    "top": null,
+    "top_visible": false
+  },
+  "color_space": "Linear",
+  "safe_readback": {
+    "installed": false,
+    "reads": 0,
+    "from_cpu": 0,
+    "from_gpu": 0
+  },
+  "mode": "Game",
+  "loading": false,
+  "loading_complete": true,
+  "unity": "5.6.7f1",
+  "gpu": "NVIDIA GeForce RTX 3090/PCIe/SSE2",
+  "gpu_memory_mb": 24576,
+  "screen": [
+    1920,
+    1080
+  ],
+  "fixed_delta_time": 0.01666666753590107,
+  "frame_ms": 143.03378295898438,
+  "render_fps": 6.9913554191589355,
+  "enabled_mod_count": 0,
+  "plugins": [
+    {
+      "name": "HardMode",
+      "enabled": false,
+      "builtin": true,
+      "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+    },
+    {
+      "name": "UnlimitedMoney",
+      "enabled": false,
+      "builtin": true,
+      "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+    },
+    {
+      "name": "UnlimitedOilAndOre",
+      "enabled": false,
+      "builtin": true,
+      "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+    },
+    {
+      "name": "UnlimitedSoil",
+      "enabled": false,
+      "builtin": true,
+      "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+    },
+    {
+      "name": "UnlockAll",
+      "enabled": false,
+      "builtin": true,
+      "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+    },
+    {
+      "name": "CitiesBridge",
+      "enabled": false,
+      "builtin": false,
+      "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+    },
+    {
+      "name": "Cs1Harness",
+      "enabled": false,
+      "builtin": false,
+      "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+    }
+  ],
+  "error_count": 9,
+  "errors": [
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Cannot set relative position without a parent Transform.",
+    "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+    "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+    "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+  ],
+  "frame": 9268930,
+  "game_time": "2026-11-25T17:25:04",
+  "paused": true,
+  "speed": 1,
+  "final_speed": 0,
+  "population": 0,
+  "buildings": 502,
+  "segments": 1742,
+  "citizens": 340,
+  "money": 7000000,
+  "sea_level": 81.26500701904297,
+  "ok": true
+}

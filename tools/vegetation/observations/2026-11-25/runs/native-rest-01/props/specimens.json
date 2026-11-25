@@ -1,0 +1,1234 @@
+[
+  {
+    "candidate": "2560612802.wy-Botany006-A_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-Botany006-A_Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1351.8221435546875,
+            159.53875732421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1348.1778564453125,
+            159.50550842285156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.60264587402344,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.721675872802734,
+        "size": 6.732550621032715,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163561820983887,
+          0.5775487422943115
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-Botany006-A_Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1351.8221435546875,
+              159.53875732421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1348.1778564453125,
+              159.50550842285156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2560612802.wy-Botany006-B_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-Botany006-B_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1364.1807861328125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1335.8192138671875,
+            159.41262817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.7718963623047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999908447265625,
+        "size": 42.01747131347656,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191512227058411,
+          0.5735776424407959
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-Botany006-B_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1364.1807861328125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1335.8192138671875,
+              159.41262817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2560612802.wy-Botany007-A_Data",
+    "base_neighbour": "Fallen Tree 04",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-Botany007-A_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1363.3670654296875,
+            159.61788940429688,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 04",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1336.6329345703125,
+            159.41810607910156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0626983642578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999977111816406,
+        "size": 36.7869873046875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518187522888,
+          0.5735767483711243
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-Botany007-A_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1363.3670654296875,
+              159.61788940429688,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 04",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1336.6329345703125,
+              159.41810607910156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2560612802.wy-Botany007-B_Data",
+    "base_neighbour": "Plant Pot 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-Botany007-B_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1351.472412109375,
+            159.53558349609375,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1348.527587890625,
+            159.50865173339844,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0057373046875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 5.00531005859375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-Botany007-B_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1351.472412109375,
+              159.53558349609375,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1348.527587890625,
+              159.50865173339844,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2560612802.wy-Botany007-C_Data",
+    "base_neighbour": "Plant Pot 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-Botany007-C_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1352.6978759765625,
+            159.54669189453125,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1347.3021240234375,
+            159.4977264404297,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.29090881347656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 8.810818672180176,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-Botany007-C_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1352.6978759765625,
+              159.54669189453125,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1347.3021240234375,
+              159.4977264404297,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2560612802.wy-JP-Ksitigarbha-A_Data",
+    "base_neighbour": "Fallen Tree 04",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2560612802.wy-JP-Ksitigarbha-A_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1363.3670654296875,
+            159.61788940429688,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 04",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1336.6329345703125,
+            159.41810607910156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.04888916015625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 36.47512435913086,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2560612802.wy-JP-Ksitigarbha-A_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1363.3670654296875,
+              159.61788940429688,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 04",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1336.6329345703125,
+              159.41810607910156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo old\u3000 broken_Data",
+    "base_neighbour": "Botanical garden flowers",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo old\u3000 broken_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1358.773193359375,
+            159.59524536132812,
+            -1350
+          ]
+        },
+        {
+          "name": "Botanical garden flowers",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1341.226806640625,
+            159.4501953125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.07774353027344,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 25.598590850830078,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo old\u3000 broken_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1358.773193359375,
+              159.59524536132812,
+              -1350
+            ]
+          },
+          {
+            "name": "Botanical garden flowers",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1341.226806640625,
+              159.4501953125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo old\u3000 fallen_Data",
+    "base_neighbour": "Flowerbed 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo old\u3000 fallen_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1351.75,
+            159.53811645507812,
+            -1350
+          ]
+        },
+        {
+          "name": "Flowerbed 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1348.25,
+            159.5061492919922,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.8528594970703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 15.717567443847656,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo old\u3000 fallen_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1351.75,
+              159.53811645507812,
+              -1350
+            ]
+          },
+          {
+            "name": "Flowerbed 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1348.25,
+              159.5061492919922,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo old\u3000 fallen_cluster_Data",
+    "base_neighbour": "Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo old\u3000 fallen_cluster_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1356.31005859375,
+            159.57745361328125,
+            -1350
+          ]
+        },
+        {
+          "name": "Hedge 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1343.68994140625,
+            159.46827697753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.72802734375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 19.664915084838867,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo old\u3000 fallen_cluster_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1356.31005859375,
+              159.57745361328125,
+              -1350
+            ]
+          },
+          {
+            "name": "Hedge 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1343.68994140625,
+              159.46827697753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo semi-old\u3000 broken_Data",
+    "base_neighbour": "Botanical garden flowers",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo semi-old\u3000 broken_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1358.773193359375,
+            159.59524536132812,
+            -1350
+          ]
+        },
+        {
+          "name": "Botanical garden flowers",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1341.226806640625,
+            159.4501953125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0747833251953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 25.440942764282227,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo semi-old\u3000 broken_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1358.773193359375,
+              159.59524536132812,
+              -1350
+            ]
+          },
+          {
+            "name": "Botanical garden flowers",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1341.226806640625,
+              159.4501953125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo semi-old\u3000 fallen_Data",
+    "base_neighbour": "Flowerbed 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo semi-old\u3000 fallen_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1351.75,
+            159.53811645507812,
+            -1350
+          ]
+        },
+        {
+          "name": "Flowerbed 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1348.25,
+            159.5061492919922,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.8528594970703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 15.717656135559082,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo semi-old\u3000 fallen_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1351.75,
+              159.53811645507812,
+              -1350
+            ]
+          },
+          {
+            "name": "Flowerbed 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1348.25,
+              159.5061492919922,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2815475285.Bamboo semi-old\u3000 fallen_cluster_Data",
+    "base_neighbour": "Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2815475285.Bamboo semi-old\u3000 fallen_cluster_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1356.31005859375,
+            159.57745361328125,
+            -1350
+          ]
+        },
+        {
+          "name": "Hedge 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1343.68994140625,
+            159.46827697753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.72801208496094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 19.66498374938965,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2815475285.Bamboo semi-old\u3000 fallen_cluster_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1356.31005859375,
+              159.57745361328125,
+              -1350
+            ]
+          },
+          {
+            "name": "Hedge 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1343.68994140625,
+              159.46827697753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2919367947.Medium Grass_Data",
+    "base_neighbour": "High Flower Pot 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2919367947.Medium Grass_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1359.3533935546875,
+            159.59889221191406,
+            -1350
+          ]
+        },
+        {
+          "name": "High Flower Pot 03",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1340.6466064453125,
+            159.446044921875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.10279846191406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 25.857158660888672,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2919367947.Medium Grass_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1359.3533935546875,
+              159.59889221191406,
+              -1350
+            ]
+          },
+          {
+            "name": "High Flower Pot 03",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1340.6466064453125,
+              159.446044921875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2919367947.Small Bush_Data",
+    "base_neighbour": "Hedge 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2919367947.Small Bush_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1356.81884765625,
+            159.58139038085938,
+            -1350
+          ]
+        },
+        {
+          "name": "Hedge 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1343.18115234375,
+            159.46449279785156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.10836791992188,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 19.041316986083984,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2919367947.Small Bush_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1356.81884765625,
+              159.58139038085938,
+              -1350
+            ]
+          },
+          {
+            "name": "Hedge 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1343.18115234375,
+              159.46449279785156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2919367947.Small Grass_Data",
+    "base_neighbour": "Flowerbed 04",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2919367947.Small Grass_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1355.1368408203125,
+            159.56793212890625,
+            -1350
+          ]
+        },
+        {
+          "name": "Flowerbed 04",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1344.8631591796875,
+            159.47727966308594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.98143005371094,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 14.67342758178711,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2919367947.Small Grass_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1355.1368408203125,
+              159.56793212890625,
+              -1350
+            ]
+          },
+          {
+            "name": "Flowerbed 04",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1344.8631591796875,
+              159.47727966308594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2969775482.Paintable Wild Tulip Avoirrev_Data",
+    "base_neighbour": "Fallen Tree 04",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2969775482.Paintable Wild Tulip Avoirrev_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1363.3670654296875,
+            159.61788940429688,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 04",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1336.6329345703125,
+            159.41810607910156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0459747314453,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 36.52749252319336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2969775482.Paintable Wild Tulip Avoirrev_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1363.3670654296875,
+              159.61788940429688,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 04",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1336.6329345703125,
+              159.41810607910156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

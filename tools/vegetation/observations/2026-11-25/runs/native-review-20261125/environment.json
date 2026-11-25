@@ -1,0 +1,113 @@
+{
+  "cpu_cores": 24,
+  "uptime": "15:06:41 up 20 days, 29 min, 50 users,  load average: 9.02, 5.50, 6.42",
+  "native_status": {
+    "protocol": 1,
+    "scene": "Game",
+    "in_game": true,
+    "in_asset_editor": false,
+    "modal": {
+      "count": 1,
+      "top": "(Library) ExceptionPanel",
+      "top_visible": true
+    },
+    "color_space": "Linear",
+    "safe_readback": {
+      "installed": false,
+      "reads": 0,
+      "from_cpu": 0,
+      "from_gpu": 0
+    },
+    "mode": "Game",
+    "loading": false,
+    "loading_complete": true,
+    "unity": "5.6.7f1",
+    "gpu": "NVIDIA GeForce RTX 3090/PCIe/SSE2",
+    "gpu_memory_mb": 24576,
+    "screen": [
+      1920,
+      1080
+    ],
+    "fixed_delta_time": 0.01666666753590107,
+    "frame_ms": 80.44994354248047,
+    "render_fps": 12.430089950561523,
+    "enabled_mod_count": 0,
+    "plugins": [
+      {
+        "name": "HardMode",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+      },
+      {
+        "name": "UnlimitedMoney",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+      },
+      {
+        "name": "UnlimitedOilAndOre",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+      },
+      {
+        "name": "UnlimitedSoil",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+      },
+      {
+        "name": "UnlockAll",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+      },
+      {
+        "name": "CitiesBridge",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+      },
+      {
+        "name": "Cs1Harness",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+      }
+    ],
+    "error_count": 16,
+    "errors": [
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Custom Assets: 1886114743.Pin Oak Fall 2_Data: Duplicate prefab name\n  at PrefabCollection`1[TreeInfo].InitializePrefabImpl (System.String collection, .TreeInfo prefab, System.String replace) [0x00000] in <filename unknown>:0   [Core]",
+      "Error: Custom Assets: 1886114743.Pin Oak Fall 3_Data: Duplicate prefab name\n  at PrefabCollection`1[TreeInfo].InitializePrefabImpl (System.String collection, .TreeInfo prefab, System.String replace) [0x00000] in <filename unknown>:0   [Core]",
+      "Error: Custom Assets: 902947770.Green Lawn _Data: Duplicate prefab name\n  at PrefabCollection`1[TreeInfo].InitializePrefabImpl (System.String collection, .TreeInfo prefab, System.String replace) [0x00000] in <filename unknown>:0   [Core]",
+      "Error: Custom Assets: 902947770.Lawn Rich Green_Data: Duplicate prefab name\n  at PrefabCollection`1[TreeInfo].InitializePrefabImpl (System.String collection, .TreeInfo prefab, System.String replace) [0x00000] in <filename unknown>:0   [Core]",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Cannot set relative position without a parent Transform.",
+      "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+    ],
+    "frame": 9268930,
+    "game_time": "2026-11-25T15:05:56",
+    "paused": true,
+    "speed": 1,
+    "final_speed": 0,
+    "population": 0,
+    "buildings": 502,
+    "segments": 1742,
+    "citizens": 449,
+    "money": 7000000,
+    "sea_level": 81.26500701904297,
+    "ok": true
+  },
+  "driver_sha256": "b9183eeb051ff0c429ea05e0e7bb3f6ade9bbe60f93c4c62db2c6baed7716b68",
+  "inventory_sha256": "9beb7a21fabca4c3dbe570948750d5d2a16f1557ce48d011d8eb5f8c19db403e"
+}

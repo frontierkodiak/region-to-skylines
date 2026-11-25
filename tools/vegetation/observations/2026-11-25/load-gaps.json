@@ -1,0 +1,21 @@
+{
+  "2090182951.Papaya Plant_Data": {
+    "runs": [
+      "native-short-01",
+      "native-papaya-isolated"
+    ],
+    "result": "Staged and logged as loading, absent from TreeInfo/PropInfo catalog in both fresh default Temperate cities. No load pass; theme/settings restriction or asset defect not isolated. No personal settings changed."
+  },
+  "3841399938.Greenhouse Tomato Plant_Data": {
+    "runs": [
+      "native-short-05"
+    ],
+    "result": "No standalone matching TreeInfo/PropInfo loaded. The same item did load tomato plant_Data, which has separate native review. An embedded root is not automatically independently placeable."
+  },
+  "894451887.WildFlowerBush_Data": {
+    "runs": [
+      "native-short-05"
+    ],
+    "result": "Supplied package was staged but no matching loaded TreeInfo/PropInfo was catalogued in default Temperate city. Cause unresolved; no art or load pass inferred."
+  }
+}

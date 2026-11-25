@@ -1,0 +1,1164 @@
+{
+  "scope": "Typed TreeInfo/PropInfo roots only; native readable main versus maximum serialized bound mesh, not all package meshes",
+  "compared_roots": 2295,
+  "differences": [
+    {
+      "name": "1320151304.[prop] KR grass planter 1x1_Data",
+      "main_triangles": 36,
+      "serialized_mesh_triangle_max": 50,
+      "lod_triangles": 50,
+      "bound_meshes": [
+        {
+          "name": "Plane Instance",
+          "asset_name": "Plane Instance - 79b1e9871e870600a17ee9de61123a4d",
+          "checksum": "79b1e9871e870600a17ee9de61123a4d",
+          "triangles": 36,
+          "vertices": 72,
+          "size_m": [
+            4.0,
+            0.2882,
+            4.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 05e2a5c910f475eca672b7f44f3f8f40",
+          "checksum": "05e2a5c910f475eca672b7f44f3f8f40",
+          "triangles": 50,
+          "vertices": 100,
+          "size_m": [
+            4.0,
+            0.2882,
+            4.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1320151304.[prop] KR grass planter 1x2_Data",
+      "main_triangles": 36,
+      "serialized_mesh_triangle_max": 50,
+      "lod_triangles": 50,
+      "bound_meshes": [
+        {
+          "name": "Plane Instance",
+          "asset_name": "Plane Instance - 796687d06ad1ed0eefa89d5a7feb29e3",
+          "checksum": "796687d06ad1ed0eefa89d5a7feb29e3",
+          "triangles": 36,
+          "vertices": 72,
+          "size_m": [
+            4.0,
+            0.2882,
+            8.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - c118f3294fc95f9419c60ced676d5491",
+          "checksum": "c118f3294fc95f9419c60ced676d5491",
+          "triangles": 50,
+          "vertices": 100,
+          "size_m": [
+            4.0,
+            0.2882,
+            8.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1320151304.[prop] KR grass planter 1x4_Data",
+      "main_triangles": 36,
+      "serialized_mesh_triangle_max": 40,
+      "lod_triangles": 40,
+      "bound_meshes": [
+        {
+          "name": "Plane Instance",
+          "asset_name": "Plane Instance - 9f570acd34c976b096fa8b29fe2e1754",
+          "checksum": "9f570acd34c976b096fa8b29fe2e1754",
+          "triangles": 36,
+          "vertices": 72,
+          "size_m": [
+            16.0,
+            0.2882,
+            4.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - ad1a7478911b41e99efa49d5579becb2",
+          "checksum": "ad1a7478911b41e99efa49d5579becb2",
+          "triangles": 40,
+          "vertices": 80,
+          "size_m": [
+            16.0,
+            0.2882,
+            4.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1934808666.Pine fallen leaves B_Data",
+      "main_triangles": 40,
+      "serialized_mesh_triangle_max": 76,
+      "lod_triangles": 76,
+      "bound_meshes": [
+        {
+          "name": "Icosphere",
+          "asset_name": "Icosphere - e2911c3e00a73f0eba08b927274fe5ef",
+          "checksum": "e2911c3e00a73f0eba08b927274fe5ef",
+          "triangles": 40,
+          "vertices": 26,
+          "size_m": [
+            1.6629,
+            0.1563,
+            1.6212
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - b76b0e5c4cef26e14eeb459a31b0a2bd",
+          "checksum": "b76b0e5c4cef26e14eeb459a31b0a2bd",
+          "triangles": 76,
+          "vertices": 166,
+          "size_m": [
+            1.3453,
+            0.1206,
+            1.6212
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2560612802.wy-Botany006-B_Data",
+      "main_triangles": 60,
+      "serialized_mesh_triangle_max": 70,
+      "lod_triangles": 70,
+      "bound_meshes": [
+        {
+          "name": "Cylinder001",
+          "asset_name": "Cylinder001 - 52d8b0b5283346e5132d2bae6b0a5f00",
+          "checksum": "52d8b0b5283346e5132d2bae6b0a5f00",
+          "triangles": 60,
+          "vertices": 108,
+          "size_m": [
+            2.9054,
+            4.0487,
+            2.718
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - c6e15d4de4a94b8a968eca09ab2d98bf",
+          "checksum": "c6e15d4de4a94b8a968eca09ab2d98bf",
+          "triangles": 70,
+          "vertices": 150,
+          "size_m": [
+            2.7606,
+            4.0449,
+            2.3383
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2560612802.wy-Botany007-A_Data",
+      "main_triangles": 40,
+      "serialized_mesh_triangle_max": 74,
+      "lod_triangles": 74,
+      "bound_meshes": [
+        {
+          "name": "Sphere002",
+          "asset_name": "Sphere002 - d78198c1c9fb2098560706da2da65f5b",
+          "checksum": "d78198c1c9fb2098560706da2da65f5b",
+          "triangles": 40,
+          "vertices": 71,
+          "size_m": [
+            0.9028,
+            0.6562,
+            0.8937
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 78a73d2faaa9c9a51b0f796c737deb86",
+          "checksum": "78a73d2faaa9c9a51b0f796c737deb86",
+          "triangles": 74,
+          "vertices": 154,
+          "size_m": [
+            0.7739,
+            0.6562,
+            0.6809
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2560612802.wy-Botany007-B_Data",
+      "main_triangles": 40,
+      "serialized_mesh_triangle_max": 70,
+      "lod_triangles": 70,
+      "bound_meshes": [
+        {
+          "name": "Sphere002",
+          "asset_name": "Sphere002 - 72006b0363a49e854aee424269d1578e",
+          "checksum": "72006b0363a49e854aee424269d1578e",
+          "triangles": 40,
+          "vertices": 75,
+          "size_m": [
+            1.6151,
+            1.1841,
+            1.5152
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 01ba7b61a9e5464767c47b728027ac81",
+          "checksum": "01ba7b61a9e5464767c47b728027ac81",
+          "triangles": 70,
+          "vertices": 150,
+          "size_m": [
+            1.3844,
+            1.0714,
+            1.2988
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2560612802.wy-Botany007-C_Data",
+      "main_triangles": 40,
+      "serialized_mesh_triangle_max": 72,
+      "lod_triangles": 72,
+      "bound_meshes": [
+        {
+          "name": "Cylinder001",
+          "asset_name": "Cylinder001 - 395ae42515116205fc83045103d18dd0",
+          "checksum": "395ae42515116205fc83045103d18dd0",
+          "triangles": 40,
+          "vertices": 97,
+          "size_m": [
+            3.2286,
+            1.9197,
+            3.2167
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - e84fb37d4c330c65d920187ca4641cd8",
+          "checksum": "e84fb37d4c330c65d920187ca4641cd8",
+          "triangles": 72,
+          "vertices": 152,
+          "size_m": [
+            2.4599,
+            1.6455,
+            2.7571
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2812272434.abb Detail Grass Tuft_Data",
+      "main_triangles": 26,
+      "serialized_mesh_triangle_max": 76,
+      "lod_triangles": 76,
+      "bound_meshes": [
+        {
+          "name": "Cube.002",
+          "asset_name": "Cube.002 - 95f1014a33117f0f97ebad08f505717d",
+          "checksum": "95f1014a33117f0f97ebad08f505717d",
+          "triangles": 26,
+          "vertices": 35,
+          "size_m": [
+            1.1289,
+            0.6701,
+            1.1746
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 3003669e8a85ff0919dd079d27e49724",
+          "checksum": "3003669e8a85ff0919dd079d27e49724",
+          "triangles": 76,
+          "vertices": 166,
+          "size_m": [
+            0.8127,
+            0.5791,
+            0.7378
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2812272434.abb Detail Grass Tuft (Non-TC)_Data",
+      "main_triangles": 26,
+      "serialized_mesh_triangle_max": 76,
+      "lod_triangles": 76,
+      "bound_meshes": [
+        {
+          "name": "Cube.002",
+          "asset_name": "Cube.002 - 9035d906abc90c3727fb9f1534c35d67",
+          "checksum": "9035d906abc90c3727fb9f1534c35d67",
+          "triangles": 26,
+          "vertices": 35,
+          "size_m": [
+            1.1289,
+            0.6701,
+            1.1746
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - ad37b157218ad5a8154a873221b62e9c",
+          "checksum": "ad37b157218ad5a8154a873221b62e9c",
+          "triangles": 76,
+          "vertices": 166,
+          "size_m": [
+            0.8127,
+            0.5791,
+            0.7378
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 1_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 2_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 3_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 4_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 5_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3785801374.Detail Leaves 6_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 10_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 11_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 12_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 13_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 14_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 15_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 16_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 17_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 18_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 7_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 8_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3787628166.Detail Leaves 9_Data",
+      "main_triangles": 2,
+      "serialized_mesh_triangle_max": 10,
+      "lod_triangles": 10,
+      "bound_meshes": [
+        {
+          "name": "915040736.Graffiti - USA three - Decal",
+          "asset_name": "915040736.Graffiti - USA three - Decal - a6e8af4a56f4f9c9c4b54adcf9552829",
+          "checksum": "a6e8af4a56f4f9c9c4b54adcf9552829",
+          "triangles": 2,
+          "vertices": 4,
+          "size_m": [
+            4.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 5ded34439d579434c05645595dc431b9",
+          "checksum": "5ded34439d579434c05645595dc431b9",
+          "triangles": 10,
+          "vertices": 20,
+          "size_m": [
+            0.1905,
+            0.0,
+            0.9524
+          ]
+        }
+      ]
+    },
+    {
+      "name": "672900752.Treebed prop v2_Data",
+      "main_triangles": 60,
+      "serialized_mesh_triangle_max": 78,
+      "lod_triangles": 78,
+      "bound_meshes": [
+        {
+          "name": "SketchUp.001 Instance",
+          "asset_name": "SketchUp.001 Instance - 752ab8eebaca639cb2f37d3032a2db7b",
+          "checksum": "752ab8eebaca639cb2f37d3032a2db7b",
+          "triangles": 60,
+          "vertices": 170,
+          "size_m": [
+            2.8574,
+            0.143,
+            2.8574
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 873218189c5c2347a7ee1d0dcf587a58",
+          "checksum": "873218189c5c2347a7ee1d0dcf587a58",
+          "triangles": 78,
+          "vertices": 158,
+          "size_m": [
+            2.8574,
+            0.143,
+            2.5853
+          ]
+        }
+      ]
+    },
+    {
+      "name": "808985010.planter-white-square_Data",
+      "main_triangles": 30,
+      "serialized_mesh_triangle_max": 50,
+      "lod_triangles": 50,
+      "bound_meshes": [
+        {
+          "name": "Layer0_001 Instance",
+          "asset_name": "Layer0_001 Instance - 80f01201b022f1d34bb55a9d5cf19841",
+          "checksum": "80f01201b022f1d34bb55a9d5cf19841",
+          "triangles": 30,
+          "vertices": 50,
+          "size_m": [
+            2.378,
+            0.9409,
+            2.378
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - e5028bc6388a83c0801d29c69262a3ac",
+          "checksum": "e5028bc6388a83c0801d29c69262a3ac",
+          "triangles": 50,
+          "vertices": 100,
+          "size_m": [
+            2.378,
+            0.9409,
+            2.378
+          ]
+        }
+      ]
+    },
+    {
+      "name": "808986703.planter-metal-square_Data",
+      "main_triangles": 30,
+      "serialized_mesh_triangle_max": 50,
+      "lod_triangles": 50,
+      "bound_meshes": [
+        {
+          "name": "Layer0_001 Instance",
+          "asset_name": "Layer0_001 Instance - e7efd3d1fec2b0ebe11f12dd03fcdf47",
+          "checksum": "e7efd3d1fec2b0ebe11f12dd03fcdf47",
+          "triangles": 30,
+          "vertices": 50,
+          "size_m": [
+            2.378,
+            0.9409,
+            2.378
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 2c6f46aaaa07a11d990f6466a7f92f47",
+          "checksum": "2c6f46aaaa07a11d990f6466a7f92f47",
+          "triangles": 50,
+          "vertices": 100,
+          "size_m": [
+            2.378,
+            0.9409,
+            2.378
+          ]
+        }
+      ]
+    },
+    {
+      "name": "810221081.Decal Grass 01_Data",
+      "main_triangles": 12,
+      "serialized_mesh_triangle_max": 30,
+      "lod_triangles": 30,
+      "bound_meshes": [
+        {
+          "name": "Cube Instance",
+          "asset_name": "Cube Instance - a8f9366fe1cb4171b9574a56cab5e0e0",
+          "checksum": "a8f9366fe1cb4171b9574a56cab5e0e0",
+          "triangles": 12,
+          "vertices": 24,
+          "size_m": [
+            16.0,
+            8.0,
+            16.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - de84d3f4529a8696c1a8b78b9958510e",
+          "checksum": "de84d3f4529a8696c1a8b78b9958510e",
+          "triangles": 30,
+          "vertices": 60,
+          "size_m": [
+            16.0,
+            4.0,
+            16.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "810221653.Decal Grass 02_Data",
+      "main_triangles": 12,
+      "serialized_mesh_triangle_max": 30,
+      "lod_triangles": 30,
+      "bound_meshes": [
+        {
+          "name": "Cube Instance",
+          "asset_name": "Cube Instance - a8f9366fe1cb4171b9574a56cab5e0e0",
+          "checksum": "a8f9366fe1cb4171b9574a56cab5e0e0",
+          "triangles": 12,
+          "vertices": 24,
+          "size_m": [
+            16.0,
+            8.0,
+            16.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - de84d3f4529a8696c1a8b78b9958510e",
+          "checksum": "de84d3f4529a8696c1a8b78b9958510e",
+          "triangles": 30,
+          "vertices": 60,
+          "size_m": [
+            16.0,
+            4.0,
+            16.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "810222472.Decal Grass 03_Data",
+      "main_triangles": 12,
+      "serialized_mesh_triangle_max": 30,
+      "lod_triangles": 30,
+      "bound_meshes": [
+        {
+          "name": "Cube Instance",
+          "asset_name": "Cube Instance - a8f9366fe1cb4171b9574a56cab5e0e0",
+          "checksum": "a8f9366fe1cb4171b9574a56cab5e0e0",
+          "triangles": 12,
+          "vertices": 24,
+          "size_m": [
+            16.0,
+            8.0,
+            16.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - de84d3f4529a8696c1a8b78b9958510e",
+          "checksum": "de84d3f4529a8696c1a8b78b9958510e",
+          "triangles": 30,
+          "vertices": 60,
+          "size_m": [
+            16.0,
+            4.0,
+            16.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "810222980.Decal Rock 04_Data",
+      "main_triangles": 12,
+      "serialized_mesh_triangle_max": 48,
+      "lod_triangles": 48,
+      "bound_meshes": [
+        {
+          "name": "Cube Instance",
+          "asset_name": "Cube Instance - 227fe3b5a2f389227f40a4057994d88c",
+          "checksum": "227fe3b5a2f389227f40a4057994d88c",
+          "triangles": 12,
+          "vertices": 24,
+          "size_m": [
+            32.0,
+            32.0,
+            32.0
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - b28c033ac929b9d8e61641f49524a452",
+          "checksum": "b28c033ac929b9d8e61641f49524a452",
+          "triangles": 48,
+          "vertices": 98,
+          "size_m": [
+            32.0,
+            16.0,
+            32.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "876358399.Coral Mixed_Data",
+      "main_triangles": 32,
+      "serialized_mesh_triangle_max": 76,
+      "lod_triangles": 76,
+      "bound_meshes": [
+        {
+          "name": "Plane001 Instance",
+          "asset_name": "Plane001 Instance - 888aa3d5f5bc1dda17f3e6e8a0a2a08d",
+          "checksum": "888aa3d5f5bc1dda17f3e6e8a0a2a08d",
+          "triangles": 32,
+          "vertices": 25,
+          "size_m": [
+            24.0379,
+            2.0117,
+            21.0366
+          ]
+        },
+        {
+          "name": "",
+          "asset_name": " - 84180bd874027c30ff14b220117c27fe",
+          "checksum": "84180bd874027c30ff14b220117c27fe",
+          "triangles": 76,
+          "vertices": 166,
+          "size_m": [
+            20.5392,
+            0.7915,
+            18.7059
+          ]
+        }
+      ]
+    }
+  ],
+  "underestimates": 0,
+  "base_runtime_triangle_crosscheck": {
+    "loaded_roots": 89,
+    "readable_triangle_counts": 0,
+    "limits": "Native built-in triangle arrays are CPU-unreadable; no native/serialized triangle equality claim. The proposed bar uses the offline serialized main-mesh distribution."
+  }
+}

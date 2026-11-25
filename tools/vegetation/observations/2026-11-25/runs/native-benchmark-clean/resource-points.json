@@ -1,0 +1,482 @@
+[
+  {
+    "size": 350,
+    "repeat": 0,
+    "arm": "A-before",
+    "timestamp": 1795644694.1207328,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "61 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 0,
+    "arm": "B",
+    "timestamp": 1795644700.4041736,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "68 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 0,
+    "arm": "A-after",
+    "timestamp": 1795644706.0654278,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "49 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 1,
+    "arm": "A-before",
+    "timestamp": 1795644716.4188683,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "71 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 1,
+    "arm": "B",
+    "timestamp": 1795644727.279266,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "48 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 1,
+    "arm": "A-after",
+    "timestamp": 1795644733.797698,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "0 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 2,
+    "arm": "A-before",
+    "timestamp": 1795644742.3284566,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "61 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 2,
+    "arm": "B",
+    "timestamp": 1795644752.1748292,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "53 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 2,
+    "arm": "A-after",
+    "timestamp": 1795644757.1554322,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "45 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 3,
+    "arm": "A-before",
+    "timestamp": 1795644767.7110183,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "67 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 3,
+    "arm": "B",
+    "timestamp": 1795644777.1223245,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "47 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 3,
+    "arm": "A-after",
+    "timestamp": 1795644782.8784873,
+    "bus": "0b:00.0",
+    "board_memory": "12217 MiB",
+    "gpu_utilization": "70 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5244 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 4,
+    "arm": "A-before",
+    "timestamp": 1795644793.0855415,
+    "bus": "0b:00.0",
+    "board_memory": "12215 MiB",
+    "gpu_utilization": "61 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5241 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 4,
+    "arm": "B",
+    "timestamp": 1795644803.4520624,
+    "bus": "0b:00.0",
+    "board_memory": "12215 MiB",
+    "gpu_utilization": "43 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5241 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 350,
+    "repeat": 4,
+    "arm": "A-after",
+    "timestamp": 1795644808.4902282,
+    "bus": "0b:00.0",
+    "board_memory": "12215 MiB",
+    "gpu_utilization": "65 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5241 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 0,
+    "arm": "A-before",
+    "timestamp": 1795644818.5677376,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "51 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 0,
+    "arm": "B",
+    "timestamp": 1795644829.2608154,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "52 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 0,
+    "arm": "A-after",
+    "timestamp": 1795644835.1269698,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "59 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 1,
+    "arm": "A-before",
+    "timestamp": 1795644845.6785386,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "50 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 1,
+    "arm": "B",
+    "timestamp": 1795644856.1986587,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "53 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 1,
+    "arm": "A-after",
+    "timestamp": 1795644862.058872,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "46 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 2,
+    "arm": "A-before",
+    "timestamp": 1795644872.4095466,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "60 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 2,
+    "arm": "B",
+    "timestamp": 1795644882.7327247,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "57 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 2,
+    "arm": "A-after",
+    "timestamp": 1795644887.8057096,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "61 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 3,
+    "arm": "A-before",
+    "timestamp": 1795644898.5145912,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "67 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 3,
+    "arm": "B",
+    "timestamp": 1795644908.7182546,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "46 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 3,
+    "arm": "A-after",
+    "timestamp": 1795644914.57374,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "52 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 4,
+    "arm": "A-before",
+    "timestamp": 1795644924.938205,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "48 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 4,
+    "arm": "B",
+    "timestamp": 1795644934.7794697,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "36 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  },
+  {
+    "size": 1400,
+    "repeat": 4,
+    "arm": "A-after",
+    "timestamp": 1795644940.8592854,
+    "bus": "0b:00.0",
+    "board_memory": "12237 MiB",
+    "gpu_utilization": "51 %",
+    "game_processes": [
+      {
+        "pid": 630429,
+        "memory": "5263 MiB"
+      }
+    ],
+    "basis": "Point samples between arms, not continuous peaks or limiter attribution"
+  }
+]

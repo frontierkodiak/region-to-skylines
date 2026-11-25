@@ -1,0 +1,957 @@
+[
+  {
+    "name": "2560612802.wy-Botany027-A_Data",
+    "main": {
+      "triangles": 6,
+      "vertices": 12,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        4.080290794372559,
+        4.73944616317749,
+        4.7078857421875
+      ],
+      "size_m": [
+        4.383304119110107,
+        4.645719051361084,
+        5.153419494628906
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.153419494628906,
+        4.645719051361084,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.75,
+      1.100000023841858
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 12
+  },
+  {
+    "name": "908855626.twd2_Data",
+    "main": {
+      "triangles": 12,
+      "vertices": 24,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        7.099453449249268,
+        6.952064514160156,
+        7.177959442138672
+      ],
+      "size_m": [
+        7.228158473968506,
+        5.860408306121826,
+        7.190226078033447
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        7.228158473968506,
+        5.860408306121826,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      0.75,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 24
+  },
+  {
+    "name": "2510850916.SpireTree1_Data",
+    "main": {
+      "triangles": 24,
+      "vertices": 56,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        0.518767237663269,
+        7.4851861000061035,
+        0.518767237663269
+      ],
+      "size_m": [
+        0.518767237663269,
+        7.455935001373291,
+        0.518767237663269
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        0.518767237663269,
+        7.455935001373291,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 56
+  },
+  {
+    "name": "2958318403.Juda_Data",
+    "main": {
+      "triangles": 45,
+      "vertices": 115,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.947670936584473,
+        6.052402019500732,
+        6.397488117218018
+      ],
+      "size_m": [
+        6.483535289764404,
+        5.887228012084961,
+        6.561188220977783
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        6.561188220977783,
+        5.887228012084961,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.8999999761581421,
+      1.25
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 115
+  },
+  {
+    "name": "1089035056.Forest Beech Shrub_Data",
+    "main": {
+      "triangles": 47,
+      "vertices": 75,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        6.981472492218018,
+        8.299174308776855,
+        7.640916347503662
+      ],
+      "size_m": [
+        7.781392574310303,
+        7.298088073730469,
+        8.087197303771973
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        8.087197303771973,
+        7.298088073730469,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.8500000238418579,
+      1.2999999523162842
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 75
+  },
+  {
+    "name": "417018751.Saguaro Spear_Data",
+    "main": {
+      "triangles": 72,
+      "vertices": 53,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.3692476749420166,
+        6.373333930969238,
+        1.5810705423355103
+      ],
+      "size_m": [
+        1.3692476749420166,
+        6.373333930969238,
+        1.5810705423355103
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.5810705423355103,
+        6.373333930969238,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 53
+  },
+  {
+    "name": "449134309.XAVE Conifer Medium_Data",
+    "main": {
+      "triangles": 90,
+      "vertices": 270,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        3.936886787414551,
+        6.593815803527832,
+        3.9358391761779785
+      ],
+      "size_m": [
+        4.085055351257324,
+        6.577068328857422,
+        3.9601151943206787
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        4.085055351257324,
+        6.577068328857422,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 256,
+        "height": 256
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 270
+  },
+  {
+    "name": "2814300052.Potatoe Street Tree (g) #01_Data",
+    "main": {
+      "triangles": 100,
+      "vertices": 202,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.903948783874512,
+        14.125965118408203,
+        9.692276954650879
+      ],
+      "size_m": [
+        10.87714958190918,
+        13.81917953491211,
+        10.140915870666504
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        10.87714958190918,
+        13.81917953491211,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.8500000238418579,
+      1
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 202
+  },
+  {
+    "name": "953999097.100_Data",
+    "main": {
+      "triangles": 100,
+      "vertices": 200,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.539430618286133,
+        10.170659065246582,
+        9.799312591552734
+      ],
+      "size_m": [
+        10.603171348571777,
+        10.108266830444336,
+        10.199663162231445
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        10.603171348571777,
+        10.108266830444336,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.6000000238418579,
+      1
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 200
+  },
+  {
+    "name": "815908280.Banner Open 02_Data",
+    "main": {
+      "triangles": 107,
+      "vertices": 155,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        2.2787883281707764,
+        4.435909271240234,
+        1.1313657760620117
+      ],
+      "size_m": [
+        3.430035352706909,
+        4.435909271240234,
+        1.1313703060150146
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        3.430035352706909,
+        4.435909271240234,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 256,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      1,
+      1
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 155
+  },
+  {
+    "name": "449133254.XAVE Conifer Tall_Data",
+    "main": {
+      "triangles": 110,
+      "vertices": 330,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        3.597942352294922,
+        8.281968116760254,
+        3.589118003845215
+      ],
+      "size_m": [
+        3.7455992698669434,
+        8.265220642089844,
+        3.627505302429199
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        3.7455992698669434,
+        8.265220642089844,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 256,
+        "height": 256
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 330
+  },
+  {
+    "name": "873455371.RiverReeds_Data",
+    "main": {
+      "triangles": 112,
+      "vertices": 224,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.571613311767578,
+        9.320979118347168,
+        9.118938446044922
+      ],
+      "size_m": [
+        9.897473335266113,
+        8.361664772033691,
+        9.162374496459961
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.897473335266113,
+        8.361664772033691,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.5,
+      0.6000000238418579
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 224
+  },
+  {
+    "name": "643570812.Pappeln kahl klein_Data",
+    "main": {
+      "triangles": 132,
+      "vertices": 124,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.2494170665740967,
+        5.261072158813477,
+        1.2485027313232422
+      ],
+      "size_m": [
+        1.259405255317688,
+        5.249863624572754,
+        1.3268970251083374
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.3268970251083374,
+        5.249863624572754,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 124
+  },
+  {
+    "name": "2242682818.Alder 03 8m_Data",
+    "main": {
+      "triangles": 133,
+      "vertices": 249,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.61114501953125,
+        8.731217384338379,
+        5.522851467132568
+      ],
+      "size_m": [
+        5.676734447479248,
+        8.651217460632324,
+        5.81376314163208
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.81376314163208,
+        8.651217460632324,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.800000011920929,
+      1.2000000476837158
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 249
+  },
+  {
+    "name": "2244341705.Autumn Alder 03 8m_Data",
+    "main": {
+      "triangles": 133,
+      "vertices": 249,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.61114501953125,
+        8.731217384338379,
+        5.522851467132568
+      ],
+      "size_m": [
+        5.676734447479248,
+        8.651217460632324,
+        5.81376314163208
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.81376314163208,
+        8.651217460632324,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.800000011920929,
+      1.2000000476837158
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 249
+  },
+  {
+    "name": "2245094593.Winter Alder 03 8m_Data",
+    "main": {
+      "triangles": 133,
+      "vertices": 249,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.61114501953125,
+        8.731217384338379,
+        5.522851467132568
+      ],
+      "size_m": [
+        5.676734447479248,
+        8.651217460632324,
+        5.81376314163208
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.81376314163208,
+        8.651217460632324,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.800000011920929,
+      1.2000000476837158
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 249
+  },
+  {
+    "name": "2066233072.Filler Pine 01_Data",
+    "main": {
+      "triangles": 139,
+      "vertices": 223,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        6.3068132400512695,
+        11.437296867370605,
+        6.844933032989502
+      ],
+      "size_m": [
+        6.586753845214844,
+        11.169957160949707,
+        7.170221328735352
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        7.170221328735352,
+        11.169957160949707,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      1,
+      1.7000000476837158
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 223
+  },
+  {
+    "name": "974559467.Med-stubby_Conifer_Green_Data",
+    "main": {
+      "triangles": 143,
+      "vertices": 249,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        2.6944117546081543,
+        4.202451705932617,
+        2.8092474937438965
+      ],
+      "size_m": [
+        2.765782117843628,
+        4.082930564880371,
+        2.933577060699463
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        2.933577060699463,
+        4.082930564880371,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      1,
+      1.100000023841858
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 249
+  },
+  {
+    "name": "418915888.Pappeln jung_Data",
+    "main": {
+      "triangles": 150,
+      "vertices": 157,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.3663898706436157,
+        4.9325642585754395,
+        1.376924991607666
+      ],
+      "size_m": [
+        1.3949635028839111,
+        4.926479339599609,
+        1.4233416318893433
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        1.4233416318893433,
+        4.926479339599609,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      2.5
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 157
+  },
+  {
+    "name": "441825230.Bamboo Tree_Data",
+    "main": {
+      "triangles": 153,
+      "vertices": 229,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.468106269836426,
+        8.061880111694336,
+        4.954367637634277
+      ],
+      "size_m": [
+        5.468106746673584,
+        8.061880111694336,
+        4.954367637634277
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        5.468106746673584,
+        8.061880111694336,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 512,
+        "height": 512
+      }
+    ],
+    "scale_range": [
+      0.5,
+      2.5
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 229
+  }
+]

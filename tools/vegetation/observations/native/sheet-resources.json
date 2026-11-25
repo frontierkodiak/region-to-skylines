@@ -1,0 +1,2044 @@
+[
+  {
+    "utc": "2026-11-24T01:17:39Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 1630
+      }
+    ],
+    "board": {
+      "temperature_c": 38.0,
+      "power_w": 29.25,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 12.0,
+      "memory_used_mib": 9777.0,
+      "graphics_clock_mhz": 600.0
+    },
+    "process_cpu_rss": "1584814 90.4 2999396"
+  },
+  {
+    "utc": "2026-11-24T01:17:44Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2465
+      }
+    ],
+    "board": {
+      "temperature_c": 41.0,
+      "power_w": 93.88,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 33.0,
+      "memory_used_mib": 10638.0,
+      "graphics_clock_mhz": 1890.0
+    },
+    "process_cpu_rss": "1584814  112 4197304"
+  },
+  {
+    "utc": "2026-11-24T01:17:50Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2671
+      }
+    ],
+    "board": {
+      "temperature_c": 41.0,
+      "power_w": 70.02,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 33.0,
+      "memory_used_mib": 10819.0,
+      "graphics_clock_mhz": 1440.0
+    },
+    "process_cpu_rss": "1584814  128 4468692"
+  },
+  {
+    "utc": "2026-11-24T01:17:55Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2673
+      }
+    ],
+    "board": {
+      "temperature_c": 39.0,
+      "power_w": 22.61,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 5.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 315.0
+    },
+    "process_cpu_rss": "1584814  143 4487352"
+  },
+  {
+    "utc": "2026-11-24T01:18:01Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2673
+      }
+    ],
+    "board": {
+      "temperature_c": 41.0,
+      "power_w": 75.21,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 34.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 1680.0
+    },
+    "process_cpu_rss": "1584814  155 4750636"
+  },
+  {
+    "utc": "2026-11-24T01:18:06Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2673
+      }
+    ],
+    "board": {
+      "temperature_c": 42.0,
+      "power_w": 87.35,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 37.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  170 6824384"
+  },
+  {
+    "utc": "2026-11-24T01:18:11Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2673
+      }
+    ],
+    "board": {
+      "temperature_c": 44.0,
+      "power_w": 84.16,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 9.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 1875.0
+    },
+    "process_cpu_rss": "1584814  196 7433928"
+  },
+  {
+    "utc": "2026-11-24T01:18:17Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2673
+      }
+    ],
+    "board": {
+      "temperature_c": 41.0,
+      "power_w": 25.72,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 0.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 660.0
+    },
+    "process_cpu_rss": "1584814  217 7490456"
+  },
+  {
+    "utc": "2026-11-24T01:18:22Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2672
+      }
+    ],
+    "board": {
+      "temperature_c": 47.0,
+      "power_w": 113.89,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 98.0,
+      "memory_used_mib": 10821.0,
+      "graphics_clock_mhz": 1875.0
+    },
+    "process_cpu_rss": "1584814  235 7566356"
+  },
+  {
+    "utc": "2026-11-24T01:18:28Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2602
+      }
+    ],
+    "board": {
+      "temperature_c": 48.0,
+      "power_w": 114.95,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10752.0,
+      "graphics_clock_mhz": 1860.0
+    },
+    "process_cpu_rss": "1584814  253 7569136"
+  },
+  {
+    "utc": "2026-11-24T01:18:34Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2589
+      }
+    ],
+    "board": {
+      "temperature_c": 50.0,
+      "power_w": 117.83,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10739.0,
+      "graphics_clock_mhz": 1860.0
+    },
+    "process_cpu_rss": "1584814  265 7589844"
+  },
+  {
+    "utc": "2026-11-24T01:18:40Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2589
+      }
+    ],
+    "board": {
+      "temperature_c": 51.0,
+      "power_w": 117.69,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10739.0,
+      "graphics_clock_mhz": 1860.0
+    },
+    "process_cpu_rss": "1584814  278 7602400"
+  },
+  {
+    "utc": "2026-11-24T01:18:45Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2589
+      }
+    ],
+    "board": {
+      "temperature_c": 52.0,
+      "power_w": 120.9,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10739.0,
+      "graphics_clock_mhz": 1860.0
+    },
+    "process_cpu_rss": "1584814  287 7614616"
+  },
+  {
+    "utc": "2026-11-24T01:18:51Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2589
+      }
+    ],
+    "board": {
+      "temperature_c": 53.0,
+      "power_w": 119.46,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10739.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  298 7626892"
+  },
+  {
+    "utc": "2026-11-24T01:18:57Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 54.0,
+      "power_w": 120.37,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  305 7639120"
+  },
+  {
+    "utc": "2026-11-24T01:19:02Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 55.0,
+      "power_w": 123.39,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  315 7651600"
+  },
+  {
+    "utc": "2026-11-24T01:19:08Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 56.0,
+      "power_w": 121.32,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 98.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  320 7667468"
+  },
+  {
+    "utc": "2026-11-24T01:19:14Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 56.0,
+      "power_w": 124.45,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  327 7680216"
+  },
+  {
+    "utc": "2026-11-24T01:19:19Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 56.0,
+      "power_w": 123.43,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  332 7692332"
+  },
+  {
+    "utc": "2026-11-24T01:19:25Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 57.0,
+      "power_w": 123.76,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 98.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  338 7704716"
+  },
+  {
+    "utc": "2026-11-24T01:19:31Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 57.0,
+      "power_w": 121.47,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  342 7712472"
+  },
+  {
+    "utc": "2026-11-24T01:19:37Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 58.0,
+      "power_w": 127.44,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  347 7729416"
+  },
+  {
+    "utc": "2026-11-24T01:19:42Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 58.0,
+      "power_w": 125.61,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  351 7729428"
+  },
+  {
+    "utc": "2026-11-24T01:19:48Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 59.0,
+      "power_w": 124.48,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  356 7732736"
+  },
+  {
+    "utc": "2026-11-24T01:19:54Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 59.0,
+      "power_w": 128.67,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  360 7743112"
+  },
+  {
+    "utc": "2026-11-24T01:19:59Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 59.0,
+      "power_w": 127.36,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  363 7746436"
+  },
+  {
+    "utc": "2026-11-24T01:20:05Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 59.0,
+      "power_w": 127.59,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  367 7758980"
+  },
+  {
+    "utc": "2026-11-24T01:20:11Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 60.0,
+      "power_w": 128.21,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  370 7762320"
+  },
+  {
+    "utc": "2026-11-24T01:20:16Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 60.0,
+      "power_w": 129.22,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  374 7766080"
+  },
+  {
+    "utc": "2026-11-24T01:20:22Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 60.0,
+      "power_w": 128.09,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  376 7778004"
+  },
+  {
+    "utc": "2026-11-24T01:20:28Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 60.0,
+      "power_w": 128.93,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  380 7790524"
+  },
+  {
+    "utc": "2026-11-24T01:20:34Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 60.0,
+      "power_w": 127.09,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  384 7790536"
+  },
+  {
+    "utc": "2026-11-24T01:20:40Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.09,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  387 7790552"
+  },
+  {
+    "utc": "2026-11-24T01:20:45Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 129.15,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  390 7790564"
+  },
+  {
+    "utc": "2026-11-24T01:20:51Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.19,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  393 7790576"
+  },
+  {
+    "utc": "2026-11-24T01:20:57Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.99,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  396 7790592"
+  },
+  {
+    "utc": "2026-11-24T01:21:03Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.74,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  398 7790604"
+  },
+  {
+    "utc": "2026-11-24T01:21:09Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.16,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  401 7790620"
+  },
+  {
+    "utc": "2026-11-24T01:21:15Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.76,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  403 7790632"
+  },
+  {
+    "utc": "2026-11-24T01:21:20Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 129.14,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  405 7790648"
+  },
+  {
+    "utc": "2026-11-24T01:21:26Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 129.24,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  407 7790660"
+  },
+  {
+    "utc": "2026-11-24T01:21:32Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 129.38,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  410 7790672"
+  },
+  {
+    "utc": "2026-11-24T01:21:38Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 129.03,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  412 7790688"
+  },
+  {
+    "utc": "2026-11-24T01:21:44Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.58,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  414 7790700"
+  },
+  {
+    "utc": "2026-11-24T01:21:50Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.71,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  416 7790716"
+  },
+  {
+    "utc": "2026-11-24T01:21:55Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.75,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  418 7790732"
+  },
+  {
+    "utc": "2026-11-24T01:22:01Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.62,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  419 7790748"
+  },
+  {
+    "utc": "2026-11-24T01:22:07Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.46,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  420 7790768"
+  },
+  {
+    "utc": "2026-11-24T01:22:13Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.96,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  421 7790784"
+  },
+  {
+    "utc": "2026-11-24T01:22:18Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.77,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  422 7790800"
+  },
+  {
+    "utc": "2026-11-24T01:22:24Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.81,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  423 7791120"
+  },
+  {
+    "utc": "2026-11-24T01:22:30Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.46,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 98.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  425 7791164"
+  },
+  {
+    "utc": "2026-11-24T01:22:35Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.61,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  425 7791184"
+  },
+  {
+    "utc": "2026-11-24T01:22:41Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.16,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  426 7803688"
+  },
+  {
+    "utc": "2026-11-24T01:22:47Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.25,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  427 7807076"
+  },
+  {
+    "utc": "2026-11-24T01:22:52Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.38,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  428 7807372"
+  },
+  {
+    "utc": "2026-11-24T01:22:58Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.06,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  428 7807388"
+  },
+  {
+    "utc": "2026-11-24T01:23:04Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.63,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  429 7819660"
+  },
+  {
+    "utc": "2026-11-24T01:23:09Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.48,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  430 7819676"
+  },
+  {
+    "utc": "2026-11-24T01:23:15Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.04,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  431 7819688"
+  },
+  {
+    "utc": "2026-11-24T01:23:21Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.33,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  432 7819964"
+  },
+  {
+    "utc": "2026-11-24T01:23:27Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.83,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  432 7819976"
+  },
+  {
+    "utc": "2026-11-24T01:23:32Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.62,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  434 7819996"
+  },
+  {
+    "utc": "2026-11-24T01:23:38Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.38,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  434 7820008"
+  },
+  {
+    "utc": "2026-11-24T01:23:44Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.06,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  435 7820024"
+  },
+  {
+    "utc": "2026-11-24T01:23:49Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.37,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  435 7820040"
+  },
+  {
+    "utc": "2026-11-24T01:23:55Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.37,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  436 7820056"
+  },
+  {
+    "utc": "2026-11-24T01:24:01Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.91,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  436 7820348"
+  },
+  {
+    "utc": "2026-11-24T01:24:07Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 128.72,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 60.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  437 7832564"
+  },
+  {
+    "utc": "2026-11-24T01:24:12Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.29,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  437 7832584"
+  },
+  {
+    "utc": "2026-11-24T01:24:18Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.69,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  438 7832592"
+  },
+  {
+    "utc": "2026-11-24T01:24:24Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.66,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  438 7832612"
+  },
+  {
+    "utc": "2026-11-24T01:24:29Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.67,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  439 7832624"
+  },
+  {
+    "utc": "2026-11-24T01:24:35Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.07,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  439 7832640"
+  },
+  {
+    "utc": "2026-11-24T01:24:41Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.6,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  439 7832672"
+  },
+  {
+    "utc": "2026-11-24T01:24:47Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.89,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  440 7832688"
+  },
+  {
+    "utc": "2026-11-24T01:24:52Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 130.75,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  440 7832716"
+  },
+  {
+    "utc": "2026-11-24T01:24:58Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.7,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  441 7848536"
+  },
+  {
+    "utc": "2026-11-24T01:25:04Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.19,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  441 7848800"
+  },
+  {
+    "utc": "2026-11-24T01:25:09Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.98,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  442 7865148"
+  },
+  {
+    "utc": "2026-11-24T01:25:15Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.71,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  442 7865164"
+  },
+  {
+    "utc": "2026-11-24T01:25:21Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.91,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  443 7865228"
+  },
+  {
+    "utc": "2026-11-24T01:25:27Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.24,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  443 7865244"
+  },
+  {
+    "utc": "2026-11-24T01:25:32Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.32,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  443 7871856"
+  },
+  {
+    "utc": "2026-11-24T01:25:38Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.08,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  444 7872176"
+  },
+  {
+    "utc": "2026-11-24T01:25:44Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.52,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  444 7872192"
+  },
+  {
+    "utc": "2026-11-24T01:25:49Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.34,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  445 7872204"
+  },
+  {
+    "utc": "2026-11-24T01:25:55Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.24,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  445 7872220"
+  },
+  {
+    "utc": "2026-11-24T01:26:01Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.85,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  445 7872232"
+  },
+  {
+    "utc": "2026-11-24T01:26:06Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 61.0,
+      "power_w": 130.54,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  446 7872260"
+  },
+  {
+    "utc": "2026-11-24T01:26:12Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2592
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.31,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10741.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  446 7887984"
+  },
+  {
+    "utc": "2026-11-24T01:26:18Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 128.85,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  447 7888240"
+  },
+  {
+    "utc": "2026-11-24T01:26:24Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.84,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  448 7888256"
+  },
+  {
+    "utc": "2026-11-24T01:26:29Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 62.0,
+      "power_w": 129.35,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 99.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  448 7888268"
+  },
+  {
+    "utc": "2026-11-24T01:26:35Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2588
+      }
+    ],
+    "board": {
+      "temperature_c": 54.0,
+      "power_w": 126.33,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 0.0,
+      "memory_used_mib": 10738.0,
+      "graphics_clock_mhz": 1845.0
+    },
+    "process_cpu_rss": "1584814  449 7888792"
+  },
+  {
+    "utc": "2026-11-24T01:26:41Z",
+    "game": [
+      {
+        "bus": "05:00.0",
+        "pid": 1584814,
+        "type": "G",
+        "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "mib": 2584
+      }
+    ],
+    "board": {
+      "temperature_c": 51.0,
+      "power_w": 24.33,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 0.0,
+      "memory_used_mib": 10734.0,
+      "graphics_clock_mhz": 300.0
+    },
+    "process_cpu_rss": "1584814  447 7687804"
+  },
+  {
+    "utc": "2026-11-24T01:26:54Z",
+    "game": [],
+    "board": {
+      "temperature_c": 47.0,
+      "power_w": 24.45,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 0.0,
+      "memory_used_mib": 8146.0,
+      "graphics_clock_mhz": 615.0
+    },
+    "process_cpu_rss": "1584814  440     0"
+  },
+  {
+    "utc": "2026-11-24T01:26:59Z",
+    "game": [],
+    "board": {
+      "temperature_c": 46.0,
+      "power_w": 22.02,
+      "power_limit_w": 200.0,
+      "gpu_util_percent": 0.0,
+      "memory_used_mib": 8146.0,
+      "graphics_clock_mhz": 300.0
+    },
+    "process_cpu_rss": ""
+  }
+]

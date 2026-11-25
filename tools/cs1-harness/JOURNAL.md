@@ -1,5 +1,42 @@
 # cs1-harness journal
 
+## 2026-11-23 — PL-1326 vegetation inventory and reference timing (blade)
+
+Added loaded-tree metrics, disposable retarget/pair jobs and uncapped wall-frame
+sampling. Build e9b720c1 uses game assembly c7f0e723; source hashes are in
+`tools/vegetation/observations/native/build.json`. GPU-only meshes report null
+CPU triangle/colour counts, not invented zeros; generated physical size is
+separate from inflated renderer bounds. Forest-camera selection stays inside
+the rendered interior and the driver verifies dry terrain and actual pixels.
+
+Accepted native-5: Grand River, fixed noon/paused, 139362 trees, Conifer2 versus
+cached Lodgepole Pine03 19m. Five A/B/A repetitions at camera sizes350/1400,
+120 warm-up and300 samples per arm. Paired p95 deltas +4.84%/+1.91%; max A/A
+drift1.13%/4.03%. Limiter unknown: **inconclusive, not asset certification**.
+RTX2080Ti PCI05:00.0, 121 resource samples: total peak10821MiB, game2673MiB,
+148.18W,65°C; observed unchanged limit200W (not the older documented150W).
+Controller window18m04s including queue/load. Three pre-existing serialization
+errors unchanged; receipt cleanup and installed-copy checks empty. No save,
+new login, download, subscription, carbon game or power-setting change.
+
+Attempts1/3 ended at menu (wait-predicate/map-alias bugs);2 was cancelled while
+queued. Attempt4's outer decorative-world camera showed sky despite valid
+terrain hits, so its timings are excluded. All were collected and torn down.
+The surviving timing driver snapshot and input hashes accompany the observations.
+Attempt4's106 samples peaked at10821MiB total/2673MiB game,146.53W,66°C;
+these resource observations do not rehabilitate its rejected render timings.
+Attempts1–3 have no continuous peak/wall measurements;1 reached a1576MiB menu
+observation and2 never launched a game. Missing measurements remain unknown.
+
+Native-6 sheet supplement: same host/GPU, 98 samples, total10821MiB/game2673MiB,
+130.75W,62°C, unchanged200W cap; controller window28m12s including FIFO wait.
+Own controller was paused while an offline-guarded adapter recaptured20 pairs,
+then interrupted to invoke its context cleanup. Receipt cleanup empty, no
+offline-account error and the same three serialization errors. Some tall
+built-in crowns still clip at2× random scale; wide views are supplied. The
+subsequent maximum-scale/frustum fix has geometric test evidence, not another
+native recapture. The cached sheet is exploratory, not a visual-quality pass.
+
 ## 2026-11-21 — PL-1078 frozen capability witnesses and load references (blade)
 
 The original-eight player baseline was frozen before capability implementation:
@@ -3905,3 +3942,77 @@ pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
 of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
 display/bus context exited normally. The earlier eight-minute blocked attempt
 is not rewritten. Existing current-source build/Ruff receipts remain valid.
+
+## PL-1326 authenticated vegetation review checkpoint — 2026-11-25
+
+Blade only, RTX 3090 bus0b/egl1, fresh disposable Grand River cities, normal FIFO,
+offline Steam and carbon-idle guard. No player save, Workshop redistribution or
+carbon-native game. Current assembly `1b902079…`; loaded mod `279179268…`.
+
+| Run | Native PNGs | Sampler wall s | Board peak MiB / W / °C | Result |
+|---|---:|---:|---|---|
+| native-anchors | 21 | 200.123 | 12351.0 / 92.72 / 57.0 | 3 genus controls ×7 views; all3 identities retained through save/reload |
+| native-complete-01 | 0 | 165.104 | 15528.0 / 73.85 / 50.0 | Driver hash-variable bug before review; cleanup verified |
+| native-complete-01-b | 216 | 825.439 | 15361.0 / 95.46 / 62.0 | 216 near frames; screenshot RPC stall; exact owned game PID operator-terminated |
+| native-rest-01 | 200 | 530.3 | 12890.0 / 94.34 / 58.0 | Completed near-view census |
+| native-rest-02 | 200 | 520.262 | 12827.0 / 95.68 / 61.0 | Completed near-view census |
+| native-rest-03 | 199 | 510.285 | 12732.0 / 95.73 / 61.0 | Completed near-view census |
+| native-rest-04 | 198 | 515.261 | 12709.0 / 91.04 / 59.0 | Completed near-view census |
+| native-rest-05 | 143 | 415.27 | 12622.0 / 88.85 / 60.0 | 143 frames +1 placement error; completed |
+| native-review-20261125 | 382 | 1185.641 | 16136.0 / 117.67 / 62.0 | 374 near frames retained; all timing/limiter evidence rejected for broken-assets modal; later transport reset |
+| native-short-01 | 149 | 435.261 | 13636.0 / 92.0 / 61.0 | 149 near frames; Papaya staged but absent from loaded catalog |
+| native-short-02 | 0 | — | — / — / — | Carbon SSH guard inconclusive; ended before Steam/game launch |
+
+Board peaks include pre-existing shared-card users; per-game peak VRAM was not
+sampled and remains unknown. Menu process samples are not presented as peaks.
+Raw CSV digests, controller/module snapshots, image hashes, launch build and
+projected session/account-guard receipts are retained with the November25 data.
+All eleven attempts have empty game/Steam/unit teardown lists. The last stop
+is a network/idle-preflight blocker, not missing Steam permission.
+
+Verification: actual current-game mod build passed; native palette/save/reload
+exercised; blade harness170/170 and vegetation14/14 tests, npm20/20, Ruff70 files.
+Current-head doctor passed after the FIFO cleared (2080Ti bus05/egl0;8180MiB
+pre-existing board use of11264MiB). Doctor launched no Steam/game. The earlier
+doctor attempt exited75 behind older FIFO requests; it is not rewritten.
+Full twenty-tree sheet and clean current-build A/B/A remain pending.
+
+Published current shelf: 11/11 Playwright checks pass at the real trailing-slash
+URL, including best-biome selection, qualified near-art filter, genus handback,
+hostile-title escaping and mobile overflow. The current 20-tree gallery is absent
+and is not counted as a passed image check.
+
+## PL-1326 authenticated vegetation completion — 2026-11-25
+
+Supersedes the pending capture/benchmark state in the checkpoint above.
+All runs below used blade RTX 3090 bus 0b/egl1, not the doctor’s 2080 Ti.
+
+| Run | Native PNGs | Sampler wall seconds | Board sampled peak MiB / W / °C | Result |
+|---|---:|---:|---|---|
+| native-short-02b | 150 | 450.231 | 13703.0 / 93.7 / 56.0 | 150 near views; completed |
+| native-short-03 | 150 | 425.222 | 13354.0 / 92.48 / 59.0 | 150 near views; completed |
+| native-short-04 | 150 | 435.223 | 13275.0 / 94.1 / 61.0 | 150 near views; completed |
+| native-short-05 | 149 | 435.241 | 12838.0 / 95.39 / 61.0 | 149 near views; completed |
+| native-short-06 | 18 | 195.102 | 12468.0 / 89.25 / 50.0 | 18 near views; completed |
+| native-benchmark-clean | 8 | 460.238 | 12380.0 / 108.29 / 62.0 | 30 clean A/B/A arms; >5% drift; inconclusive |
+| native-papaya-isolated | 0 | 145.075 | 12389.0 / 75.72 / 56.0 | Isolated Papaya absence; no load pass |
+| native-final-20 | 125 | 560.293 | 12775.0 / 94.21 / 61.0 | 17 complete comparisons; camera-settling stop |
+| native-final-20-b | 98 | 570.278 | 12775.0 / 95.11 / 61.0 | 14 complete comparisons; camera RPC timeout; owned game terminated |
+| native-tail-three | 21 | 235.125 | 12524.0 / 89.93 / 51.0 | 3 complete comparisons + stable three-identity save/reload |
+| native-palette-save-only | 0 | 165.093 | 12845.0 / 73.36 / 48.0 | Stable twenty-identity save/reload; no capture loop |
+
+All 22 attempts have empty game/Steam/unit teardown lists. Board peaks include
+pre-existing shared users; continuous per-game peak remains unknown. The clean
+benchmark’s between-arm Cities.x64 samples were 5,241–5,263 MiB, not peak VRAM.
+The delivered 140-image sheet explicitly composes completed seven-view captures
+from three named source sessions. A separate session saved/reloaded exactly one
+of each of all 20 identities. No stopped full-sheet attempt is claimed complete.
+Redwood’s black/blocky transition reproduced when tested first in a fresh slot.
+Controllers, projected receipts, source-image hashes and composition metadata
+are pinned in observations/2026-11-25. Capture plans now cap multi-view batches
+at five trees; twenty-identity maintenance uses save_only.
+Vegetation 15/15, Ruff 70 files, real native captures and separate palette save/reload
+verify the changed path; earlier harness 170/170 / npm 20/20/build/doctor remain valid.
+
+Live final shelf: 12 Playwright checks passed, including decoding all 140 native
+comparison images and capturing the twenty-tree sheet; desktop/mobile inspected.

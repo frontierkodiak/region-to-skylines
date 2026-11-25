@@ -1,0 +1,112 @@
+{
+  "source": "TerrainManager.SampleRawHeightSmooth/world camera",
+  "points": [],
+  "frame": 9268930,
+  "camera": {
+    "current_position": [
+      -1350,
+      159.52206420898438,
+      -1350
+    ],
+    "current_size": 350,
+    "current_height": 0,
+    "current_angle_degrees": [
+      0,
+      50
+    ],
+    "target_position": [
+      -1350,
+      189.4415283203125,
+      -1350
+    ],
+    "target_size": 350,
+    "target_angle_degrees": [
+      0,
+      50
+    ],
+    "render_position": [
+      -1350,
+      430.1794128417969,
+      -1574.9755859375
+    ],
+    "render_forward": [
+      0,
+      -0.7660446166992188,
+      0.6427874565124512
+    ],
+    "render_up": [
+      0,
+      0.6427874565124512,
+      0.7660446166992188
+    ],
+    "render_euler_degrees": [
+      50.00001525878906,
+      0,
+      0
+    ],
+    "field_of_view_degrees": 45,
+    "aspect": 1.7777777910232544,
+    "pixel_width": 1920,
+    "pixel_height": 1080,
+    "screen_width": 1920,
+    "screen_height": 1080,
+    "pixel_rect": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "render_heading_degrees": 0,
+    "areas_visible": false
+  },
+  "screen_points": [
+    {
+      "name": "center",
+      "screen_top_left": [
+        960,
+        540
+      ],
+      "ray_origin": [
+        -1349.9998779296875,
+        426.34918212890625,
+        -1571.7615966796875
+      ],
+      "ray_direction": [
+        1.4770506822969764e-05,
+        -0.7660369277000427,
+        0.642796516418457
+      ],
+      "hit": true,
+      "method": "native Camera.ScreenPointToRay + TerrainManager.SampleRawHeightSmooth ray march/bisection",
+      "world_position": [
+        -1349.9947509765625,
+        159.462890625,
+        -1347.8121337890625
+      ],
+      "native_terrain_height_m": 159.46287536621094,
+      "water": {
+        "wet": false,
+        "ground": 159.453125,
+        "surface": 0,
+        "depth_m": 0,
+        "velocity": [
+          0,
+          0,
+          0
+        ]
+      },
+      "projected_screen_bottom_left": [
+        960.0195922851562,
+        540.015625,
+        353.398681640625
+      ]
+    }
+  ],
+  "ok": true,
+  "frame_image": {
+    "width": 1920,
+    "height": 1080,
+    "blue_pixel_fraction": 0.025961538461538463,
+    "sha256": "cc585cf08cb4613e69bbdb285770e29ba5cac6fe7e402641032b806d4c885489"
+  }
+}

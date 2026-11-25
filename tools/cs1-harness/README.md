@@ -100,6 +100,15 @@ The ops are usable one by one: `asset_editor`, `templates`, `asset_build`,
 `save_game`, `load_game` (`call ops` has a line on each). Long ones run as a
 job in the mod; poll `call job`.
 
+## Vegetation observations
+
+`../vegetation/native.py` runs the loaded-tree catalog, fixed-population A/B/A
+timing and paired native specimen views. `vegetation_catalog` is read-only;
+`vegetation_retarget`, `vegetation_pair` and `vegetation_frames` are jobs polled
+through `job`. The pair job clears the current city's trees. Use only a new
+disposable city through the driver, never a player city. See the vegetation
+README for cached-only inputs, offline guards, teardown and evidence limits.
+
 ## Files
 
 `--template auto:Commercial:CommercialLow` and
