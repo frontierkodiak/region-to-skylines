@@ -1,0 +1,1496 @@
+{
+  "issue": "PL-1326",
+  "consumer": "PL-1328",
+  "host": "blade",
+  "assembly_sha256": "1b902079cc437ee2eb19cf07b778d2b60b3587e3dbffb4c6338d6ec0c47b3a3e",
+  "index_sha256": "a89e6ae853e2849b2dbd59d61464e9f182c9a5c30213b5d00dae0eb6ff7e5ad2",
+  "scope": "Existing local Workshop references; never redistribute CRPs, meshes or textures",
+  "bioclip_qualification": "not_run",
+  "bioclip_scope": "No reference is claimed to have passed the downstream classifier gate",
+  "genera": {
+    "Gleditsia": {
+      "status": "no_vetted_match",
+      "reference": null,
+      "evidence": "Authenticated genus search returned zero; bounded discovery title/description review found no honey-locust match. Not an exhaustive absence claim."
+    },
+    "Tilia": {
+      "status": "native_reference_with_qualifications",
+      "best_intrinsic_size_match": {
+        "loaded_prefab": "2928288862.Kaiserlinde 16m_Data",
+        "workshop_id": "2928288862",
+        "title": "Kaiserlinde tree",
+        "author": "AmiPolizeiFunk",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2928288862",
+        "selection_reason": "16.48 m generated height, random scale 0.86\u20131.11; closest intrinsic ~15 m control",
+        "crp_containers": [
+          {
+            "file": "kaiserlinde-16m.crp",
+            "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2928288862/kaiserlinde-16m.crp",
+            "sha256": "bec2cc7f0ace5518a285f6371409bbcdf36a03687e4911cc7b4a4ba04f592844",
+            "checksum_mismatches": []
+          }
+        ],
+        "native": {
+          "name": "2928288862.Kaiserlinde 16m_Data",
+          "main": {
+            "triangles": 2238,
+            "vertices": 2562,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              11.491754531860352,
+              16.678585052490234,
+              10.467813491821289
+            ],
+            "size_m": [
+              12.306047439575195,
+              16.478586196899414,
+              11.232094764709473
+            ],
+            "size_basis": "TreeInfoGen.m_size, before instance random scale"
+          },
+          "lod": {
+            "triangles": 2,
+            "vertices": 4,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              12.306047439575195,
+              16.478586196899414,
+              0
+            ]
+          },
+          "textures": [
+            {
+              "channel": "_MainTex",
+              "width": 2048,
+              "height": 1024
+            },
+            {
+              "channel": "_XYCAMap",
+              "width": 2048,
+              "height": 1024
+            }
+          ],
+          "scale_range": [
+            0.8600000143051147,
+            1.1100000143051147
+          ],
+          "shader": "Custom/Trees/Default",
+          "lod_distance_m": 300,
+          "vertex_color_count": 2562,
+          "source_run": "native-anchors"
+        },
+        "dependencies": [],
+        "dependency_closure": [],
+        "unresolved_dependencies": [],
+        "required_mods": [],
+        "dependency_status": "steamworks_children_checked",
+        "near_review": {
+          "kind": "TreeInfo",
+          "prefab": "2928288862.Kaiserlinde 16m_Data",
+          "overview_ordinal": 123,
+          "near_art_score_0_to_4": 3,
+          "review_level": "one native near-view; not full bar certification",
+          "note": "good readable near-view form. Near-view art only; other bar gates remain independent.",
+          "contact_page": "tree-006.jpg",
+          "contact_page_sha256": "d7ad64988ddf84e55384c3009ad1df68bc93acd62e47b2cbe812e3f39717d5b1",
+          "source_run": "native-rest-01"
+        },
+        "multi_view_evidence": {
+          "candidate": "2928288862.Kaiserlinde 16m_Data",
+          "base_neighbour": "mp9-BloomingJacarandavnl",
+          "pair": {
+            "specimens": [
+              {
+                "name": "2928288862.Kaiserlinde 16m_Data",
+                "created": true,
+                "id": 262141,
+                "position": [
+                  -1374.4298095703125,
+                  159.64573669433594,
+                  -1350
+                ]
+              },
+              {
+                "name": "mp9-BloomingJacarandavnl",
+                "created": true,
+                "id": 262139,
+                "position": [
+                  -1325.5701904296875,
+                  159.34840393066406,
+                  -1350
+                ]
+              }
+            ]
+          },
+          "views": {
+            "close": "pair-03-close.png",
+            "gameplay": "pair-03-gameplay.png",
+            "side": "pair-03-side.png",
+            "back": "pair-03-back.png",
+            "transition-near": "pair-03-transition-near.png",
+            "transition-far": "pair-03-transition-far.png",
+            "wind-second-frame": "pair-03-wind-second-frame.png"
+          },
+          "cameras": {
+            "close": {
+              "position": [
+                -1350,
+                166.81915283203125,
+                -1350
+              ],
+              "yaw": 1.6643426220541713e-11,
+              "heading_deg": 1.6655121726216748e-11,
+              "pitch": 25.24993133544922,
+              "size": 69.3790054321289,
+              "max_size": 4000,
+              "forward": [
+                2.6272861382119206e-13,
+                -0.4265676736831665,
+                0.9044556617736816
+              ],
+              "ok": true
+            },
+            "gameplay": {
+              "position": [
+                -1350,
+                166.81851196289062,
+                -1350
+              ],
+              "yaw": 6.1336442449080354e-15,
+              "heading_deg": 0,
+              "pitch": 49.75004959106445,
+              "size": 693.6947021484375,
+              "max_size": 4000,
+              "forward": [
+                6.916898178802708e-17,
+                -0.7632330060005188,
+                0.6461233496665955
+              ],
+              "ok": true
+            },
+            "side": {
+              "position": [
+                -1350,
+                166.87452697753906,
+                -1350
+              ],
+              "yaw": 89.16638946533203,
+              "heading_deg": 89.16638946533203,
+              "pitch": 25.23147964477539,
+              "size": 75.42620086669922,
+              "max_size": 4000,
+              "forward": [
+                0.9044972658157349,
+                -0.42627641558647156,
+                0.013160645961761475
+              ],
+              "ok": true
+            },
+            "back": {
+              "position": [
+                -1350,
+                166.81895446777344,
+                -1350
+              ],
+              "yaw": 179.16574096679688,
+              "heading_deg": 179.16574096679688,
+              "pitch": 25.000076293945312,
+              "size": 69.59117126464844,
+              "max_size": 4000,
+              "forward": [
+                0.01319592259824276,
+                -0.4226195216178894,
+                -0.9062111973762512
+              ],
+              "ok": true
+            },
+            "transition-near": {
+              "position": [
+                -1350,
+                166.81851196289062,
+                -1350
+              ],
+              "yaw": 1.6509920358657837,
+              "heading_deg": 1.6509920358657837,
+              "pitch": 49.770660400390625,
+              "size": 268.16156005859375,
+              "max_size": 4000,
+              "forward": [
+                0.018607713282108307,
+                -0.7634654641151428,
+                0.6455805897712708
+              ],
+              "ok": true
+            },
+            "transition-far": {
+              "position": [
+                -1350,
+                166.81851196289062,
+                -1350
+              ],
+              "yaw": 0.0005691639962606132,
+              "heading_deg": 0.0005691639962606132,
+              "pitch": 49.99992370605469,
+              "size": 329.43804931640625,
+              "max_size": 4000,
+              "forward": [
+                6.385325377777917e-06,
+                -0.7660436630249023,
+                0.6427885890007019
+              ],
+              "ok": true
+            },
+            "wind-second-frame": {
+              "position": [
+                -1350,
+                166.81851196289062,
+                -1350
+              ],
+              "yaw": 1.9439777076968312e-07,
+              "heading_deg": 1.9439778498053784e-07,
+              "pitch": 49.999977111816406,
+              "size": 72.00016784667969,
+              "max_size": 4000,
+              "forward": [
+                2.180903235782239e-09,
+                -0.7660441398620605,
+                0.6427879333496094
+              ],
+              "ok": true
+            }
+          },
+          "placements": {
+            "close": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "gameplay": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "side": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1350,
+                    158.90005493164062,
+                    -1325.5701904296875
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1350,
+                    160.20733642578125,
+                    -1374.4298095703125
+                  ]
+                }
+              ]
+            },
+            "back": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-near": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-far": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "wind-second-frame": {
+              "specimens": [
+                {
+                  "name": "2928288862.Kaiserlinde 16m_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "native_frame_hashes": [
+          {
+            "view": "close",
+            "file": "pair-03-close.png",
+            "sha256": "282f27958adedf862cb563d1ef1e8567a331a0e395e739e4f1bab357006755e8"
+          },
+          {
+            "view": "gameplay",
+            "file": "pair-03-gameplay.png",
+            "sha256": "4a9fefe0f9f2e3ca1d0acb7942a7e477dfb4d7ae87f37f9d3366b1ef8d7e4e2e"
+          },
+          {
+            "view": "side",
+            "file": "pair-03-side.png",
+            "sha256": "5a7166e7530d480f378299cda62008038790e7711228e96337c0a0ad0fcee904"
+          },
+          {
+            "view": "back",
+            "file": "pair-03-back.png",
+            "sha256": "57525bb9766ae5ce714e1a81d48c4134aa359fd8e953064959de0713fc405801"
+          },
+          {
+            "view": "transition-near",
+            "file": "pair-03-transition-near.png",
+            "sha256": "a01a005afdb0290a63df22c113168b3951aca05c7524c79d6534a8ee41db875a"
+          },
+          {
+            "view": "transition-far",
+            "file": "pair-03-transition-far.png",
+            "sha256": "91258e0135e467299824cf48f5efe9539f64ad2685868f8eeca6dc622ee762f2"
+          },
+          {
+            "view": "wind-second-frame",
+            "file": "pair-03-wind-second-frame.png",
+            "sha256": "4d57dda1bc7f46383725fd4e1deecfedcf39b3e8cb730f509bae4103129851f6"
+          }
+        ],
+        "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/anchors/",
+        "frame_role": "Workshop candidate on the left; stock comparison on the right",
+        "bioclip_qualification": "not_run",
+        "bioclip_scope": "Close/gameplay/billboard identification is the downstream PL-1328 gate",
+        "multi_view_review": {
+          "prefab": "2928288862.Kaiserlinde 16m_Data",
+          "source_run": "native-anchors",
+          "gates": {
+            "gameplay_art": "limited",
+            "billboard": "limited",
+            "wind": "unknown",
+            "save_reload": "pass"
+          },
+          "notes": "Good upright close crown from three azimuths, less distinct branching than the Bigleaf alternative. Foliage persists across the transition views; 700-distance isolated tree cannot establish genus. Above forest triangle and texture targets.",
+          "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+          "evidence_contact": "anchors/anchor-contact.jpg",
+          "bioclip": "not_run"
+        },
+        "save_reload_identity_stable": true,
+        "quality_gates": {
+          "geometry": "fail",
+          "textures": "fail",
+          "dependencies": "pass",
+          "native_load": "pass",
+          "near_art": "pass",
+          "scale_accuracy": "unknown",
+          "gameplay_art": "limited",
+          "billboard": "limited",
+          "wind": "unknown",
+          "snow": "unknown",
+          "save_reload": "pass",
+          "native_frame_budget": "unknown"
+        },
+        "limits": [
+          "Not a forest-fill certification",
+          "Genus label is not botanical authentication",
+          "Approximately 15 m is a requested model size class, not proof of biological maturity"
+        ]
+      },
+      "best_near_art_alternative": {
+        "loaded_prefab": "2402946167.Bigleaf Linden_Data",
+        "workshop_id": "2402946167",
+        "title": "Bigleaf Linden Set",
+        "author": "MrMaison",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2402946167",
+        "selection_reason": "Stronger near-art grade; 12.30 m generated height before 1\u20131.5 native random scale",
+        "crp_containers": [
+          {
+            "file": "Bigleaf Linden.crp",
+            "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2402946167/Bigleaf Linden.crp",
+            "sha256": "6db20ba3ad399c32a2e22c1f172a2f5a4c5d7060ae2dfd617caedceee84e795a",
+            "checksum_mismatches": []
+          }
+        ],
+        "native": {
+          "name": "2402946167.Bigleaf Linden_Data",
+          "main": {
+            "triangles": 1926,
+            "vertices": 2442,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              9.052870750427246,
+              12.38297176361084,
+              9.105277061462402
+            ],
+            "size_m": [
+              9.282934188842773,
+              12.297269821166992,
+              9.527872085571289
+            ],
+            "size_basis": "TreeInfoGen.m_size, before instance random scale"
+          },
+          "lod": {
+            "triangles": 2,
+            "vertices": 4,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              9.527872085571289,
+              12.297269821166992,
+              0
+            ]
+          },
+          "textures": [
+            {
+              "channel": "_MainTex",
+              "width": 2048,
+              "height": 1024
+            },
+            {
+              "channel": "_XYCAMap",
+              "width": 2048,
+              "height": 1024
+            }
+          ],
+          "scale_range": [
+            1,
+            1.5
+          ],
+          "shader": "Custom/Trees/Default",
+          "lod_distance_m": 300,
+          "vertex_color_count": 2442,
+          "source_run": "native-anchors"
+        },
+        "dependencies": [],
+        "dependency_closure": [],
+        "unresolved_dependencies": [],
+        "required_mods": [],
+        "dependency_status": "steamworks_children_checked",
+        "near_review": {
+          "kind": "TreeInfo",
+          "prefab": "2402946167.Bigleaf Linden_Data",
+          "overview_ordinal": 304,
+          "near_art_score_0_to_4": 4,
+          "review_level": "one native near-view; not full bar certification",
+          "note": "Full, coherent linden crown; genus-reference candidate pending multiview.",
+          "contact_page": "tree-013.jpg",
+          "contact_page_sha256": "b686b5e95505b0800404a21bb0b1c5cbfd9a7858969faced5b4ff9c7baafcfff",
+          "source_run": "native-review-20261125"
+        },
+        "multi_view_evidence": {
+          "candidate": "2402946167.Bigleaf Linden_Data",
+          "base_neighbour": "mp9-YoungLinden",
+          "pair": {
+            "specimens": [
+              {
+                "name": "2402946167.Bigleaf Linden_Data",
+                "created": true,
+                "id": 262141,
+                "position": [
+                  -1366.443359375,
+                  159.62684631347656,
+                  -1350
+                ]
+              },
+              {
+                "name": "mp9-YoungLinden",
+                "created": true,
+                "id": 262139,
+                "position": [
+                  -1333.556640625,
+                  159.39764404296875,
+                  -1350
+                ]
+              }
+            ]
+          },
+          "views": {
+            "close": "pair-02-close.png",
+            "gameplay": "pair-02-gameplay.png",
+            "side": "pair-02-side.png",
+            "back": "pair-02-back.png",
+            "transition-near": "pair-02-transition-near.png",
+            "transition-far": "pair-02-transition-far.png",
+            "wind-second-frame": "pair-02-wind-second-frame.png"
+          },
+          "cameras": {
+            "close": {
+              "position": [
+                -1350,
+                166.89447021484375,
+                -1350
+              ],
+              "yaw": 1.5178476531207963e-11,
+              "heading_deg": 1.517719283583574e-11,
+              "pitch": 25.249479293823242,
+              "size": 48.755558013916016,
+              "max_size": 4000,
+              "forward": [
+                2.396042348903893e-13,
+                -0.42656055092811584,
+                0.9044589996337891
+              ],
+              "ok": true
+            },
+            "gameplay": {
+              "position": [
+                -1350,
+                166.89068603515625,
+                -1350
+              ],
+              "yaw": 5.186879520861646e-15,
+              "heading_deg": 0,
+              "pitch": 49.768310546875,
+              "size": 693.9605712890625,
+              "max_size": 4000,
+              "forward": [
+                5.847030053716013e-17,
+                -0.7634389400482178,
+                0.6458799839019775
+              ],
+              "ok": true
+            },
+            "side": {
+              "position": [
+                -1350,
+                166.91510009765625,
+                -1350
+              ],
+              "yaw": 89.16694641113281,
+              "heading_deg": 89.16694641113281,
+              "pitch": 25.231319427490234,
+              "size": 54.57512283325195,
+              "max_size": 4000,
+              "forward": [
+                0.9044986367225647,
+                -0.4262739419937134,
+                0.013151690363883972
+              ],
+              "ok": true
+            },
+            "back": {
+              "position": [
+                -1350,
+                166.89083862304688,
+                -1350
+              ],
+              "yaw": 179.16506958007812,
+              "heading_deg": 179.16506958007812,
+              "pitch": 25.000078201293945,
+              "size": 48.54939651489258,
+              "max_size": 4000,
+              "forward": [
+                0.013206291943788528,
+                -0.4226195812225342,
+                -0.9062109589576721
+              ],
+              "ok": true
+            },
+            "transition-near": {
+              "position": [
+                -1350,
+                166.89068603515625,
+                -1350
+              ],
+              "yaw": 1.7809689044952393,
+              "heading_deg": 1.7809689044952393,
+              "pitch": 49.752601623535156,
+              "size": 267.8085021972656,
+              "max_size": 4000,
+              "forward": [
+                0.020079659298062325,
+                -0.7632617950439453,
+                0.6457772850990295
+              ],
+              "ok": true
+            },
+            "transition-far": {
+              "position": [
+                -1350,
+                166.89068603515625,
+                -1350
+              ],
+              "yaw": 0.0006632152362726629,
+              "heading_deg": 0.0006632152362726629,
+              "pitch": 49.999908447265625,
+              "size": 329.39892578125,
+              "max_size": 4000,
+              "forward": [
+                7.440468834829517e-06,
+                -0.766043484210968,
+                0.6427887678146362
+              ],
+              "ok": true
+            },
+            "wind-second-frame": {
+              "position": [
+                -1350,
+                166.89068603515625,
+                -1350
+              ],
+              "yaw": 2.446878966111399e-07,
+              "heading_deg": 2.446878966111399e-07,
+              "pitch": 49.999977111816406,
+              "size": 51.36176681518555,
+              "max_size": 4000,
+              "forward": [
+                2.745096372436251e-09,
+                -0.7660441398620605,
+                0.6427879333496094
+              ],
+              "ok": true
+            }
+          },
+          "placements": {
+            "close": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "gameplay": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "side": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1350,
+                    159.096435546875,
+                    -1333.556640625
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1350,
+                    159.97750854492188,
+                    -1366.443359375
+                  ]
+                }
+              ]
+            },
+            "back": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-near": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-far": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "wind-second-frame": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "native_frame_hashes": [
+          {
+            "view": "close",
+            "file": "pair-02-close.png",
+            "sha256": "702250905e210dc80535df020a3d67a240386e4629851b826d51d838063be62c"
+          },
+          {
+            "view": "gameplay",
+            "file": "pair-02-gameplay.png",
+            "sha256": "1a47cff3a884b0e6c144033a2c92244d891667f0f82cc16a6d2bcb0842a0dd2d"
+          },
+          {
+            "view": "side",
+            "file": "pair-02-side.png",
+            "sha256": "ec497a3bfe1044a8597cfc57133d60d377715c94bd69676360f243d62bf85f49"
+          },
+          {
+            "view": "back",
+            "file": "pair-02-back.png",
+            "sha256": "371b4d98a85d742da8cf2fa6831f834a5631f54d77a9d37f0588981ed22785eb"
+          },
+          {
+            "view": "transition-near",
+            "file": "pair-02-transition-near.png",
+            "sha256": "17c54fbd56e215e31877a8ff6b72d9dd8b739f0db23af2b733df21d5cd94e6f9"
+          },
+          {
+            "view": "transition-far",
+            "file": "pair-02-transition-far.png",
+            "sha256": "43aab3807eeb6dc3616100495a2298fe3334a7cdc0361147706ef086a06a18b1"
+          },
+          {
+            "view": "wind-second-frame",
+            "file": "pair-02-wind-second-frame.png",
+            "sha256": "20a43d55009acee739617f329b56ffdfaab223ab3913bd166fa3b1891c8ff94b"
+          }
+        ],
+        "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/anchors/",
+        "frame_role": "Workshop candidate on the left; stock comparison on the right",
+        "bioclip_qualification": "not_run",
+        "bioclip_scope": "Close/gameplay/billboard identification is the downstream PL-1328 gate",
+        "multi_view_review": {
+          "prefab": "2402946167.Bigleaf Linden_Data",
+          "source_run": "native-anchors",
+          "gates": {
+            "gameplay_art": "limited",
+            "billboard": "limited",
+            "wind": "unknown",
+            "save_reload": "pass"
+          },
+          "notes": "Strong full, irregular close crown from three azimuths. Readable silhouette at transition distances; at 700 the isolated tree is too small for genus authentication. Above forest triangle and texture targets.",
+          "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+          "evidence_contact": "anchors/anchor-contact.jpg",
+          "bioclip": "not_run"
+        },
+        "save_reload_identity_stable": true,
+        "quality_gates": {
+          "geometry": "fail",
+          "textures": "fail",
+          "dependencies": "pass",
+          "native_load": "pass",
+          "near_art": "pass",
+          "scale_accuracy": "unknown",
+          "gameplay_art": "limited",
+          "billboard": "limited",
+          "wind": "unknown",
+          "snow": "unknown",
+          "save_reload": "pass",
+          "native_frame_budget": "unknown"
+        },
+        "limits": [
+          "Not a forest-fill certification",
+          "Genus label is not botanical authentication",
+          "Approximately 15 m is a requested model size class, not proof of biological maturity"
+        ]
+      }
+    },
+    "Ulmus": {
+      "status": "native_reference_with_qualifications",
+      "reference": {
+        "loaded_prefab": "2456536855.American Elm_Data",
+        "workshop_id": "2456536855",
+        "title": "American Elm",
+        "author": "MrMaison",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2456536855",
+        "selection_reason": "14.96 m generated height before random scale; readable spreading/vase form",
+        "crp_containers": [
+          {
+            "file": "American Elm.crp",
+            "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2456536855/American Elm.crp",
+            "sha256": "1232315b88b706d644d99c95e97549db0a24bb539fef73f93ffea9f27f5d1ae4",
+            "checksum_mismatches": []
+          }
+        ],
+        "native": {
+          "name": "2456536855.American Elm_Data",
+          "main": {
+            "triangles": 2480,
+            "vertices": 3674,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              13.395637512207031,
+              15.0225248336792,
+              14.161795616149902
+            ],
+            "size_m": [
+              14.729243278503418,
+              14.960259437561035,
+              14.760186195373535
+            ],
+            "size_basis": "TreeInfoGen.m_size, before instance random scale"
+          },
+          "lod": {
+            "triangles": 2,
+            "vertices": 4,
+            "cpu_readable": true,
+            "renderer_bounds_size_m": [
+              14.760186195373535,
+              14.960259437561035,
+              0
+            ]
+          },
+          "textures": [
+            {
+              "channel": "_MainTex",
+              "width": 2048,
+              "height": 1024
+            },
+            {
+              "channel": "_XYCAMap",
+              "width": 2048,
+              "height": 1024
+            }
+          ],
+          "scale_range": [
+            1,
+            1.2999999523162842
+          ],
+          "shader": "Custom/Trees/Default",
+          "lod_distance_m": 300,
+          "vertex_color_count": 3674,
+          "source_run": "native-anchors"
+        },
+        "dependencies": [],
+        "dependency_closure": [],
+        "unresolved_dependencies": [],
+        "required_mods": [],
+        "dependency_status": "steamworks_children_checked",
+        "near_review": {
+          "kind": "TreeInfo",
+          "prefab": "2456536855.American Elm_Data",
+          "overview_ordinal": 307,
+          "near_art_score_0_to_4": 4,
+          "review_level": "one native near-view; not full bar certification",
+          "note": "Clear vase/umbrella elm architecture; reference candidate pending multiview.",
+          "contact_page": "tree-013.jpg",
+          "contact_page_sha256": "b686b5e95505b0800404a21bb0b1c5cbfd9a7858969faced5b4ff9c7baafcfff",
+          "source_run": "native-review-20261125"
+        },
+        "multi_view_evidence": {
+          "candidate": "2456536855.American Elm_Data",
+          "base_neighbour": "mp9-BloomingJacarandavnl",
+          "pair": {
+            "specimens": [
+              {
+                "name": "2456536855.American Elm_Data",
+                "created": true,
+                "id": 262141,
+                "position": [
+                  -1374.4298095703125,
+                  159.64573669433594,
+                  -1350
+                ]
+              },
+              {
+                "name": "mp9-BloomingJacarandavnl",
+                "created": true,
+                "id": 262139,
+                "position": [
+                  -1325.5701904296875,
+                  159.34840393066406,
+                  -1350
+                ]
+              }
+            ]
+          },
+          "views": {
+            "close": "pair-01-close.png",
+            "gameplay": "pair-01-gameplay.png",
+            "side": "pair-01-side.png",
+            "back": "pair-01-back.png",
+            "transition-near": "pair-01-transition-near.png",
+            "transition-far": "pair-01-transition-far.png",
+            "wind-second-frame": "pair-01-wind-second-frame.png"
+          },
+          "cameras": {
+            "close": {
+              "position": [
+                -1350,
+                167.27639770507812,
+                -1350
+              ],
+              "yaw": 0,
+              "heading_deg": 0,
+              "pitch": 25,
+              "size": 69.39562225341797,
+              "max_size": 4000,
+              "forward": [
+                0,
+                -0.4226182997226715,
+                0.9063077569007874
+              ],
+              "ok": true
+            },
+            "gameplay": {
+              "position": [
+                -1350,
+                167.27639770507812,
+                -1350
+              ],
+              "yaw": 0,
+              "heading_deg": 0,
+              "pitch": 49.78318405151367,
+              "size": 694.531005859375,
+              "max_size": 4000,
+              "forward": [
+                0,
+                -0.763606607913971,
+                0.6456817984580994
+              ],
+              "ok": true
+            },
+            "side": {
+              "position": [
+                -1350,
+                167.33248901367188,
+                -1350
+              ],
+              "yaw": 89.16559600830078,
+              "heading_deg": 89.16559600830078,
+              "pitch": 25.231698989868164,
+              "size": 75.24007415771484,
+              "max_size": 4000,
+              "forward": [
+                0.9044954180717468,
+                -0.42627984285354614,
+                0.013173170387744904
+              ],
+              "ok": true
+            },
+            "back": {
+              "position": [
+                -1350,
+                167.27694702148438,
+                -1350
+              ],
+              "yaw": 179.0972442626953,
+              "heading_deg": 179.0972442626953,
+              "pitch": 25.000085830688477,
+              "size": 69.39778900146484,
+              "max_size": 4000,
+              "forward": [
+                0.014279224909842014,
+                -0.42261967062950134,
+                -0.9061946868896484
+              ],
+              "ok": true
+            },
+            "transition-near": {
+              "position": [
+                -1350,
+                167.27647399902344,
+                -1350
+              ],
+              "yaw": 1.7792887687683105,
+              "heading_deg": 1.7792887687683105,
+              "pitch": 49.752830505371094,
+              "size": 268.0166931152344,
+              "max_size": 4000,
+              "forward": [
+                0.020060628652572632,
+                -0.7632644772529602,
+                0.6457747220993042
+              ],
+              "ok": true
+            },
+            "transition-far": {
+              "position": [
+                -1350,
+                167.27645874023438,
+                -1350
+              ],
+              "yaw": 0.0006048930226825178,
+              "heading_deg": 0.0006048930226825178,
+              "pitch": 49.99991989135742,
+              "size": 329.4438781738281,
+              "max_size": 4000,
+              "forward": [
+                6.786161520722089e-06,
+                -0.7660436630249023,
+                0.6427885890007019
+              ],
+              "ok": true
+            },
+            "wind-second-frame": {
+              "position": [
+                -1350,
+                167.27645874023438,
+                -1350
+              ],
+              "yaw": 2.229338775805445e-07,
+              "heading_deg": 2.229338633696898e-07,
+              "pitch": 49.999977111816406,
+              "size": 71.99783325195312,
+              "max_size": 4000,
+              "forward": [
+                2.5010429283156554e-09,
+                -0.7660441398620605,
+                0.6427879333496094
+              ],
+              "ok": true
+            }
+          },
+          "placements": {
+            "close": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "gameplay": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "side": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1350,
+                    158.90005493164062,
+                    -1325.5701904296875
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1350,
+                    160.20733642578125,
+                    -1374.4298095703125
+                  ]
+                }
+              ]
+            },
+            "back": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-near": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "transition-far": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "wind-second-frame": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1374.4298095703125,
+                    159.64573669433594,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-BloomingJacarandavnl",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1325.5701904296875,
+                    159.34840393066406,
+                    -1350
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "native_frame_hashes": [
+          {
+            "view": "close",
+            "file": "pair-01-close.png",
+            "sha256": "1f4de08a0e5e10b29ebe91e6d42a1a5725a100dc951ba7763ec93c27c099929f"
+          },
+          {
+            "view": "gameplay",
+            "file": "pair-01-gameplay.png",
+            "sha256": "e6cf7bb239d65d6dcafc1f92bfa0c3cad3425bb4af7c124fd8228959202e59dc"
+          },
+          {
+            "view": "side",
+            "file": "pair-01-side.png",
+            "sha256": "e4c20689c534b8e527bdd545179244a7810cf6fa2b51b4b136c4269a88e5ae94"
+          },
+          {
+            "view": "back",
+            "file": "pair-01-back.png",
+            "sha256": "877da6eb5394edf8a3e71ac73b2aef5d97ee82f8dd0c35596a81402580aae164"
+          },
+          {
+            "view": "transition-near",
+            "file": "pair-01-transition-near.png",
+            "sha256": "64766052af206a93a9b651e982126c2acefaa0ab7e98fbbcf44f2910f9f3312c"
+          },
+          {
+            "view": "transition-far",
+            "file": "pair-01-transition-far.png",
+            "sha256": "c95c82516e9c4aa19626bfd388ff716313a3a332a492d16decbbb917be74cdf3"
+          },
+          {
+            "view": "wind-second-frame",
+            "file": "pair-01-wind-second-frame.png",
+            "sha256": "1d71e4135413790e037d130190cf5d293818b40614378b25d05749191ade2bbd"
+          }
+        ],
+        "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/anchors/",
+        "frame_role": "Workshop candidate on the left; stock comparison on the right",
+        "bioclip_qualification": "not_run",
+        "bioclip_scope": "Close/gameplay/billboard identification is the downstream PL-1328 gate",
+        "multi_view_review": {
+          "prefab": "2456536855.American Elm_Data",
+          "source_run": "native-anchors",
+          "gates": {
+            "gameplay_art": "limited",
+            "billboard": "unknown",
+            "wind": "unknown",
+            "save_reload": "pass"
+          },
+          "notes": "Strong close spreading/vase form from three azimuths. At 700 camera distance the isolated crown is only a few pixels; genus cannot be visually qualified there. Far transition loses most foliage, as does the stock Jacaranda comparison: this cohort does not isolate an asset-specific billboard defect. Above forest triangle and texture targets.",
+          "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+          "evidence_contact": "anchors/anchor-contact.jpg",
+          "bioclip": "not_run"
+        },
+        "save_reload_identity_stable": true,
+        "quality_gates": {
+          "geometry": "fail",
+          "textures": "fail",
+          "dependencies": "pass",
+          "native_load": "pass",
+          "near_art": "pass",
+          "scale_accuracy": "unknown",
+          "gameplay_art": "limited",
+          "billboard": "unknown",
+          "wind": "unknown",
+          "snow": "unknown",
+          "save_reload": "pass",
+          "native_frame_budget": "unknown"
+        },
+        "limits": [
+          "Not a forest-fill certification",
+          "Genus label is not botanical authentication",
+          "Approximately 15 m is a requested model size class, not proof of biological maturity"
+        ]
+      }
+    }
+  }
+}

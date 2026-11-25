@@ -1,135 +1,117 @@
 # Vegetation supply ledger
 
-PL-1326, the supply side of PL-1325. This tool inventories the installed CS1
-content, discovers public Workshop vegetation, and builds an offline-capable
-shelf. It does not subscribe, download Workshop packages, log in, publish assets,
-or change the map exporter’s plant selection.
+PL-1326: measured existing supply for PL-1325 and local Workshop bake controls
+for PL-1328. Read [the report](REPORT.md) before interpreting a grade as a pass.
 
-## Evidence, not approval by popularity
+The canonical browse index is `data/index.json`. `prefab_reviews` holds bound
+per-root metrics and independent review gates. `best_by_biome_form` separates
+best observed near art from best within forest geometry/texture targets.
+`data/reference-handback.json` names genus-exact local bake references and gaps.
+The native census and final twenty-tree sheet are still pending; see
+`observations/2026-11-25/pending-census.json` and the report.
+Near-art grades never imply a frame-budget, ecological or full-bar pass.
 
-The index separates:
+## Rebuild the current snapshot
 
-- serialized built-in `TreeInfo` and name-screened natural `PropInfo` objects;
-- Workshop **items**, which may contain several separately measured prefabs;
-- author-declared triangle counts from measured mesh counts;
-- loaded native metrics from offline serialized metrics;
-- unknown review evidence from passes and hard forest-fill target failures.
-
-No asset passes merely because it is popular, old, or described as optimized.
-An over-target pack may contain useful individual variants; the item-level
-failure means the whole pack has not earned unrestricted forest-fill use.
-
-`data/index.json` is the canonical browse index. `observations/` holds the
-normalized input snapshots and provenance needed to regenerate it. The shelf
-HTML is generated from `shelf.html`; the tailnet shelf carries the native PNGs.
-The committed JSON and shelf metadata regenerate without those ignored PNGs;
-copy them from the published shelf into `observations/native/` to reproduce the
-image gallery. `observations/manifest.json` distinguishes the accepted timing
-run from the later sheet-only framing supplement.
-Workshop packages, extracted meshes, texture images, DLLs, saves and account
-files are never checked in or placed on the shelf.
-
-## Reproduce
-
-From this directory:
+From this directory, without Steam or a running game:
 
 ```sh
 uv sync --locked
 uv run --locked python -m unittest test_vegetation.py
 uv run --locked ruff check . ../cs1-harness
 uv run --locked ruff format --check . ../cs1-harness
-
-# From the committed observations, without contacting Steam or starting a game.
 uv run --locked python assemble.py \
-  --installed observations/installed.json \
-  --workshop observations/workshop.json \
-  --native observations/native \
+  --installed observations/2026-11-25/installed.json \
+  --workshop observations/2026-11-25/workshop.json \
+  --reviews observations/2026-11-25 \
   --out data
 ```
 
-To refresh on blade, write outputs under a new issue-owned experiment folder:
+Native PNGs and contact JPEGs are omitted from Git. The published tailnet shelf
+has them under `native/` and `contacts/<run>/`; the JSON records source names
+and digests. Rebuilding without images still reproduces the measurements and
+quality ledger, while the gallery explicitly says images are unavailable.
+November 23 observations and their manifest remain historical, on a different
+game assembly. Do not blend those timings with November 25 captures.
+
+## Collect and measure
+
+`catalog.py` performs bounded public discovery; HTTP 429 stops page enrichment.
+It never treats collection membership as a hard dependency. `ugc_details.cpp`
+and `ugc_catalog.py` use the existing authenticated Steam client for read-only
+details, children and transitive dependency queries. `normalize_ugc.py` joins
+them to public discovery. Raw descriptions and SDK logs stay private; only
+normalized public facts, description digests and query receipts are published.
+Denied or unresolved dependencies stay unknown.
+
+`installed.py` scans installed serialized files and local CRPs. Root-prefab
+bindings follow package checksum references through materials; a pack-wide
+largest mesh is not assigned to every variant. Every file has a SHA-256.
+Non-strict scanning retains stale internal checksum warnings, never calls them
+a quality pass. Structural-only validation is available for acquisition checks.
+`prefab_name_collisions` reports identities duplicated across supplied CRPs.
 
 ```sh
 uv run --locked python installed.py \
   --game /peach/Games/SteamLibrary/steamapps/common/Cities_Skylines \
   --workshop /peach/Games/SteamLibrary/steamapps/workshop/content/255710 \
-  --out installed.json
-uv run --locked python catalog.py --out workshop.json
-uv run --locked python catalog.py --out workshop.json --enrich
+  --candidate-ids candidate-ids.json --out new-installed.json
 ```
 
-`--installed-ids ids.json` optionally adds cached Workshop item IDs to discovery.
-Without it, refreshing the metadata does not enumerate Caleb’s subscriptions.
-Collection membership and item facts use Valve’s public Web API. Public browse
-state supplements creator names and ratings; public item pages supply declared
-dependencies. Unavailable pages remain unknown, not “no dependencies.” Direct
-dependencies are not a verified transitive dependency closure.
+`steam_console.py` owns a Steam-only private-display/FIFO session. It supports
+explicit operator actions, never player-display automation or automatic prompt
+acceptance. `acquire.py` validates that exact owner before using
+`steam_download.cpp`'s non-priority, bounded SDK downloads. Download callbacks
+and local-byte validation are separate evidence: a NoConnection callback can
+coexist with a complete committed cache file. No subscriptions, publishing or
+purchases are performed. Caleb's standing 2026-11-25 permission covers use of
+the existing Steam login for arbitrary Workshop downloads, with no purchases,
+publishing or redistribution. Restore offline mode before native harness work.
 
-Dependency enrichment is resumable and bounded to 50 previously unchecked pages
-per invocation (`--page-limit`), paced three seconds apart. HTTP 429 stops it
-immediately and checkpoints progress; it is never automatically retried or
-worked around. The first bulk observation hit this limit: its missing
-dependencies remain unknown, and the shelf exposes the actual inspected share.
+## Native review on blade
 
-`installed.py` hashes every inspected root `.assets` and `levelN` file, and checks
-every CRP directory range and payload checksum. Mesh bounds are unscaled metre
-envelopes, not crown area measured from alpha coverage. Tree LODs are generated
-by the game, so offline packages need not contain a separate authored LOD.
-Serialized-file discovery does not establish DLC ownership, theme availability,
-native loadability or exhaustiveness of name-screened vegetation props.
-
-## Native work
-
-Read `../cs1-harness/AGENTS.md` first. Use an isolated checkout of the harness on
-blade, build its mod there, and run the driver from its locked environment:
+Read `../cs1-harness/AGENTS.md`. Build in an isolated blade checkout, then use
+the normal foreground FIFO:
 
 ```sh
 cd ../cs1-harness
 uv run --locked cs1-harness build
-uv run --locked ../vegetation/native.py \
-  --installed /path/to/installed.json \
-  --out /path/to/new-native-output --wait-minutes 45
-# Add --sheet-only to redo framing without repeating the timing experiment.
+CS1_HARNESS_GPU_BUS=00000000:0B:00.0 uv run --locked ../vegetation/native.py \
+  --installed /path/to/assembly-matched-installed.json \
+  --out /path/to/new-run --review-plan /path/to/plan.json --wait-minutes 60
 ```
 
-The driver joins the normal foreground FIFO slot. It copies **already-cached**,
-checksum-matched tree packages into session-owned local Assets paths, launches
-with `--noWorkshop` and the read-only offline/account guards, and makes a new
-Grand River city. Nothing is saved. Teardown removes its copies and stops its
-game, Steam, display, audio and bus. Do not run this on carbon or reuse a player
-city. Empty copy directories can remain; the receipts check files and processes.
+An overview plan has `ids`, `overview_only: true`, and optional `skip_names`;
+add `--sheet-only`. A final plan has `ids`, `triangle_target`, twenty explicit
+`selected_names`, optional `reference_names`, and optional
+`diagnostic_resolution`. No popularity-based selection is substituted for the
+reviewed list. A `reference_only: true` plan permits one to twenty explicit
+controls with `--sheet-only`, such as the three Tilia/Ulmus anchors. No review
+plan waits in-game for human input. `contact_sheet.py --source RUN --out CONTACTS` only resizes and
+labels native captures. Grades are deliberately authored in `near-reviews.json`.
 
-New ops: `vegetation_catalog`, `vegetation_retarget`, `vegetation_pair`,
-`vegetation_frames`. The latter three mutate only the loaded disposable session.
-They are not exporter APIs. The pair op **clears that city’s existing trees**;
-never call it on a city you intend to keep.
+The driver copies exact-hash packages to owned local Assets paths, launches
+with `--noWorkshop` and offline/account guards, and opens a fresh Grand River
+city. It refuses selected duplicate identities and modal-obstructed frames.
+Maximum native random scales are included in pair framing. Full review captures
+near, gameplay, side/back, LOD-transition and second wind frames; two wind
+frames alone are not a validated animation test. A uniquely named QA save holds
+exactly one of every selected/reference identity and is reloaded and removed.
+Teardown removes installed copies and verifies game, Steam and owned units ended.
+Never run this native game on carbon or use it on a player city.
 
-The benchmark interleaves five A/B/A trials at two fixed zooms, retaining 300
-wall-frame samples per arm after 120 warm-up frames. Instance positions, count,
-growth flags, camera, stock lighting and paused simulation stay fixed. A/B/A
-drift, errors, actual native counts, GPU/CPU host contention and zoom sensitivity
-must accompany any interpretation. A frame-time comparison is not isolated GPU
-time, an ecological-density validation, or a general performance guarantee.
+The benchmark uses the same 139,362 stock positions at two zooms, five A/B/A
+repeats each, with 120 warm-up and 300 retained wall-frame samples per arm.
+Native timing is not GPU time. Baseline drift, render validity, host contention,
+resolution sensitivity and limiter attribution constrain any conclusion.
 
-The sheet takes twenty **installed candidate prefabs**, round-robin across
-packs after sorting by triangle count. Their built-in tree neighbours prefer the same name-inferred genus, then
-growth form, then nearest generated height; these are not botanical identifications. It is not the requested
-globally best twenty: uncached candidates still require package access and QA.
+## Verification and delivery
 
-## Browser verification
+The native mod must compile against the actual game and be exercised in game.
+`check.mjs` checks the generated shelf in Playwright, including source/biome and
+quality filters, search, pagination, hostile author text, image loading and mobile
+overflow. Keep exact browser and native receipts with the snapshot.
 
-`check.mjs` drives source, biome and quality filters, empty results, pagination,
-HTML-like author text, and a 390 px mobile viewport. Run it in blade’s matching
-Playwright container (currently `v1.65.0-noble`) with `playwright-core@1.65.0` in
-the container, not a headed browser on carbon. Arguments are the module URL,
-generated shelf URL and an output directory. Its JSON receipt and screenshots
-belong with the issue evidence.
-
-## Remaining acceptance
-
-See `REPORT.md` for measured coverage and the proposed bar. Runtime theme
-coverage, actual wind/snow/season observations, scale and multi-angle billboard
-reviews, maintenance checks, and the globally best-twenty selection remain
-separate evidence gates. There is no automatic “recommend this” integration.
-Any Steam-authenticated package download needs Caleb’s explicit approval on
-PL-1326 before proceeding. The proposed download shortlist is data, not approval.
+Publish only normalized facts, reports, screenshots/contact pages and receipts.
+Never publish CRPs, extracted meshes/texture pixels, DLLs, saves, credentials,
+raw SDK logs, Steam UI/account screenshots or personal subscription lists.

@@ -9,6 +9,7 @@ Only metadata is written, never meshes, textures, packages or account data.
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import gc
 import hashlib
 import json
@@ -16,7 +17,6 @@ from pathlib import Path
 import re
 import struct
 
-import UnityPy
 
 NATURAL = re.compile(
     r"\b(?:trees?|bush|shrub|grass|flower\w*|fern|hedge|reeds?|rocks?|boulder|pebble|moss|cactus|plant\w*|stump|logs?|leaf|leaves|coral)",
@@ -29,6 +29,22 @@ def natural_prop(name):
     if re.search(r"logo|lamp|streetlight|sign|rock\s*wall|cage|roof|hologram|christmas", words, re.I):
         return False
     return bool(NATURAL.search(words))
+
+
+def prefab_collisions(packages):
+    identities = defaultdict(list)
+    for package in packages:
+        for prefab in package.get("prefabs", []):
+            if prefab["kind"] in ("TreeInfo", "PropInfo"):
+                key = f"{prefab['kind']}:{package['name']}.{prefab['name']}"
+                identities[key].append(
+                    {
+                        "workshop_id": package["workshop_id"],
+                        "file": package["file"],
+                        "sha256": package["sha256"],
+                    }
+                )
+    return {key: rows for key, rows in identities.items() if len(rows) > 1}
 
 
 class Reader:
@@ -59,7 +75,7 @@ class Reader:
         return count, self.take(count * width)
 
 
-def crp(path):
+def crp(path, *, strict_checksums=True, measure=True):
     raw = path.read_bytes()
     r = Reader(raw)
     if r.take(4) != b"CRAP":
@@ -73,7 +89,7 @@ def crp(path):
     count, start = r.number("i"), r.number("q")
     if not 0 < count <= 100000:
         raise ValueError("Invalid directory count")
-    entries = []
+    entries, checksum_mismatches = [], []
     for _ in range(count):
         name, checksum, kind = r.string(), r.string(), r.number("i")
         offset, size = r.number("q"), r.number("q")
@@ -81,12 +97,16 @@ def crp(path):
             raise ValueError("Invalid asset range")
         payload = raw[start + offset : start + offset + size]
         if hashlib.md5(payload).hexdigest() != checksum:
-            raise ValueError("Asset checksum mismatch")
-        entries.append((name, kind, payload))
+            checksum_mismatches.append(name)
+            if strict_checksums:
+                raise ValueError("Asset checksum mismatch")
+        entries.append((name, kind, payload, checksum))
     if r.pos != start:
         raise ValueError("Directory length mismatch")
+    if not measure:
+        return {"format": fmt, "bytes": len(raw), "checksum_mismatches": checksum_mismatches}
     meshes, textures = [], []
-    for name, kind, payload in entries:
+    for name, kind, payload, checksum in entries:
         p = Reader(payload)
         # All assets begin with serialized type and null marker, before their
         # type-specific payload. Reject unknown layouts instead of guessing.
@@ -110,7 +130,16 @@ def crp(path):
                 if n
                 else [0, 0, 0]
             )
-            meshes.append({"name": mesh_name, "triangles": indices // 3, "vertices": n, "size_m": size})
+            meshes.append(
+                {
+                    "name": mesh_name,
+                    "asset_name": name,
+                    "checksum": checksum,
+                    "triangles": indices // 3,
+                    "vertices": n,
+                    "size_m": size,
+                }
+            )
         elif kind == 3 and typename in ("UnityEngine.Texture2D", "ColossalFramework.Importers.Image"):
             texture_name = p.string()
             p.number("B")
@@ -126,15 +155,56 @@ def crp(path):
 
                 with Image.open(BytesIO(image)) as im:
                     width, height, encoding = im.width, im.height, im.format
-            textures.append({"name": texture_name, "width": width, "height": height, "encoding": encoding})
+            textures.append(
+                {
+                    "name": texture_name,
+                    "asset_name": name,
+                    "checksum": checksum,
+                    "width": width,
+                    "height": height,
+                    "encoding": encoding,
+                }
+            )
     components = sorted(
         {
             name.decode()
-            for _, kind, payload in entries
+            for _, kind, payload, _ in entries
             if kind == 1
             for name in re.findall(rb"(TreeInfo|PropInfo), Assembly-CSharp,", payload)
         }
     )
+    by_checksum = {checksum: (name, kind, payload) for name, kind, payload, checksum in entries}
+    prefabs = []
+    for name, kind, payload, checksum in entries:
+        if kind != 1 or b"UnityEngine.GameObject, UnityEngine," not in payload[:110]:
+            continue
+        root = Reader(payload)
+        if root.number("B") != 0:
+            continue
+        root.string()
+        object_name = root.string()
+        kinds = set(re.findall(rb"(TreeInfo|PropInfo|NetInfo|BuildingInfo), Assembly-CSharp,", payload))
+        primary = next(
+            (k.decode() for k in (b"BuildingInfo", b"NetInfo", b"TreeInfo", b"PropInfo") if k in kinds), None
+        )
+        refs, pending = set(), [checksum]
+        while pending:
+            current = pending.pop()
+            if current in refs:
+                continue
+            refs.add(current)
+            body = by_checksum[current][2]
+            pending.extend(h for h in by_checksum if h not in refs and h.encode() in body)
+        prefabs.append(
+            {
+                "name": object_name,
+                "kind": primary,
+                "root_checksum": checksum,
+                "meshes": [m for m in meshes if m["checksum"] in refs],
+                "textures": [t for t in textures if t["checksum"] in refs],
+                "binding_basis": "verified package checksum references from serialized GameObject, transitively through materials",
+            }
+        )
     return {
         "name": package_name,
         "main": main,
@@ -144,7 +214,9 @@ def crp(path):
         "sha256": hashlib.sha256(raw).hexdigest(),
         "meshes": meshes,
         "textures": textures,
-        "contains_assembly": any(k == 51 for _, k, _ in entries),
+        "prefabs": prefabs,
+        "contains_assembly": any(k == 51 for _, k, _, _ in entries),
+        "checksum_mismatches": checksum_mismatches,
     }
 
 
@@ -153,6 +225,8 @@ def vector(v):
 
 
 def unity_file(path, scripts):
+    import UnityPy
+
     env = UnityPy.load(str(path))
     rows = []
     for obj in list(env.objects):
@@ -217,7 +291,9 @@ def unity_file(path, scripts):
     return rows
 
 
-def collect(game, workshop, out, base_cache=None):
+def collect(game, workshop, out, base_cache=None, candidate_ids=None):
+    import UnityPy
+
     data = game / "Cities_Data"
     env = UnityPy.load(str(data / "globalgamemanagers.assets"))
     scripts = {o.path_id: o.read().m_ClassName for o in env.objects if o.type.name == "MonoScript"}
@@ -246,14 +322,25 @@ def collect(game, workshop, out, base_cache=None):
         json.dumps({"base_prefabs": rows, "files_inspected": receipts, "failures": failures}, indent=2) + "\n"
     )
     packages = []
-    for path in sorted(workshop.glob("*/*.crp")):
+    for path in sorted(workshop.rglob("*.crp")):
+        iid = path.relative_to(workshop).parts[0]
+        selected = candidate_ids is not None and iid in candidate_ids
+        if candidate_ids is not None and not selected:
+            continue
         try:
-            item = crp(path)
+            item = crp(path, strict_checksums=False)
             if "TreeInfo" not in item["components"] and not (
-                "PropInfo" in item["components"] and natural_prop(path.stem)
+                "PropInfo" in item["components"] and (selected or natural_prop(path.stem))
             ):
                 continue
-            packages.append({"workshop_id": path.parent.name, "file": path.name, **item})
+            packages.append(
+                {
+                    "workshop_id": iid,
+                    "file": str(path.relative_to(workshop / iid)),
+                    "local_path": str(path),
+                    **item,
+                }
+            )
         except (ValueError, struct.error, OSError) as error:
             failures.append({"file": str(path.relative_to(workshop)), "error": str(error)})
     result = {
@@ -264,6 +351,7 @@ def collect(game, workshop, out, base_cache=None):
         "scripts": scripts,
         "base_prefabs": rows,
         "workshop_packages": packages,
+        "prefab_name_collisions": prefab_collisions(packages),
         "files_inspected": receipts,
         "failures": failures,
         "scope_note": "All root serialized .assets and levelN files, all TreeInfo and name-matched natural PropInfo; no DLC ownership claim; not a runtime loading test",
@@ -281,5 +369,16 @@ if __name__ == "__main__":
         type=Path,
         help="Reuse an explicit completed base scan while refreshing package metrics",
     )
+    p.add_argument(
+        "--candidate-ids",
+        type=Path,
+        help="Explicit reviewed pool: include PropInfo regardless of file-name wording",
+    )
     args = p.parse_args()
-    collect(args.game, args.workshop, args.out, args.base_cache)
+    collect(
+        args.game,
+        args.workshop,
+        args.out,
+        args.base_cache,
+        set(json.loads(args.candidate_ids.read_text())) if args.candidate_ids else None,
+    )

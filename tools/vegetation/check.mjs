@@ -1,6 +1,6 @@
 // Run inside the matching Playwright container against the generated shelf.
 import assert from 'node:assert/strict';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const { chromium } = await import(process.argv[2]);
 const url = process.argv[3];
 const out = process.argv[4];
@@ -15,6 +15,27 @@ try {
   await page.getByRole('heading', { name: 'What can we plant?' }).waitFor();
   assert.ok(await page.locator('#rows tr').count() > 0);
   receipts.push('Workshop results render');
+  assert.ok(await page.locator('#best-rows tr').count() > 0);
+  await page.locator('#best-biome').selectOption('14');
+  assert.ok((await page.locator('#best-rows').innerText()).includes('Mangroves'));
+  await page.locator('#best-biome').selectOption('4');
+  receipts.push('Best-form references can be compared by biome');
+  await page.locator('#quality').selectOption('near_reference');
+  assert.ok(await page.locator('#rows tr').count() > 0);
+  await page.locator('#quality').selectOption('');
+  receipts.push('Qualified near-art references are distinct from full forest passes');
+  const handbackUrl = new URL('reference-handback.json', url);
+  const handback = handbackUrl.protocol === 'file:'
+    ? JSON.parse(readFileSync(handbackUrl, 'utf8'))
+    : await (await page.request.get(handbackUrl.href)).json();
+  assert.equal(handback.genera.Gleditsia.status, 'no_vetted_match');
+  for (const ref of [handback.genera.Tilia.best_intrinsic_size_match,
+    handback.genera.Tilia.best_near_art_alternative, handback.genera.Ulmus.reference]) {
+    assert.equal(ref.save_reload_identity_stable, true);
+    assert.equal(ref.native_frame_hashes.length, 7);
+    assert.equal(ref.bioclip_qualification, 'not_run');
+  }
+  receipts.push('Genus handback retains exact anchors, missing genus and BioCLIP uncertainty');
   await page.locator('#source').selectOption('base');
   assert.ok(await page.locator('#rows tr').count() > 0);
   await page.locator('#biome').selectOption('14');
@@ -54,7 +75,7 @@ try {
     assert.equal(await page.locator('.specimen').count(), 20);
     await page.locator('#sheet img').evaluateAll(async images => {
       images.forEach(image => { image.loading = 'eager'; });
-      await Promise.all(images.map(image => image.decode()));
+      for (const image of images) await image.decode();
     });
     await page.locator('#specimens').screenshot({ path: `${out}/native-contact-sheet.png` });
     receipts.push('Native contact sheet captured');

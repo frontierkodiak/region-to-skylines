@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "Workshop results render",
+    "Best-form references can be compared by biome",
+    "Qualified near-art references are distinct from full forest passes",
+    "Genus handback retains exact anchors, missing genus and BioCLIP uncertainty",
+    "Unestablished built-in mangrove coverage is empty",
+    "No unreviewed asset appears as a pass",
+    "Forest-fill failures can be browsed",
+    "Search and empty state work",
+    "Pagination adds the next results",
+    "Author-provided HTML-like titles stay text",
+    "Mobile layout and source filter work"
+  ],
+  "pageErrors": []
+}

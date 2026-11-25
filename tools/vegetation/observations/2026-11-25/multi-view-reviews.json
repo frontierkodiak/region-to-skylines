@@ -1,0 +1,47 @@
+{
+  "scope": "Explicit visual review; not botanical authentication or BioCLIP qualification",
+  "reviews": [
+    {
+      "prefab": "2456536855.American Elm_Data",
+      "source_run": "native-anchors",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Strong close spreading/vase form from three azimuths. At 700 camera distance the isolated crown is only a few pixels; genus cannot be visually qualified there. Far transition loses most foliage, as does the stock Jacaranda comparison: this cohort does not isolate an asset-specific billboard defect. Above forest triangle and texture targets.",
+      "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+      "evidence_contact": "anchors/anchor-contact.jpg",
+      "bioclip": "not_run"
+    },
+    {
+      "prefab": "2402946167.Bigleaf Linden_Data",
+      "source_run": "native-anchors",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Strong full, irregular close crown from three azimuths. Readable silhouette at transition distances; at 700 the isolated tree is too small for genus authentication. Above forest triangle and texture targets.",
+      "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+      "evidence_contact": "anchors/anchor-contact.jpg",
+      "bioclip": "not_run"
+    },
+    {
+      "prefab": "2928288862.Kaiserlinde 16m_Data",
+      "source_run": "native-anchors",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Good upright close crown from three azimuths, less distinct branching than the Bigleaf alternative. Foliage persists across the transition views; 700-distance isolated tree cannot establish genus. Above forest triangle and texture targets.",
+      "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
+      "evidence_contact": "anchors/anchor-contact.jpg",
+      "bioclip": "not_run"
+    }
+  ]
+}

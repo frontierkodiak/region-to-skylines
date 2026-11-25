@@ -14,8 +14,10 @@ from urllib.error import HTTPError
 
 from assemble import assess, classify, frame_summary, lod_mesh
 from catalog import DependencyParser, StateParser, enrich, request
-from installed import crp, natural_prop
+from installed import crp, natural_prop, prefab_collisions
 from framing import pair_framing
+from normalize_ugc import closure
+from review_ledger import palette_estimate
 
 
 def string(text):
@@ -43,6 +45,60 @@ def mesh():
 
 
 class VegetationTest(unittest.TestCase):
+    def test_shared_texture_is_counted_once_across_prefabs_not_per_tree(self):
+        texture = {"checksum": "shared-content", "width": 4, "height": 4, "encoding": "DXT1"}
+        first = {"name": "oak", "textures": [texture]}
+        second = {"name": "birch", "textures": [texture]}
+        one = palette_estimate([first])
+        two = palette_estimate([first, second])
+        self.assertEqual(two["known_compressed_mip_bytes"], one["known_compressed_mip_bytes"])
+        self.assertEqual(two["unique_texture_count"], 1)
+        second["textures"] = [{**texture, "checksum": "other-content", "encoding": "unmeasured"}]
+        estimate = palette_estimate([first, second])
+        self.assertEqual(estimate["unknown_format_count"], 1)
+        self.assertEqual(estimate["known_compressed_mip_bytes"], one["known_compressed_mip_bytes"])
+
+    def test_embedded_variation_and_standalone_prefab_identity_collision_is_reported(self):
+        def package(file, roots):
+            return {
+                "name": "123",
+                "workshop_id": "123",
+                "file": file,
+                "sha256": file,
+                "prefabs": [{"name": name, "kind": kind} for name, kind in roots],
+            }
+
+        rows = [
+            package("bundle.crp", [("A", "TreeInfo"), ("B", "TreeInfo")]),
+            package("A.crp", [("A", "TreeInfo")]),
+            package("prop.crp", [("A", "PropInfo")]),
+        ]
+        found = prefab_collisions(rows)
+        self.assertEqual(list(found), ["TreeInfo:123.A"])
+        self.assertEqual([r["file"] for r in found["TreeInfo:123.A"]], ["bundle.crp", "A.crp"])
+
+    def test_dependency_cycles_terminate_and_denied_details_remain_unresolved(self):
+        records = {
+            "1": {"children": ["2"], "result": 1},
+            "2": {"children": ["1", "3", "4"], "result": 1},
+            "3": {"children": [], "result": 15},
+        }
+        descendants, unresolved = closure("1", records)
+        self.assertEqual(descendants, ["1", "2", "3", "4"])
+        self.assertEqual(unresolved, ["3", "4"])
+
+    def test_download_completeness_is_not_a_checksum_or_measurement_pass(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "tree.crp"
+            raw = bytearray(package(mesh()))
+            raw[-1] ^= 1
+            path.write_bytes(raw)
+            self.assertEqual(
+                crp(path, strict_checksums=False, measure=False)["checksum_mismatches"], ["mesh"]
+            )
+            with self.assertRaisesRegex(ValueError, "checksum"):
+                crp(path)
+
     def test_native_maximum_scale_crowns_fit_the_proposed_pair_frustum(self):
         root = Path(__file__).parent / "observations/native"
         trees = {t["name"]: t for t in json.loads((root / "sheet-catalog.json").read_text())["trees"]}
@@ -217,6 +273,9 @@ class VegetationTest(unittest.TestCase):
         self.assertNotEqual(classify("Alpine Grass")["genus"], "Pinus")
         self.assertEqual(classify("Acer Rubrum")["genus"], "Acer")
         self.assertEqual(classify("London Planetree")["genus"], "Platanus")
+        self.assertEqual(classify("Cistus Rock Rose")["form"], "shrub")
+        self.assertNotEqual(classify("Flower-Orange")["genus"], "Citrus")
+        self.assertEqual(classify("Fruits - Orange tree")["genus"], "Citrus")
 
 
 if __name__ == "__main__":

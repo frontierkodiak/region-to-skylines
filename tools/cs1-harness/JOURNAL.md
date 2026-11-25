@@ -3942,3 +3942,42 @@ pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
 of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
 display/bus context exited normally. The earlier eight-minute blocked attempt
 is not rewritten. Existing current-source build/Ruff receipts remain valid.
+
+## PL-1326 authenticated vegetation review checkpoint — 2026-11-25
+
+Blade only, RTX 3090 bus0b/egl1, fresh disposable Grand River cities, normal FIFO,
+offline Steam and carbon-idle guard. No player save, Workshop redistribution or
+carbon-native game. Current assembly `1b902079…`; loaded mod `279179268…`.
+
+| Run | Native PNGs | Sampler wall s | Board peak MiB / W / °C | Result |
+|---|---:|---:|---|---|
+| native-anchors | 21 | 200.123 | 12351.0 / 92.72 / 57.0 | 3 genus controls ×7 views; all3 identities retained through save/reload |
+| native-complete-01 | 0 | 165.104 | 15528.0 / 73.85 / 50.0 | Driver hash-variable bug before review; cleanup verified |
+| native-complete-01-b | 216 | 825.439 | 15361.0 / 95.46 / 62.0 | 216 near frames; screenshot RPC stall; exact owned game PID operator-terminated |
+| native-rest-01 | 200 | 530.3 | 12890.0 / 94.34 / 58.0 | Completed near-view census |
+| native-rest-02 | 200 | 520.262 | 12827.0 / 95.68 / 61.0 | Completed near-view census |
+| native-rest-03 | 199 | 510.285 | 12732.0 / 95.73 / 61.0 | Completed near-view census |
+| native-rest-04 | 198 | 515.261 | 12709.0 / 91.04 / 59.0 | Completed near-view census |
+| native-rest-05 | 143 | 415.27 | 12622.0 / 88.85 / 60.0 | 143 frames +1 placement error; completed |
+| native-review-20261125 | 382 | 1185.641 | 16136.0 / 117.67 / 62.0 | 374 near frames retained; all timing/limiter evidence rejected for broken-assets modal; later transport reset |
+| native-short-01 | 149 | 435.261 | 13636.0 / 92.0 / 61.0 | 149 near frames; Papaya staged but absent from loaded catalog |
+| native-short-02 | 0 | — | — / — / — | Carbon SSH guard inconclusive; ended before Steam/game launch |
+
+Board peaks include pre-existing shared-card users; per-game peak VRAM was not
+sampled and remains unknown. Menu process samples are not presented as peaks.
+Raw CSV digests, controller/module snapshots, image hashes, launch build and
+projected session/account-guard receipts are retained with the November25 data.
+All eleven attempts have empty game/Steam/unit teardown lists. The last stop
+is a network/idle-preflight blocker, not missing Steam permission.
+
+Verification: actual current-game mod build passed; native palette/save/reload
+exercised; blade harness170/170 and vegetation14/14 tests, npm20/20, Ruff70 files.
+Current-head doctor passed after the FIFO cleared (2080Ti bus05/egl0;8180MiB
+pre-existing board use of11264MiB). Doctor launched no Steam/game. The earlier
+doctor attempt exited75 behind older FIFO requests; it is not rewritten.
+Full twenty-tree sheet and clean current-build A/B/A remain pending.
+
+Published current shelf: 11/11 Playwright checks pass at the real trailing-slash
+URL, including best-biome selection, qualified near-art filter, genus handback,
+hostile-title escaping and mobile overflow. The current 20-tree gallery is absent
+and is not counted as a passed image check.

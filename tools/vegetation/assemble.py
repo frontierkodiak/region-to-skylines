@@ -15,10 +15,16 @@ ROOT = Path(__file__).resolve().parent
 
 # Name-based screening only. These are not species identifications from renders.
 NAMES = [
+    (r"cistus|rock ?rose", "shrub", "Cistus", [12]),
+    (r"murraya|mock orange", "shrub", "Murraya", [1]),
+    (r"brittlebush", "shrub", "Encelia", [13]),
+    (r"agave", "succulent", "Agave", [13]),
+    (r"yucca|joshua", "succulent", "Yucca", [13]),
+    (r"deadwood|snag|stump|fallen|bare tree", "deadwood", None, []),
     (r"mangrove", "broadleaf_evergreen", None, [14]),
     (r"bald cypress", "needleleaf_deciduous", "Taxodium", [4]),
     (r"larch", "needleleaf_deciduous", "Larix", [5, 6]),
-    (r"\b(?:pine|ponderosa)(?:\b|(?=\d))", "needleleaf_evergreen", "Pinus", [3, 5, 6, 12]),
+    (r"\b(?:pine|ponderosa)(?:\b|(?=\d))", "needleleaf_evergreen", "Pinus", [3, 4, 5, 6, 12]),
     (r"spruce", "needleleaf_evergreen", "Picea", [5, 6]),
     (r"douglas fir", "needleleaf_evergreen", "Pseudotsuga", [5]),
     (r"\bfir\b", "needleleaf_evergreen", "Abies", [5, 6]),
@@ -35,7 +41,10 @@ NAMES = [
     (r"live ?oak", "broadleaf_evergreen", "Quercus", [4, 12]),
     (r"oak", "broadleaf_deciduous", "Quercus", [4]),
     (r"cottonwood|poplar", "broadleaf_deciduous", "Populus", [4]),
-    (r"linden", "broadleaf_deciduous", "Tilia", [4]),
+    (r"linden|kaiserlinde", "broadleaf_deciduous", "Tilia", [4]),
+    (r"\belm\b", "broadleaf_deciduous", "Ulmus", [4]),
+    (r"honey ?locust", "broadleaf_deciduous", "Gleditsia", [4]),
+    (r"black locust", "broadleaf_deciduous", "Robinia", [4]),
     (r"chestnut", "broadleaf_deciduous", None, [4]),
     (r"willow", "broadleaf_deciduous", "Salix", [4]),
     (r"eucalyptus|gumtree|gum tree", "broadleaf_evergreen", "Eucalyptus", [1, 2, 12]),
@@ -51,7 +60,7 @@ NAMES = [
     (r"apple", "broadleaf_deciduous", "Malus", [4]),
     (r"pear", "broadleaf_deciduous", "Pyrus", [4]),
     (r"cherry", "broadleaf_deciduous", "Prunus", [4]),
-    (r"orange", "broadleaf_evergreen", "Citrus", [1, 12]),
+    (r"orange tree|citrus", "broadleaf_evergreen", "Citrus", [1, 12]),
     (r"rhododendron", "shrub", "Rhododendron", [4, 5]),
     (r"lantana", "shrub", "Lantana", [1, 2]),
     (r"bamboo", "grass", None, [1, 4]),
@@ -60,11 +69,11 @@ NAMES = [
     (r"forb|flower", "herbaceous", None, []),
     (r"cactus|succulent", "succulent", None, [13]),
     (r"bush|shrub|hedge", "shrub", None, []),
-    (r"rock|boulder|pebble", "rock", None, []),
+    (r"\b(?:rock|boulder|pebble)s?\b", "rock", None, []),
 ]
 
 LATIN_GENERA = {
-    "Pinus": ("needleleaf_evergreen", [3, 5, 6, 12]),
+    "Pinus": ("needleleaf_evergreen", [3, 4, 5, 6, 12]),
     "Picea": ("needleleaf_evergreen", [5, 6]),
     "Abies": ("needleleaf_evergreen", [5, 6]),
     "Larix": ("needleleaf_deciduous", [5, 6]),
@@ -75,6 +84,9 @@ LATIN_GENERA = {
     "Alnus": ("broadleaf_deciduous", [4, 5]),
     "Quercus": ("broadleaf_unknown", [4, 12]),
     "Platanus": ("broadleaf_deciduous", [4]),
+    "Tilia": ("broadleaf_deciduous", [4]),
+    "Ulmus": ("broadleaf_deciduous", [4]),
+    "Gleditsia": ("broadleaf_deciduous", [4]),
     "Eucalyptus": ("broadleaf_evergreen", [1, 2, 12]),
 }
 
@@ -204,7 +216,7 @@ def assess(item, budget):
         failed.append("requires_mods")
     if "Mod" in item.get("tags", []):
         failed.append("workshop_item_is_a_mod")
-    if item.get("dependency_status") != "public_page_checked":
+    if item.get("dependency_status") not in ("public_page_checked", "steamworks_children_checked"):
         unknown.append("dependencies")
     if item.get("unresolved_dependencies"):
         unknown.append("unresolved_dependencies")
@@ -253,7 +265,7 @@ def assess(item, budget):
     }
 
 
-def build(installed, workshop, native, out):
+def build(installed, workshop, native, out, reviews=None):
     from installed import natural_prop
 
     source = json.loads(installed.read_text())
@@ -372,12 +384,17 @@ def build(installed, workshop, native, out):
         "workshop": items,
         "dependency_page_coverage": {
             "candidates": len(items),
-            "checked": sum(w.get("dependency_status") == "public_page_checked" for w in items),
+            "checked": sum(
+                w.get("dependency_status") in ("public_page_checked", "steamworks_children_checked")
+                for w in items
+            ),
+            "method": "public pages and authenticated Steamworks children queries",
             "rate_limited": sum("429" in w.get("page_error", "") for w in items),
         },
         "nonvegetation_discovery_items": other,
         "collections": catalog["collections"],
         "dependency_items": catalog.get("dependency_items", {}),
+        "steamworks_refresh": catalog.get("steamworks_refresh"),
         "receipts": catalog["receipts"],
         "scan_failures": source["failures"],
         "files_inspected": source["files_inspected"],
@@ -409,6 +426,15 @@ def build(installed, workshop, native, out):
         result["native"]["images_available"] = bool(specimens) and all(
             (native / name).exists() for entry in specimens for name in entry["views"].values()
         )
+    if reviews:
+        from review_ledger import add_reviews
+
+        add_reviews(result, source, reviews)
+        result["native"]["sheet_scope"] = (
+            "Reviewed twenty-reference palette; full near-view census is separately indexed"
+            if len(result["native"].get("specimens", [])) == 20
+            else "Twenty-reference palette pending; current near-view census is separately indexed"
+        )
     out.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(ROOT / "download-shortlist.json", out / "download-shortlist.json")
     shutil.copyfile(ROOT / "REPORT.md", out / "report.md")
@@ -438,5 +464,6 @@ if __name__ == "__main__":
     p.add_argument("--workshop", required=True, type=Path)
     p.add_argument("--native", type=Path)
     p.add_argument("--out", required=True, type=Path)
+    p.add_argument("--reviews", type=Path, help="Per-prefab visual reviews and run catalogs")
     args = p.parse_args()
-    build(args.installed, args.workshop, args.native, args.out)
+    build(args.installed, args.workshop, args.native, args.out, args.reviews)

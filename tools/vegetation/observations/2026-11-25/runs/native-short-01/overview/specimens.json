@@ -1,0 +1,2312 @@
+[
+  {
+    "candidate": "2376214444.Ironbark Tall Old _Data",
+    "base_neighbour": "treeForest",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2376214444.Ironbark Tall Old _Data",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1380.4788818359375,
+            159.6715087890625,
+            -1350
+          ]
+        },
+        {
+          "name": "treeForest",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1319.5211181640625,
+            159.3181915283203,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.95928955078125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 95.39031219482422,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2376214444.Ironbark Tall Old _Data",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1380.4788818359375,
+              159.6715087890625,
+              -1350
+            ]
+          },
+          {
+            "name": "treeForest",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1319.5211181640625,
+              159.3181915283203,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 01 4m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 01 4m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.9233856201172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.95586013793945,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 01 4m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 02 9m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 02 9m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86709594726562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.550167083740234,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 02 9m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 03 13m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 03 13m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.5500373840332,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 03 13m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 04 17m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 04 17m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 04 17m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 05 19m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 05 19m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 05 19m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 06 22m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 06 22m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.3431854248047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.34877014160156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 06 22m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 07 23m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 07 23m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          170.07110595703125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.04115295410156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 07 23m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 08 25m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 08 25m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.0582275390625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 53.33308792114258,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 08 25m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 09 28m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 09 28m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          172.35635375976562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 59.71870803833008,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 09 28m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 10 31m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 10 31m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          173.6284942626953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 65.19200897216797,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 10 31m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 11 33m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 11 33m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.44110107421875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 68.57170867919922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 11 33m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386833412.White Spruce 12 34m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386833412.White Spruce 12 34m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.97303771972656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 71.07113647460938,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386833412.White Spruce 12 34m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 01 4m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 01 4m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.9235382080078,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.73090362548828,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 01 4m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 02 9m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 02 9m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86709594726562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.550079345703125,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 02 9m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 03 13m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 03 13m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.5500373840332,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 03 13m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 04 17m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 04 17m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-17-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 04 17m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 05 19m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 05 19m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-18-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 05 19m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 06 22m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 06 22m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-19-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          169.3431854248047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.3487663269043,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 06 22m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 07 23m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 07 23m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-20-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          170.07107543945312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.04115676879883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 07 23m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 08 25m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 08 25m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-21-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          171.05824279785156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 53.33309555053711,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 08 25m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 09 28m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 09 28m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-22-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          172.35633850097656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 59.71867370605469,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 09 28m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 10 31m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 10 31m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-23-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          173.62850952148438,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 65.19205474853516,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 10 31m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 11 33m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 11 33m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-24-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.44105529785156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 68.57160949707031,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 11 33m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386835916.Silver Spruce 12 34m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386835916.Silver Spruce 12 34m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-25-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          174.97305297851562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 71.0711441040039,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386835916.Silver Spruce 12 34m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386838315.Blue Spruce 01 4m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386838315.Blue Spruce 01 4m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-26-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.9235076904297,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.73072814941406,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386838315.Blue Spruce 01 4m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386838315.Blue Spruce 02 9m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386838315.Blue Spruce 02 9m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-27-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86709594726562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55007553100586,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386838315.Blue Spruce 02 9m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386838315.Blue Spruce 03 13m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386838315.Blue Spruce 03 13m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-28-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.5500373840332,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386838315.Blue Spruce 03 13m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386838315.Blue Spruce 04 17m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386838315.Blue Spruce 04 17m_Data",
+          "created": true,
+          "id": 125694,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 39640,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-29-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386838315.Blue Spruce 04 17m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2386838315.Blue Spruce 05 19m_Data",
+    "base_neighbour": "Norway Spruce",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2386838315.Blue Spruce 05 19m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.9967041015625,
+            159.62815856933594,
+            -1350
+          ]
+        },
+        {
+          "name": "Norway Spruce",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.0032958984375,
+            159.39405822753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-30-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          168.86708068847656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 51.55003356933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2386838315.Blue Spruce 05 19m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.9967041015625,
+              159.62815856933594,
+              -1350
+            ]
+          },
+          {
+            "name": "Norway Spruce",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.0032958984375,
+              159.39405822753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

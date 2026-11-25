@@ -1,179 +1,232 @@
-# Vegetation supply: observations and proposed bar
+# Authenticated vegetation supply — native review in progress
 
-This is a partial supply ledger, not a vetted recommendation set. No Workshop
-asset has completed all review gates. Native results and their limitations are
-recorded in the observation bundle and on the shelf.
+PL-1326 supplies the existing-asset side of PL-1325 and the Workshop controls
+for PL-1328. This review distinguishes usable visual references, cheap geometry,
+and full forest certification. They are not interchangeable outcomes.
 
-## Installed supply
+## Current delivery state
 
-Blade’s installed game assembly has SHA-256
-`c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1`.
-The read-only scan inspected 276 root serialized `.assets` and `levelN` files,
-with per-file SHA-256 receipts and no read failures. It found 85 TreeInfo
-objects: **84 non-template tree prefabs**, including separate winter variants,
-and the editor’s TreeTemplate. Name screening found **77 natural-prop
-candidates**. No extra TreeInfo was found in the level files.
+Acquisition and dependency enrichment are complete. Native review is not. The
+current ledger contains 1,680 reviewed near-attempt records (one placement
+error has no image), with 1,485 gradable forms and 618 identities still without
+a near review. Another 195 attempted forms remain ungraded rather than guessed
+from tiny or missing views. The full twenty-tree, multi-view palette and a clean
+current-build benchmark are pending, not delivered by the old November 23 sheet.
+There are no fully forest-certified passes. Independent measured and visual
+gates, and qualified near-art references, are available now.
 
-Main-mesh triangles among the 84 non-template trees range from **288 to 2,826**,
-with a **929 median**. Winter variants are counted separately; this is a prefab
-distribution, not an instance-weighted or taxon-weighted distribution. The data
-contains unscaled mesh height and X/Z envelopes and each texture’s dimensions.
-Native random-scale ranges are separate where observed.
+The next short native session stopped before Steam/game launch because the
+required read-only carbon-idle SSH check timed out; tailnet status also showed
+carbon offline. No guard was disabled and no account-conflict prompt was
+accepted. Resume `pending-census.json` when carbon is reachable and the normal
+guard passes. No additional Steam permission is needed. All owned native
+sessions have empty teardown lists.
 
-All installed tree prefabs were inventoried, including DLC/creator-pack names
-and winter variants. That is not proof that every released DLC is installed,
-owned, or available in every theme. Prop screening is explicitly not proven
-exhaustive. Theme masks and runtime behaviour are not inferred from file names.
+## What is acquired and measured
 
-## Workshop discovery
+All **955 screened Workshop candidates** have structurally complete local CRP
+containers. There are **2,291 measured vegetation packages from 952 items**, with
+**2,298 unique TreeInfo/PropInfo identities** after retaining embedded variants.
+The three remaining tag-discovery items contain no standalone vegetation root:
+Boulder Rapids (409024545), Wooden Box Planters Tulip Edition 1 (932873121),
+and LAAPS Trailer Pack (Logs) (2062289368). They stay in the audit, not as trees.
 
-Discovery starts with [MrMaison’s Nature Collection](https://steamcommunity.com/workshop/filedetails/?id=644677259)
-and [pdelmo’s low-poly collection](https://steamcommunity.com/sharedfiles/filedetails/?id=963893498),
-then enumerates all pages returned by the public Tree tag and named Prop/Prop
-Decal searches. The captured Tree query reports **775 entries across 26 pages**.
-The normalized index excludes obvious unrelated discovery items but retains
-those records separately to audit screening. This is not an exhaustive census
-of every untagged bush, grass, rock or decal on the Workshop.
+The cache is local to blade. The index records exact paths and SHA-256s; no CRP,
+mesh, texture pixels, DLL, save, account file or raw Steam description is shipped.
+Structural completeness is not a universal internal-checksum or quality pass:
+stale internal checksum warnings are retained in each package record.
 
-Item facts come from Valve’s public `GetPublishedFileDetails` API. Ratings and
-author names supplement them from public Steam pages; declared dependencies are
-inspected separately. Missing pages and unmeasured packages are explicit.
-There are **955 screened vegetation candidates** in this snapshot. Declared
-dependencies were successfully inspected for **42/955**; **913** were rate-limited
-and remain unknown. The full discovery set had 57 successful page inspections
-out of 1,722 attempts. API metadata and public browse state were retrieved, but
-that is not dependency verification. The refresher now stops on the first HTTP
-429, preserves progress, resumes only unchecked items and paces bounded batches.
+Caleb's 2026-11-25 permission covers the existing Steam login on any host and
+arbitrary Workshop downloads, with no purchases, publishing or redistribution.
+The before/after subscription set is unchanged (49/49; receipt contains only
+its digest, not the person's subscription list). The acquisition controller
+restored offline mode before native game work; cloud fingerprints were unchanged.
 
-Subscriber counts do not influence the quality verdict. Cached packages are
-read locally and never redistributed. An empty public `file_url` is recorded;
-no third-party package mirror or Steam login is used by the collector.
+## Current game and owned content
 
-## Coverage by RESOLVE biome
+Steam updated CS1 during acquisition. Current build **25432556** uses assembly
+SHA-256 `1b902079cc437ee2eb19cf07b778d2b60b3587e3dbffb4c6338d6ec0c47b3a3e`.
+The new serialized scan inspected **284 files**, with no read failures,
+**84 non-template trees** and **83 name-screened natural props**. The Temperate
+fresh city loads 48 built-in trees and 41 screened natural props. These are
+different populations, not a contradiction or proof of every theme's availability.
 
-The [RESOLVE 2017 biome scheme](https://developers.google.com/earth-engine/datasets/catalog/RESOLVE_ECOREGIONS_2017)
-provides fourteen bins. Assignments here are conservative **name-based screening
-hypotheses**, not occurrence, climatic suitability or species-identification
-results. Urban ornamental use may be far outside a plant’s natural biome.
+The read-only SteamApps query returned 64 CS1 DLC entries. The host owns the
+Deluxe upgrade and soundtrack/artbook extras, not Snowfall or later gameplay
+expansions. This is the client's CS1 DLC enumeration, not a global store census.
+Unowned, unloaded and winter variants are explicitly not runtime-certified.
+No purchases or DLC installation changes were made.
 
-| Biome | What the named built-ins provide | Important gap |
+The November 23 assembly (`c7f0e723…`) and its Lodgepole/Conifer2 timing remain
+historical evidence only. They do not certify the updated game.
+
+## Dependencies and source identity
+
+All **955/955 candidate dependency records** were checked. The entire discovery
+and transitive refresh contains 1,769 records: 1,766 successful and three
+AccessDenied records. One screened candidate retains an unresolved transitive
+dependency; it is not recommended. Forty-three candidates declare required mods
+and fail the default vegetation-only dependency gate. Public item-page 429s
+remain in provenance as historical errors, not as current unknown dependencies.
+
+The read-only Steamworks details/children query was checked against both a known
+empty dependency list (Live Oak 704607028) and the known Decal Prop Fix dependency
+of Manicured Grass Decal (808637188 → 767233815). Collection membership is not
+treated as a hard dependency. Metadata includes authors, public recommendation
+links, subscriptions, favourites, rating statistics, update times, tags and bytes.
+Popularity never changes a quality verdict.
+
+## Reading quality
+
+The downloadable `prefab_reviews` array is the unit of review. A pack's biggest
+mesh no longer silently supplies every variant's dimensions or triangle count.
+Each root has bound mesh/texture facts, exact local containers, loaded native
+metrics when observed, visual evidence, and independent pass/fail/unknown gates.
+
+Near-art grades are:
+
+| Grade | Meaning |
+|---|---|
+| 0 | Not vegetation / unusable representation for this task |
+| 1 | Severe visual defect or non-natural representation |
+| 2 | Usable only with visible limitations |
+| 3 | Good readable near-view form |
+| 4 | Strong near-view reference candidate |
+| unknown | Insufficient view; neither a failure nor a pass |
+
+An inspected screenshot with a tiny plant is not automatically a scale failure.
+It remains ungraded when the paired framing cannot resolve the relevant detail.
+The ledger links the source run, contact page, ordinal and contact-page digest.
+The retained PNGs are native game captures; contact pages only resize and label them.
+
+`best_by_biome_form` gives the strongest observed near-art reference and a separate
+best reference within geometry/texture targets. Ranking is explicit: reviewed
+near-art grade, geometry/texture eligibility, lower main-triangle cost, then a
+stable name tie-break. It is a reproducible tie-break, not proof that one crown
+is universally the best artwork. Each choice retains its height, native random
+scale and genus uncertainty. An empty cell says **no vetted match**.
+
+Biome assignments are coarse name-screening hypotheses, not regional occurrence,
+climatic suitability, species authentication or a natural forest composition.
+Generic grasses do not establish a native prairie, flooded wetland or alpine
+palette. A flowering ornamental does not establish mature forest-canopy supply.
+This limitation is important to PL-1325's value score: score the observed quality
+and size/form match separately from ecological coverage and forest eligibility.
+
+## Observed biome gaps at this checkpoint
+
+Name-screened good near-art forms (grade 3–4), not ecological or full-bar
+passes. Open the shelf’s best-form selector for exact per-form controls.
+
+| Biome | Forms with good near evidence | Requested forms with no vetted near match |
 |---|---|---|
-| Tropical moist broadleaf | Palms, a few broadleaf ornamentals | Diverse canopy hardwoods, lianas, understory, regional architecture |
-| Tropical dry broadleaf | Baobab/umbrella-thorn-like forms and palms | Dry-forest canopy diversity and drought-deciduous variants |
-| Tropical conifer | Generic pine forms | Tropical pine species/architecture, associates |
-| Temperate broadleaf/mixed | Alder, beech, birch, maple, oak, cottonwood and planted fruit trees | Age classes, understory and regional genus proportions |
-| Temperate conifer | Pine, spruce, yew and redwood forms | Fir, hemlock and cedar diversity without Workshop assets |
-| Boreal/taiga | Pine, spruce, birch and static winter versions | Larch, dwarf woodland, wet-ground vegetation |
-| Tropical savanna | Baobab and umbrella thorn are useful silhouettes | Grass and shrub diversity, size/age variation |
-| Temperate grassland | Generic grass and shrubs | Prairie/steppe grasses and forbs; avoid tree-heavy substitution |
-| Flooded grassland | Sparse generic grasses | Living reeds/sedges and wetland structure, not tied-reed decoration |
-| Montane grassland | Generic low vegetation only | Alpine tussocks and dwarf shrubs |
-| Tundra | No named palette established | Dwarf willow/birch, sedges, mosses and lichens; snow trees are not tundra |
-| Mediterranean | Pine and evergreen-oak silhouettes | Olive/cork oak and maquis diversity |
-| Desert/xeric | No named cactus/xeric-shrub palette established | Succulents and xeric shrub forms |
-| Mangroves | No named built-in mangrove established | Root architecture and canopy diversity |
+| Tropical & Subtropical Moist Broadleaf Forests | broadleaf evergreen, fern, grass, large herb, palm, shrub | No form-level gap; ecology and size classes remain unverified |
+| Tropical & Subtropical Dry Broadleaf Forests | broadleaf deciduous, broadleaf evergreen, palm, shrub | No form-level gap; ecology and size classes remain unverified |
+| Tropical & Subtropical Coniferous Forests | needleleaf evergreen | No form-level gap; ecology and size classes remain unverified |
+| Temperate Broadleaf & Mixed Forests | broadleaf deciduous, broadleaf evergreen, fern, grass, needleleaf deciduous, needleleaf evergreen, needleleaf unknown, shrub | broadleaf unknown, palm |
+| Temperate Conifer Forests | broadleaf deciduous, fern, needleleaf evergreen, needleleaf unknown, shrub | No form-level gap; ecology and size classes remain unverified |
+| Boreal Forests/Taiga | broadleaf deciduous, needleleaf evergreen | No form-level gap; ecology and size classes remain unverified |
+| Tropical & Subtropical Grasslands, Savannas & Shrublands | broadleaf deciduous, grass, palm | shrub |
+| Temperate Grasslands, Savannas & Shrublands | grass | shrub |
+| Flooded Grasslands & Savannas | grass | shrub |
+| Montane Grasslands & Shrublands | grass | shrub |
+| Tundra | None | grass, shrub |
+| Mediterranean Forests, Woodlands & Scrub | broadleaf evergreen, needleleaf evergreen, needleleaf unknown, shrub | broadleaf unknown |
+| Deserts & Xeric Shrublands | needleleaf evergreen, succulent | shrub |
+| Mangroves | broadleaf evergreen | No form-level gap; ecology and size classes remain unverified |
 
-Temperate and conifer forest **forms** are relatively well served compared with
-the other bins, not ecologically complete. Tall tropical canopy, mangrove,
-xeric, alpine/tundra and grassland-understory palettes are the clearest gaps.
-The Workshop contains named candidates for some gaps, including mangrove,
-eucalyptus, olive, acacia and tree fern. They are candidates, not approved fills.
+## Independent bar and confirmed failures
 
-## Proposed independent quality bar
+The forest proposal remains ≤1,500 main triangles (rounded built-in p75),
+≤1,024 px per texture side, and a 128 MiB estimated unique texture palette.
+Texture memory is deduplicated by serialized content checksum, including
+compression and a full mip chain; this is an estimate, not native VRAM or proof
+that the engine shares those objects. Do not multiply shared texture bytes by
+map-instance count. Geometry cost depends on near/far visible counts and LOD.
 
-The [creator tree guide](https://cslmodding.info/asset/tree/) distinguishes
-two-sided main geometry, vertex-colour wind, and the tree billboard path. A
-building-style authored-LOD checklist alone would misjudge trees.
+Full forest certification additionally requires scale, gameplay art, billboard,
+maintenance, rights/reference provenance and native frame-budget review.
+Unknown evidence is never converted to a pass. Above-budget assets may be useful
+accent or bake references without being approved at 100k–250k map instances.
 
-1. **Forest fill, 100k–250k map instances.** Start at a main-mesh target rounded
-   from the installed p75: approximately **1,500 triangles**. Budget geometry as
-   near-visible instances × main triangles plus far-visible instances × native
-   LOD triangles. Do not multiply main triangles by all map instances and call
-   that an actual frame’s workload. Inspect alpha area, empty cards and overdraw.
-2. **Textures.** Start at a **1,024 px per-side target** and **128 MiB unique
-   resident palette target**. These are provisional policy values, not measured
-   limits. Include compression, mipmaps and sharing; texture memory is shared
-   across instances, not charged in full for every tree.
-3. **Native timing.** Five A/B/A repeats at two zooms, identical stock population
-   and positions, 120 warm-up + 300 retained frames per arm. Proposed acceptance:
-   at most **10% p95 wall-frame regression**; baseline drift above **5%** makes it
-   inconclusive. Report run spread, errors and the limiter. A failure to identify
-   the limiter also makes any performance verdict inconclusive.
-4. **LOD/art/scale.** Multi-angle near, gameplay and transition views; coherent
-   silhouette and colour; no alpha fringes or severe pop; plausible wind and
-   roots. Height and crown spread, including native random scale, should match
-   a sourced plant size class within **20%**. Separate winter or fall prefabs
-   do not prove dynamic snow/season behaviour.
-5. **Maintenance/dependencies.** Fresh-city load, save/reload and installed-game
-   compatibility; resolve hard dependency closure. No embedded assemblies or
-   required mods in the default vegetation-only profile. Optional aesthetic
-   suggestions are not hard dependencies. Last-update age alone is not failure.
-6. **Recommendation and other characteristics.** Public original author link,
-   credit, provenance and terms review. Reference and recommend, never bundle
-   Workshop binaries. Also review age/size variants, texture sharing, consistent
-   scale and colour, repeated silhouettes, root float, deterministic prefab
-   identity and missing-asset behaviour.
+Two supplied packs fail native maintenance due to duplicate loaded identities:
 
-Above-target assets can still be reviewed for an **accent ≤5k-instance** or
-**specimen ≤200-instance** role. A pack may contain both cheap and expensive
-variants. The current item-level failure exposes an over-target member; it does
-not mean every member is unusable. Nothing is auto-approved for an exported map.
+- **1886114743 Pin Oak Fall Variations:** standalone Fall 2/3 roots are also
+  embedded in the Variations CRP.
+- **902947770 Green Lawn:** Green Lawn / Lawn Rich Green roots also appear in
+  Lawn dead's CRP.
 
-## Native reference result
+The first broad import displayed the game's broken-assets modal for these
+collisions. Its timing and limiter samples are **rejected in full**. The modal
+was explicitly cleared before the retained near-art captures. The corrected
+driver rejects selected name collisions before launch and refuses obstructed
+evidence frames. Curating individual files locally for a bake is a different
+operation from recommending the supplied pack as-is.
 
-The accepted timing run used the exact stock Grand River package, 139,362 tree
-instances, a paused fresh city, fixed noon lighting, 1920×1080 and an interior
-dry forest patch at (-1350, -1350). It compared `Conifer2` against cached
-`2262443894.Lodgepole Pine 03 19m_Data`. All thirty arms retained that count:
-five A/B/A repeats at each zoom, 120 warm-up and 300 retained frames per arm.
-Dry-terrain ray checks and rendered-frame PNGs establish actual forest framing.
+A later transport reset ended the first broad sweep after 374 near frames.
+That is not established as an asset crash: the next prefab had ordinary finite
+metrics and the game quit through context teardown. Completed frames were
+retained and the sweep resumed in bounded fresh sessions. Replay-safe observer
+and camera calls have bounded reconnection; tree-creation jobs are not replayed.
+One acquisition-completion census attempt failed on a driver hash-variable bug
+before any specimen review; its cleanup receipt is retained and its replacement
+has a distinct run identity.
 
-| Camera size | Baseline p95 median | Candidate p95 median | Paired p95 difference median | Maximum A/A drift |
-|---|---:|---:|---:|---:|
-| 350 | 36.24 ms | 38.32 ms | +4.84% | 1.13% |
-| 1400 | 21.02 ms | 21.27 ms | +1.91% | 4.03% |
+An over-budget census replacement retained 216 near frames before its screenshot
+RPC stopped responding. The busy game did not exit on its own: the operator
+verified the exact run-owned PID, compared it with Multica’s daemon PID, and
+terminated that game. This is an operator-ended stall, not an asset-crash claim.
+The next short fresh session successfully captured the following Ironbark Tall
+Old prefab. Subsequent capture plans cap each slot at 150 identities and never
+wait in-game for a person to choose a palette.
 
-The ratio column is the median of within-repeat paired ratios, not the ratio of
-the displayed overall medians. Candidate p95 ranges were 33.76–38.89 ms near
-and 20.51–21.93 ms far. These are **inconclusive performance evidence**, not a
-pass: the limiter is not isolated, the two trees have different silhouettes,
-and the host is shared. None of the twenty candidates is fully approved.
+Papaya Plant (2090182951) was staged and appeared in the native loading log,
+but not in that run’s loaded catalog. Its native-load result remains unresolved;
+package extraction alone does not count as a load pass.
 
-The renderer was blade's RTX 2080 Ti at PCI 05:00.0. Across 121 read-only
-samples (00:45:46–00:56:35 UTC), board peaks were 10,821 MiB, 148.18 W and 65°C;
-the sampled game-only VRAM peak was 2,673 MiB. The observed card limit was
-200 W, unchanged by this work. Other workloads occupied substantial VRAM.
-CPU data is `ps` lifetime-average utilization, not instantaneous attribution.
-The driver window was approximately 18m04s including the FIFO queue and load.
-Three existing serialization errors were present before and after, with no
-new errors. The session receipt and cleanup check report no surviving game,
-Steam instance, transient unit, state file or installed package copy.
+## Genus-exact bake controls
 
-An earlier outer-world camera run was rejected as sky-only; none of its timing
-samples enters these results. Native GPU-only meshes are marked unreadable,
-not zero triangles. Their offline serialized counts remain authoritative.
-The observation manifest records the driver/build hashes and rejected attempts.
+The current handback is `reference-handback.json`: exact loaded prefab, CRP
+path/hash, dependencies, native size/scale and reviewed evidence for each control.
+It makes no generic substitution for a missing genus. All three named controls
+were captured at seven views in a separate short session and each exact identity
+survived a three-specimen save/reload. The native stage was cleaned afterward.
+The original PNGs, camera/placement records and SHA-256s accompany the handback.
+BioCLIP identification has **not run** and is not asserted as passed. Gameplay
+frames at camera size 700 are too small for reliable visual genus identification.
+American Elm’s distant canopy is attenuated, including in its stock comparator;
+that observation does not isolate asset quality from the runtime billboard path.
+The original anchor wind pair changes pitch and placement, so it cannot prove
+sway. The next driver captures that pair consecutively without recreating it.
 
-The twenty-pair sheet was recaptured in a second owned disposable session with
-genus/form-first built-in neighbours and closer views. Its initial clipped
-fixture was replaced through a guarded existing-session adapter; the owning
-driver was then explicitly interrupted for context teardown. Its receipt has
-empty cleanup and no offline-account error. The three serialization errors
-remained unchanged. The 98 resource samples peaked at 10,821 MiB total,
-2,673 MiB game, 130.75 W and 62°C; controller window28m12s includes the queue.
+- **Ulmus:** American Elm (2456536855), loaded as
+  `2456536855.American Elm_Data`, has a 14.96 m generated height before random
+  scale, a readable spreading/vase canopy, 2,480 main tris and 2,048×1,024
+  material textures. It exceeds both forest geometry and texture targets.
+- **Tilia:** Kaiserlinde 16m (2928288862) has a 16.48 m generated height and
+  0.86–1.11 random scale. Bigleaf Linden (2402946167) is the stronger near-art
+  alternative in this review, at 12.30 m before 1–1.5 random scale. The handback
+  separates best intrinsic size match from best near-art alternative.
+- **Gleditsia:** no vetted match. The authenticated genus search returned zero
+  results and the bounded title/description corpus did not yield a honey-locust
+  match. This is a discovery gap, not proof that none exists anywhere on Steam.
 
-**The sheet remains exploratory.** Some tall built-in crowns still clip because
-their native instance scale reaches2×. Wide gameplay originals are included.
-The driver now sizes both maximum-scale envelopes by perspective-frustum
-constraints; a forward-projection check covers all twenty observed pairs.
-That last scale-aware correction has **not** been recaptured natively. These
-images cannot support a completed scale/billboard review or best-twenty claim.
+The [RHS Kaiserlinde entry](https://www.rhs.org.uk/plants/205425/tilia-%C3%97-europaea-kaiserlinde/details)
+supports the genus-name mapping, not authentication of the Workshop geometry.
+The [US Forest Service American elm account](https://www.srs.fs.usda.gov/pubs/misc/ag_654/volume_2/ulmus/americana.htm)
+describes substantially taller mature forest trees. A roughly 15 m model is a
+requested bake size class, **not proof of biological maturity or maximum size**.
 
-## What still blocks acceptance
+## Reproduction and boundaries
 
-The cached-pool sheet is not the globally best twenty Workshop trees. Uncached
-shortlisted packages still need an approved acquisition path and native QA.
-Theme availability, dynamic wind/snow behaviour, sourced scale and multi-angle
-billboard reviews are not complete. The index and browse page are usable now;
-the original issue must not be called finished or its unknown assets relabelled
-as passes. See `download-shortlist.json` for a bounded next acquisition proposal.
+Use the November 25 input snapshot and run catalogs, not the older default
+observations. `README.md` gives the exact assembly command. The native driver is
+blade-only, uses the normal FIFO, a fresh disposable Grand River city, local
+checksum-matched copies, `--noWorkshop`, and offline/account guards. It never
+opens a player city. QA saves are uniquely named and tracked for removal.
+No native game ran on carbon. Session receipts establish teardown separately
+from whether a run completed its intended review.
+
+The JSON retains observed, limited, failed and unknown dimensions. This is a
+quality-bearing existing-supply baseline, not an ecological asset generator,
+exporter selection change or blanket Workshop redistribution permission.
