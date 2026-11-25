@@ -172,7 +172,7 @@ $("search").onsubmit = async (e) => {
   e.preventDefault();
   const q = $("q").value.trim();
   if (!q) return;
-  setStatus(`Searching “${q}”…`);
+  setStatus(`Searching "${q}"…`);
   try {
     let hit;
     if (searchCache.has(q.toLowerCase())) hit = searchCache.get(q.toLowerCase());
@@ -185,7 +185,7 @@ $("search").onsubmit = async (e) => {
       [hit] = await r.json();
       searchCache.set(q.toLowerCase(), hit);
     }
-    if (!hit) return setStatus(`No place called “${q}”`);
+    if (!hit) return setStatus(`No place called "${q}"`);
     Object.assign(state, { lon: Number(hit.lon), lat: Number(hit.lat) });
     $("name").value = slugify(q) || coordName(state.lat, state.lon);
     searched = { q, lon: state.lon, lat: state.lat };
@@ -278,7 +278,7 @@ function setDownload(water) {
   const check = checkedPreset()?.check, note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
-  $("crpmapname").textContent = `\u201c${titleFor()} - Ready to Play\u201d`;
+  $("crpmapname").textContent = `"${titleFor()} - Ready to Play"`;
 }
 /** The preset whose square this is, if any (some carry a note from their game test). */
 const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e-6 && Math.abs(p.lat - state.lat) < 1e-6 && state.rotation === 0 && state.scale === 1);
@@ -435,7 +435,7 @@ $("dl").onclick = async () => {
       const decision = showWaterRisk(map, selection, key);
       if (decision.action === "download") {
         save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
-        setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+        setStatus(`Saved ${baseName()}.crp: "${map.mapName}" in New Game`);
       } else setStatus(decision.action === "review" ? "Map built; review the water risk before downloading" : "Water check unavailable; choose another square or use the heightmap");
     } else setStatus("Square changed; the previous map was not downloaded");
   } catch (err) {

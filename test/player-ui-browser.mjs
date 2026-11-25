@@ -60,6 +60,7 @@ try{
       await page.keyboard.press('Escape');assert.equal(await page.locator('.capability-detail').isVisible(),false);
       results.push({browser:name,device,place:slug,position:await page.evaluate(()=>[__regionmap.result.sq.lon,__regionmap.result.sq.lat]),tiles:sizes,stock:await page.locator('.stock-row').count()});
      }
+     await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>{node.open=false;}));
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-closed.png`,fullPage:true});
      await page.locator('#howto').evaluate(el=>el.open=true);
      await page.locator('#advanced').evaluate(el=>{el.open=true;for(const d of el.querySelectorAll('details'))d.open=true;});
@@ -81,9 +82,12 @@ try{
     assert.ok(await page.evaluate(()=>Math.abs(__regionmap.state.lon+112.11)<.01));
     assert.match(await page.locator('#preview-place').innerText(),/Grand Canyon/);
     if(device==='ipad'){
-     await page.route('**/terrarium/**',route=>route.abort());
+     let blocked=0;
+     await page.route('**/terrarium/**',route=>{blocked++;route.abort();});
+     await page.goto('about:blank');
      await page.goto(afterURL+'/#c=-82.555,35.58&r=0&s=1&h=auto&rivers=1&n=asheville');
      await page.waitForFunction(()=>!document.querySelector('#retry')?.hidden,null,{timeout:40000});
+     assert.ok(blocked>0,'the elevation failure must actually be exercised');
      assert.equal(await page.locator('[data-level=loading]').count(),0);
      await page.unroute('**/terrarium/**');await page.locator('#retry').click();
      await page.waitForFunction(()=>document.querySelector('[data-capability=ship]')?.dataset.level==='no',null,{timeout:100000});
