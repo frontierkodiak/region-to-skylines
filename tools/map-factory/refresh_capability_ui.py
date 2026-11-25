@@ -8,7 +8,13 @@ ROOT = Path(__file__).resolve().parents[2]
 FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
+BASELINES = {
+    "package.json": "baseline/main-ci/package.json",
+    ".gitattributes": "baseline/main-ci/.gitattributes",
+}
 ADDITIONS = [
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes",
     "interface-copy.js",
     "test/player-ui-browser.mjs",
     "vegetation-model.js",
@@ -647,7 +653,7 @@ def refresh():
     current = json.loads(current_raw)
     gates = {}
     for name in GATES:
-        relative = f"{PREFIX}/baseline/{name}"
+        relative = f"{PREFIX}/" + BASELINES.get(name, "baseline/" + name)
         baseline = FOLDER / relative
         # Only accept the original archived gate, never today's changed source.
         if not baseline.exists():
@@ -663,9 +669,15 @@ def refresh():
         "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; automatic plane entries added; other physical writers and historical native qualification unchanged",
         "plane_writer": {
             name: {
-                "historical_file": PREFIX + "/baseline/" + Path(name).name,
+                "historical_file": PREFIX
+                + "/"
+                + BASELINES.get(name, "baseline/" + Path(name).name),
                 "historical_sha256": sha(
-                    (FOLDER / PREFIX / "baseline" / Path(name).name).read_bytes()
+                    (
+                        FOLDER
+                        / PREFIX
+                        / BASELINES.get(name, "baseline/" + Path(name).name)
+                    ).read_bytes()
                 ),
                 "current_sha256": sha((ROOT / name).read_bytes()),
             }

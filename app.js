@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
-import { waterRiskDecision, calibrationText } from "./water-risk.js";
+import { waterRiskDecision } from "./water-risk.js";
 import { mountCapabilities } from "./capability-ui.js";
 import { mountVegetation } from "./vegetation-ui.js";
 
@@ -298,7 +298,7 @@ function finish(raw, status = "") {
   showSources(sources, fit);
   setStatus(status);
   setDownload(raw.water);
-  $("mapname").textContent = `${fallback ? `${fileName()}.png` : `${baseName()}.crp`} · ${km(extentOf(sq), sq.scale)} · ${Math.round(fit.gameMin)}–${Math.round(fit.gameMax)} m`;
+  $("mapname").textContent = `${fallback ? `${fileName()}.png` : `${baseName()}.crp`} · ${km(extentOf(sq), sq.scale)}`;
 }
 
 /** Water source suggestions: dots on the map, pins in the preview, a list in the panel. */
@@ -368,7 +368,7 @@ function showWaterRisk(map, selection, key) {
   $("water-risk-reasons").replaceChildren(...decision.reasons.map((text) => {
     const li = document.createElement("li"); li.textContent = text; return li;
   }));
-  $("water-risk-calibration").textContent = calibrationText(map.waterRisk);
+  $("water-risk-calibration").textContent = "Checks use terrain and mapped water. Stability in the game is unverified.";
   $("water-risk-continue").hidden = decision.action !== "review";
   pendingRiskMap = decision.action === "review" ? { map, selection, key } : null;
   return decision;

@@ -52,8 +52,10 @@
     "vegetation-traits.js"
   ],
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs test/place-rules.test.mjs test/vegetation-model.test.mjs test/vegetation-inputs.test.mjs",
-    "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
+    "test": "node gate.mjs node",
+    "test:cli": "node --test --test-concurrency=1 test/cli-run.test.mjs",
+    "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs",
+    "gate": "node gate.mjs"
   },
   "engines": {
     "node": ">=20.3"

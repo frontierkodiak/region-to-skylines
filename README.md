@@ -262,6 +262,44 @@ The [Asheville building bake-off](tools/assets/bakeoff/README.md) compares
 procedural, image-to-3D and hybrid authoring inputs. It is a separate pre-bridge
 experiment: Blender previews and FBX checks are not a game-tested asset pack.
 
+## Development
+
+Node 24 and [uv](https://docs.astral.sh/uv/) run the suites; `npx` users need neither.
+
+```sh
+npm ci
+npm run gate
+```
+
+`npm run gate` is the one gate; CI runs it on every pull request. It runs, in order:
+
+- every `*.test.mjs` and `*.test.js` suite under `test/` and `tools/`, through the Node test
+  runner;
+- the three Python tools' suites: `tools/map-factory` and `tools/cs1-harness` under
+  `unittest` discovery, `tools/save-reader` under `pytest`;
+- the byte-conformance fixtures (`npm run test:fixtures`): ten Pyodide builds of the five
+  regions against their native-tested packages, the slow part of the gate;
+- a real run of the shipped CLI (`npm run test:cli`): `cli.mjs`, through its default Node
+  entry point, on the committed asheville region in `test/fixtures/cli-region-asheville`,
+  asserted to write its heightmap, water map and JSON records.
+
+`npm test` is the fast loop: the same Node suites, without the fixtures.
+
+Left out of the gate, and why:
+
+- `tools/map-factory/test_place_input.py` and `test_audit_place_terrain.py` read the
+  workbench's `polli-place-model` 0.3 data; without it they skip with that reason. Run them
+  inside the workbench's PL-1074 environment, where they were written.
+- `tools/map-factory/fixtures/**` holds quarantined rejected candidates for earlier studies,
+  not suites. `fixtures/admission-rejected/test_admission.py` calls a prototype
+  `hydrology(deferred=…)` API that never landed, so discovery does not collect it.
+- Three `tools/save-reader` tests need licensed game saves (`CS1SAVE_PRIVATE_SAVES`).
+- Nine `tools/cs1-harness` tests read a fleet host profile (`blade` or `worm`) and skip with
+  that reason elsewhere; run them on that host.
+- The CLI's ready-to-play `.crp` path needs Pyodide's wheels and WorldCover byte ranges at run
+  time, so the gate's CLI run is the heightmap path. The writer behind the `.crp` is covered
+  byte for byte by the fixtures.
+
 ## Licence
 
 The code is MIT licensed; see [LICENSE](LICENSE). The data it fetches keeps its

@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"];
+const BASELINES = {"package.json":"baseline/main-ci/package.json", ".gitattributes":"baseline/main-ci/.gitattributes"};
 
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
   const adoption = parse(await read("fixtures/contracts/pl1119-capability-ui-v1/adoption.json"));
@@ -16,13 +17,15 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
   const archived = {};
   for (const name of GATES) {
     const binding = adoption.archived_gates[name];
-    assert.equal(binding.file, "contracts/pl1119-capability-ui-v1/baseline/" + name);
+    assert.equal(binding.file, "contracts/pl1119-capability-ui-v1/" + (BASELINES[name] ?? "baseline/" + name));
     const raw = await read("fixtures/" + binding.file);
     assert.equal(sha(raw), current.export_gate_files_sha256[name], `${name}: archived gate changed`);
     assert.equal(sha(await readSource(name)), binding.current_sha256, `${name}: capability UI source changed`);
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes",
     "interface-copy.js",
     "test/player-ui-browser.mjs",
     "tools/map-factory/real_roads.py",
@@ -653,7 +656,7 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
   const planes = adoption.plane_writer;
   assert.deepEqual(Object.keys(planes).sort(), [".gitattributes", "mapgen.js", "tools/map-factory/generate.py", "tools/map-factory/real_roads.py", "tools/map-factory/transport_paths.py"]);
   for (const [file, binding] of Object.entries(planes)) {
-    assert.equal(binding.historical_file, "contracts/pl1119-capability-ui-v1/baseline/" + file.split("/").at(-1));
+    assert.equal(binding.historical_file, "contracts/pl1119-capability-ui-v1/" + (BASELINES[file] ?? "baseline/" + file.split("/").at(-1)));
     const original = await read("fixtures/" + binding.historical_file);
     assert.equal(sha(original), binding.historical_sha256, "historical plane writer changed");
     assert.equal(sha(await readSource(file)), binding.current_sha256, "current plane writer changed");

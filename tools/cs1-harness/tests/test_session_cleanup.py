@@ -19,7 +19,10 @@ class SessionCleanupTests(unittest.TestCase):
         env = patch.dict("os.environ", XDG_RUNTIME_DIR=str(self.root / "runtime"))
         env.start()
         self.addCleanup(env.stop)
-        cfg = Config.for_host()
+        try:
+            cfg = Config.for_host()
+        except SystemExit as exc:  # a runner has no fleet host profile; run these on blade or worm
+            self.skipTest(str(exc))
         cfg.harness_home = self.root / "home"
         stage = self.root / "stage"
         stage.mkdir()

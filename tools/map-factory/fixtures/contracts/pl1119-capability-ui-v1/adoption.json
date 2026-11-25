@@ -3,9 +3,9 @@
   "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; automatic plane entries added; other physical writers and historical native qualification unchanged",
   "plane_writer": {
     ".gitattributes": {
-      "historical_file": "contracts/pl1119-capability-ui-v1/baseline/.gitattributes",
-      "historical_sha256": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7",
-      "current_sha256": "00064e01a5597d1c92e695c32a632796d841f805c1b9a278b50254b6f68eacb9"
+      "historical_file": "contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes",
+      "historical_sha256": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8",
+      "current_sha256": "58c95cd01ee9349a05078090ac10235ddfb886ca5d56420e2b9759a4c8256f7c"
     },
     "mapgen.js": {
       "historical_file": "contracts/pl1119-capability-ui-v1/baseline/mapgen.js",
@@ -49,11 +49,11 @@
     "templates/native-corridors.json"
   ],
   "predecessor_active_sha256": "b091d1b66aad18152de717761a2a33abf226f4461ea1545d893fd2f9459ca144",
-  "predecessor_contract_sha256": "fe757722f81bade94d4525dd35b9b857539ece276baae8f1247a684897afe296",
+  "predecessor_contract_sha256": "2b4f2f3f898499ff342e23914ae164e7b4ffde84548bcfce4abfdd66f68613d0",
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "c75d223e06ef8894d13d33d0c52ca09b253613d9f8a5358da678ccbc928da064"
+      "current_sha256": "e6668707acb0305e895c5e4e7b03adff2ae44d608f6426e1df8aa410bf741637"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
@@ -64,8 +64,8 @@
       "current_sha256": "d81c2d2f260c88db6ba13bc838da7c9ef7083401057fefb3b69bbfa890b0c3a7"
     },
     "package.json": {
-      "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "3000281e3133bc12829079c5b65dd2c130fa156bfe06b310f152e27f82c15270"
+      "file": "contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json",
+      "current_sha256": "f85c89908b3225637fab88075db02e395894ec1de6c126abe8a28e5176e2383b"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -73,6 +73,8 @@
     }
   },
   "added_files_sha256": {
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
+    "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8",
     "interface-copy.js": "fa7682137ed38345989fb58654abc78f53411cae5442d2153c7da1c582984229",
     "test/player-ui-browser.mjs": "0a3f9ba3a20a7f0eca377ca7f00afc9852076cca76c74f1539567ec6cbca3069",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
@@ -85,7 +87,7 @@
     "vegetation-data/boston.json": "5373f844ccb3f09b74a7711421270a1be5f490fa577ea2c103b8ed309a24543e",
     "tools/map-factory/real_roads.py": "f2a0db7f46ff9224676b5ff5d5c53e29471dcfca94e9a4e7974ba550645a10d1",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
-    ".gitattributes": "00064e01a5597d1c92e695c32a632796d841f805c1b9a278b50254b6f68eacb9",
+    ".gitattributes": "58c95cd01ee9349a05078090ac10235ddfb886ca5d56420e2b9759a4c8256f7c",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/.gitattributes": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7",
     "mapgen.js": "247ed6152cfebefac2b08445863128cf94490b0672651076b5665a92420814a1",
     "tools/map-factory/generate.py": "5a76b5dc10927b592b8d16f6a88ceafed65cb7b3a7a469bc21698d28997b8346",

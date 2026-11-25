@@ -23,7 +23,10 @@ class SilentLaunchTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(prefix="silent launch ")
         self.addCleanup(self.tmp.cleanup)
         self.root = pathlib.Path(self.tmp.name)
-        self.cfg = Config.for_host()
+        try:
+            self.cfg = Config.for_host()
+        except SystemExit as exc:  # a runner has no fleet host profile; run these on blade or worm
+            self.skipTest(str(exc))
         self.cfg.harness_home = self.root
         audio.prepare(self.cfg)
         self.pulse = socket.socket(socket.AF_UNIX)
