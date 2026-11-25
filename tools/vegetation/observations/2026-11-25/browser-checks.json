@@ -10,7 +10,18 @@
     "Search and empty state work",
     "Pagination adds the next results",
     "Author-provided HTML-like titles stay text",
+    "Native contact sheet captured",
     "Mobile layout and source filter work"
   ],
-  "pageErrors": []
+  "pageErrors": [],
+  "verified_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/",
+  "index_sha256": "5c8eb1dfd5d44dcde1d7f7bfca7d385c4439ddc6afafbd1270d7c5c69987da9d",
+  "native_images_decoded": 140,
+  "selected_trees": 20,
+  "playwright": "1.65.0",
+  "screenshots": {
+    "native-contact-sheet.png": "86dce6bcb186dcf415aaf082b9fe4734021e9c3530de37f889beb549bbb33709",
+    "shelf-mobile.png": "24f6b4ae7eef34368886a6ea9e6ab4de8175f680e3caa15a5ffebfac44bd2650",
+    "shelf-desktop.png": "4523c5d179c9ed63daa3e105f7a77bba47e6e9cc4b40daa0271977811480041c"
+  }
 }

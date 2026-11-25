@@ -1,0 +1,20 @@
+{
+  "sample_count": 91,
+  "elapsed_sampler_seconds": 450.231,
+  "sampled_board_peak_mib": 13703.0,
+  "sampled_board_peak_watts": 93.7,
+  "sampled_board_peak_celsius": 56.0,
+  "game_peak_mib": null,
+  "game_peak_basis": "Not sampled per process; menu process samples are not a peak",
+  "gpu_csv_sha256": "85edac08a878a21846aa15c4a3905bc53e5bfcd7960dc9c8b2d7280fbe9b0e79",
+  "gpu": {
+    "bus": "0b:00.0",
+    "name": "NVIDIA GeForce RTX 3090",
+    "egl": "egl1",
+    "label": "PL-1326 vegetation supply",
+    "mem_used_before_mib": 6935,
+    "mem_total_mib": 24576
+  },
+  "sampler_first": "2026/11/25 17:01:07.412",
+  "sampler_last": "2026/11/25 17:08:37.643"
+}

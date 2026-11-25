@@ -2,34 +2,6 @@
   "scope": "Explicit visual review; not botanical authentication or BioCLIP qualification",
   "reviews": [
     {
-      "prefab": "2456536855.American Elm_Data",
-      "source_run": "native-anchors",
-      "gates": {
-        "gameplay_art": "limited",
-        "billboard": "unknown",
-        "wind": "unknown",
-        "save_reload": "pass"
-      },
-      "notes": "Strong close spreading/vase form from three azimuths. At 700 camera distance the isolated crown is only a few pixels; genus cannot be visually qualified there. Far transition loses most foliage, as does the stock Jacaranda comparison: this cohort does not isolate an asset-specific billboard defect. Above forest triangle and texture targets.",
-      "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
-      "evidence_contact": "anchors/anchor-contact.jpg",
-      "bioclip": "not_run"
-    },
-    {
-      "prefab": "2402946167.Bigleaf Linden_Data",
-      "source_run": "native-anchors",
-      "gates": {
-        "gameplay_art": "limited",
-        "billboard": "limited",
-        "wind": "unknown",
-        "save_reload": "pass"
-      },
-      "notes": "Strong full, irregular close crown from three azimuths. Readable silhouette at transition distances; at 700 the isolated tree is too small for genus authentication. Above forest triangle and texture targets.",
-      "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
-      "evidence_contact": "anchors/anchor-contact.jpg",
-      "bioclip": "not_run"
-    },
-    {
       "prefab": "2928288862.Kaiserlinde 16m_Data",
       "source_run": "native-anchors",
       "gates": {
@@ -42,6 +14,506 @@
       "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
       "evidence_contact": "anchors/anchor-contact.jpg",
       "bioclip": "not_run"
+    },
+    {
+      "prefab": "958858484.Olive tree 3_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Readable irregular olive near crown, exposed branching and flared root from all azimuths. At 200 m it is only a small silhouette and the transition-far view loses most canopy, including in the similarly small stock comparison. Distant genus identification and an asset-specific billboard defect are not established.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-01.jpg",
+      "contact_sha256": "3f466376b9883b5637395e6ad58eb4c01659e2e02c4fa12b265becc16028d970",
+      "native_frame_sha256": {
+        "close": "91b7f6ea2c56476808d1244ec3c7d72bcf606af61cc2258ac8367acacbab294a",
+        "wind-second-frame": "ad90eade3e4c86ccde020fd7c92e65809a9cc14f171d012634379c3cd6db512e",
+        "gameplay": "3f0d22541285286915b83878a20b5f9f7c5a3f3b3b5be350fc86fc80a7b85e8c",
+        "side": "735034f295cb7356a754cdf03f5d2ee30935ee7126a3b6e0bc029a97cb8ff6fb",
+        "back": "783136d895fe913d738f3ac492068a55a55f60cf41f4586f7e1842b5a83e518c",
+        "transition-near": "cf274255c918ecd4af7d06c0edcd342196ce5652c196b28a136469f3e76495af",
+        "transition-far": "b93e373d6b79949bd4f56ac59517b57d7c28d0692d3c5bfb87faa9bec8709f99"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "704607028.Live Oak Tree_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Irregular spreading evergreen crown remains readable at 200 m; near form coherent from three azimuths. Both candidate and stock become attenuated at far transition; the pair does not isolate an asset-specific billboard defect.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-01.jpg",
+      "contact_sha256": "3f466376b9883b5637395e6ad58eb4c01659e2e02c4fa12b265becc16028d970",
+      "native_frame_sha256": {
+        "close": "8462b8a3abf7a616648c8a82accc7d4f6250a00d578ca5a3df4494bfcc6df473",
+        "wind-second-frame": "575a14528021de9502378ecfe325ecdc7e5ae8ff95cb669d1bd7c7bde8417356",
+        "gameplay": "518933987503e49c9919f27e74273b53a3d18ac393945899b1135fa429af3e69",
+        "side": "2d9d1b69f1fa107f2f01b7871bb60abc62bfaaf4f9a8d27e38fa81f24011716c",
+        "back": "94df45c1477a56bd4439cc04367019babdd5f6b7a85414dc270f27701e465003",
+        "transition-near": "b707ad3dd40d819b71aa1633856c4690d7b879caaaa4db70c2373a882d032cd1",
+        "transition-far": "97c1bb22e96d69ebaf857a16380fe616104c41e3b1744ccc08e046b030a5eeeb"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "1089035056.Forest Beech Full_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Dense rounded near crown, much darker than the stock comparison. Coarse canopy readable at 200 m. Far transition becomes a simplified brown/green mass with visible colour change; not a high-fidelity botanical billboard.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-01.jpg",
+      "contact_sha256": "3f466376b9883b5637395e6ad58eb4c01659e2e02c4fa12b265becc16028d970",
+      "native_frame_sha256": {
+        "close": "82175b75a61d637a9a80aac56cc03ec0cc4ef3f71730245f298906ab7320ec95",
+        "wind-second-frame": "4460f9f173951c3becc533fc7bbc9c612b3cde51912294c42b7acadcfae3323d",
+        "gameplay": "b6d13696981079b74bd446ff66a2a9d43d59cbc6a2ded213c778e148c53ca4ef",
+        "side": "7891d0229ff4b2c7331d10dc737bd88ffce2c2accd352e1e6bd5d874225dde76",
+        "back": "03a6f98a40b6a7215b4100a72c4a0f22ceb3c10a39e472f2a4cdc66dbf360891",
+        "transition-near": "e58ee69de2326ea73864af230d8f72fe633a241615fbcc5b446e551a7827ee6a",
+        "transition-far": "5ef460013f1d01e7b38c659cfaaa3696d41b7e11bbc9ea7ffc33c0a581fa8a32"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2456536855.American Elm_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Spreading/vase near form readable from three azimuths. At 200 m the thin crown is visibly sparse and cannot establish genus. Transition loses most foliage, including in stock comparator; cause not isolated.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-02.jpg",
+      "contact_sha256": "192460463520ceb6afefc9e4794e41d52df22dbe2180e56ea50e2fd56a271b6c",
+      "native_frame_sha256": {
+        "close": "c93630b3853a24bcd08e9eae3ef0349c8df460f47ffff26fe748e1e254772f13",
+        "wind-second-frame": "f248c6e66deffec51cc6df6d61c1613ae5c1c4c8901f8b848b2bd4c0ce0a79ee",
+        "gameplay": "c0a37fe608964131b58d74c715abbdd312d692b830b123edf407c3c4b1f13db1",
+        "side": "1a1640653c5417ed48e7652e1e4232ee2b335291f0593cecb144d22464716db7",
+        "back": "fac59a7968a886354983eb401641dd1034804ad6a750e596cecc55531f5603ec",
+        "transition-near": "c953503f249eb2626984ecf2a0f5d9e8938613869fe17e7be650b5ae941d5432",
+        "transition-far": "a1fc84e17155290089ebe9edf3564e93710684cc11398fdbd9e10a3de3e47c90"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2402946167.Bigleaf Linden_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Full irregular crown coherent from three azimuths and readable at 200 m. Small far silhouette persists, but detail and colour differ; limited distant representation, not genus authentication.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-02.jpg",
+      "contact_sha256": "192460463520ceb6afefc9e4794e41d52df22dbe2180e56ea50e2fd56a271b6c",
+      "native_frame_sha256": {
+        "close": "a477224f79aad24b62a4492e1540683961426d076c450d0b2ff296964d2caed8",
+        "wind-second-frame": "330bb0022b0a342ed1ecf1bdd8ece483bac96972fbcf2026ccb4983e52aeacaf",
+        "gameplay": "70803823df3e2718b024141a82ef7f7ceb2c02d5cba8703e98720b3c12726d9e",
+        "side": "4172920373539cd58df2afd68540cfe047a1f0225d1e4040ebb477fac1905f72",
+        "back": "18d572bb6686873efe1a153f06fec361c830ff3a05e754cfb6876ff3b53d61aa",
+        "transition-near": "48dda0f08e34a491bd60ade528df0fd30d3e5a69a321688f1062151fc657e48e",
+        "transition-far": "064d0c11510d8eba3fed2297c560ff5ad6e172264a9642d059ae9015c79d199a"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2932179333.Norway Maple Giant 27m_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Large rounded irregular near canopy remains clearly visible at 200 m. Far crown shifts to a brighter green simplified mass; transition colour mismatch limits billboard quality.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-02.jpg",
+      "contact_sha256": "192460463520ceb6afefc9e4794e41d52df22dbe2180e56ea50e2fd56a271b6c",
+      "native_frame_sha256": {
+        "close": "a8d0435ea691e7602ad015e7c5b4de6972d62de225b7276327ba2d39622ad234",
+        "wind-second-frame": "9fe0d6611b43f80fa7536666d6ac2a9f666c8360273d422ae2945fbf2a63c01b",
+        "gameplay": "579baa2d7d65f40d6214d08356c9350b887634f7aa280ca9cf4053c77cc240f4",
+        "side": "0d3c168a0eee2db585418d7acc051960f01c7918b5c594e67653d5b98f599fd0",
+        "back": "0f1afcc407ef389feba8614ce09a1441c52db310b27e018c49ea9907f67d3ad0",
+        "transition-near": "fcaa03d9f370fe2cfd55daddff52e3c0b280adb6e7314862ecdfcf757a1a7c25",
+        "transition-far": "e01a689d8b1719ca3de212659d927f7333256eb16eefc1b9edee3d27aa4b01b7"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "1774634417.Silver Birch 2_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Slender white trunk and pendulous sparse foliage readable near and at side/back. At 200 m and far transition much of the canopy attenuates; trunk remains, genus cannot be authenticated from these distant pixels.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-03.jpg",
+      "contact_sha256": "83371d5379b1a3af0e805fb2e5c33af1bb9319eebe9bd7737aa587f2315402f2",
+      "native_frame_sha256": {
+        "close": "1bbd46c2363f74d5779c883a3ab8b07093fee1dbdf5ccd791d6315d5118b22a2",
+        "wind-second-frame": "dedd3a28ece78e9438da7a724d9e32d2baa5a8079754d915a00da360293e4047",
+        "gameplay": "acc01442661eb7f9a94b8d40306dd1ed0f2f23fe9d2e33bdeef06d9931830783",
+        "side": "e9c78828b2be6709490a0e6d5271aaef651e9e7734cf597b6db56b06e5cbda6b",
+        "back": "f93c0aa6c58dafe7adeb321eead833b10fbd309e99cb750848b1ae05c4247d9e",
+        "transition-near": "b4b46ee8d909fe69c4634d0b6ec187dcbfe0aa661922a674e990a0a3d799a2c4",
+        "transition-far": "4887b2b70720de0aed3c8548afe7910641b88a9ecee2c89963f59d083bfce35f"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2242682818.Alder 05 14m_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Good irregular upright near crown readable at 200 m. Far billboard retains only a small simplified canopy and differs in colour; no genus authentication.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-03.jpg",
+      "contact_sha256": "83371d5379b1a3af0e805fb2e5c33af1bb9319eebe9bd7737aa587f2315402f2",
+      "native_frame_sha256": {
+        "close": "cd3c253574b5c27c595bdebb4d96704871f52959a8bf872bcbbbbd55fdf74852",
+        "wind-second-frame": "5f1e38e29808bc2c17267fe67275c8e712a030f76b5db64d46146cdffb4602eb",
+        "gameplay": "987ec9135bf65446d7bd1a9ceb96a3bf7b536396d5810d0a9ae30781393e19c1",
+        "side": "2076aac46ec93511363bc47f40e6a2fabf5aec40c0a212196dc30d2b59064c26",
+        "back": "49343e14fe31b689d40a4be3f2f74784480a1e91ccc85b6c4d732be8928eb060",
+        "transition-near": "51525b23d016b61b3119619e0d87a317a4b4f8315db84e942486ccf10ca1b71b",
+        "transition-far": "985dbc758b1c6474d8396bad24c04b713e28d2605436a6279ac3f8991e9f008e"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2029030150.Lombardy Poplar_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Narrow columnar form is consistent across near azimuths and readable as a slim crown at 200 m. Far view attenuates foliage on both candidate and stock; runtime versus asset cause not isolated.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-03.jpg",
+      "contact_sha256": "83371d5379b1a3af0e805fb2e5c33af1bb9319eebe9bd7737aa587f2315402f2",
+      "native_frame_sha256": {
+        "close": "01879188bf3cf9d6ace4939b4378f9c2634aff1b97521afd6744c259e48cd9d3",
+        "wind-second-frame": "cd059757d05f234a30affa0e057fea14c756ac5043efb6551bd74452739638d9",
+        "gameplay": "b1a5e14870917321f8f19a73c01014499ea0b005807b1c68321e3125248a0b3c",
+        "side": "e6f14831e83c8837ececa7c4c3da24f35ba9134800141ff52d178687eb32d91e",
+        "back": "327acf52c1df2997ce16e8978bbea47ec979b92fe3f3e6de0e15e30457d6c9aa",
+        "transition-near": "203cd7c29f3fa2ff7504ad5314c028b96417628d88fb37d9c2337df73aff19ae",
+        "transition-far": "8513060edc86c27b93c9864323f9ea645c315c5d580967c904f7179137c25b9e"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "1515191700.Norway Spruce Tall_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Tall emergent form has a small upper crown and long exposed trunk from every near azimuth. At 200 m and transition distances it reads mainly as a pole, so it is not a substitute for a full-canopy forest spruce.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-04.jpg",
+      "contact_sha256": "2f1b94afd4d23f5c5f1a2c99782ee93d41a2d1848f587ecded09ec35ec2c0aec",
+      "native_frame_sha256": {
+        "close": "0699c605a1e310264831885829904dba256ca5d1e6475803b2ff8250c77ed1cc",
+        "wind-second-frame": "474b62ad603dbe27cc9bccc3f2182c7d4d2f01b45c2d16e758d8a21789696583",
+        "gameplay": "6b1d4c7f2ee6efbb4ef30edae1be6994824e14b435634a3febf6c461f1ee5afd",
+        "side": "14d0a302a2dda0dbf2eabe1482484e134c45f2ae744709f77a1f3daefdec6995",
+        "back": "04c59bb6dde51f804db2dca9fc4ffa65f661c4f480de2b52653b708b2b19d9c9",
+        "transition-near": "a51d6e596dd3eb09f0ebbd1a46c83bac63b910268884b486e806d6ab08acc02c",
+        "transition-far": "e2ea1889e6516b426bbb53cd695d0e0636d2b818f7eeaf6497a40cddf5b57396"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "1230960704.PD - Pine Regular _Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Fuller conical/rounded pine canopy remains readable at 200 m across the pair. Far view keeps coarse shape but attenuates density and colour. Selected as the inexpensive main-mesh/texture benchmark control, not a performance pass.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-04.jpg",
+      "contact_sha256": "2f1b94afd4d23f5c5f1a2c99782ee93d41a2d1848f587ecded09ec35ec2c0aec",
+      "native_frame_sha256": {
+        "close": "cf32360e08ac0db671d2e37f4e941585983132640ba701da1782db7503353eb7",
+        "wind-second-frame": "de7b551a78f710f67b3bc3861dbfc201b8977c456712f03b00d085e4f74cd841",
+        "gameplay": "b510ddf3a658a6360c558f3b2d92ecbcf666c272811ecbe573a092e7246693a7",
+        "side": "7c97b1267841d0ac603d7ebe1937bda55d4342240c4ab004c34d080d4d757756",
+        "back": "eb468a3df3bd57c2bde550082e081446f60e0fd7e7557d420db37a41fa0d8d84",
+        "transition-near": "1f898649b7f67c6bbdc7686f268f40c4e38979b7ba70c6fae4f2134582d5a7da",
+        "transition-far": "3ddf81a43f219afa8e7caf8d81e25f609b16d4e548ea878e24a993a490c2863e"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "843982695.Stone Pine Medium_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Distinct umbrella crown and exposed curved trunk coherent from near azimuths and readable at 200 m. The distant silhouette persists but is a small simplified canopy; no botanical distant identification claimed.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-04.jpg",
+      "contact_sha256": "2f1b94afd4d23f5c5f1a2c99782ee93d41a2d1848f587ecded09ec35ec2c0aec",
+      "native_frame_sha256": {
+        "close": "b44f0c3aa690105c0f80bcf4b453c4df46f333a7a9ecbb050b95224cf3ea2d5e",
+        "wind-second-frame": "d674dae307babe4363fe4b992724f87c2e51166d6453261c76f498b6fa6917e1",
+        "gameplay": "1473d384f76d2d23780744eb49ea935779e97f5472ffadb589e95738573721a0",
+        "side": "74096f833b63f65675e0733f85c0dc97f2d7f21c402b0c2d1888155c6f3cbd4b",
+        "back": "cc169233291cba5afda33bb5aa873ec8d3e1e33b0933bef2c31f43f74976078e",
+        "transition-near": "4d5aebf61392ef69a2b6523ce2e5edf6451cac492b049a7b6234e257dd5cb61b",
+        "transition-far": "00345bb5379fda41fbc57649ebb4ad10a504127cbdf51ae1bf4a1a21c437b1cd"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2129899406.Western Red Cedar 04_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Natural open-branched tall conifer near form, much sparser than the stock reference. At 200 m and transitions the small canopy attenuates, as does stock foliage. Not a dense forest-canopy replacement or proven billboard defect.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-05.jpg",
+      "contact_sha256": "5ab53ee3e7a5c7144ef4249a2f048719ca5b9a11028edd4aae6319c2d4498cbc",
+      "native_frame_sha256": {
+        "close": "eaee1ab29832fedad7ae06ddc9718127053faf69f140941e6d7f1f0330cf5da7",
+        "wind-second-frame": "47309eb87da4e1284db20c3529d7dd4a0f386fd226f375696e40090c9518f64e",
+        "gameplay": "604fcca7a63bf3d5187aa9895078ab52a119fc75f793957ee6b7d9c18c534dfb",
+        "side": "1b0f6bf13709c2594e98365ddc06a735dfdd63607f971127ed279b5b88d729b2",
+        "back": "54ee15260ca5dc02412e81fa8e798dd0240b9a71de10e84db8c636f40cfaf8a4",
+        "transition-near": "851c14210609dc48afa94e034c1a71e46c429dfcc205fbdc208e60c808c934c0",
+        "transition-far": "d6914375767fe0bcfb19e4540d0758943264b56ae9e44a80d33013825ff9490f"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2202615391.Douglas Fir 08 32m_Data",
+      "source_run": "native-final-20-b",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Tall conical upper crown and exposed trunk coherent across near azimuths. Coarse conical form persists at 200 m. Far foliage attenuates substantially; limited billboard representation, not a scale or species qualification.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-05.jpg",
+      "contact_sha256": "5ab53ee3e7a5c7144ef4249a2f048719ca5b9a11028edd4aae6319c2d4498cbc",
+      "native_frame_sha256": {
+        "close": "e9159dbd7024ab29e8e8c65601b1d013f8b814bf818a7d6e99a9645d05e3f241",
+        "wind-second-frame": "caf09fadfdd3ca08dfe98c8c15c1a15d37bc8a09583d0d764ca1b1ddc3100976",
+        "gameplay": "f323bce0858e789f04f1c844443f403e1df4fb77ec56012c4cab151932599bf9",
+        "side": "5a18d5e0a0a8f32b04cb2439bc6a4a140d918ce748d99646a42cc9924f8ccd2b",
+        "back": "29c5023a9bf71a475f1fa539c684807e4ea7b761092046461df224330ecfaee6",
+        "transition-near": "397a99b792ef82f0b793510eec31100722674b766c9d271bf231133fe52f8916",
+        "transition-far": "3d6107c62e3031880041b7e0b6026763cf4841461cca3123b2bd5023815ad36a"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "1547344928.Coast Redwood_Data",
+      "source_run": "native-tail-three",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "fail",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Tall near crown readable from three azimuths and at 200 m. Opaque dark rectangular foliage cards recur at both transition views in two fresh sessions, including a new session with this tree first. Stock neighbour remains readable; fails observed native billboard quality, without a global cause or crash claim.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-05.jpg",
+      "contact_sha256": "5ab53ee3e7a5c7144ef4249a2f048719ca5b9a11028edd4aae6319c2d4498cbc",
+      "native_frame_sha256": {
+        "close": "38007cd20cb9aa7790427f5951f62c15cfc7eafa051d317289a49a5a1456cbae",
+        "wind-second-frame": "8c50448377e54f0f51ec550af6816a881d79cc571d071feddbd0a695f7c41ece",
+        "gameplay": "870d6891032c0f781af2420c4b674c3ca2c9fa8eacf886836bd375eed5ec4458",
+        "side": "445d96c90116b419794d8cad1ce727187d2b7d45563d0cbb23ec9efe869349e4",
+        "back": "7a2b24d99714b87fef2da1f1488e70ba300c4bf337d487ddaec8a4295944ffdb",
+        "transition-near": "ac657aa7db85da353aac0be287ce3592259c93cf638ba8d3667a68e829d7853b",
+        "transition-far": "c7d746a4ab11fb711d6460e8c92d914525dd7e2b61c7f21bb0554cd8106bf59a"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2135000720.Large Eucalyptus _Data",
+      "source_run": "native-final-20",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "unknown",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Narrow open near crown coherently rendered from three azimuths, but at 200 m it is a small generic clump. Foliage attenuates at far transition in both candidate and stock, so an asset-specific defect is not isolated.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-06.jpg",
+      "contact_sha256": "a741809a7926344ecde3866afd7b34cd7679d96c9011a1d76857284e234bc283",
+      "native_frame_sha256": {
+        "close": "a38236eb8dfd8f8d051c5b391dfa5e2d7f0dec9646d9b86fb8496305290ebaea",
+        "wind-second-frame": "41dd6ffdca406c23ab8457b01f428cf5a7653031ae264005a924404469eb7c1b",
+        "gameplay": "4712914900616b3dd132ef0ad6cf5008ac839bfde428738c7ba3048aacc8a727",
+        "side": "4a5ee820fc4c8807608beb670b9179c01e42d82945a7e5a2b3a7478c16cf1b33",
+        "back": "3c111cae3616e2a59d0266dbde27c93930580e36612b34485abdd19baa63e9fc",
+        "transition-near": "902218c6c2bc5bb691010014b4352fea3d2a009e289cdb5d1705f0b3dc808a1f",
+        "transition-far": "a257a897501d3ea8508b4e1c732a53143c8ba5fbf1127ae3a9da3b2fa580d9ed"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "668294281.Bald Cypress_Data",
+      "source_run": "native-final-20",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Distinct flared root/trunk and tiered sparse near branches across azimuths. At gameplay/transition the canopy is sparse and oversimplified, limiting distant use and any genus identification.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-06.jpg",
+      "contact_sha256": "a741809a7926344ecde3866afd7b34cd7679d96c9011a1d76857284e234bc283",
+      "native_frame_sha256": {
+        "close": "eea5f1441e71b750353540159906f694ef3c6f2fcb9ff096ebcf54487cf3bc6f",
+        "wind-second-frame": "dc1f63839e0621bf5799bd3a829e48df3eb199a287f6e8745ae0424fc6fcaae1",
+        "gameplay": "f2b5dd907cfb79f76c6c8a42dc4ca7ba03330790256a6f34dafa4626ac5fed58",
+        "side": "80c30da4aa5aeab5533664ae51e2ff858d426c392cb08bcddc93618d8dc3d50d",
+        "back": "590882523389b1a5dbc5f161f392cdfc8711b1a0a1854191e67fcf78c5f31dab",
+        "transition-near": "7697b97e40bfdfab069c6ac3a28de85d924aca8a22604f7e13eddb91c1ce3f97",
+        "transition-far": "534e036e27d5dff5fd3b9866243c9573454a24314613a67971f2b0e92a2720f5"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2953236892.Cherry Blossom 2_Data",
+      "source_run": "native-final-20",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Bright pink rounded flowering crown coherent across near azimuths and readable as an ornamental at 200 m. Billboard retains colour but only a simplified small canopy; static flowering colour is not seasonal simulation.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-06.jpg",
+      "contact_sha256": "a741809a7926344ecde3866afd7b34cd7679d96c9011a1d76857284e234bc283",
+      "native_frame_sha256": {
+        "close": "d8bd56b7cd93ad0ccf8a9b4a5db0ea0a862cef0352a039868a78acd8c8f44722",
+        "wind-second-frame": "e8fa0624e122eabd20b096b72f6fb6b58b345a1a6e14ba50bb7436ce614030f7",
+        "gameplay": "8124163b0cb0db2a6b2fde557a71771fe5570649be06d1e0a1323e45381ea572",
+        "side": "b622d4de7bfd9c3dcdc9ae4602a0c5970f68ed5368c29d081c20324137f4f30e",
+        "back": "7b844c04f4e8da1bd1270cb6c962353d59e4affdf2327c8cd7bd654bbcaafa0e",
+        "transition-near": "653323100f1258e7c25e324b0422da2b102f446da544dc55c6c6108192d6d440",
+        "transition-far": "0e91a8c32165c27357b7d3bea1aaab7be4f38baf4fa7debaa54ff90e8c45625d"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2593482657.Canary Date Palm 15m_Data",
+      "source_run": "native-tail-three",
+      "gates": {
+        "gameplay_art": "pass",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Distinct feather-palm near crown and trunk remain coherent across three azimuths. The palm silhouette persists at 200 m and across the transition, but the crown is very small; genus is not authenticated at that distance.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-07.jpg",
+      "contact_sha256": "b41607719dfd0ab8b22d6b353b7744118e209494f7f18754083960f55be60cc1",
+      "native_frame_sha256": {
+        "close": "250f4902cd85d60ada3123a9105de06452179c952e5bbea1dad01a1ac81282dc",
+        "wind-second-frame": "d76b8d169f6e340a9c2e3bce2b53d530318da6def1c16cd88b9d10585418e5ec",
+        "gameplay": "2b8327629a863e7d746b5b59c92d9eda83df1eb03fe5e9ca9a9ddcbefa1fd3dd",
+        "side": "8314765809db936c2c0284fe4f3ee2eb218576672732cb93b046343cec359b86",
+        "back": "1ef394e52e374e443cc07ed25922cfe7b06ec9335c206ce7b8879bd1bdd4b776",
+        "transition-near": "e7eae9b1942f6998bc928bf31b8878aebc970a5b215cfd61431f7cad9f5ab2ae",
+        "transition-far": "47112d3f03fd45915bf107e026e76666314a668f7feb38be207dc123991deca6"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
+    },
+    {
+      "prefab": "2787290146.Plumeria_Data",
+      "source_run": "native-tail-three",
+      "gates": {
+        "gameplay_art": "limited",
+        "billboard": "limited",
+        "wind": "unknown",
+        "save_reload": "pass"
+      },
+      "notes": "Rounded red-flowering ornamental crown readable from near azimuths. At 200 m and the transition it is a tiny simplified clump; strong near art does not establish distant genus or species identity.",
+      "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+      "evidence_contact": "multi-view/multiview-07.jpg",
+      "contact_sha256": "b41607719dfd0ab8b22d6b353b7744118e209494f7f18754083960f55be60cc1",
+      "native_frame_sha256": {
+        "close": "08b3c00fbd653fb776db20bad500813010f6681a9b0ec991da39d9999a030976",
+        "wind-second-frame": "20c13d17110df93860661671a637503d78557051e30e0810cfdab1db3eaf9708",
+        "gameplay": "9f93ada70d49d9974f8216c3fef42e53b575400b9076c0ecb12a969e623a3ba6",
+        "side": "ce0db7813a514ba47796a303502e12698c791e3de0d9aa233034b31f5e0d57ac",
+        "back": "465ba0d9548b20def0a054db4fa1a20ba2f274d4429a3e863c80879f05f109bb",
+        "transition-near": "477c8d40ff2efcb3a8220f93cb6f66d4a56e6c58532649a92391c50621af69d4",
+        "transition-far": "9012b0dd8737bc953ba05a135ad5a1d06d970050839c38bd15830f388a70abcb"
+      },
+      "bioclip": "not_run",
+      "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
     }
   ]
 }

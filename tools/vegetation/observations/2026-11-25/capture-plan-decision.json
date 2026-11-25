@@ -1,0 +1,13 @@
+{
+  "premise": "A single 140-image twenty-tree capture is reliable; earlier stops are only a short settling deadline or one bad tree.",
+  "test_observations": [
+    "First attempt completed 17 trees before Olive transition settling timed out.",
+    "Fresh retry put Olive first; all seven Olive views passed at unchanged pose tolerance.",
+    "Retry later stopped on camera RPC transport after 14 completed trees, before the next previously captured Redwood finished."
+  ],
+  "inference": "The stops do not consistently identify one bad prefab. Long-session capture reliability is unproven; do not repeat the monolithic premise.",
+  "next_direct_test": "Run Redwood first with the two uncaptured trees in a fresh three-tree slot using the unchanged controller. Preserve all prior valid frames and exact source-run provenance; do not certify the failed sessions as complete.",
+  "delivery_plan": "Assemble the twenty-tree comparison from explicit per-tree source sessions, then independently save/reload all twenty identities without a long capture loop.",
+  "direct_test_result": "Redwood first and the two remaining trees completed all 21 views and a three-identity save/reload in native-tail-three; empty teardown. This supports small batches, but does not identify the long-session limiter.",
+  "palette_save_result": "All twenty exact identities survived native-palette-save-only; empty teardown."
+}

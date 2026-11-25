@@ -1,0 +1,1619 @@
+[
+  {
+    "candidate": "2963020120.Boxer GTK Rocket Launcher_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2963020120.Boxer GTK Rocket Launcher_Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1352.841064453125,
+            159.54798889160156,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1347.158935546875,
+            159.49649047851562,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.72427368164062,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.69927978515625,
+        "size": 13.092799186706543,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8161303400993347,
+          0.577867865562439
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2963020120.Boxer GTK Rocket Launcher_Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1352.841064453125,
+              159.54798889160156,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1347.158935546875,
+              159.49649047851562,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2966025203.Boxer GTK Modul Rocket Launcher_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2966025203.Boxer GTK Modul Rocket Launcher_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1352.4873046875,
+            159.5447998046875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1347.5126953125,
+            159.4995880126953,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.6626434326172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999839782714844,
+        "size": 9.144618034362793,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.819150447845459,
+          0.5735787153244019
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2966025203.Boxer GTK Modul Rocket Launcher_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1352.4873046875,
+              159.5447998046875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1347.5126953125,
+              159.4995880126953,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2968662432.Mountain Grass III Large_Data",
+    "base_neighbour": "Sparse Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2968662432.Mountain Grass III Large_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1376.904296875,
+            159.65501403808594,
+            -1350
+          ]
+        },
+        {
+          "name": "Sparse Hedge 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1323.095703125,
+            159.33570861816406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.7428436279297,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 82.48566436767578,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2968662432.Mountain Grass III Large_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1376.904296875,
+              159.65501403808594,
+              -1350
+            ]
+          },
+          {
+            "name": "Sparse Hedge 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1323.095703125,
+              159.33570861816406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2968662432.Mountain Grass III short_Data",
+    "base_neighbour": "Rock 08",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2968662432.Mountain Grass III short_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1357.9471435546875,
+            159.58966064453125,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 08",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1342.0528564453125,
+            159.45619201660156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.39236450195312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 39.13909149169922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2968662432.Mountain Grass III short_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1357.9471435546875,
+              159.58966064453125,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 08",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1342.0528564453125,
+              159.45619201660156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2968662432.Mountain Grass III _Data",
+    "base_neighbour": "Sparse Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2968662432.Mountain Grass III _Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1357.6864013671875,
+            159.5878143310547,
+            -1350
+          ]
+        },
+        {
+          "name": "Sparse Hedge 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1342.3135986328125,
+            159.45809936523438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.6924591064453,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 25.571130752563477,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2968662432.Mountain Grass III _Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1357.6864013671875,
+              159.5878143310547,
+              -1350
+            ]
+          },
+          {
+            "name": "Sparse Hedge 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1342.3135986328125,
+              159.45809936523438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2973020999.Grass Shrub Scaled_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2973020999.Grass Shrub Scaled_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1376.0496826171875,
+            159.65151977539062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1323.9503173828125,
+            159.3399658203125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.80523681640625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 79.45829010009766,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2973020999.Grass Shrub Scaled_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1376.0496826171875,
+              159.65151977539062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1323.9503173828125,
+              159.3399658203125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3066612635.rocket kiddie ride_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3066612635.rocket kiddie ride_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1351.071533203125,
+            159.53189086914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1348.928466796875,
+            159.5122833251953,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9774932861328,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 6.96108341217041,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3066612635.rocket kiddie ride_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1351.071533203125,
+              159.53189086914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1348.928466796875,
+              159.5122833251953,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 01_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 01_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1380.6534423828125,
+            159.67237854003906,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1319.3465576171875,
+            159.31732177734375,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3774871826172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 93.37991333007812,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 01_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1380.6534423828125,
+              159.67237854003906,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1319.3465576171875,
+              159.31732177734375,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 02_Data",
+    "base_neighbour": "Plant Pot 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 02_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1364.230712890625,
+            159.6207733154297,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1335.769287109375,
+            159.4123077392578,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.28883361816406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 44.52748489379883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 02_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1364.230712890625,
+              159.6207733154297,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1335.769287109375,
+              159.4123077392578,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 03_Data",
+    "base_neighbour": "Plant Pot 05",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 03_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1378.2265625,
+            159.6608123779297,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 05",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1321.7734375,
+            159.32923889160156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0638427734375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 85.6753158569336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 03_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1378.2265625,
+              159.6608123779297,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 05",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1321.7734375,
+              159.32923889160156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 04_Data",
+    "base_neighbour": "Plant Pot 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 04_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1380.0438232421875,
+            159.66937255859375,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 03",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1319.9561767578125,
+            159.3203582763672,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9788360595703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 91.78499603271484,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 04_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1380.0438232421875,
+              159.66937255859375,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 03",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1319.9561767578125,
+              159.3203582763672,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 05_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 05_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.0489501953125,
+            159.64456176757812,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.9510498046875,
+            159.35047912597656,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.94546508789062,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 72.91948699951172,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 05_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.0489501953125,
+              159.64456176757812,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.9510498046875,
+              159.35047912597656,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3422178585.Praia Landscape 06_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3422178585.Praia Landscape 06_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.779541015625,
+            159.61573791503906,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.220458984375,
+            159.42210388183594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9663543701172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 39.436790466308594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3422178585.Praia Landscape 06_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.779541015625,
+              159.61573791503906,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.220458984375,
+              159.42210388183594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3645100102.\u884c\u9053\u6811\u5e95\u5ea7_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3645100102.\u884c\u9053\u6811\u5e95\u5ea7_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1351.1500244140625,
+            159.53262329101562,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1348.8499755859375,
+            159.51156616210938,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96963500976562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 7.600417613983154,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3645100102.\u884c\u9053\u6811\u5e95\u5ea7_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1351.1500244140625,
+              159.53262329101562,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1348.8499755859375,
+              159.51156616210938,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 1_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 1_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96983337402344,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.141766548156738,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 1_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 2_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 2_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9698486328125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168073654174805,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 2_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 3_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 3_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-17-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96990966796875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168081283569336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 3_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 4_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 4_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-18-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96990966796875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168081283569336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 4_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 5_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 5_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-19-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96990966796875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168081283569336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 5_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3785801374.Detail Leaves 6_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3785801374.Detail Leaves 6_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-20-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9699249267578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168082237243652,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3785801374.Detail Leaves 6_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 10_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 10_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-21-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9699249267578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168082237243652,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 10_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

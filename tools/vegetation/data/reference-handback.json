@@ -3,7 +3,7 @@
   "consumer": "PL-1328",
   "host": "blade",
   "assembly_sha256": "1b902079cc437ee2eb19cf07b778d2b60b3587e3dbffb4c6338d6ec0c47b3a3e",
-  "index_sha256": "a89e6ae853e2849b2dbd59d61464e9f182c9a5c30213b5d00dae0eb6ff7e5ad2",
+  "index_sha256": "5c8eb1dfd5d44dcde1d7f7bfca7d385c4439ddc6afafbd1270d7c5c69987da9d",
   "scope": "Existing local Workshop references; never redistribute CRPs, meshes or textures",
   "bioclip_qualification": "not_run",
   "bioclip_scope": "No reference is claimed to have passed the downstream classifier gate",
@@ -87,13 +87,13 @@
         "near_review": {
           "kind": "TreeInfo",
           "prefab": "2928288862.Kaiserlinde 16m_Data",
-          "overview_ordinal": 123,
+          "overview_ordinal": 17,
           "near_art_score_0_to_4": 3,
           "review_level": "one native near-view; not full bar certification",
-          "note": "good readable near-view form. Near-view art only; other bar gates remain independent.",
-          "contact_page": "tree-006.jpg",
-          "contact_page_sha256": "d7ad64988ddf84e55384c3009ad1df68bc93acd62e47b2cbe812e3f39717d5b1",
-          "source_run": "native-rest-01"
+          "note": "Near-form grade only; scale, gameplay, billboard, ecology and maintenance assessed separately.",
+          "contact_page": "tree-001.jpg",
+          "contact_page_sha256": "e36e6e96c2934f8e78cecf8e5cbe573cd88dcb5ef29fe528961ea16953b43687",
+          "source_run": "native-short-04"
         },
         "multi_view_evidence": {
           "candidate": "2928288862.Kaiserlinde 16m_Data",
@@ -430,6 +430,7 @@
             }
           }
         },
+        "supplemental_palette_evidence": null,
         "native_frame_hashes": [
           {
             "view": "close",
@@ -921,6 +922,775 @@
             }
           }
         },
+        "supplemental_palette_evidence": {
+          "source_run": "native-final-20-b",
+          "save_reload_source_run": "native-palette-save-only",
+          "evidence": {
+            "candidate": "2402946167.Bigleaf Linden_Data",
+            "base_neighbour": "mp9-YoungLinden",
+            "pair": {
+              "specimens": [
+                {
+                  "name": "2402946167.Bigleaf Linden_Data",
+                  "created": true,
+                  "id": 125694,
+                  "position": [
+                    -1366.443359375,
+                    159.62684631347656,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "mp9-YoungLinden",
+                  "created": true,
+                  "id": 39640,
+                  "position": [
+                    -1333.556640625,
+                    159.39764404296875,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "views": {
+              "close": "native-final-20-b--pair-05-close.png",
+              "wind-second-frame": "native-final-20-b--pair-05-wind-second-frame.png",
+              "gameplay": "native-final-20-b--pair-05-gameplay.png",
+              "side": "native-final-20-b--pair-05-side.png",
+              "back": "native-final-20-b--pair-05-back.png",
+              "transition-near": "native-final-20-b--pair-05-transition-near.png",
+              "transition-far": "native-final-20-b--pair-05-transition-far.png"
+            },
+            "cameras": {
+              "close": {
+                "position": [
+                  -1350,
+                  166.89068603515625,
+                  -1350
+                ],
+                "yaw": 4.19621875692679e-17,
+                "heading_deg": 0,
+                "pitch": 25.00005340576172,
+                "size": 48.54793930053711,
+                "max_size": 4000,
+                "forward": [
+                  6.63759812207331e-19,
+                  -0.422619104385376,
+                  0.9063073992729187
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89068603515625,
+                    -1350
+                  ],
+                  "current_size": 48.547889709472656,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    3.85467819810936e-17,
+                    25.000049591064453
+                  ],
+                  "target_position": [
+                    -1350,
+                    171.94943237304688,
+                    -1350
+                  ],
+                  "target_size": 48.547332763671875,
+                  "target_angle_degrees": [
+                    0,
+                    25
+                  ],
+                  "render_position": [
+                    -1350,
+                    187.40794372558594,
+                    -1393.999267578125
+                  ],
+                  "render_forward": [
+                    6.097349403414794e-19,
+                    -0.422619104385376,
+                    0.9063073992729187
+                  ],
+                  "render_up": [
+                    2.843247240013208e-19,
+                    0.9063073992729187,
+                    0.422619104385376
+                  ],
+                  "render_euler_degrees": [
+                    25.00005340576172,
+                    3.85467819810936e-17,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 3.85467885985385e-17,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270181
+              },
+              "wind-second-frame": {
+                "position": [
+                  -1350,
+                  166.89068603515625,
+                  -1350
+                ],
+                "yaw": 3.118687721118283e-20,
+                "heading_deg": 0,
+                "pitch": 25.000009536743164,
+                "size": 48.54735565185547,
+                "max_size": 4000,
+                "forward": [
+                  4.933156438275743e-22,
+                  -0.42261844873428345,
+                  0.9063076972961426
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89068603515625,
+                    -1350
+                  ],
+                  "current_size": 48.54735565185547,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    2.886915267772619e-20,
+                    25.000009536743164
+                  ],
+                  "target_position": [
+                    -1350,
+                    171.94943237304688,
+                    -1350
+                  ],
+                  "target_size": 48.547332763671875,
+                  "target_angle_degrees": [
+                    0,
+                    25
+                  ],
+                  "render_position": [
+                    -1350,
+                    187.40769958496094,
+                    -1393.9989013671875
+                  ],
+                  "render_forward": [
+                    4.566538318175199e-22,
+                    -0.42261844873428345,
+                    0.9063076972961426
+                  ],
+                  "render_up": [
+                    2.129413009794659e-22,
+                    0.9063076972961426,
+                    0.42261844873428345
+                  ],
+                  "render_euler_degrees": [
+                    25.000011444091797,
+                    2.886915590890046e-20,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 2.886915590890046e-20,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270275
+              },
+              "gameplay": {
+                "position": [
+                  -1350,
+                  166.89065551757812,
+                  -1350
+                ],
+                "yaw": 1.6295444252368043e-26,
+                "heading_deg": 0,
+                "pitch": 49.99955368041992,
+                "size": 199.99728393554688,
+                "max_size": 4000,
+                "forward": [
+                  1.8281637218790636e-28,
+                  -0.7660394310951233,
+                  0.642793595790863
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89065551757812,
+                    -1350
+                  ],
+                  "current_size": 199.9974822998047,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    1.508926360233347e-26,
+                    49.99958801269531
+                  ],
+                  "target_position": [
+                    -1350,
+                    180.69000244140625,
+                    -1350
+                  ],
+                  "target_size": 200,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350,
+                    321.3341979980469,
+                    -1478.5570068359375
+                  ],
+                  "render_forward": [
+                    1.6928428284203123e-28,
+                    -0.7660398483276367,
+                    0.6427930593490601
+                  ],
+                  "render_up": [
+                    2.0174222093603237e-28,
+                    0.6427930593490601,
+                    0.7660398483276367
+                  ],
+                  "render_euler_degrees": [
+                    49.99959182739258,
+                    1.5089265143077427e-26,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 1.5089265143077427e-26,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270308
+              },
+              "side": {
+                "position": [
+                  -1350,
+                  166.91525268554688,
+                  -1350
+                ],
+                "yaw": 89.99966430664062,
+                "heading_deg": 89.99966430664062,
+                "pitch": 25.000091552734375,
+                "size": 48.54789733886719,
+                "max_size": 4000,
+                "forward": [
+                  0.9063072204589844,
+                  -0.4226197600364685,
+                  5.152076482772827e-06
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.91525268554688,
+                    -1350
+                  ],
+                  "current_size": 48.547855377197266,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    89.99968719482422,
+                    25.000083923339844
+                  ],
+                  "target_position": [
+                    -1350,
+                    171.94943237304688,
+                    -1350
+                  ],
+                  "target_size": 48.547332763671875,
+                  "target_angle_degrees": [
+                    90,
+                    25
+                  ],
+                  "render_position": [
+                    -1393.999267578125,
+                    187.43252563476562,
+                    -1350.000244140625
+                  ],
+                  "render_forward": [
+                    0.9063072204589844,
+                    -0.42261970043182373,
+                    4.8317015171051025e-06
+                  ],
+                  "render_up": [
+                    0.42261970043182373,
+                    0.9063071608543396,
+                    2.2798776626586914e-06
+                  ],
+                  "render_euler_degrees": [
+                    25.000091552734375,
+                    89.99968719482422,
+                    -9.420356263944996e-07
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 89.99969482421875,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270308
+              },
+              "back": {
+                "position": [
+                  -1350,
+                  166.89068603515625,
+                  -1350
+                ],
+                "yaw": 179.9991455078125,
+                "heading_deg": 179.9991455078125,
+                "pitch": 25.000009536743164,
+                "size": 48.5473518371582,
+                "max_size": 4000,
+                "forward": [
+                  1.3533845958590973e-05,
+                  -0.42261844873428345,
+                  -0.9063078165054321
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89068603515625,
+                    -1350
+                  ],
+                  "current_size": 48.5473518371582,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    179.99920654296875,
+                    25.000009536743164
+                  ],
+                  "target_position": [
+                    -1350,
+                    171.94943237304688,
+                    -1350
+                  ],
+                  "target_size": 48.547332763671875,
+                  "target_angle_degrees": [
+                    180,
+                    25
+                  ],
+                  "render_position": [
+                    -1350.0006103515625,
+                    187.40768432617188,
+                    -1306.0010986328125
+                  ],
+                  "render_forward": [
+                    1.2453444469429087e-05,
+                    -0.42261844873428345,
+                    -0.9063078165054321
+                  ],
+                  "render_up": [
+                    5.807139132230077e-06,
+                    0.9063076972961426,
+                    -0.42261844873428345
+                  ],
+                  "render_euler_degrees": [
+                    25.000011444091797,
+                    179.9992218017578,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 179.9992218017578,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270308
+              },
+              "transition-near": {
+                "position": [
+                  -1350,
+                  166.89068603515625,
+                  -1350
+                ],
+                "yaw": 0.000899538688827306,
+                "heading_deg": 0.000899538688827306,
+                "pitch": 49.9998779296875,
+                "size": 269.9988708496094,
+                "max_size": 4000,
+                "forward": [
+                  1.0091735020978376e-05,
+                  -0.7660431265830994,
+                  0.6427891850471497
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89068603515625,
+                    -1350
+                  ],
+                  "current_size": 269.99896240234375,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    0.0008335499442182481,
+                    49.99988555908203
+                  ],
+                  "target_position": [
+                    -1350,
+                    184.7745361328125,
+                    -1350
+                  ],
+                  "target_size": 270,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350.0025634765625,
+                    375.5668640136719,
+                    -1523.5523681640625
+                  ],
+                  "render_forward": [
+                    9.351420885650441e-06,
+                    -0.7660431861877441,
+                    0.6427891254425049
+                  ],
+                  "render_up": [
+                    1.1144542440888472e-05,
+                    0.6427891254425049,
+                    0.7660431861877441
+                  ],
+                  "render_euler_degrees": [
+                    49.9998893737793,
+                    0.00083355006063357,
+                    -4.053444732643463e-11
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 0.0008335501188412309,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270308
+              },
+              "transition-far": {
+                "position": [
+                  -1350,
+                  166.89068603515625,
+                  -1350
+                ],
+                "yaw": 2.638881335670362e-09,
+                "heading_deg": 2.6388988771941513e-09,
+                "pitch": 49.999977111816406,
+                "size": 329.994873046875,
+                "max_size": 4000,
+                "forward": [
+                  2.96049920689434e-11,
+                  -0.7660441398620605,
+                  0.6427879333496094
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    166.89068603515625,
+                    -1350
+                  ],
+                  "current_size": 329.9952697753906,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    2.4409436694128317e-09,
+                    49.999977111816406
+                  ],
+                  "target_position": [
+                    -1350,
+                    188.27450561523438,
+                    -1350
+                  ],
+                  "target_size": 330,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350,
+                    422.0500183105469,
+                    -1562.116943359375
+                  ],
+                  "render_forward": [
+                    2.7384379486239396e-11,
+                    -0.7660441398620605,
+                    0.6427879333496094
+                  ],
+                  "render_up": [
+                    3.2635401325809e-11,
+                    0.6427879333496094,
+                    0.7660441398620605
+                  ],
+                  "render_euler_degrees": [
+                    49.99997329711914,
+                    2.4409441135020415e-09,
+                    1.546269497822362e-16
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 2.4409441135020415e-09,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270308
+              }
+            },
+            "placements": {
+              "close": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "wind-second-frame": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "gameplay": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "side": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1350,
+                      159.096435546875,
+                      -1333.556640625
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1350,
+                      159.97750854492188,
+                      -1366.443359375
+                    ]
+                  }
+                ]
+              },
+              "back": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "transition-near": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "transition-far": {
+                "specimens": [
+                  {
+                    "name": "2402946167.Bigleaf Linden_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1366.443359375,
+                      159.62684631347656,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "mp9-YoungLinden",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1333.556640625,
+                      159.39764404296875,
+                      -1350
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_run": "native-final-20-b",
+            "source_frame_names": {
+              "close": "pair-05-close.png",
+              "wind-second-frame": "pair-05-wind-second-frame.png",
+              "gameplay": "pair-05-gameplay.png",
+              "side": "pair-05-side.png",
+              "back": "pair-05-back.png",
+              "transition-near": "pair-05-transition-near.png",
+              "transition-far": "pair-05-transition-far.png"
+            },
+            "source_specimens_sha256": "9583467af3b2da980e8c7b66923543d54cee39d4bdfe4f9c1c9a0cf5b3fc1eb7",
+            "palette_save_reload_source_run": "native-palette-save-only"
+          },
+          "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/native/",
+          "frame_sha256": {
+            "close": "a477224f79aad24b62a4492e1540683961426d076c450d0b2ff296964d2caed8",
+            "wind-second-frame": "330bb0022b0a342ed1ecf1bdd8ece483bac96972fbcf2026ccb4983e52aeacaf",
+            "gameplay": "70803823df3e2718b024141a82ef7f7ceb2c02d5cba8703e98720b3c12726d9e",
+            "side": "4172920373539cd58df2afd68540cfe047a1f0225d1e4040ebb477fac1905f72",
+            "back": "18d572bb6686873efe1a153f06fec361c830ff3a05e754cfb6876ff3b53d61aa",
+            "transition-near": "48dda0f08e34a491bd60ade528df0fd30d3e5a69a321688f1062151fc657e48e",
+            "transition-far": "064d0c11510d8eba3fed2297c560ff5ad6e172264a9642d059ae9015c79d199a"
+          },
+          "save_reload_identity_stable": true,
+          "limits": "200 m gameplay view and consecutive same-placement wind frames; not botanical or BioCLIP qualification"
+        },
         "native_frame_hashes": [
           {
             "view": "close",
@@ -964,17 +1734,28 @@
         "bioclip_scope": "Close/gameplay/billboard identification is the downstream PL-1328 gate",
         "multi_view_review": {
           "prefab": "2402946167.Bigleaf Linden_Data",
-          "source_run": "native-anchors",
+          "source_run": "native-final-20-b",
           "gates": {
-            "gameplay_art": "limited",
+            "gameplay_art": "pass",
             "billboard": "limited",
             "wind": "unknown",
             "save_reload": "pass"
           },
-          "notes": "Strong full, irregular close crown from three azimuths. Readable silhouette at transition distances; at 700 the isolated tree is too small for genus authentication. Above forest triangle and texture targets.",
-          "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
-          "evidence_contact": "anchors/anchor-contact.jpg",
-          "bioclip": "not_run"
+          "notes": "Full irregular crown coherent from three azimuths and readable at 200 m. Small far silhouette persists, but detail and colour differ; limited distant representation, not genus authentication.",
+          "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+          "evidence_contact": "multi-view/multiview-02.jpg",
+          "contact_sha256": "192460463520ceb6afefc9e4794e41d52df22dbe2180e56ea50e2fd56a271b6c",
+          "native_frame_sha256": {
+            "close": "a477224f79aad24b62a4492e1540683961426d076c450d0b2ff296964d2caed8",
+            "wind-second-frame": "330bb0022b0a342ed1ecf1bdd8ece483bac96972fbcf2026ccb4983e52aeacaf",
+            "gameplay": "70803823df3e2718b024141a82ef7f7ceb2c02d5cba8703e98720b3c12726d9e",
+            "side": "4172920373539cd58df2afd68540cfe047a1f0225d1e4040ebb477fac1905f72",
+            "back": "18d572bb6686873efe1a153f06fec361c830ff3a05e754cfb6876ff3b53d61aa",
+            "transition-near": "48dda0f08e34a491bd60ade528df0fd30d3e5a69a321688f1062151fc657e48e",
+            "transition-far": "064d0c11510d8eba3fed2297c560ff5ad6e172264a9642d059ae9015c79d199a"
+          },
+          "bioclip": "not_run",
+          "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
         },
         "save_reload_identity_stable": true,
         "quality_gates": {
@@ -984,7 +1765,7 @@
           "native_load": "pass",
           "near_art": "pass",
           "scale_accuracy": "unknown",
-          "gameplay_art": "limited",
+          "gameplay_art": "pass",
           "billboard": "limited",
           "wind": "unknown",
           "snow": "unknown",
@@ -1415,6 +2196,775 @@
             }
           }
         },
+        "supplemental_palette_evidence": {
+          "source_run": "native-final-20-b",
+          "save_reload_source_run": "native-palette-save-only",
+          "evidence": {
+            "candidate": "2456536855.American Elm_Data",
+            "base_neighbour": "Beech01low",
+            "pair": {
+              "specimens": [
+                {
+                  "name": "2456536855.American Elm_Data",
+                  "created": true,
+                  "id": 262141,
+                  "position": [
+                    -1370.3609619140625,
+                    159.63536071777344,
+                    -1350
+                  ]
+                },
+                {
+                  "name": "Beech01low",
+                  "created": true,
+                  "id": 262139,
+                  "position": [
+                    -1329.6390380859375,
+                    159.37258911132812,
+                    -1350
+                  ]
+                }
+              ]
+            },
+            "views": {
+              "close": "native-final-20-b--pair-04-close.png",
+              "wind-second-frame": "native-final-20-b--pair-04-wind-second-frame.png",
+              "gameplay": "native-final-20-b--pair-04-gameplay.png",
+              "side": "native-final-20-b--pair-04-side.png",
+              "back": "native-final-20-b--pair-04-back.png",
+              "transition-near": "native-final-20-b--pair-04-transition-near.png",
+              "transition-far": "native-final-20-b--pair-04-transition-far.png"
+            },
+            "cameras": {
+              "close": {
+                "position": [
+                  -1350,
+                  167.2834014892578,
+                  -1350
+                ],
+                "yaw": 1.585547739075524e-17,
+                "heading_deg": 0,
+                "pitch": 25.00008773803711,
+                "size": 61.45313262939453,
+                "max_size": 4000,
+                "forward": [
+                  2.508026351415441e-19,
+                  -0.42261964082717896,
+                  0.9063071608543396
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.2834014892578,
+                    -1350
+                  ],
+                  "current_size": 61.45306396484375,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    1.468268582902653e-17,
+                    25.00008201599121
+                  ],
+                  "target_position": [
+                    -1350,
+                    172.61585998535156,
+                    -1350
+                  ],
+                  "target_size": 61.45218276977539,
+                  "target_angle_degrees": [
+                    0,
+                    25
+                  ],
+                  "render_position": [
+                    -1350,
+                    193.2965850830078,
+                    -1405.6953125
+                  ],
+                  "render_forward": [
+                    2.322514296944232e-19,
+                    -0.42261961102485657,
+                    0.9063071608543396
+                  ],
+                  "render_up": [
+                    1.0830103215450892e-19,
+                    0.9063071608543396,
+                    0.42261961102485657
+                  ],
+                  "render_euler_degrees": [
+                    25.000085830688477,
+                    1.468268913774898e-17,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 1.468268913774898e-17,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9269882
+              },
+              "wind-second-frame": {
+                "position": [
+                  -1350,
+                  167.28338623046875,
+                  -1350
+                ],
+                "yaw": 1.1660508216805742e-20,
+                "heading_deg": 0,
+                "pitch": 25.000011444091797,
+                "size": 61.452205657958984,
+                "max_size": 4000,
+                "forward": [
+                  1.8444654698850288e-22,
+                  -0.42261847853660583,
+                  0.9063076972961426
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.28338623046875,
+                    -1350
+                  ],
+                  "current_size": 61.452205657958984,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    1.0797758837912934e-20,
+                    25.000011444091797
+                  ],
+                  "target_position": [
+                    -1350,
+                    172.61585998535156,
+                    -1350
+                  ],
+                  "target_size": 61.45218276977539,
+                  "target_angle_degrees": [
+                    0,
+                    25
+                  ],
+                  "render_position": [
+                    -1350,
+                    193.29612731933594,
+                    -1405.694580078125
+                  ],
+                  "render_forward": [
+                    1.707995436289925e-22,
+                    -0.42261847853660583,
+                    0.9063076972961426
+                  ],
+                  "render_up": [
+                    7.964518297220277e-23,
+                    0.9063076972961426,
+                    0.42261847853660583
+                  ],
+                  "render_euler_degrees": [
+                    25.00001335144043,
+                    1.0797758837912934e-20,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 1.0797759645706501e-20,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9269976
+              },
+              "gameplay": {
+                "position": [
+                  -1350,
+                  167.28338623046875,
+                  -1350
+                ],
+                "yaw": 5.8551178463587995e-27,
+                "heading_deg": 0,
+                "pitch": 49.99959945678711,
+                "size": 199.997802734375,
+                "max_size": 4000,
+                "forward": [
+                  6.568771066880868e-29,
+                  -0.7660399675369263,
+                  0.6427929401397705
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.28338623046875,
+                    -1350
+                  ],
+                  "current_size": 199.9979705810547,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    5.424821185579959e-27,
+                    49.999629974365234
+                  ],
+                  "target_position": [
+                    -1350,
+                    180.69000244140625,
+                    -1350
+                  ],
+                  "target_size": 200,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350,
+                    321.7276306152344,
+                    -1478.55712890625
+                  ],
+                  "render_forward": [
+                    6.08602348555184e-29,
+                    -0.7660403251647949,
+                    0.6427924633026123
+                  ],
+                  "render_up": [
+                    7.252946244415389e-29,
+                    0.6427924633026123,
+                    0.7660403251647949
+                  ],
+                  "render_euler_degrees": [
+                    49.9996337890625,
+                    5.424821955951937e-27,
+                    2.6823311717826073e-34
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 5.424821955951937e-27,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270009
+              },
+              "side": {
+                "position": [
+                  -1350,
+                  167.3232421875,
+                  -1350
+                ],
+                "yaw": 89.99977111816406,
+                "heading_deg": 89.99977111816406,
+                "pitch": 25.000045776367188,
+                "size": 61.452430725097656,
+                "max_size": 4000,
+                "forward": [
+                  0.9063075184822083,
+                  -0.4226190745830536,
+                  3.602355718612671e-06
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.3232421875,
+                    -1350
+                  ],
+                  "current_size": 61.45241165161133,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    89.99977111816406,
+                    25.000041961669922
+                  ],
+                  "target_position": [
+                    -1350,
+                    172.61585998535156,
+                    -1350
+                  ],
+                  "target_size": 61.45218276977539,
+                  "target_angle_degrees": [
+                    90,
+                    25
+                  ],
+                  "render_position": [
+                    -1405.69482421875,
+                    193.33609008789062,
+                    -1350.000244140625
+                  ],
+                  "render_forward": [
+                    0.9063075184822083,
+                    -0.42261895537376404,
+                    3.6284327507019043e-06
+                  ],
+                  "render_up": [
+                    0.42261895537376404,
+                    0.9063074588775635,
+                    1.7285346984863281e-06
+                  ],
+                  "render_euler_degrees": [
+                    25.000043869018555,
+                    89.99976348876953,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 89.99977111816406,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270009
+              },
+              "back": {
+                "position": [
+                  -1350,
+                  167.28338623046875,
+                  -1350
+                ],
+                "yaw": 179.9990997314453,
+                "heading_deg": 179.9990997314453,
+                "pitch": 25.00000762939453,
+                "size": 61.45219802856445,
+                "max_size": 4000,
+                "forward": [
+                  1.4182088307279628e-05,
+                  -0.42261838912963867,
+                  -0.9063078165054321
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.28338623046875,
+                    -1350
+                  ],
+                  "current_size": 61.45219802856445,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    179.9991455078125,
+                    25.00000762939453
+                  ],
+                  "target_position": [
+                    -1350,
+                    172.61585998535156,
+                    -1350
+                  ],
+                  "target_size": 61.45218276977539,
+                  "target_angle_degrees": [
+                    180,
+                    25
+                  ],
+                  "render_position": [
+                    -1350.0008544921875,
+                    193.2960968017578,
+                    -1294.305419921875
+                  ],
+                  "render_forward": [
+                    1.3533846868085675e-05,
+                    -0.42261838912963867,
+                    -0.9063078165054321
+                  ],
+                  "render_up": [
+                    6.31093826086726e-06,
+                    0.9063076972961426,
+                    -0.42261838912963867
+                  ],
+                  "render_euler_degrees": [
+                    25.000009536743164,
+                    179.9991455078125,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 179.9991455078125,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270009
+              },
+              "transition-near": {
+                "position": [
+                  -1350,
+                  167.2833709716797,
+                  -1350
+                ],
+                "yaw": 0.0006626463145948946,
+                "heading_deg": 0.0006626463145948946,
+                "pitch": 49.999908447265625,
+                "size": 269.99920654296875,
+                "max_size": 4000,
+                "forward": [
+                  7.434086001012474e-06,
+                  -0.766043484210968,
+                  0.6427887678146362
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.2833709716797,
+                    -1350
+                  ],
+                  "current_size": 269.999267578125,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    0.0006134507129900157,
+                    49.999916076660156
+                  ],
+                  "target_position": [
+                    -1350,
+                    184.7745361328125,
+                    -1350
+                  ],
+                  "target_size": 270,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350.0018310546875,
+                    375.9599914550781,
+                    -1523.552490234375
+                  ],
+                  "render_forward": [
+                    6.882168690935941e-06,
+                    -0.7660435438156128,
+                    0.6427887082099915
+                  ],
+                  "render_up": [
+                    8.201824130082969e-06,
+                    0.6427887082099915,
+                    0.7660435438156128
+                  ],
+                  "render_euler_degrees": [
+                    49.99991989135742,
+                    0.0006134507129900157,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 0.0006134507711976767,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270009
+              },
+              "transition-far": {
+                "position": [
+                  -1350,
+                  167.2833709716797,
+                  -1350
+                ],
+                "yaw": 1.538013938429117e-09,
+                "heading_deg": 1.5380123841168825e-09,
+                "pitch": 49.999977111816406,
+                "size": 329.9955749511719,
+                "max_size": 4000,
+                "forward": [
+                  1.7254619608109145e-11,
+                  -0.7660441398620605,
+                  0.6427879333496094
+                ],
+                "ok": true,
+                "rendered_camera": {
+                  "current_position": [
+                    -1350,
+                    167.2833709716797,
+                    -1350
+                  ],
+                  "current_size": 329.99591064453125,
+                  "current_height": 0,
+                  "current_angle_degrees": [
+                    1.4252471425280078e-09,
+                    49.999977111816406
+                  ],
+                  "target_position": [
+                    -1350,
+                    188.27450561523438,
+                    -1350
+                  ],
+                  "target_size": 330,
+                  "target_angle_degrees": [
+                    0,
+                    50
+                  ],
+                  "render_position": [
+                    -1350,
+                    422.4434814453125,
+                    -1562.117431640625
+                  ],
+                  "render_forward": [
+                    1.598951526737835e-11,
+                    -0.7660441398620605,
+                    0.6427879333496094
+                  ],
+                  "render_up": [
+                    1.905554360137618e-11,
+                    0.6427879333496094,
+                    0.7660441398620605
+                  ],
+                  "render_euler_degrees": [
+                    49.99997329711914,
+                    1.4252473645726127e-09,
+                    0
+                  ],
+                  "field_of_view_degrees": 45,
+                  "aspect": 1.7777777910232544,
+                  "pixel_width": 1920,
+                  "pixel_height": 1080,
+                  "screen_width": 1920,
+                  "screen_height": 1080,
+                  "pixel_rect": [
+                    0,
+                    0,
+                    1920,
+                    1080
+                  ],
+                  "render_heading_degrees": 1.4252473645726127e-09,
+                  "areas_visible": false
+                },
+                "simulation_frame": 9270009
+              }
+            },
+            "placements": {
+              "close": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "wind-second-frame": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "gameplay": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "side": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1350,
+                      158.99974060058594,
+                      -1329.6390380859375
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1350,
+                      160.08811950683594,
+                      -1370.3609619140625
+                    ]
+                  }
+                ]
+              },
+              "back": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "transition-near": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 125694,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 39640,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  }
+                ]
+              },
+              "transition-far": {
+                "specimens": [
+                  {
+                    "name": "2456536855.American Elm_Data",
+                    "created": true,
+                    "id": 262141,
+                    "position": [
+                      -1370.3609619140625,
+                      159.63536071777344,
+                      -1350
+                    ]
+                  },
+                  {
+                    "name": "Beech01low",
+                    "created": true,
+                    "id": 262139,
+                    "position": [
+                      -1329.6390380859375,
+                      159.37258911132812,
+                      -1350
+                    ]
+                  }
+                ]
+              }
+            },
+            "source_run": "native-final-20-b",
+            "source_frame_names": {
+              "close": "pair-04-close.png",
+              "wind-second-frame": "pair-04-wind-second-frame.png",
+              "gameplay": "pair-04-gameplay.png",
+              "side": "pair-04-side.png",
+              "back": "pair-04-back.png",
+              "transition-near": "pair-04-transition-near.png",
+              "transition-far": "pair-04-transition-far.png"
+            },
+            "source_specimens_sha256": "9583467af3b2da980e8c7b66923543d54cee39d4bdfe4f9c1c9a0cf5b3fc1eb7",
+            "palette_save_reload_source_run": "native-palette-save-only"
+          },
+          "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/native/",
+          "frame_sha256": {
+            "close": "c93630b3853a24bcd08e9eae3ef0349c8df460f47ffff26fe748e1e254772f13",
+            "wind-second-frame": "f248c6e66deffec51cc6df6d61c1613ae5c1c4c8901f8b848b2bd4c0ce0a79ee",
+            "gameplay": "c0a37fe608964131b58d74c715abbdd312d692b830b123edf407c3c4b1f13db1",
+            "side": "1a1640653c5417ed48e7652e1e4232ee2b335291f0593cecb144d22464716db7",
+            "back": "fac59a7968a886354983eb401641dd1034804ad6a750e596cecc55531f5603ec",
+            "transition-near": "c953503f249eb2626984ecf2a0f5d9e8938613869fe17e7be650b5ae941d5432",
+            "transition-far": "a1fc84e17155290089ebe9edf3564e93710684cc11398fdbd9e10a3de3e47c90"
+          },
+          "save_reload_identity_stable": true,
+          "limits": "200 m gameplay view and consecutive same-placement wind frames; not botanical or BioCLIP qualification"
+        },
         "native_frame_hashes": [
           {
             "view": "close",
@@ -1458,17 +3008,28 @@
         "bioclip_scope": "Close/gameplay/billboard identification is the downstream PL-1328 gate",
         "multi_view_review": {
           "prefab": "2456536855.American Elm_Data",
-          "source_run": "native-anchors",
+          "source_run": "native-final-20-b",
           "gates": {
             "gameplay_art": "limited",
             "billboard": "unknown",
             "wind": "unknown",
             "save_reload": "pass"
           },
-          "notes": "Strong close spreading/vase form from three azimuths. At 700 camera distance the isolated crown is only a few pixels; genus cannot be visually qualified there. Far transition loses most foliage, as does the stock Jacaranda comparison: this cohort does not isolate an asset-specific billboard defect. Above forest triangle and texture targets.",
-          "wind_limit": "Second-frame camera pitch differs from the first close frame; motion is not isolated. Shader/vertex-colour eligibility is recorded separately.",
-          "evidence_contact": "anchors/anchor-contact.jpg",
-          "bioclip": "not_run"
+          "notes": "Spreading/vase near form readable from three azimuths. At 200 m the thin crown is visibly sparse and cannot establish genus. Transition loses most foliage, including in stock comparator; cause not isolated.",
+          "wind_limit": "Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.",
+          "evidence_contact": "multi-view/multiview-02.jpg",
+          "contact_sha256": "192460463520ceb6afefc9e4794e41d52df22dbe2180e56ea50e2fd56a271b6c",
+          "native_frame_sha256": {
+            "close": "c93630b3853a24bcd08e9eae3ef0349c8df460f47ffff26fe748e1e254772f13",
+            "wind-second-frame": "f248c6e66deffec51cc6df6d61c1613ae5c1c4c8901f8b848b2bd4c0ce0a79ee",
+            "gameplay": "c0a37fe608964131b58d74c715abbdd312d692b830b123edf407c3c4b1f13db1",
+            "side": "1a1640653c5417ed48e7652e1e4232ee2b335291f0593cecb144d22464716db7",
+            "back": "fac59a7968a886354983eb401641dd1034804ad6a750e596cecc55531f5603ec",
+            "transition-near": "c953503f249eb2626984ecf2a0f5d9e8938613869fe17e7be650b5ae941d5432",
+            "transition-far": "a1fc84e17155290089ebe9edf3564e93710684cc11398fdbd9e10a3de3e47c90"
+          },
+          "bioclip": "not_run",
+          "scope": "Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification"
         },
         "save_reload_identity_stable": true,
         "quality_gates": {

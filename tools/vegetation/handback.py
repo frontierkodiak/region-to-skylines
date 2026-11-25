@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 
-def export(index_path, final, out):
+def export(index_path, final, out, palette=None):
     index = json.loads(index_path.read_text())
     prefabs = {p["name"]: p for p in index["prefab_reviews"]}
     items = {i["id"]: i for i in index["workshop"]}
@@ -21,6 +21,12 @@ def export(index_path, final, out):
     loaded = {p["name"]: p for p in catalog["trees"]}
     reload_path = final / "save-reload.json"
     reload = json.loads(reload_path.read_text()) if reload_path.exists() else {}
+    palette_views = (
+        {row["candidate"]: row for row in json.loads((palette / "specimens.json").read_text())}
+        if palette
+        else {}
+    )
+    palette_reload = json.loads((palette / "save-reload.json").read_text()) if palette else {}
 
     def reference(name, reason):
         p = prefabs[name]
@@ -54,6 +60,24 @@ def export(index_path, final, out):
             "dependency_status": item.get("dependency_status"),
             "near_review": p.get("near_review"),
             "multi_view_evidence": entry,
+            "supplemental_palette_evidence": {
+                "source_run": palette_views[name].get("source_run", palette.name),
+                "save_reload_source_run": palette_views[name].get(
+                    "palette_save_reload_source_run", palette.name
+                ),
+                "evidence": palette_views[name],
+                "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/native/",
+                "frame_sha256": {
+                    view: hashlib.sha256((palette / filename).read_bytes()).hexdigest()
+                    for view, filename in palette_views[name]["views"].items()
+                },
+                "save_reload_identity_stable": palette_reload.get("identity_stable")
+                if name in palette_reload.get("before_instances", {})
+                else None,
+                "limits": "200 m gameplay view and consecutive same-placement wind frames; not botanical or BioCLIP qualification",
+            }
+            if name in palette_views
+            else None,
             "native_frame_hashes": frames,
             "evidence_base_url": "https://blade.tailc29f0.ts.net/shelf/vegetation-supply-pl1326/anchors/",
             "frame_role": "Workshop candidate on the left; stock comparison on the right",
@@ -114,5 +138,6 @@ if __name__ == "__main__":
     parser.add_argument("--index", required=True, type=Path)
     parser.add_argument("--final", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--palette", type=Path, help="Supplementary current twenty-reference native capture")
     args = parser.parse_args()
-    export(args.index, args.final, args.out)
+    export(args.index, args.final, args.out, args.palette)

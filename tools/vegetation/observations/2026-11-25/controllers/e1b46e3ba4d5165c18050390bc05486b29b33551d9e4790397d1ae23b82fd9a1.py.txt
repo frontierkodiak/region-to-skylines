@@ -1,0 +1,67 @@
+import hashlib
+import json
+import shutil
+from pathlib import Path
+
+def read(path):
+    return json.loads(path.read_text())
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def receipt_path(path):
+    projected = path / 'review-session-receipt.json'
+    return projected if projected.exists() else path / 'session-receipt.json'
+
+out = Path('native-palette-delivery')
+out.mkdir(exist_ok=True)
+save_run = Path('native-palette-save-only')
+expected = read(Path('review-palette-save-only.json'))['selected_names']
+save = read(save_run / 'save-reload.json')
+assert save['identity_stable'] and save['before_instances'] == dict.fromkeys(expected, 1)
+assert save['after_instances'] == save['before_instances']
+build = read(save_run / 'build-at-launch.json')
+rows = {}
+sources = []
+for name, wanted in [
+    ('native-final-20-b', set(expected[:14])),
+    ('native-final-20', {'2135000720.Large Eucalyptus _Data', '668294281.Bald Cypress_Data', '2953236892.Cherry Blossom 2_Data'}),
+    ('native-tail-three', {'1547344928.Coast Redwood_Data', '2593482657.Canary Date Palm 15m_Data', '2787290146.Plumeria_Data'}),
+]:
+    p = Path(name)
+    actual_build = read(p / 'build-at-launch.json')
+    assert actual_build['game_assemblies'] == build['game_assemblies']
+    assert actual_build['dll_sha256'] == build['dll_sha256']
+    receipt_file = receipt_path(p)
+    receipt = read(receipt_file)
+    assert all(not v for v in receipt['cleanup'].values())
+    assert receipt['mod_sha256'] == build['dll_sha256']
+    listing = read(p / 'specimens.json')
+    found = {r['candidate']: r for r in listing if r['candidate'] in wanted}
+    assert found.keys() == wanted, (name, wanted - found.keys())
+    for key, row in found.items():
+        assert key not in rows and len(row['views']) == 7
+        row['source_run'] = name
+        row['source_frame_names'] = row['views'].copy()
+        row['source_specimens_sha256'] = sha(p / 'specimens.json')
+        row['palette_save_reload_source_run'] = save_run.name
+        for view, frame in row['views'].copy().items():
+            target = name + '--' + frame
+            shutil.copyfile(p / frame, out / target)
+            row['views'][view] = target
+        rows[key] = row
+    sources.append({'run': name, 'chosen_names': sorted(wanted), 'source_specimens_sha256': sha(p / 'specimens.json'),
+                    'build_sha256': sha(p / 'build-at-launch.json'), 'session_receipt_sha256': sha(receipt_file),
+                    'resources': read(p / 'resources.json'),
+                    'cleanup': receipt['cleanup'], 'whole_run_completed': name == 'native-tail-three',
+                    'scope': 'Only the explicitly named completed seven-view captures are used; a stopped session is not claimed complete'})
+assert rows.keys() == set(expected) and len(rows) == 20
+(out / 'specimens.json').write_text(json.dumps([rows[n] for n in expected], indent=2) + '\n')
+(out / 'sheet-sources.json').write_text(json.dumps({'composition': 'Twenty native comparisons from explicit short-session sources, not one continuous capture session',
+    'sources': sources, 'save_reload_source_run': save_run.name, 'benchmark_source_run': 'native-benchmark-clean',
+    'no_pixels_changed': True}, indent=2) + '\n')
+for filename in ['native-catalog.json', 'build-at-launch.json', 'build.json', 'cleanup.json', 'environment.json',
+                 'session-receipt.json', 'selected.json', 'palette.json', 'save-reload.json', 'source-files.json', 'resources.json']:
+    shutil.copyfile(receipt_path(save_run) if filename == 'session-receipt.json' else save_run / filename, out / filename)
+(out / 'image-sha256.json').write_text(json.dumps({p.name: sha(p) for p in sorted(out.glob('*.png'))}, indent=2) + '\n')
+print('Composed exactly twenty seven-view native comparisons; save/reload comes from its separately named session')

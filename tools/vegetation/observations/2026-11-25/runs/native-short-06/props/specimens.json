@@ -1,0 +1,387 @@
+[
+  {
+    "candidate": "927230222.Tram Grass_Data",
+    "base_neighbour": "Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "927230222.Tram Grass_Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1356.31005859375,
+            159.57745361328125,
+            -1350
+          ]
+        },
+        {
+          "name": "Hedge 01",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1343.68994140625,
+            159.46827697753906,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.7395782470703,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999900817871094,
+        "size": 17.432125091552734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191510438919067,
+          0.573577880859375
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "927230222.Tram Grass_Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1356.31005859375,
+              159.57745361328125,
+              -1350
+            ]
+          },
+          {
+            "name": "Hedge 01",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1343.68994140625,
+              159.46827697753906,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "931602935.Fall leaves decal 1_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931602935.Fall leaves decal 1_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1356.25,
+            159.5769805908203,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1343.75,
+            159.46873474121094,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.9025421142578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 21.58104705810547,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "931602935.Fall leaves decal 1_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1356.25,
+              159.5769805908203,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1343.75,
+              159.46873474121094,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "931602935.Fall leaves decal 2_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931602935.Fall leaves decal 2_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1356.25,
+            159.5769805908203,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1343.75,
+            159.46873474121094,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.92276000976562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 21.61907386779785,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "931602935.Fall leaves decal 2_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1356.25,
+              159.5769805908203,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1343.75,
+              159.46873474121094,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "931602935.Fall leaves decal 3_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931602935.Fall leaves decal 3_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1356.25,
+            159.5769805908203,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1343.75,
+            159.46873474121094,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.9227752685547,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 21.619075775146484,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "931602935.Fall leaves decal 3_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1356.25,
+              159.5769805908203,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1343.75,
+              159.46873474121094,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "931602935.Fall leaves decal 4_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "931602935.Fall leaves decal 4_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1356.25,
+            159.5769805908203,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1343.75,
+            159.46873474121094,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.92279052734375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 21.619077682495117,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "931602935.Fall leaves decal 4_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1356.25,
+              159.5769805908203,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1343.75,
+              159.46873474121094,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

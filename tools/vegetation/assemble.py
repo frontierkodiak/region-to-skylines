@@ -40,7 +40,11 @@ NAMES = [
     (r"maple", "broadleaf_deciduous", "Acer", [4]),
     (r"live ?oak", "broadleaf_evergreen", "Quercus", [4, 12]),
     (r"oak", "broadleaf_deciduous", "Quercus", [4]),
+    (r"aspen", "broadleaf_deciduous", "Populus", [4, 6]),
     (r"cottonwood|poplar", "broadleaf_deciduous", "Populus", [4]),
+    (r"ginkgo|gingko", "broadleaf_deciduous", "Ginkgo", [4]),
+    (r"plumeria|frangipani", "broadleaf_unknown", "Plumeria", []),
+    (r"jacaranda", "broadleaf_unknown", "Jacaranda", []),
     (r"linden|kaiserlinde", "broadleaf_deciduous", "Tilia", [4]),
     (r"\belm\b", "broadleaf_deciduous", "Ulmus", [4]),
     (r"honey ?locust", "broadleaf_deciduous", "Gleditsia", [4]),
@@ -265,7 +269,7 @@ def assess(item, budget):
     }
 
 
-def build(installed, workshop, native, out, reviews=None):
+def build(installed, workshop, native, out, reviews=None, benchmark=None):
     from installed import natural_prop
 
     source = json.loads(installed.read_text())
@@ -416,6 +420,10 @@ def build(installed, workshop, native, out, reviews=None):
             ("environment.json", "environment"),
             ("resources.json", "resource_samples"),
             ("image-sha256.json", "image_hashes"),
+            ("palette.json", "palette"),
+            ("save-reload.json", "save_reload"),
+            ("source-files.json", "controller_sources"),
+            ("sheet-sources.json", "sheet_sources"),
         ]:
             path = native / filename
             if path.exists():
@@ -427,16 +435,36 @@ def build(installed, workshop, native, out, reviews=None):
             (native / name).exists() for entry in specimens for name in entry["views"].values()
         )
     if reviews:
-        from review_ledger import add_reviews
+        from review_ledger import add_reviews, palette_estimate
 
         add_reviews(result, source, reviews)
         result["native"]["sheet_scope"] = (
-            "Reviewed twenty-reference palette; full near-view census is separately indexed"
+            "Reviewed twenty-reference palette; per-tree native sessions and separate palette save/reload are explicitly indexed"
             if len(result["native"].get("specimens", [])) == 20
             else "Twenty-reference palette pending; current near-view census is separately indexed"
         )
+        chosen = {p["candidate"] for p in result["native"].get("specimens", [])}
+        if chosen:
+            result["native"]["palette_estimate"] = palette_estimate(
+                [p for p in result["prefab_reviews"] if p["name"] in chosen]
+            )
+    if benchmark:
+        receipt = json.loads((benchmark / "build.json").read_text())
+        if receipt["game_assemblies"]["Assembly-CSharp.dll"] != result["assembly_sha256"]:
+            raise ValueError("Benchmark uses a different game assembly")
+        result["native"]["frame_summary"] = frame_summary(
+            json.loads((benchmark / "frame-samples.json").read_text())
+        )
+        result["native"]["benchmark"] = {
+            "run": benchmark.name,
+            **{
+                name.removesuffix(".json").replace("-", "_"): json.loads((benchmark / name).read_text())
+                for name in ("environment.json", "cleanup.json", "limiter-probe.json", "resource-points.json")
+                if (benchmark / name).exists()
+            },
+        }
+        result["native"]["reference_views"] = [p.name for p in sorted(benchmark.glob("bench-*.png"))]
     out.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(ROOT / "download-shortlist.json", out / "download-shortlist.json")
     shutil.copyfile(ROOT / "REPORT.md", out / "report.md")
     if native:
         for source_image in native.glob("*.png"):
@@ -446,6 +474,10 @@ def build(installed, workshop, native, out, reviews=None):
             for name in entry["views"].values():
                 if Path(name).name != name or not name.endswith(".png"):
                     raise ValueError("Invalid native screenshot filename")
+    if benchmark:
+        for source_image in benchmark.glob("bench-*.png"):
+            (out / "native").mkdir(exist_ok=True)
+            shutil.copyfile(source_image, out / "native" / source_image.name)
     (out / "index.json").write_text(json.dumps(result, indent=2) + "\n")
     template = (ROOT / "shelf.html").read_text()
     # Embed as inert JSON, including when an asset author supplies HTML-like text.
@@ -463,7 +495,8 @@ if __name__ == "__main__":
     p.add_argument("--installed", required=True, type=Path)
     p.add_argument("--workshop", required=True, type=Path)
     p.add_argument("--native", type=Path)
+    p.add_argument("--benchmark", type=Path, help="Separate clean native benchmark run")
     p.add_argument("--out", required=True, type=Path)
     p.add_argument("--reviews", type=Path, help="Per-prefab visual reviews and run catalogs")
     args = p.parse_args()
-    build(args.installed, args.workshop, args.native, args.out, args.reviews)
+    build(args.installed, args.workshop, args.native, args.out, args.reviews, args.benchmark)

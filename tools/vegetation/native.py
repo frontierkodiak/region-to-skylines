@@ -3,7 +3,7 @@
 Run from tools/cs1-harness's locked environment. Only already-cached packages
 are copied into this session's local Assets directory; --noWorkshop and the
 read-only offline guard are mandatory. Session teardown removes those copies.
-One uniquely named QA save is written, reloaded and tracked for deletion.
+Specimen plans write one uniquely named QA save, reload it and track deletion.
 No subscriptions, credentials, purchases or account settings are changed.
 """
 
@@ -19,6 +19,7 @@ import socket
 import subprocess
 import sys
 import time
+import xml.etree.ElementTree as ET
 
 from assemble import check_frame, classify
 from framing import pair_framing
@@ -30,11 +31,22 @@ from cs1_harness.config import Config
 
 
 def write(path, value):
-    path.write_text(json.dumps(value, indent=2) + "\n")
+    temporary = path.with_name(path.name + ".tmp")
+    temporary.write_text(json.dumps(value, indent=2) + "\n")
+    temporary.replace(path)
 
 
 def replay_safe(session, op, **params):
-    if op not in {"camera", "camera_state", "status", "screenshot", "job", "vegetation_catalog", "ui"}:
+    if op not in {
+        "camera",
+        "camera_state",
+        "status",
+        "screenshot",
+        "job",
+        "vegetation_catalog",
+        "ui",
+        "world_observe",
+    }:
         raise ValueError("Not a replay-safe observer/setter operation")
     for attempt in range(3):
         try:
@@ -84,6 +96,50 @@ def capture(session, out, name):
     raise TimeoutError(str(target))
 
 
+def resource_snapshot(session):
+    """Outside timed regions: sampled board/game memory, not an isolated GPU timer."""
+    bus = session.receipt["gpu"]["bus"]
+    try:
+        raw = subprocess.check_output(["nvidia-smi", "-q", "-x", "-i", bus], text=True, timeout=10)
+        gpu = ET.fromstring(raw).find("gpu")
+        games = [
+            p
+            for p in gpu.findall("processes/process_info")
+            if (p.findtext("process_name") or "").endswith("/Cities.x64")
+        ]
+        return {
+            "timestamp": time.time(),
+            "bus": bus,
+            "board_memory": gpu.findtext("fb_memory_usage/used"),
+            "gpu_utilization": gpu.findtext("utilization/gpu_util"),
+            "game_processes": [
+                {"pid": int(p.findtext("pid")), "memory": p.findtext("used_memory")} for p in games
+            ],
+            "basis": "Point samples between arms, not continuous peaks or limiter attribution",
+        }
+    except (subprocess.SubprocessError, ET.ParseError, AttributeError, ValueError) as error:
+        return {"timestamp": time.time(), "error": str(error)}
+
+
+def settle_camera(session, position, size, pitch, yaw):
+    replay_safe(session, "camera", position=position, size=size, pitch=pitch, yaw=yaw)
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        state = replay_safe(session, "camera_state")
+        yaw_error = abs((state["yaw"] - yaw + 180) % 360 - 180)
+        if (
+            abs(state["size"] - size) < max(0.01, size * 0.002)
+            and abs(state["pitch"] - pitch) < 0.1
+            and yaw_error < 0.1
+            and max(abs(a - b) for a, b in zip(state["position"], position)) < 0.1
+        ):
+            return
+        time.sleep(0.1)
+    raise TimeoutError(
+        f"Camera did not settle: requested position={position}, size={size}, pitch={pitch}, yaw={yaw}; observed={state}"
+    )
+
+
 def capture_sheet(session, out, catalog, selected, base, *, overview=False, multiview=False):
     specimens = []
     # One quiet patch, identical weather/lighting, common frame for each pair.
@@ -125,7 +181,7 @@ def capture_sheet(session, out, catalog, selected, base, *, overview=False, mult
         else:
             if multiview:
                 viewspecs.append(("wind-second-frame", framing["size"], 0))
-            viewspecs.append(("gameplay", 700, 0))
+            viewspecs.append(("gameplay", 200, 0))
         if multiview:
             distance = candidate["lod_distance_m"]
             viewspecs += [
@@ -151,9 +207,10 @@ def capture_sheet(session, out, catalog, selected, base, *, overview=False, mult
                 ground = sum(t["position"][1] for t in pair["specimens"]) / 2
             placements[view] = pair
             if view != "wind-second-frame":
-                replay_safe(
+                if multiview and view == "close":
+                    session.client.call("run", paused=False, day_night=False)
+                settle_camera(
                     session,
-                    "camera",
                     position=[x, ground + height * 0.4, z],
                     size=size,
                     pitch=(55 if low else 25) if view in ("close", "side", "back") else 50,
@@ -161,7 +218,13 @@ def capture_sheet(session, out, catalog, selected, base, *, overview=False, mult
                 )
             time.sleep(1)
             cameras[view] = replay_safe(session, "camera_state")
+            if multiview:
+                observation = replay_safe(session, "world_observe", screen_points=[])
+                cameras[view]["rendered_camera"] = observation["camera"]
+                cameras[view]["simulation_frame"] = observation["frame"]
             views[view] = capture(session, out, f"pair-{i + 1:02d}-{view}")
+            if multiview and view == "wind-second-frame":
+                session.client.call("run", paused=True, day_night=False)
         specimens.append(
             {
                 "candidate": candidate["name"],
@@ -231,7 +294,18 @@ def run(installed, out, wait_minutes, sheet_only=False, review_plan=None):
     ]
     plan = json.loads(review_plan.read_text()) if review_plan else None
     if plan:
-        if not plan.get("overview_only") and "selected_names" not in plan:
+        if plan.get("save_only") and (
+            not sheet_only or plan.get("overview_only") or plan.get("benchmark_only")
+        ):
+            raise ValueError("Save-only verification requires an explicit sheet-only selection plan")
+        if (
+            not any(plan.get(k) for k in ("overview_only", "benchmark_only", "save_only"))
+            and len(set(plan.get("selected_names", []) + plan.get("reference_names", []))) > 5
+        ):
+            raise ValueError(
+                "Capture at most five multi-view references per short slot; compose with explicit source receipts and verify the twenty-name palette using save_only"
+            )
+        if not (plan.get("overview_only") or plan.get("benchmark_only")) and "selected_names" not in plan:
             raise ValueError("Complete the explicit selection before acquiring a native slot")
         packages = [p for p in packages if p["workshop_id"] in plan["ids"]]
     conflicts = prefab_collisions(packages)
@@ -248,7 +322,9 @@ def run(installed, out, wait_minutes, sheet_only=False, review_plan=None):
         {
             "issue": "PL-1326",
             "label": "Vegetation supply: native inventory and comparisons",
-            "eta_minutes": 10 if plan and (plan.get("overview_only") or plan.get("reference_only")) else 25,
+            "eta_minutes": 10
+            if plan and any(plan.get(k) for k in ("overview_only", "reference_only", "benchmark_only"))
+            else 15,
         },
     ) as session:
         session.require_offline = True
@@ -361,6 +437,7 @@ def run(installed, out, wait_minutes, sheet_only=False, review_plan=None):
                 candidate = max(comparable, key=lambda t: t["main"]["triangles"])
             point = catalog["forest_patch"]
             timing = []
+            resources = []
             if plan and plan.get("diagnostic_resolution") and not sheet_only:
                 session.client.call("camera", position=point, size=350, pitch=50, yaw=0)
                 job(session, "vegetation_retarget", name=baseline["name"])
@@ -414,70 +491,80 @@ def run(installed, out, wait_minutes, sheet_only=False, review_plan=None):
                             }
                         )
                         write(out / "frame-samples.json", timing)
+                        resources.append(
+                            {"size": size, "repeat": repeat, "arm": arm, **resource_snapshot(session)}
+                        )
+                        write(out / "resource-points.json", resources)
                         print("timed", size, repeat, arm, population["instances"], flush=True)
                         if repeat == 0:
                             capture(session, out, f"bench-{size}-{arm}")
-            if plan:
-                names = plan["selected_names"]
-                lookup = {t["name"]: t for t in trees if t["name"].split(".")[0] in allowed and t.get("main")}
-                required_count = len(names) if plan.get("reference_only") else 20
-                if (
-                    not 1 <= required_count <= 20
-                    or len(names) != required_count
-                    or len(set(names)) != required_count
-                    or set(names) - lookup.keys()
-                ):
-                    raise ValueError(
-                        "Selection must contain distinct loaded names (twenty for the full palette)"
+            if not (plan and plan.get("benchmark_only")):
+                if plan:
+                    names = plan["selected_names"]
+                    lookup = {
+                        t["name"]: t for t in trees if t["name"].split(".")[0] in allowed and t.get("main")
+                    }
+                    required_count = len(names) if plan.get("reference_only") else 20
+                    if (
+                        not 1 <= required_count <= 20
+                        or len(names) != required_count
+                        or len(set(names)) != required_count
+                        or set(names) - lookup.keys()
+                    ):
+                        raise ValueError(
+                            "Selection must contain distinct loaded names (twenty for the full palette)"
+                        )
+                    selected = [lookup[n] for n in names]
+                write(out / "selected.json", selected)
+                if not (plan and plan.get("save_only")):
+                    capture_sheet(session, out, catalog, selected, pair_base, multiview=bool(plan))
+                if plan:
+                    reference_names = plan.get("reference_names", [])
+                    if reference_names and not plan.get("save_only"):
+                        references = [lookup[n] for n in reference_names]
+                        ref_out = out / "references"
+                        ref_out.mkdir()
+                        capture_sheet(session, ref_out, catalog, references, pair_base, multiview=True)
+                    palette_names = list(dict.fromkeys([t["name"] for t in selected] + reference_names))
+                    palette = job(session, "vegetation_palette", names=palette_names, x=point[0], z=point[1])
+                    if not all(t["created"] for t in palette["specimens"]):
+                        raise ValueError("Not every selected prefab was placed in the save/reload palette")
+                    write(out / "palette.json", palette)
+                    before = session.client.call("vegetation_catalog")
+                    if before["created_prefab_counts"] != dict.fromkeys(palette_names, 1):
+                        raise ValueError(
+                            "Save palette does not contain exactly one of every selected identity"
+                        )
+                    save_name = f"PL1326_QA_{os.getpid()}_{int(time.time())}"
+                    saved = session.client.call("save_game", name=save_name)
+                    expected = cfg.data_dir / "Saves" / f"{save_name}.crp"
+                    session.track(expected)
+                    receipt = wait_job(session)
+                    if Path(saved["path"]).resolve() != expected.resolve() or not expected.exists():
+                        raise ValueError("Disposable save did not land at its exact owned path")
+                    session.client.call("load_game", name=save_name)
+                    time.sleep(2)
+                    session.client.wait(
+                        lambda state: state.get("in_game") and not state.get("loading"),
+                        600,
+                        "QA save reload",
+                        alive=session.alive,
                     )
-                selected = [lookup[n] for n in names]
-            write(out / "selected.json", selected)
-            capture_sheet(session, out, catalog, selected, pair_base, multiview=bool(plan))
-            if plan:
-                reference_names = plan.get("reference_names", [])
-                if reference_names:
-                    references = [lookup[n] for n in reference_names]
-                    ref_out = out / "references"
-                    ref_out.mkdir()
-                    capture_sheet(session, ref_out, catalog, references, pair_base, multiview=True)
-                palette_names = list(dict.fromkeys([t["name"] for t in selected] + reference_names))
-                palette = job(session, "vegetation_palette", names=palette_names, x=point[0], z=point[1])
-                if not all(t["created"] for t in palette["specimens"]):
-                    raise ValueError("Not every selected prefab was placed in the save/reload palette")
-                write(out / "palette.json", palette)
-                before = session.client.call("vegetation_catalog")
-                if before["created_prefab_counts"] != dict.fromkeys(palette_names, 1):
-                    raise ValueError("Save palette does not contain exactly one of every selected identity")
-                save_name = f"PL1326_QA_{os.getpid()}_{int(time.time())}"
-                saved = session.client.call("save_game", name=save_name)
-                expected = cfg.data_dir / "Saves" / f"{save_name}.crp"
-                session.track(expected)
-                receipt = wait_job(session)
-                if Path(saved["path"]).resolve() != expected.resolve() or not expected.exists():
-                    raise ValueError("Disposable save did not land at its exact owned path")
-                session.client.call("load_game", name=save_name)
-                time.sleep(2)
-                session.client.wait(
-                    lambda state: state.get("in_game") and not state.get("loading"),
-                    600,
-                    "QA save reload",
-                    alive=session.alive,
-                )
-                after = session.client.call("vegetation_catalog")
-                identity_stable = before["created_prefab_counts"] == after["created_prefab_counts"]
-                write(
-                    out / "save-reload.json",
-                    {
-                        "save": receipt,
-                        "before_instances": before["created_prefab_counts"],
-                        "after_instances": after["created_prefab_counts"],
-                        "identity_stable": identity_stable,
-                        "loaded_tree_names_stable": {t["name"] for t in before["trees"]}
-                        == {t["name"] for t in after["trees"]},
-                    },
-                )
-                if not identity_stable:
-                    raise ValueError("Native specimen identity changed on save/reload")
+                    after = session.client.call("vegetation_catalog")
+                    identity_stable = before["created_prefab_counts"] == after["created_prefab_counts"]
+                    write(
+                        out / "save-reload.json",
+                        {
+                            "save": receipt,
+                            "before_instances": before["created_prefab_counts"],
+                            "after_instances": after["created_prefab_counts"],
+                            "identity_stable": identity_stable,
+                            "loaded_tree_names_stable": {t["name"] for t in before["trees"]}
+                            == {t["name"] for t in after["trees"]},
+                        },
+                    )
+                    if not identity_stable:
+                        raise ValueError("Native specimen identity changed on save/reload")
         write(out / "status.json", session.client.call("status"))
         write(
             out / "build.json",

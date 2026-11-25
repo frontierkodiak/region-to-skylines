@@ -3981,3 +3981,38 @@ Published current shelf: 11/11 Playwright checks pass at the real trailing-slash
 URL, including best-biome selection, qualified near-art filter, genus handback,
 hostile-title escaping and mobile overflow. The current 20-tree gallery is absent
 and is not counted as a passed image check.
+
+## PL-1326 authenticated vegetation completion — 2026-11-25
+
+Supersedes the pending capture/benchmark state in the checkpoint above.
+All runs below used blade RTX 3090 bus 0b/egl1, not the doctor’s 2080 Ti.
+
+| Run | Native PNGs | Sampler wall seconds | Board sampled peak MiB / W / °C | Result |
+|---|---:|---:|---|---|
+| native-short-02b | 150 | 450.231 | 13703.0 / 93.7 / 56.0 | 150 near views; completed |
+| native-short-03 | 150 | 425.222 | 13354.0 / 92.48 / 59.0 | 150 near views; completed |
+| native-short-04 | 150 | 435.223 | 13275.0 / 94.1 / 61.0 | 150 near views; completed |
+| native-short-05 | 149 | 435.241 | 12838.0 / 95.39 / 61.0 | 149 near views; completed |
+| native-short-06 | 18 | 195.102 | 12468.0 / 89.25 / 50.0 | 18 near views; completed |
+| native-benchmark-clean | 8 | 460.238 | 12380.0 / 108.29 / 62.0 | 30 clean A/B/A arms; >5% drift; inconclusive |
+| native-papaya-isolated | 0 | 145.075 | 12389.0 / 75.72 / 56.0 | Isolated Papaya absence; no load pass |
+| native-final-20 | 125 | 560.293 | 12775.0 / 94.21 / 61.0 | 17 complete comparisons; camera-settling stop |
+| native-final-20-b | 98 | 570.278 | 12775.0 / 95.11 / 61.0 | 14 complete comparisons; camera RPC timeout; owned game terminated |
+| native-tail-three | 21 | 235.125 | 12524.0 / 89.93 / 51.0 | 3 complete comparisons + stable three-identity save/reload |
+| native-palette-save-only | 0 | 165.093 | 12845.0 / 73.36 / 48.0 | Stable twenty-identity save/reload; no capture loop |
+
+All 22 attempts have empty game/Steam/unit teardown lists. Board peaks include
+pre-existing shared users; continuous per-game peak remains unknown. The clean
+benchmark’s between-arm Cities.x64 samples were 5,241–5,263 MiB, not peak VRAM.
+The delivered 140-image sheet explicitly composes completed seven-view captures
+from three named source sessions. A separate session saved/reloaded exactly one
+of each of all 20 identities. No stopped full-sheet attempt is claimed complete.
+Redwood’s black/blocky transition reproduced when tested first in a fresh slot.
+Controllers, projected receipts, source-image hashes and composition metadata
+are pinned in observations/2026-11-25. Capture plans now cap multi-view batches
+at five trees; twenty-identity maintenance uses save_only.
+Vegetation 15/15, Ruff 70 files, real native captures and separate palette save/reload
+verify the changed path; earlier harness 170/170 / npm 20/20/build/doctor remain valid.
+
+Live final shelf: 12 Playwright checks passed, including decoding all 140 native
+comparison images and capturing the twenty-tree sheet; desktop/mobile inspected.

@@ -1,0 +1,321 @@
+{
+  "specimens": 20,
+  "native_pngs": 140,
+  "save_reload_identity_stable": true,
+  "palette_instances": 20,
+  "cleanup_empty": true,
+  "specimens_sha256": "10e7484e9a863e1d7da6ba9607b1912646c26699ab0a942ecd17ec06b303b318",
+  "save_reload_sha256": "bf67d0d482ca740f436bbd36b3bc25fdf060e3b7e76589fd1b74c7e9a5ef3b47",
+  "camera_checks": [
+    {
+      "prefab": "958858484.Olive tree 3_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0,
+        "pitch": 0,
+        "yaw": 0,
+        "position_m": 0
+      },
+      "simulation_frames": [
+        9269023,
+        9269117
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "704607028.Live Oak Tree_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0012359619140625,
+        "pitch": 0.0001239776611328125,
+        "yaw": 1.5316200106545757e-16,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9269310,
+        9269404
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "1089035056.Forest Beech Full_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0007781982421875,
+        "pitch": 6.67572021484375e-05,
+        "yaw": 1.048824948217614e-16,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9269604,
+        9269698
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2456536855.American Elm_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000926971435546875,
+        "pitch": 7.62939453125e-05,
+        "yaw": 1.5843816882538434e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9269882,
+        9269976
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2402946167.Bigleaf Linden_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000583648681640625,
+        "pitch": 4.38690185546875e-05,
+        "yaw": 4.193100069205672e-17,
+        "position_m": 0
+      },
+      "simulation_frames": [
+        9270181,
+        9270275
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2932179333.Norway Maple Giant 27m_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.001373291015625,
+        "pitch": 0.0001354217529296875,
+        "yaw": 2.0876414969919462e-16,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9270467,
+        9270568
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "1774634417.Silver Birch 2_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0005950927734375,
+        "pitch": 4.38690185546875e-05,
+        "yaw": 3.238823451024758e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9270773,
+        9270867
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2242682818.Alder 05 14m_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000919342041015625,
+        "pitch": 7.82012939453125e-05,
+        "yaw": 2.949975601732787e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9271066,
+        9271172
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2029030150.Lombardy Poplar_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0064849853515625,
+        "pitch": 0.000579833984375,
+        "yaw": 4.2812099425101696e-16,
+        "position_m": 7.62939453125e-05
+      },
+      "simulation_frames": [
+        9271360,
+        9271467
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "1515191700.Norway Spruce Tall_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.00101470947265625,
+        "pitch": 9.72747802734375e-05,
+        "yaw": 9.169678715742027e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9271663,
+        9271757
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "1230960704.PD - Pine Regular _Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.00139617919921875,
+        "pitch": 0.0001354217529296875,
+        "yaw": 1.11892200129467e-16,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9271949,
+        9272043
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "843982695.Stone Pine Medium_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000667572021484375,
+        "pitch": 5.14984130859375e-05,
+        "yaw": 1.7371066603850787e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9272246,
+        9272340
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2129899406.Western Red Cedar 04_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0013427734375,
+        "pitch": 0.0001354217529296875,
+        "yaw": 1.2080712340020212e-16,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9272532,
+        9272626
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2202615391.Douglas Fir 08 32m_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.00148773193359375,
+        "pitch": 0.0001506805419921875,
+        "yaw": 5.551334285921548e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9272817,
+        9272911
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "1547344928.Coast Redwood_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0,
+        "pitch": 0,
+        "yaw": 0,
+        "position_m": 0
+      },
+      "simulation_frames": [
+        9269029,
+        9269136
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2135000720.Large Eucalyptus _Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.00118255615234375,
+        "pitch": 0.00011444091796875,
+        "yaw": 8.349190059614273e-17,
+        "position_m": 7.62939453125e-05
+      },
+      "simulation_frames": [
+        9273029,
+        9273123
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "668294281.Bald Cypress_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0011444091796875,
+        "pitch": 0.00011444091796875,
+        "yaw": 9.822649663564852e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9273317,
+        9273411
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2953236892.Cherry Blossom 2_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.0004730224609375,
+        "pitch": 3.0517578125e-05,
+        "yaw": 2.6377271736722983e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9273619,
+        9273713
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2593482657.Canary Date Palm 15m_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000888824462890625,
+        "pitch": 7.43865966796875e-05,
+        "yaw": 7.129391357835719e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9269335,
+        9269429
+      ],
+      "rendered_camera_metadata_present": true
+    },
+    {
+      "prefab": "2787290146.Plumeria_Data",
+      "native_pngs": 7,
+      "wind_camera_delta": {
+        "size": 0.000614166259765625,
+        "pitch": 4.1961669921875e-05,
+        "yaw": 6.216389405776353e-17,
+        "position_m": 1.52587890625e-05
+      },
+      "simulation_frames": [
+        9269634,
+        9269728
+      ],
+      "rendered_camera_metadata_present": true
+    }
+  ],
+  "bioclip": "not_run",
+  "artifact": "native-palette-delivery",
+  "capture_source_runs": [
+    "native-final-20-b",
+    "native-final-20",
+    "native-tail-three"
+  ],
+  "save_reload_source_run": "native-palette-save-only",
+  "composition_controller_sha256": "e1b46e3ba4d5165c18050390bc05486b29b33551d9e4790397d1ae23b82fd9a1",
+  "verification_controller_sha256": "a7c8555f8abe405a4a2e847191be2e4121aba15ecc3e1cc5d2554c1744e41e08"
+}

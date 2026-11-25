@@ -51,6 +51,8 @@ def add_reviews(result, source, directory):
     multi_path = directory / "multi-view-reviews.json"
     multi = json.loads(multi_path.read_text()) if multi_path.exists() else {"reviews": []}
     by_multi = {r["prefab"]: r for r in multi["reviews"]}
+    load_gap_path = directory / "load-gaps.json"
+    load_gaps = json.loads(load_gap_path.read_text()) if load_gap_path.exists() else {}
     native, runs, captures = {}, [], {}
     for run in sorted((directory / "runs").iterdir()):
         file = run / "native-catalog.json"
@@ -106,7 +108,8 @@ def add_reviews(result, source, directory):
                 if traits["form"] == "unknown":
                     traits = classify(item.get("title", prefab["name"]))
                 meshes, textures = prefab.get("meshes", []), prefab.get("textures", [])
-                tri = max((m["triangles"] for m in meshes), default=None)
+                serialized_max = max((m["triangles"] for m in meshes), default=None)
+                tri = (measured.get("main") or {}).get("triangles") if measured else None
                 size = meshes[0].get("size_m") if meshes else None
                 oversized = any(
                     max(t["width"], t["height"]) > result["quality_bar"]["forest_texture_target_px"]
@@ -152,9 +155,14 @@ def add_reviews(result, source, directory):
                     "author": item.get("author"),
                     **traits,
                     "main_triangles": tri,
+                    "main_triangle_basis": "native readable main mesh" if tri is not None else "unresolved",
+                    "serialized_mesh_triangle_max": serialized_max,
+                    "bound_meshes": meshes,
+                    "lod_triangles": (measured.get("lod") or {}).get("triangles") if measured else None,
                     "unscaled_mesh_size_m": size,
                     "textures": [{**t, "estimated_full_mip_bytes": resident_bytes(t)} for t in textures],
                     "native": measured,
+                    "unresolved_load_evidence": load_gaps.get(name),
                     "near_review": review,
                     "near_capture": near_capture,
                     "multi_view_review": multi_review,
@@ -184,6 +192,9 @@ def add_reviews(result, source, directory):
     for item in result["workshop"]:
         members = [p for p in prefabs if p["workshop_id"] == item["id"]]
         item["prefab_review_names"] = [p["name"] for p in members]
+        if not members:
+            item["assessment"]["failed"].append("no_standalone_tree_or_prop_root")
+            item["assessment"]["status"] = "fail"
         grades = [
             p["near_review"]["near_art_score_0_to_4"]
             for p in members
@@ -201,6 +212,11 @@ def add_reviews(result, source, directory):
             item["assessment"]["status"] = "fail"
     for base in result["base"]:
         base["native"] = native.get(base["name"])
+        base["observed_runtime_environment"] = (
+            "Loaded in a fresh Grand River Temperate city; not an exclusive theme restriction"
+            if base["native"]
+            else None
+        )
     cells = []
     reference_bins = result["biome_scheme"]["biomes"] + [
         {
@@ -270,7 +286,23 @@ def add_reviews(result, source, directory):
             p["near_review"] is not None and p["near_review"]["near_art_score_0_to_4"] is not None
             for p in prefabs
         ),
+        "qualified_near_reference_items": sum(
+            bool(item["qualified_near_reference_names"]) for item in result["workshop"]
+        ),
+        "unresolved_native_loads": [p["name"] for p in prefabs if not p["native"]],
+        "unattempted_near_identities": [p["name"] for p in prefabs if not p["near_review"]],
     }
+    result["review_gate_counts"] = (
+        {
+            gate: {
+                state: sum(p["gates"][gate] == state for p in prefabs)
+                for state in ("pass", "limited", "fail", "unknown")
+            }
+            for gate in prefabs[0]["gates"]
+        }
+        if prefabs
+        else {}
+    )
     dlc = directory / "dlc-inventory.json"
     if dlc.exists():
         result["dlc_inventory"] = {

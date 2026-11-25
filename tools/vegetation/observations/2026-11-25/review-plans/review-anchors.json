@@ -1,0 +1,15 @@
+{
+  "ids": [
+    "2456536855",
+    "2402946167",
+    "2928288862"
+  ],
+  "selected_names": [
+    "2456536855.American Elm_Data",
+    "2402946167.Bigleaf Linden_Data",
+    "2928288862.Kaiserlinde 16m_Data"
+  ],
+  "reference_only": true,
+  "triangle_target": 1500,
+  "basis": "Genus-exact anchors requested for PL-1328 BioCLIP close/gameplay/billboard gate; no generic substitution"
+}

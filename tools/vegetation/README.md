@@ -7,8 +7,8 @@ The canonical browse index is `data/index.json`. `prefab_reviews` holds bound
 per-root metrics and independent review gates. `best_by_biome_form` separates
 best observed near art from best within forest geometry/texture targets.
 `data/reference-handback.json` names genus-exact local bake references and gaps.
-The native census and final twenty-tree sheet are still pending; see
-`observations/2026-11-25/pending-census.json` and the report.
+The bounded native census and twenty-tree sheet are retained with explicit
+unresolved cases in `observations/2026-11-25/pending-census.json` and the report.
 Near-art grades never imply a frame-budget, ecological or full-bar pass.
 
 ## Rebuild the current snapshot
@@ -24,8 +24,15 @@ uv run --locked python assemble.py \
   --installed observations/2026-11-25/installed.json \
   --workshop observations/2026-11-25/workshop.json \
   --reviews observations/2026-11-25 \
+  --native observations/2026-11-25/palette-delivery \
+  --benchmark observations/2026-11-25/runs/native-benchmark-clean \
   --out data
 ```
+
+The delivered gallery is explicitly composed from short native source sessions;
+`data/index.json` records each tree’s `source_run`, original frame names and
+`sheet_sources` receipts. A separate `save_only: true` twenty-name plan verifies
+co-load/save/reload without another long screenshot loop.
 
 Native PNGs and contact JPEGs are omitted from Git. The published tailnet shelf
 has them under `native/` and `contacts/<run>/`; the JSON records source names
@@ -82,19 +89,23 @@ CS1_HARNESS_GPU_BUS=00000000:0B:00.0 uv run --locked ../vegetation/native.py \
 ```
 
 An overview plan has `ids`, `overview_only: true`, and optional `skip_names`;
-add `--sheet-only`. A final plan has `ids`, `triangle_target`, twenty explicit
-`selected_names`, optional `reference_names`, and optional
-`diagnostic_resolution`. No popularity-based selection is substituted for the
-reviewed list. A `reference_only: true` plan permits one to twenty explicit
+add `--sheet-only`. A twenty-identity save plan has `ids`, `triangle_target`, twenty explicit
+`selected_names`, and `save_only: true`. No popularity-based selection is substituted for the
+reviewed list. A `reference_only: true` capture plan permits one to five explicit
 controls with `--sheet-only`, such as the three Tilia/Ulmus anchors. No review
-plan waits in-game for human input. `contact_sheet.py --source RUN --out CONTACTS` only resizes and
-labels native captures. Grades are deliberately authored in `near-reviews.json`.
+plan waits in-game for human input. A `benchmark_only: true` plan needs `ids`,
+`triangle_target`, and optional `diagnostic_resolution`; it runs without
+`--sheet-only`, in a separate short slot. Pass its output with `assemble.py
+--benchmark RUN`. Run the twenty-identity save-only plan with `--sheet-only`; capture the
+references in short batches and retain every tree’s source session when composing
+the gallery. Monolithic 140-frame sessions proved unreliable in this experiment. `contact_sheet.py --source RUN --out CONTACTS` only resizes
+and labels native captures. Grades are deliberately authored in `near-reviews.json`.
 
 The driver copies exact-hash packages to owned local Assets paths, launches
 with `--noWorkshop` and offline/account guards, and opens a fresh Grand River
 city. It refuses selected duplicate identities and modal-obstructed frames.
 Maximum native random scales are included in pair framing. Full review captures
-near, gameplay, side/back, LOD-transition and second wind frames; two wind
+near, 200 m gameplay, side/back, LOD-transition and second wind frames; two wind
 frames alone are not a validated animation test. A uniquely named QA save holds
 exactly one of every selected/reference identity and is reloaded and removed.
 Teardown removes installed copies and verifies game, Steam and owned units ended.

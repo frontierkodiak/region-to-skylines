@@ -17,7 +17,7 @@ from catalog import DependencyParser, StateParser, enrich, request
 from installed import crp, natural_prop, prefab_collisions
 from framing import pair_framing
 from normalize_ugc import closure
-from review_ledger import palette_estimate
+from review_ledger import add_reviews, palette_estimate
 
 
 def string(text):
@@ -45,6 +45,58 @@ def mesh():
 
 
 class VegetationTest(unittest.TestCase):
+    def test_larger_lod_is_not_reported_as_main_and_unreadable_main_stays_unknown(self):
+        source = {
+            "workshop_packages": [
+                {
+                    "workshop_id": "1",
+                    "name": "1",
+                    "file": "plant.crp",
+                    "sha256": "container",
+                    "prefabs": [
+                        {
+                            "kind": "PropInfo",
+                            "name": "Grass_Data",
+                            "meshes": [
+                                {"triangles": 30, "size_m": [1, 1, 1]},
+                                {"triangles": 50, "size_m": [1, 1, 1]},
+                            ],
+                            "textures": [],
+                        }
+                    ],
+                }
+            ]
+        }
+        result = {
+            "assembly_sha256": "game",
+            "base": [],
+            "biome_scheme": {"biomes": []},
+            "quality_bar": {"forest_texture_target_px": 1024, "forest_main_triangle_target": 1500},
+            "workshop": [
+                {"id": "1", "dependencies": [], "assessment": {"failed": [], "status": "unreviewed"}}
+            ],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            run = root / "runs/native"
+            run.mkdir(parents=True)
+            (root / "near-reviews.json").write_text(json.dumps({"reviews": [], "rubric": {}}))
+            (run / "build.json").write_text(json.dumps({"game_assemblies": {"Assembly-CSharp.dll": "game"}}))
+            catalog = {
+                "trees": [],
+                "props": [{"name": "1.Grass_Data", "main": {"triangles": 30}, "lod": {"triangles": 50}}],
+            }
+            for native_triangles in (30, None):
+                catalog["props"][0]["main"]["triangles"] = native_triangles
+                (run / "native-catalog.json").write_text(json.dumps(catalog))
+                actual = copy.deepcopy(result)
+                add_reviews(actual, source, root)
+                prefab = actual["prefab_reviews"][0]
+                self.assertEqual(prefab["main_triangles"], native_triangles)
+                self.assertEqual(prefab["lod_triangles"], 50)
+                self.assertEqual(prefab["serialized_mesh_triangle_max"], 50)
+                self.assertEqual(prefab["gates"]["geometry"], "pass" if native_triangles else "unknown")
+
     def test_shared_texture_is_counted_once_across_prefabs_not_per_tree(self):
         texture = {"checksum": "shared-content", "width": 4, "height": 4, "encoding": "DXT1"}
         first = {"name": "oak", "textures": [texture]}

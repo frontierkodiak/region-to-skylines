@@ -1,0 +1,8 @@
+{
+  "state": "controller_stopped",
+  "complete_specimens": 17,
+  "native_pngs": 125,
+  "palette_save_reload": "not_reached",
+  "reason": "Declared camera pose did not settle within the original 5 s deadline at Olive transition-far. No obstructed or mismatched view substituted; fresh retry uses 20 s deadline with unchanged tolerance. Not an asset crash.",
+  "cleanup_empty": true
+}
