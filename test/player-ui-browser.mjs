@@ -63,17 +63,19 @@ try{
      if(version==='after'){
       await page.waitForFunction(()=>['available','unavailable'].includes(document.querySelector('#vegetation')?.dataset.state),null,{timeout:14000});
       if(await page.locator('#vegetation').isVisible()){
-       await page.locator('#vegetation').screenshot({path:`${out}/${name}-${device}-vegetation.png`});
-       vegetationCaptured=true;
-       results.push({browser:name,device,vegetationPlace:slug,canopy:await page.locator('.vegetation-summary').innerText()});
+       const crop=!vegetationCaptured&&await page.locator('.genus-bar').count()>0;
+       if(crop){await page.locator('#vegetation').screenshot({path:`${out}/${name}-${device}-vegetation.png`});vegetationCaptured=true;}
+       results.push({browser:name,device,vegetationPlace:slug,crop,canopy:await page.locator('.vegetation-summary').innerText()});
       }
      }
      await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>{node.open=false;}));
+     await page.evaluate(()=>new Promise(resolve=>{scrollTo(0,0);requestAnimationFrame(()=>requestAnimationFrame(resolve));}));
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-closed.png`,fullPage:true});
      await page.locator('#howto').evaluate(el=>el.open=true);
      await page.locator('#advanced').evaluate(el=>{el.open=true;for(const d of el.querySelectorAll('details'))d.open=true;});
      if(version==='after')for(const id of['map-details','settings','credits'])await page.locator('#'+id).evaluate(el=>el.open=true);
      else await page.locator('#vegetation details').evaluate(el=>el.open=true);
+     await page.evaluate(()=>new Promise(resolve=>{scrollTo(0,0);requestAnimationFrame(()=>requestAnimationFrame(resolve));}));
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-open.png`,fullPage:true});
      console.log(name,device,slug,version,'closed/open pass');
     }

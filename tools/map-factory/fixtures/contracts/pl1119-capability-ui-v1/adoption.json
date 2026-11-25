@@ -76,7 +76,7 @@
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8",
     "interface-copy.js": "fa7682137ed38345989fb58654abc78f53411cae5442d2153c7da1c582984229",
-    "test/player-ui-browser.mjs": "ca3a4759e2a8274f4d024aba8d28cf34a54e4739c0f13fe49ccdeb66e9865630",
+    "test/player-ui-browser.mjs": "547f9da83240ee867a55508c92c90cc05c308d606ab887006ef5606ecc195db9",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
     "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72",
     "vegetation-inputs.js": "f3659619db4df92571f127912d4ebbeb6cbbb52b8cd86657e6773fa4d989f6e2",
