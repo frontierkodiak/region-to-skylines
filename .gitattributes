@@ -25,3 +25,7 @@ tools/map-factory/wet_reach_admission.py -export-ignore
 tools/map-factory/native-water-admission.json -export-ignore
 tools/map-factory/templates/native-corridors.crp -export-ignore
 tools/map-factory/templates/native-corridors.json -export-ignore
+
+# Tests and their committed CLI region stay out of the npx tarball too: the CLI needs
+# neither, and the region's tiles would add several megabytes to every first run.
+test/** export-ignore

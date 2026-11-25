@@ -114,3 +114,9 @@ For a **heightmap** (`--heightmap`), pass on the Map Editor steps:
   topped up to the share the game's own maps have; place search by Nominatim.
   If your person shares the map, credit "© OpenStreetMap contributors".
 - Source and issues: <https://github.com/frontierkodiak/region-to-skylines>.
+
+## If you are changing this repo
+
+`npm run gate` runs every suite here, Node and Python, the byte-conformance fixtures and a
+real run of the CLI on a committed region; CI runs it on every pull request. The README's
+Development section says what it covers and which suites it leaves out.
