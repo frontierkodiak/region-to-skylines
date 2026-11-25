@@ -69,8 +69,11 @@ try{
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-open.png`,fullPage:true});
      console.log(name,device,slug,version,'closed/open pass');
     }
+    await page.goto('about:blank');
     await page.goto(afterURL+'/#c=11.4,47.27&r=0&s=1&h=auto&rivers=1&n=innsbruck');
     await page.waitForFunction(()=>window.__regionmap?.result,null,{timeout:100000});
+    assert.ok(await page.evaluate(()=>Math.abs(__regionmap.result.sq.lon-11.4)<.01));
+    assert.equal(await page.locator('#preview-place').innerText(),'Innsbruck');
     await page.locator('#settings').evaluate(el=>el.open=true);await page.locator('#vscale').selectOption('1');
     await page.waitForFunction(()=>!document.querySelector('#clip-key').hidden,null,{timeout:10000});
     assert.ok(await page.evaluate(()=>__regionmap.result.fit.clipped>0));
