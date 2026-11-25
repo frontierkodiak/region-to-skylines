@@ -40,7 +40,7 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     assert.ok(expected, `${c.slug}: ${kind} golden is required`);
     assert.ok(c.input_capture, `${c.slug}: inputs.js capture receipt is required`);
     const native = nativeCases[c.slug];
-    assert.ok(native, `${c.slug}: fresh native evaluation is required`);
+    assert.ok(native, `${c.slug}: historical physical baseline is required`);
     assert.equal(c.input_capture.cli_sha256, historicalNativeCases[c.slug].native_crp_sha256, `${c.slug}: historical capture differs from historical native run`);
     assert.deepEqual(c.input_capture.prepared_sha256, historicalNativeCases[c.slug].prepared_sha256, `${c.slug}: historical native grids changed`);
     assert.equal(sha(await read("templates/native-corridors.crp")), native.template_sha256, `${c.slug}: native template changed`);
@@ -75,6 +75,18 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     console.log(`  ${c.slug} ${kind}: ${mapName}, ${bytes.length} bytes, ${((performance.now() - t) / 1000).toFixed(1)} s`);
     assert.equal(bytes.length, expected.expected_crp_bytes);
     assert.equal(sha(bytes), expected.expected_crp_sha256);
+    if (current.version === 'pl1119-authored-air-v1') {
+      const entries = factory.py.runPython(`
+from crp import read_package
+from network_writer import section_start, OUTSIDE
+from netcodec import NetSection
+from pathlib import Path
+payload = next(a['payload'] for a in read_package(next(Path('/work/out').glob('*.crp')).read_bytes())[1] if a['kind'] == 52)
+net = NetSection(payload, section_start(payload, 'NetManager'))
+sum('Airplane' in net.prefabs.names[net.node_prefab[k]] and bool(int(net.node_flags[k-1]) & OUTSIDE) for k in net.nodes)
+`);
+      assert.ok(entries >= 2, `${c.slug}: written plane entries are missing`);
+    }
     if (["pl912-water-risk-v1", "pl1066-optional-runways-v1"].includes(current.version)) {
       const cpu = current.risk_cases[c.slug];
       assert.equal(waterRisk.status, cpu.status, `${c.slug}: Python/browser risk decision`);

@@ -35,6 +35,14 @@ class HistoricalCaptureSource(unittest.TestCase):
                 refresh = Path("contracts/pl1072-sea-neighbours-v1")
                 shutil.copytree(ROOT / "fixtures" / refresh, folder / refresh)
                 shutil.copyfile(ROOT / "fixtures/active.json", folder / "active.json")
+                shutil.copytree(
+                    ROOT / "fixtures/contracts/pl1119-authored-air-v1",
+                    folder / "contracts/pl1119-authored-air-v1",
+                )
+                shutil.copytree(
+                    ROOT / "fixtures/contracts/pl1119-capability-ui-v1/baseline",
+                    folder / "contracts/pl1119-capability-ui-v1/baseline",
+                )
                 old = folder / "contracts/pl912-water-risk-v1"
                 old.mkdir()
                 shutil.copyfile(

@@ -48,12 +48,12 @@
     "templates/native-corridors.crp",
     "templates/native-corridors.json"
   ],
-  "predecessor_active_sha256": "b091d1b66aad18152de717761a2a33abf226f4461ea1545d893fd2f9459ca144",
-  "predecessor_contract_sha256": "2b4f2f3f898499ff342e23914ae164e7b4ffde84548bcfce4abfdd66f68613d0",
+  "predecessor_active_sha256": "6e5463695b5a08927f8e2b13fd80d1710026fc958051a6c3bfb9b51e807d5e63",
+  "predecessor_contract_sha256": "8d3e259d5b4ca0c7789e2752c4e23e2da9209af1a310226a8df5b0c7694af4a3",
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "adab6491a6b2396a50e9bafb8f69f1371ddc3a7fa063b347527b4fede73fe764"
+      "current_sha256": "85f22e080245e8eb0d14c6e6632b872cc1637a4f369c9c0541cefd3274e0f1f6"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
@@ -76,7 +76,7 @@
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8",
     "interface-copy.js": "fa7682137ed38345989fb58654abc78f53411cae5442d2153c7da1c582984229",
-    "test/player-ui-browser.mjs": "09be3cf0b2ce2680ae78e3bfed48c2d9f34f9d9bd27814426a7df0043556c641",
+    "test/player-ui-browser.mjs": "ca3a4759e2a8274f4d024aba8d28cf34a54e4739c0f13fe49ccdeb66e9865630",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
     "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72",
     "vegetation-inputs.js": "f3659619db4df92571f127912d4ebbeb6cbbb52b8cd86657e6773fa4d989f6e2",

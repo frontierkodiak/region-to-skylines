@@ -662,7 +662,9 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     assert.equal(sha(await readSource(file)), binding.current_sha256, "current plane writer changed");
     archived[file] = original;
   }
-  const historicalFactory = Object.keys(current.source_files_sha256).filter(k => k.startsWith("tools/map-factory/")).map(k => k.slice("tools/map-factory/".length)).sort();
+  const physicalBaseline = current.version === 'pl1119-authored-air-v1'
+    ? parse(await read('fixtures/' + current.predecessor.file)) : current;
+  const historicalFactory = Object.keys(physicalBaseline.source_files_sha256).filter(k => k.startsWith("tools/map-factory/")).map(k => k.slice("tools/map-factory/".length)).sort();
   assert.deepEqual([...adoption.historical_factory_files].sort(), historicalFactory);
   const historicalRead = (name) => archived[name] ?? readSource(name);
   historicalRead.historicalFactoryFiles = adoption.historical_factory_files;

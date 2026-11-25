@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { loadWaterRiskContract } from "./water-risk-fixture-contract.mjs";
 import { loadRunwayContract } from "./runway-fixture-contract.mjs";
 import { loadSeaNeighbourContract } from "./sea-neighbour-fixture-contract.mjs";
+import { loadAuthoredAirContract } from "./authored-air-fixture-contract.mjs";
 import { capabilityUISources } from "./capability-ui-contract.mjs";
 import { loadTransientContract } from "./transient-fixture-contract.mjs";
 import { FACTORY_FILES } from "../mapgen.js";
@@ -19,8 +20,11 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const currentBytes = await read("fixtures/" + active.current), current = parse(currentBytes);
+  const liveSource = readSource;
   readSource = await capabilityUISources({ read, readSource, activeBytes, currentBytes, current });
   const factoryFiles = readSource.historicalFactoryFiles ?? FACTORY_FILES;
+  if (current.version === "pl1119-authored-air-v1")
+    return loadAuthoredAirContract({ read, readSource, liveSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl1072-sea-neighbours-v1")
     return loadSeaNeighbourContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl1066-optional-runways-v1")

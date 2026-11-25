@@ -208,11 +208,17 @@ function schedule(delay = 450) {
   resetWaterRisk();
   clearTimeout(timer);
   $("previewwrap").setAttribute("aria-busy", "true");
+  $("preview3d").hidden = true;
   $("preview-place").textContent = titleFor(); $("retry").hidden = true;
   $("mapname").textContent = titleFor();
   setDownload("busy"); timer = setTimeout(build, delay);
 }
 const setStatus = (t) => ($("status").textContent = t);
+function terrainUnavailable() {
+  $("previewwrap").setAttribute("aria-busy", "false");
+  setStatus("Terrain unavailable"); $("retry").hidden = false;
+  capabilityView.unavailable(); vegetationView.unavailable();
+}
 
 async function build() {
   job?.abort();
@@ -220,7 +226,7 @@ async function build() {
   // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
   const deadline = setTimeout(() => {
     ctl.abort(new Error("Terrain deadline"));
-    if(job===ctl){setStatus("Terrain unavailable");$("retry").hidden=false;capabilityView.unavailable();vegetationView.unavailable();}
+    if(job===ctl)terrainUnavailable();
   }, 30000);
   const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
   vegetationView.update(sq);
@@ -252,7 +258,7 @@ async function build() {
       waterNote: w ? undefined : "The basemap's water tiles didn't load: not cut. Move the map a little to retry." });
     void capabilityView.update(sq);
   } catch (err) {
-    if (job === ctl) { setStatus("Terrain unavailable"); $("retry").hidden = false; capabilityView.unavailable(); vegetationView.unavailable(); }
+    if (job === ctl) terrainUnavailable();
   } finally { clearTimeout(deadline); }
 }
 $("retry").onclick = () => schedule(0);
@@ -293,6 +299,7 @@ function finish(raw, status = "") {
   raw.carved = carved;
   result = { raw, fit, sq, sources, built };
   $("previewwrap").setAttribute("aria-busy", "false"); $("retry").hidden = raw.water !== "failed";
+  $("preview3d").hidden = false;
   showStats(fit, elev, raw.waterNote, sq);
   drawPreview(fit, carved.wet);
   showSources(sources, fit);
@@ -618,7 +625,12 @@ function drawFootprint() {
     const row=Math.max(0,Math.min(1080,Math.round((8640-z)/16))),col=Math.max(0,Math.min(1080,Math.round((x+8640)/16)));
     points.push(new THREE.Vector3(x/8640,previewY(Math.min(1024,Math.max(0,result.fit.game[row*1081+col])))+.012,-z/8640));
   }
-  const g=new THREE.BufferGeometry().setFromPoints(points),mat=new THREE.LineBasicMaterial({color:0x79f2bc,depthTest:false});const line=new THREE.LineLoop(g,mat);line.renderOrder=20;footprintLines.add(line);render();
+  const path=new THREE.CatmullRomCurve3(points,true,'centripetal');
+  for(const[radius,color,order]of[[.004,0x17462d,20],[.002,0xf7fff8,21]]){
+    const line=new THREE.Mesh(new THREE.TubeGeometry(path,points.length*2,radius,4,true),new THREE.MeshBasicMaterial({color,depthTest:false}));
+    line.renderOrder=order;footprintLines.add(line);
+  }
+  render();
 }
 
 // The 9 x 9 in-game tiles as lines draped on the terrain. At STEP 4 the preview has 270 cells a

@@ -1,4 +1,32 @@
-# Current fixture contract: PL-912 stream-only v1
+# Current fixture contract: authored Air
+
+`fixtures/active.json` selects `contracts/pl1119-authored-air-v1/current.json`.
+This is a **byte-conformance** successor for the always-authored plane entries,
+not native qualification of the new CRPs. It retains the entire previous
+sea-neighbour, capture, water and native-evidence chain unchanged.
+
+The authoring command rebuilds both resource-reference and shipping variants
+from the same five retained input sets. The exact archived pre-Air generator
+must first reproduce the previous package hashes. Comparing the resulting
+packages permits only plane nodes, segments and connection buildings, their
+metadata counts and serialization checksums. Existing networks, every other
+simulation manager, terrain/water grids, resource plans, water controls and
+all other assets must remain equal. The new sizes, CRP/simulation hashes and
+shipping source closure are bound in the new contract and its proof.
+
+```sh
+uv run --project tools/map-factory --frozen python tools/map-factory/freeze_authored_air.py
+npm run gate
+```
+
+Use Linux, as CI does; the older CRP byte baseline has known platform differences
+on macOS. Verification never runs the authoring command or rewrites fixtures.
+`fixtures/manifest.json`, every previous versioned contract and all native
+results keep their original bytes. No old exact-package certificate applies
+to these new packages. Air entries are an exporter construction guarantee;
+this byte reference makes no additional native-service or water claim.
+
+## Historical PL-912 stream-only contract
 
 `fixtures/current.json` is the current **byte-conformance and partial-evaluation**
 contract. `npm run test:fixtures` consumes it for all five regions, with ten full

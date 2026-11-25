@@ -40,7 +40,7 @@ try{
   try{
    for(const[device,width,height]of[['ipad',768,1024],['phone',390,844]]){
     const page=await browser.newPage({viewport:{width,height},hasTouch:true,ignoreHTTPSErrors:true});
-    const errors=[];page.on('pageerror',e=>errors.push(e.message));
+    const errors=[];let vegetationCaptured=false;page.on('pageerror',e=>errors.push(e.message));
     for(const[slug,lon,lat]of places)for(const[version,base]of[['before',beforeURL],['after',afterURL]]){
      const hash=`#c=${lon},${lat}&r=0&s=1&h=auto&rivers=1&n=${slug}`;
      await page.goto('about:blank');await page.goto(base+'/'+hash,{waitUntil:'domcontentloaded'});
@@ -60,6 +60,14 @@ try{
       await page.keyboard.press('Escape');assert.equal(await page.locator('.capability-detail').isVisible(),false);
       results.push({browser:name,device,place:slug,position:await page.evaluate(()=>[__regionmap.result.sq.lon,__regionmap.result.sq.lat]),tiles:sizes,stock:await page.locator('.stock-row').count()});
      }
+     if(version==='after'){
+      await page.waitForFunction(()=>['available','unavailable'].includes(document.querySelector('#vegetation')?.dataset.state),null,{timeout:14000});
+      if(await page.locator('#vegetation').isVisible()){
+       await page.locator('#vegetation').screenshot({path:`${out}/${name}-${device}-vegetation.png`});
+       vegetationCaptured=true;
+       results.push({browser:name,device,vegetationPlace:slug,canopy:await page.locator('.vegetation-summary').innerText()});
+      }
+     }
      await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>{node.open=false;}));
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-closed.png`,fullPage:true});
      await page.locator('#howto').evaluate(el=>el.open=true);
@@ -69,6 +77,7 @@ try{
      await page.screenshot({path:`${out}/${name}-${device}-${slug}-${version}-open.png`,fullPage:true});
      console.log(name,device,slug,version,'closed/open pass');
     }
+    assert.ok(vegetationCaptured,'at least one real canopy/genus capture is required per browser and viewport');
     await page.goto('about:blank');
     await page.goto(afterURL+'/#c=11.4,47.27&r=0&s=1&h=auto&rivers=1&n=innsbruck');
     await page.waitForFunction(()=>window.__regionmap?.result,null,{timeout:100000});
@@ -92,6 +101,8 @@ try{
      await page.waitForFunction(()=>!document.querySelector('#retry')?.hidden,null,{timeout:40000});
      assert.ok(blocked>0,'the elevation failure must actually be exercised');
      assert.equal(await page.locator('[data-level=loading]').count(),0);
+     assert.equal(await page.locator('#previewwrap').getAttribute('aria-busy'),'false');
+     assert.equal(await page.locator('#preview3d').isVisible(),false);
      await page.unroute('**/terrarium/**');await page.locator('#retry').click();
      await page.waitForFunction(()=>document.querySelector('[data-capability=ship]')?.dataset.level==='no',null,{timeout:100000});
      results.push({browser:name,terrainFailure:'Retry recovered'});

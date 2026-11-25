@@ -381,6 +381,21 @@ def stage_prepared(inputs, output, slugs):
             from real_roads import finish
 
             receipt.update(finish(crp, hydro))
+        if "plane_entries" in generation:
+            from plane_entries import ensure_plane_entries
+
+            if geometry_raw is None:
+                raise ValueError(f"Plane entries need bound geometry: {slug}")
+            planes = ensure_plane_entries(crp, json.loads(geometry_raw), folder)
+            if planes != generation["plane_entries"]:
+                raise ValueError(f"Prepared plane entries changed: {slug}")
+            written = crp.read_bytes()
+            receipt.update(
+                sha256=hashlib.sha256(written).hexdigest(),
+                bytes=len(written),
+                simulation_sha256=planes["simulation_sha256"],
+                plane_entries=planes,
+            )
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         # Candidate routing must not move or omit accepted observations.
