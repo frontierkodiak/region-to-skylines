@@ -7,7 +7,10 @@ import unittest
 
 import numpy as np
 
-from audit_place_terrain import audit, native_units, stage_metrics
+try:
+    from audit_place_terrain import audit, native_units, stage_metrics
+except ImportError as exc:  # polli-place-model 0.3 lives in the workbench, not in this repo
+    raise unittest.SkipTest(f"needs polli-place-model 0.3: {exc}")
 
 
 class AttributionTests(unittest.TestCase):

@@ -1,0 +1,25 @@
+{
+  "square": {
+    "preset": "asheville",
+    "lon": -82.555,
+    "lat": 35.58,
+    "rotation": 0,
+    "scale": 0.5
+  },
+  "command": "node cli.mjs asheville --scale 0.5 --heightmap --out <dir> --json",
+  "captured_at": "2026-11-25",
+  "sources": {
+    "elevation": "AWS Terrain Tiles (Terrarium, Mapzen and its sources), 30 tiles",
+    "water": "OpenFreeMap vector tiles from OpenStreetMap (ODbL), 36 tiles plus its TileJSON"
+  },
+  "request_count": 67,
+  "hosts": [
+    "s3.amazonaws.com",
+    "tiles.openfreemap.org"
+  ],
+  "outputs": {
+    "asheville.png": "5b2a462279d2d57ddb859f9d72e0dfa6abc4499eaefa1a909142a58b08d378a1",
+    "asheville.json": "343e51e7b6ba49f30d1f16cf907e7b427c126dd144b6227d3efc8d35625aac35",
+    "asheville-water.png": "382b8dcb05848dfbba56cc7aa7c98999561de3d7d4cf20b9e04074e345ebb16f"
+  }
+}

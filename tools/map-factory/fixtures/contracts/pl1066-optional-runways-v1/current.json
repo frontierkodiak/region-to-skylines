@@ -717,7 +717,7 @@
     "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
   },
   "export_gate_files_sha256": {
-    "agents.md": "d016f82fb6a5d3441e98fa0a30467fe3a4793edc969fe702fc56360254866c4b",
+    "agents.md": "06f6b921e56ee89409dd3c9f07edcbd835db8a3111ff7b89fe34301d08798f4b",
     "llms.txt": "b3bfb28c0568d10c65c152116d7956db197744215ee3ad52d6fea2f863da7809",
     "build.mjs": "c713ccb9e3e96d48bbbd70a952a9575878161f13120e31edb8e0a2c66818fbd8",
     "app.js": "9e4af8e1b40e206ad4810e3e78584e6df9673cab0f9fff85a9c5c3d5107ff22f",
@@ -726,8 +726,8 @@
     "mapgen-worker.js": "4c1818667b909ec6a5a7c7930a221c61a6b99cac1e6e23699992e7c61b4c4b95",
     "index.html": "9f773079f951a40ab5ce1bb2d68e0c90b16052d23671afcb918516e0a0f58216",
     "style.css": "8d40e28e517e65c309c831de3dfc3562cd91ad9ff19c78cf44a6149ecf5f4200",
-    "package.json": "a717cf3dab70774d4e917fec256bbcc4247e3cbd5b6876bc7089a6dabdacba51",
-    ".gitattributes": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7"
+    "package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
+    ".gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8"
   },
   "archived_sources": {
     "mapgen.js": "contracts/pl912-water-risk-v1/predecessor-mapgen.js",
@@ -1262,7 +1262,7 @@
   "capture_adoption": {
     "predecessor": {
       "file": "contracts/pl1066-optional-runways-v1/predecessor.json",
-      "sha256": "2ba1efea83852d124bd37e7c9a024c15c6f0a98a17fb84732c15dba51022de2b"
+      "sha256": "89d7ac960d991c6d6f3894acf01dffc284a9e1e334309768a0c8e989d1050ba0"
     },
     "previous_active": {
       "file": "contracts/pl1066-optional-runways-v1/previous-active.json",

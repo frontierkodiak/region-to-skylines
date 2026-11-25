@@ -11,22 +11,27 @@ from pathlib import Path
 from unittest.mock import patch
 
 import numpy as np
-import pyarrow as pa
-from PIL import Image
-from place_input import Frame, compile_geometry, export, preprocess, sample_grid
-from place_model import (
-    SCHEMAS,
-    provenance,
-    read_manifest,
-    read_table,
-    write_grid,
-    write_manifest,
-    write_table,
-)
+
+try:
+    import pyarrow as pa
+    from PIL import Image
+    from place_input import Frame, compile_geometry, export, preprocess, sample_grid
+    from place_model import (
+        SCHEMAS,
+        provenance,
+        read_manifest,
+        read_table,
+        write_grid,
+        write_manifest,
+        write_table,
+    )
+    from shapely.geometry import LineString, MultiLineString, Polygon
+except ImportError as exc:  # polli-place-model 0.3 and pyarrow come from the workbench
+    raise unittest.SkipTest(f"needs polli-place-model 0.3 and pyarrow: {exc}")
+
 from prepare import pixel
 from pyproj import Transformer
 from region import raster
-from shapely.geometry import LineString, MultiLineString, Polygon
 from surface_water import surface_geometry
 
 ROOT = Path(__file__).resolve().parent

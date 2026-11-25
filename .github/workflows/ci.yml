@@ -1,0 +1,46 @@
+# Every pull request runs the repo's whole gate: the Node suites, the three Python tools,
+# the byte-conformance fixtures and a real CLI run on a committed region. The command, its
+# contents and the suites it leaves out are in README.md ("Development").
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A push that supersedes an earlier one cancels that run; the gate only reads the tree.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: gate
+    # Public repo: GitHub-hosted Linux is free here, and the org runner variable is not
+    # visible to it, so the fallback is what runs.
+    runs-on: ${{ vars.POLLI_LINUX_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: "0.11.11"
+          enable-cache: true
+          ignore-nothing-to-cache: true
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Sync the Python tools
+        run: |
+          uv sync --locked --project tools/map-factory
+          uv sync --locked --project tools/cs1-harness
+          uv sync --locked --project tools/save-reader
+      - name: Gate
+        run: npm run gate
