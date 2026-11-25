@@ -492,10 +492,10 @@ test("fertility copy separates crop share from weighted suitability", () => {
   assert.match(grass, /cropland 0%/);
   assert.doesNotMatch(grass, /Crop and pasture cover on 0%/);
   const lowCrop = placeDetail({ reason: "fertile_cover_below_candidate_threshold", evidence: evidence({}, { suitability: 0.01, crop_share_of_central_land: 0.003 }) });
-  assert.match(lowCrop, /below the 0\.02 candidate level/);
+  assert.match(lowCrop, /below 0\.02/);
   assert.doesNotMatch(lowCrop, /no crop or pasture cover/i);
   const lowTrees = placeDetail({ reason: "tree_support_below_candidate_threshold", evidence: evidence({ tree_cover_share_of_central_land: 0.04, tree_suitability: 0.04 }) });
-  assert.match(lowTrees, /below the 0\.05 candidate level/);
+  assert.match(lowTrees, /below 0\.05/);
   assert.doesNotMatch(lowTrees, /supports no trees|no supporting cover/i);
 });
 

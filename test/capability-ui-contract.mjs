@@ -23,6 +23,8 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [
+    "interface-copy.js",
+    "test/player-ui-browser.mjs",
     "tools/map-factory/real_roads.py",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py",
     ".gitattributes",

@@ -9,6 +9,8 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "interface-copy.js",
+    "test/player-ui-browser.mjs",
     "vegetation-model.js",
     "vegetation-traits.js",
     "vegetation-inputs.js",

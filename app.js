@@ -9,7 +9,7 @@ import { mountVegetation } from "./vegetation-ui.js";
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
 let result = null, job = null;
-const capabilityView = mountCapabilities($("capabilities"));
+const capabilityView = mountCapabilities($("capabilities"), { onFootprint: showFootprint });
 const vegetationView = mountVegetation($("vegetation"));
 // What the map is called in the game's New Game list: a name typed into the name field, else
 // the preset's or searched place's name, else the name field.
@@ -90,6 +90,8 @@ map.on("load", () => {
   map.addLayer({ id: "sources", type: "circle", source: "sources",
     paint: { "circle-radius": 5, "circle-color": ["match", ["get", "kind"], "lake", "#1fb5d6", "exit", "#9aa3ad", "#1d5fd1"],
       "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
+  map.addSource("footprint",{type:"geojson",data:{type:"FeatureCollection",features:[]}});
+  map.addLayer({id:"footprint",type:"line",source:"footprint",paint:{"line-color":"#2f7d4f","line-width":3}});
   fitToSquare(false);
   schedule(0);
 });
@@ -127,13 +129,15 @@ function renderPresets() {
 }
 renderPresets();
 function usePreset(p) {
+  map.stop();
   Object.assign(state, { lon: p.lon, lat: p.lat, rotation: 0 });
   typedTitle = null;
   $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
   $("name").value = p.slug;
   refreshSquare();
-  fitToSquare();
+  fitToSquare(false);
   writeHash();
+  schedule(0);
 }
 
 $("rot").oninput = (e) => {
@@ -143,35 +147,11 @@ $("rot").oninput = (e) => {
   map.jumpTo({ bearing: state.rotation });
 };
 $("rot").onchange = () => { fitToSquare(); writeHash(); schedule(); };
-$("scale").onchange = (e) => { state.scale = Number(e.target.value); scaleNote(); refreshSquare(); fitToSquare(); };
+$("scale").onchange = (e) => { state.scale = Number(e.target.value); refreshSquare(); fitToSquare(); };
 
 /** Real ground in km, one way everywhere: 2 decimals at true size (17.28, 9.6, 1.92), else 1 (25.9). */
 const km = (metres, s = state.scale) =>
   (metres / 1000).toFixed(s === 1 ? 2 : 1).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "") + " km";
-/**
- * What the scale choice does, in plain words, from the real extent and the height factor in
- * use (once terrain is loaded). Cities: Skylines 1 terrain is 1 game metre = 1 real metre.
- */
-function scaleNote(fit = result?.fit) {
-  const s = state.scale, E = 17280 * s, el = $("scalenote");
-  const vs = fit && result.sq.scale === s ? fit.verticalScale : null;
-  const steep = vs === null ? "" : (() => {
-    const f = vs * s;
-    const how = Math.abs(f - 1) < 0.03 ? "as steep as real" : `${f.toFixed(2)}x as steep as real`;
-    return ` With Height at ${vs.toFixed(2)}x, slopes are ${how}` +
-      (Math.abs(f - 1) >= 0.03 && state.vscale !== "slopes" && s !== 1 ? "; Height \u201cReal slopes\u201d keeps them true." : ".");
-  })();
-  el.classList.toggle("warn", s !== 1);
-  el.textContent = s === 1
-    ? `True size: the game's map is 17.28 km across and 1 game metre is 1 real metre, so a real block is a game block. The 25 tiles you can build on without mods are the middle 9.6 km.${vs !== null && vs < 1 ? steep : ""}`
-    : s > 1
-      ? `Fits more region: ${km(E)} of real ground squeezed into the 17.28 km map, so everything is ${Math.round(100 / s)}% of real size and real streets won't match the game's road sizes.${steep}`
-      : `Zooms in: ${km(E)} of real ground stretched over the 17.28 km map, so everything is ${(1 / s).toFixed(1)}x real size. Good for a single town; the region around it is lost.${steep}`;
-  const t = (id, v) => ($(id).textContent = v);
-  t("tTile", s === 1 ? "1.92 km" : `1.92 km of game ground (${km(1920 * s)} real)`);
-  t("t25", km(9600 * s)); t("t81", km(E));
-}
-scaleNote();
 $("vscale").onchange = (e) => {
   state.vscale = ["auto", "slopes"].includes(e.target.value) ? e.target.value : Number(e.target.value);
   writeHash();
@@ -211,7 +191,8 @@ $("search").onsubmit = async (e) => {
     searched = { q, lon: state.lon, lat: state.lat };
     typedTitle = null;
     refreshSquare();
-    fitToSquare();
+    fitToSquare(false);
+    schedule(0);
   } catch {
     setStatus("Search failed; drag the map instead");
   }
@@ -226,7 +207,10 @@ function schedule(delay = 450) {
   vegetationView.reset();
   resetWaterRisk();
   clearTimeout(timer);
-  timer = setTimeout(build, delay);
+  $("previewwrap").setAttribute("aria-busy", "true");
+  $("preview-place").textContent = titleFor(); $("retry").hidden = true;
+  $("mapname").textContent = titleFor();
+  setDownload("busy"); timer = setTimeout(build, delay);
 }
 const setStatus = (t) => ($("status").textContent = t);
 
@@ -234,6 +218,10 @@ async function build() {
   job?.abort();
   const ctl = (job = new AbortController());
   // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
+  const deadline = setTimeout(() => {
+    ctl.abort(new Error("Terrain deadline"));
+    if(job===ctl){setStatus("Terrain unavailable");$("retry").hidden=false;capabilityView.unavailable();vegetationView.unavailable();}
+  }, 30000);
   const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
   vegetationView.update(sq);
   renderPresets();
@@ -264,12 +252,11 @@ async function build() {
       waterNote: w ? undefined : "The basemap's water tiles didn't load: not cut. Move the map a little to retry." });
     void capabilityView.update(sq);
   } catch (err) {
-    if (!ctl.signal.aborted) {
-      setStatus(`Failed: ${err.message}. Move the map to retry.`);
-      capabilityView.unavailable();
-    }
-  }
+    if (job === ctl) { setStatus("Terrain unavailable"); $("retry").hidden = false; capabilityView.unavailable(); vegetationView.unavailable(); }
+  } finally { clearTimeout(deadline); }
 }
+$("retry").onclick = () => schedule(0);
+$("fit-height").onclick = () => { $("vscale").value = "auto"; $("vscale").dispatchEvent(new Event("change")); };
 
 /**
  * The download button: the ready-to-play map file, or the heightmap if this browser couldn't
@@ -305,8 +292,8 @@ function finish(raw, status = "") {
   if (w) raw.waterNote = built.note;
   raw.carved = carved;
   result = { raw, fit, sq, sources, built };
+  $("previewwrap").setAttribute("aria-busy", "false"); $("retry").hidden = raw.water !== "failed";
   showStats(fit, elev, raw.waterNote, sq);
-  scaleNote(fit);
   drawPreview(fit, carved.wet);
   showSources(sources, fit);
   setStatus(status);
@@ -340,27 +327,15 @@ function showSources(sources, fit) {
 
 const m = (v) => `${Math.round(v).toLocaleString()} m`;
 function showStats(fit, elev, waterNote, sq) {
-  const rows = [
-    ["Real ground", fit.seaLevel === null ? `${m(fit.realMin)} to ${m(fit.realMax)}` : `sea to ${m(fit.realMax)} (sea 10–40 m deep)`],
-    ["Relief", m(fit.realMax - fit.base)],
-    ["In game", `${m(fit.gameMin)} to ${m(fit.gameMax)} of 1,024 m`],
-    ["Height", fit.verticalScale === 1 ? "1:1 true height" : `${fit.verticalScale.toFixed(2)}x` +
-      (state.vscale === "slopes" ? (fit.verticalScale < 1 / sq.scale - 1e-6 ? " (real slopes, squeezed to fit)" : " (real slopes)") : state.vscale === "auto" ? " (squeezed to fit)" : ""),
-      fit.verticalScale < 1 ? "warn" : ""],
-    ["Headroom", m(fit.headroom), fit.headroom < 0 ? "warn" : ""],
-  ];
-  if (fit.seaLevel !== null) rows.push(["Sea level in game", `${m(fit.seaLevel)} (set the editor's sea level here)`, "warn"]);
-  if (fit.clipped > 0) rows.push(["Clipped", `${(fit.clipped * 100).toFixed(2)}% of pixels`, "warn"]);
-  rows.push(
-    ["Size", `${km(extentOf(sq), sq.scale)} · ${(extentOf(sq) / (CS1.px - 1)).toFixed(1)} m/px`],
-    ["Elevation data", `zoom ${elev.zoom} · ${elev.metresPerTilePx.toFixed(1)} m/px · ${elev.tiles} tiles`],
-    ["Water", waterNote],
-  );
-  $("stats").replaceChildren(...rows.flatMap(([k, v, cls]) => {
-    const dt = document.createElement("dt"), dd = document.createElement("dd");
-    dt.textContent = k; dd.textContent = v; if (cls) dd.className = cls;
-    return [dt, dd];
-  }));
+  const rows = [["Real ground", `${m(fit.realMin)} to ${m(fit.realMax)}`], ["Relief", m(fit.realMax - fit.base)], ["In game", `${m(Math.max(0,fit.gameMin))} to ${m(Math.min(1024,fit.gameMax))}`], ["Water", result.raw.w ? `${new Set(result.raw.w.rivers.map(r=>r.name||"?")).size} rivers · ${result.built.carved.lakes} lakes` : "None mapped"]];
+  const fill=(id,values)=>$(id).replaceChildren(...values.flatMap(([k,v])=>{const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=k;dd.textContent=v;return[dt,dd];}));
+  fill("stats",rows);
+  fill("extra-stats",[["Height scale",`${fit.verticalScale.toFixed(2)}×`],["Map width",km(extentOf(sq),sq.scale)],["Elevation data",`zoom ${elev.zoom} · ${elev.metresPerTilePx.toFixed(1)} m/px · ${elev.tiles} tiles`],...(fit.seaLevel!==null?[["Sea level",m(fit.seaLevel)]]:[])]);
+  $("clip-key").hidden=!fit.clipped;
+  $("height-note").hidden=!(fit.clipped>0||fit.verticalScale<1);
+  $("height-note").querySelector("span").textContent=fit.clipped>0?"Peaks clipped at 1,024 m.":`Heights scaled to ${fit.verticalScale.toFixed(2)}×.`;
+  $("fit-height").hidden=!fit.clipped;
+
 }
 
 // ---------------------------------------------------------------- downloads
@@ -465,7 +440,7 @@ $("dl").onclick = async () => {
     } else setStatus("Square changed; the previous map was not downloaded");
   } catch (err) {
     lastBuild = { error: err.message };
-    fallback = `This browser couldn't build the map file (${err.message}). Here is the heightmap instead; the Map Editor steps are under Advanced.`;
+    fallback = "Map export failed. Download a heightmap.";
   }
   clearInterval(timer);
   building = false;
@@ -532,6 +507,8 @@ const sun = new THREE.DirectionalLight(0xfff3dd, 2.2);
 sun.position.set(-6, 9, -4);
 scene.add(sun);
 let mesh = null, water = null;
+let footprint = null;
+const footprintLines = new THREE.Group(); scene.add(footprintLines);
 
 function resize() {
   const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -590,23 +567,24 @@ function drawPreview(fit, wet) {
   const lo = fit.seaLevel ?? fit.gameMin, span = Math.max(fit.gameMax - lo, 1);
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
-      const i = r * n + c, src = r * STEP * CS1.px + c * STEP, g = fit.game[src];
+      const i = r * n + c, src = r * STEP * CS1.px + c * STEP, rawHeight = fit.game[src], g = Math.min(1024, Math.max(0,rawHeight));
       pos.setY(i, (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq)));
       let rgb = tint((g - lo) / span);
       if (wet && anyWet(wet, r * STEP, c * STEP, STEP)) rgb = [0.24, 0.47, 0.78];
       if (fit.sea?.[src]) rgb = [0.18, 0.36, 0.6];
+      if(rawHeight>1024||rawHeight<0)rgb=[0.9,0.35,0.16];
       col.set(rgb, 3 * i);
     }
   }
   geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
   geo.computeVertexNormals();
-  if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); }
+  if (mesh) { scene.remove(mesh); mesh.traverse(o=>o.geometry?.dispose()); mesh.material.dispose(); }
   mesh = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
   mesh.position.y = -0.25;
   mesh.add(skirt(pos, n));
   mesh.add(tileGrid(pos, n));
   scene.add(mesh);
-  if (water) { scene.remove(water); water = null; }
+  if (water) { scene.remove(water); water.geometry.dispose(); water.material.dispose(); water = null; }
   if (fit.seaLevel !== null) {
     water = new THREE.Mesh(new THREE.PlaneGeometry(size, size).rotateX(-Math.PI / 2),
       new THREE.MeshLambertMaterial({ color: 0x3f7fc0, transparent: true, opacity: 0.75 }));
@@ -615,8 +593,32 @@ function drawPreview(fit, wet) {
   }
   placeNorth(result.sq.rotation);
   previewY = (g) => -0.25 + (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq));
-  $("legend").textContent = `Height x${EXAG} · lines: in-game tiles, white = start · drag to orbit`;
+  $("legend").textContent = `Height ×${EXAG}`;
+  const box=new THREE.Box3().setFromObject(mesh),center=box.getCenter(new THREE.Vector3());
+  controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(10,10,10));camera.lookAt(center);camera.updateMatrixWorld();camera.zoom=1;camera.updateProjectionMatrix();
+  const points=[];for(const x of[box.min.x,box.max.x])for(const y of[box.min.y,box.max.y])for(const z of[box.min.z,box.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));
+  const width=Math.max(...points.map(p=>p.x))-Math.min(...points.map(p=>p.x)),height=Math.max(...points.map(p=>p.y))-Math.min(...points.map(p=>p.y));
+  camera.zoom=Math.min(1.65/width,1.65/height);camera.updateProjectionMatrix();drawFootprint();
   resize();
+}
+
+function showFootprint(value, square) {
+  footprint=value?.footprint==='candidate'&&result&&(!square||square.lon===result.sq.lon&&square.lat===result.sq.lat)?value.center_xz:null;
+  $('footprint-key').hidden=!footprint;
+  const coords=footprint?[[-192,-192],[192,-192],[192,192],[-192,192],[-192,-192]].map(([x,z])=>squareToLonLat(result.sq,(footprint[0]+x)*result.sq.scale,(footprint[1]+z)*result.sq.scale)):[];
+  map.getSource('footprint')?.setData({type:'FeatureCollection',features:coords.length?[{type:'Feature',properties:{},geometry:{type:'Polygon',coordinates:[coords]}}]:[]});
+  drawFootprint();
+}
+function drawFootprint() {
+  footprintLines.children.forEach(o=>{o.geometry.dispose();o.material.dispose();});footprintLines.clear();
+  if(!footprint||!result)return render();
+  const points=[],corners=[[-192,-192],[192,-192],[192,192],[-192,192],[-192,-192]];
+  for(let k=0;k<4;k++)for(let t=0;t<1;t+=1/24){
+    const x=footprint[0]+corners[k][0]*(1-t)+corners[k+1][0]*t,z=footprint[1]+corners[k][1]*(1-t)+corners[k+1][1]*t;
+    const row=Math.max(0,Math.min(1080,Math.round((8640-z)/16))),col=Math.max(0,Math.min(1080,Math.round((x+8640)/16)));
+    points.push(new THREE.Vector3(x/8640,previewY(Math.min(1024,Math.max(0,result.fit.game[row*1081+col])))+.012,-z/8640));
+  }
+  const g=new THREE.BufferGeometry().setFromPoints(points),mat=new THREE.LineBasicMaterial({color:0x79f2bc,depthTest:false});const line=new THREE.LineLoop(g,mat);line.renderOrder=20;footprintLines.add(line);render();
 }
 
 // The 9 x 9 in-game tiles as lines draped on the terrain. At STEP 4 the preview has 270 cells a

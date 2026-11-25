@@ -60,14 +60,14 @@ How it is built:
   2.4 km and checks whether it runs downhill (an entry or a start) or uphill (an
   exit or a mouth). That places the suggested water sources.
 
-## Capability ledger (preview work)
+## Capability data
 
 [`capabilities.json`](capabilities.json) is the machine-readable inventory of what
 each square's map can promise, the checks that exist, their game evidence and
-their limits. `node build.mjs` generates `dist/capabilities.html` from it. The
+their limits. It is an input to the live checks, not a public explainer page. The
 104-map stock reference is descriptive: below p25, typical or above p75 is not
-a quality gate or a guarantee. No connection model has native agreement recorded
-yet; the water screen's old retrospective calibration is not independent proof.
+a quality gate or a guarantee. Measured agreement stays scoped to its recorded
+maps and protocol; the water screen's old retrospective calibration is not independent proof.
 
 ```sh
 node capability-ledger.mjs                    # validate the ledger and source pins

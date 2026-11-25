@@ -53,15 +53,15 @@
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "47fb646d58363c0f4e6e7386589954370e6f230bd28bcb664eb11aaebf3e8656"
+      "current_sha256": "c75d223e06ef8894d13d33d0c52ca09b253613d9f8a5358da678ccbc928da064"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "277857a3b493397a58486d513f192ad4b5e2018ad169408a048a3ff8b6d7f74d"
+      "current_sha256": "20ca836685268149f1892d51832d95f79fc63edbdca1dd86bbae3cdd658c6a0e"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
-      "current_sha256": "abbe27e6f6b7d1c7eddbdbc76fd81ee2440bc17084c008413b4c2056c8756324"
+      "current_sha256": "d81c2d2f260c88db6ba13bc838da7c9ef7083401057fefb3b69bbfa890b0c3a7"
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
@@ -69,15 +69,17 @@
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "b67e49f611dcf4a8ec80f1ad72e548f19a2ad7621f9ef755ffd9920e44261bc2"
+      "current_sha256": "c6b124c627a315dfb9f86c1b26c47418d1aca54baadceb711c71762057a52819"
     }
   },
   "added_files_sha256": {
+    "interface-copy.js": "fa7682137ed38345989fb58654abc78f53411cae5442d2153c7da1c582984229",
+    "test/player-ui-browser.mjs": "0a3f9ba3a20a7f0eca377ca7f00afc9852076cca76c74f1539567ec6cbca3069",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
     "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72",
     "vegetation-inputs.js": "f3659619db4df92571f127912d4ebbeb6cbbb52b8cd86657e6773fa4d989f6e2",
     "vegetation-worker.js": "9634272542d430de38cf7724e88a8f22fbf1d6b95c280d6945bf3c90f4b80a4f",
-    "vegetation-ui.js": "79396f67a14ca2357825a5762e805768eb5b7950125083584d00730e115acc8e",
+    "vegetation-ui.js": "b28b24b83eb6392a2a283b85aced1cf9094395bd286466c7f9f4f0a93e7c3a1e",
     "vegetation-data/tree-taxa.json": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
     "vegetation-data/inventories.json": "d85793dcd47336ccd1ae906e4b9415c3f558abea594a22a1214bcaf51180416d",
     "vegetation-data/boston.json": "5373f844ccb3f09b74a7711421270a1be5f490fa577ea2c103b8ed309a24543e",
@@ -346,7 +348,7 @@
     "capability-inputs.js": "f79fc038a3a27347e5c732f5aa0c585be27a5352292197927b48b1504bf0fa1e",
     "capability-ledger.mjs": "368d9bee4b7a862b796c96154f861e41f7f39a30aaa17ba365916fad60a252d0",
     "capability-model.js": "f0e925f72c2954df97814e0e8e34bbc659f6699c28315b6f9cca1742efe1940a",
-    "capability-ui.js": "1a142825988923796a5e22b1305251923bdc57265b428ccc75ce5fb2353c10e2",
+    "capability-ui.js": "8b7d4fa9a574b690610f4d3cd901ed1b648b3a68959e3525277dc6fb1803e78c",
     "tools/map-factory/capabilities.py": "9a155584a86d4215adf9b20ef31f0cb7a00683e918e162c248b41a0b172891bb",
     "tools/map-factory/terrain_interest.py": "a5b3a67e5d6c2e683160ddd86b3c69b7afc5f3fece576d562b5057019f822a77",
     "tools/map-factory/survey/measure_terrain_interest.py": "d6061b7a428eba022b594443dc24aa512913020c8cddddae98be7b5fa57b8dfe",

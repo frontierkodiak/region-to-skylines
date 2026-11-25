@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
-import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
+import { validateLedger } from "./capability-ledger.mjs";
 import { railStudyFiles } from "./rail-study.mjs";
 import { railResearch, railResearchFiles } from "./rail-research.mjs";
 import { outsideResearch, outsideResearchFiles } from "./outside-research.mjs";
@@ -12,7 +12,7 @@ import { outsideStock, outsideStockFiles } from "./outside-stock.mjs";
 import { outsideReadiness, outsideReadinessFiles } from "./outside-readiness.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "place-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js", "vegetation-traits.js", "vegetation-model.js", "vegetation-inputs.js", "vegetation-ui.js", "vegetation-worker.js"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "place-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "interface-copy.js", "capability-evidence.js", "capability-evidence-worker.js", "vegetation-traits.js", "vegetation-model.js", "vegetation-inputs.js", "vegetation-ui.js", "vegetation-worker.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
@@ -84,7 +84,7 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
     copyFileSync(file, `dist/${file}`);
   }
 }
-writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
+// The capability data is an input to the live checks, not a public research page.
 // The terrain-shape survey the stock reference cites, byte for byte.
 mkdirSync("dist/tools/map-factory/survey", { recursive: true });
 copyFileSync("tools/map-factory/survey/terrain-interest.json", "dist/tools/map-factory/survey/terrain-interest.json");

@@ -16,7 +16,7 @@ test("live bank geometry depends on terrain, not wet share; north/south conversi
   assert.equal(a.opportunity,"candidate");assert.equal(a.level,"likely");
   assert.ok(a.wet_point_xz[1]<0);
   assert.equal(a.predicted,null);assert.equal(a.service,"unknown");
-  assert.match(waterDetail(a),/Shore\/bank.*candidate.*Service.*Unknown.*Not comparable/);
+  assert.match(waterDetail(a),/Mapped wet shore.*stability is untested/);
   // Raise only dry terrain beyond the max freeboard. Wet share is unchanged.
   for(let i=0;i<g.length;i++)if(!d[i])g[i]=120;
   assert.equal(liveShore(g,d).opportunity,"unknown");
