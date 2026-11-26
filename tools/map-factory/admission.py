@@ -127,6 +127,11 @@ def restore_line_cuts(ground, banks, geometry, removed_line, retained_line):
     lake_mask = polygons(sq, geometry.get("lakes", []))
     labels, count = ndimage.label(lake_mask)
     lake_cut = np.zeros_like(banks)
+    # `banks` are game metres, so the replay must use the cut the browser drew in game metres.
+    # The affine fit carves `depth` real metres (game depth depth * verticalScale); the
+    # per-square transform (PL-1329, geometry.fit.drama) draws its cut in game metres already.
+    drama = geometry["fit"].get("drama") is not None
+    lake_depth = 4 if drama else 4 * geometry["fit"]["verticalScale"]
     for label, region in enumerate(ndimage.find_objects(labels), 1):
         component = labels[region] == label
         if component.sum() >= 12:
@@ -134,11 +139,11 @@ def restore_line_cuts(ground, banks, geometry, removed_line, retained_line):
             lake_cut[region][component] = np.minimum(
                 0,
                 values[component].min()
-                - 4 * geometry["fit"]["verticalScale"]
+                - lake_depth
                 - values[component],
             )
     spacing = 16 * sq["scale"]
-    depth = 10 * geometry["fit"]["verticalScale"]
+    depth = 10 if drama else 10 * geometry["fit"]["verticalScale"]
 
     def cut(line_distance, body):
         width = max(40, 2.5 * spacing)

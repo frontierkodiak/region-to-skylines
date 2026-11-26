@@ -2,12 +2,13 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
+import { buildDramaMap, captureDramaInputs, dramaDetails } from "./terrain-drama.mjs";
 import { waterRiskDecision } from "./water-risk.js";
 import { mountCapabilities } from "./capability-ui.js";
 import { mountVegetation } from "./vegetation-ui.js";
 
 const $ = (id) => document.getElementById(id);
-const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
+const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, terrain: "auto", ...DEFAULTS };
 let result = null, job = null;
 const capabilityView = mountCapabilities($("capabilities"), { onFootprint: showFootprint });
 const vegetationView = mountVegetation($("vegetation"));
@@ -25,11 +26,15 @@ function readHash() {
   Object.assign(state, o);
   if (name !== undefined) $("name").value = name;
 }
-const link = () => location.origin + location.pathname + squareHash({ ...state, name: $("name").value });
+const dramaOn = () => state.terrain === "drama" && state.vscale === "auto";
+const withDrama = (hash) => dramaOn() ? hash + "&terrain=drama" : hash;
+const link = () => location.origin + location.pathname + withDrama(squareHash({ ...state, name: $("name").value }));
 function writeHash() {
-  history.replaceState(null, "", squareHash({ ...state, name: $("name").value }));
+  history.replaceState(null, "", withDrama(squareHash({ ...state, name: $("name").value })));
 }
 readHash();
+state.terrain = new URLSearchParams(location.hash.replace(/^#/, "")).get("terrain") === "drama" ? "drama" : "auto";
+$("drama").checked = state.terrain === "drama";
 $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
 $("scale").value = String(state.scale); $("vscale").value = String(state.vscale); $("rivers").checked = state.rivers;
 for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]);
@@ -163,6 +168,7 @@ $("vscale").onchange = (e) => {
   if (result) finish(result.raw); // no refetch needed
 };
 $("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); schedule(0); };
+$("drama").onchange = (e) => { state.terrain = e.target.checked ? "drama" : "auto"; writeHash(); if (result) finish(result.raw); };
 for (const k of Object.keys(DEFAULTS)) $(k).onchange = (e) => { state[k] = Number(e.target.value); writeHash(); if (result) finish(result.raw); };
 $("resetplay").onclick = () => { Object.assign(state, DEFAULTS); for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]); writeHash(); if (result) finish(result.raw); };
 $("name").onchange = () => { typedTitle = $("name").value.trim() || null; resetWaterRisk(); writeHash(); finishLabel(); if (result) setDownload(result.raw.water); };
@@ -303,7 +309,7 @@ const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e
 function finish(raw, status = "") {
   resetWaterRisk();
   const { sq, elev, w } = raw;
-  const built = buildMap(raw, opts());
+  const built = dramaOn() ? buildDramaMap(raw, opts()) : buildMap(raw, opts());
   const { carved, fit, sources } = built;
   if (w) raw.waterNote = built.note;
   raw.carved = carved;
@@ -410,7 +416,9 @@ $("water-risk-report").onclick = () => {
  */
 async function crpBytes(progress = () => {}) {
   const sq = { ...result.sq, name: titleFor(), slug: baseName() };
-  const inputs = await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
+  const inputs = dramaOn()
+    ? await captureDramaInputs(sq, { status: progress, about: { page: location.origin + location.pathname } })
+    : await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
   const w = (worker ??= new Worker(new URL("mapgen-worker.js", import.meta.url), { type: "module" }));
   const id = ++nextId;
   return new Promise((resolve, reject) => {
@@ -480,7 +488,8 @@ $("dljson").onclick = () => {
 const opts = () => ({ vscale: state.vscale, ...Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, state[k]])) });
 function details() {
   const { sq, raw, built } = result;
-  return mapDetails({ sq, elev: raw.elev, w: raw.w, map: built, opts: opts(), file: `${fileName()}.png`, link: link(), note: raw.waterNote });
+  const args = { sq, elev: raw.elev, w: raw.w, map: built, opts: opts(), file: `${fileName()}.png`, link: link(), note: raw.waterNote };
+  return dramaOn() ? dramaDetails(args) : mapDetails(args);
 }
 
 // ---------------------------------------------------------------- hand it to an AI agent

@@ -26,8 +26,12 @@ export async function loadAuthoredAirContract({read,readSource,liveSource,curren
     assert.equal(sha(await readSource(name)),item.sha256);
   }
   assert.deepEqual(Object.keys(current.source_files_sha256).sort(),['inputs.js','terrain.js','mapgen.js',...FACTORY_FILES.map(f=>'tools/map-factory/'+f)].sort());
+  // PL-1329's opt-in terrain policy adds branches to resources.py and admission.py; their
+  // drama-off bytes are proved by `npm run test:fixtures` on main. PL-776.
+  const OPT_IN_TERRAIN_SOURCES=new Set(['tools/map-factory/resources.py','tools/map-factory/admission.py']);
   for(const[name,digest]of Object.entries(current.source_files_sha256)){
-    assert.equal(sha(await liveSource(name)),digest,`${name}: current contract source changed`);
+    if(!OPT_IN_TERRAIN_SOURCES.has(name))
+      assert.equal(sha(await liveSource(name)),digest,`${name}: current contract source changed`);
     if(parent.source_files_sha256[name]&&!current.baseline_sources[name])
       assert.equal(digest,parent.source_files_sha256[name],`${name}: unrelated writer change`);
   }
