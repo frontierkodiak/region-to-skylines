@@ -12,9 +12,9 @@ export function planDetail(result) {
 export function placeDetail(result) {
   const e=result?.evidence;if(!e)return null;
   if(result.reason==='vegetation_suitability_candidate')return `Trees on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central land.`;
-  if(result.reason==='tree_support_below_candidate_threshold')return `Too little tree cover (${number(e.vegetation.tree_suitability)}; needs ${number(e.vegetation.candidate_min)}).`;
-  if(result.reason==='fertile_land_suitability_candidate')return `Cropland on ${pct(e.fertility.crop_share_of_central_land)} of the central land.`;
-  if(result.reason==='fertile_cover_below_candidate_threshold')return `Too little farmland (${number(e.fertility.suitability)}; needs ${number(e.fertility.candidate_min)}).`;
+  if(result.reason==='tree_support_below_candidate_threshold')return `Tree score ${number(e.vegetation.tree_suitability)}; needs ${number(e.vegetation.candidate_min)}.`;
+  if(result.reason==='fertile_land_suitability_candidate')return `Farmland score ${number(e.fertility.suitability)}; cropland ${pct(e.fertility.crop_share_of_central_land)} today.`;
+  if(result.reason==='fertile_cover_below_candidate_threshold')return `Farmland score ${number(e.fertility.suitability)}; needs ${number(e.fertility.candidate_min)}.`;
   return null;
 }
 export const waterDetail = result => result?.opportunity==='candidate'?'Mapped shoreline. Not tested in game.':'Not tested in game.';

@@ -40,7 +40,7 @@ try{
     assert.equal(row.ship,ship,slug);if(slug==='asheville')assert.equal(row.road,'yes');
     assert.equal(await page.locator('#vegetation canvas').count(),1,'retain vegetation UI');assert.equal(Object.keys(row).length,8);assert.equal(row.air,'yes');
     for(const k of ['buildable','resources'])assert.ok(['yes','no','maybe'].includes(row[k]));
-    assert.match(await page.locator('[data-capability=air]').getAttribute('title'),/Planes arrive from two map edges/);
+    assert.match(await page.locator('[data-capability=air]').getAttribute('title'),/writes two plane entries/);
     const footprint=await page.locator('.start-footprint').innerText();assert.match(footprint,/(Yes|Maybe|No).*384.*Hookup: Unknown/);
     await page.locator('[data-capability=resources]').focus();await page.keyboard.press('Enter');
     for(const k of ['Ore:','Oil:','Fertile:','Forest:'])assert.match(await page.locator('.capability-detail').innerText(),new RegExp(k));

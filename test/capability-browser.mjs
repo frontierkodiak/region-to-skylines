@@ -166,7 +166,7 @@ try {
       assert.match(await page.locator(".capability-detail").textContent(), /below the 0\.05 candidate level/);
       await page.locator('[data-capability="resources"]').focus();
       assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "likely");
-      assert.match(await page.locator(".capability-detail").textContent(), /Fertile-land suitability 0\.7/);
+      assert.match(await page.locator(".capability-detail").textContent(), /Farmland score 0\.7/);
       assert.match(await page.locator(".capability-detail").textContent(), /cropland 0%/);
       assert.doesNotMatch(await page.locator(".capability-detail").textContent(), /Crop and pasture cover on 0%/);
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
