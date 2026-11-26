@@ -89,7 +89,8 @@ def run(slug):
         if counts[identity] < 54 or worst[identity] >= 0.95:
             continue
         lost = body & lost_masks[worst_time[identity]]
-        loss |= lost
+        ever_lost = body & np.any(lost_masks, axis=0)
+        loss |= ever_lost
         rr, cc = np.nonzero(body)
         retained.append(
             {
@@ -98,6 +99,7 @@ def run(slug):
                 "minimum_retained": float(worst[identity]),
                 "worst_time": paths[worst_time[identity]].name,
                 "lost_nodes": int(lost.sum()),
+                "ever_lost_nodes": int(ever_lost.sum()),
                 "sources_in_body": source_labels.count(identity),
                 "edge": bool((edge_distance[body] == 0).any()),
                 "lake_nodes": int((body & lakes).sum()),
@@ -233,7 +235,11 @@ def run(slug):
             (1120, y + 29),
             names[slug][k - 1]
             if k <= 3
-            else f"Source ≥{component['minimum_source_distance_m']:.0f} m",
+            else (
+                "Road-graded ground"
+                if component["raised_terrain_nodes_gt2cm"]
+                else "Unraised ground"
+            ),
             font=font(19),
             fill="#333333",
         )
