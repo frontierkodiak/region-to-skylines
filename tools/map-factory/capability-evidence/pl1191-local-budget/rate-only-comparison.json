@@ -1,0 +1,66 @@
+[
+  {
+    "square": "asheville",
+    "old_total_raw_output_setting": 280448,
+    "new_total_raw_output_setting": 79927,
+    "controls": 274,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "2f6e66404fcf09cf0cf20ae8184d32d9810c11d1b45ab494c4b222e3c6e89940"
+  },
+  {
+    "square": "pittsburgh",
+    "old_total_raw_output_setting": 352422,
+    "new_total_raw_output_setting": 162508,
+    "controls": 122,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "74005daae1548fd8c88692169237a0932a76303ed7a7f348b45806c5f4331f33"
+  },
+  {
+    "square": "innsbruck",
+    "old_total_raw_output_setting": 224966,
+    "new_total_raw_output_setting": 124847,
+    "controls": 75,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "6fd961a077a5b0fa9a3216179dedf48844ead69be7cfcf042ec9c9c08c6e0d17"
+  },
+  {
+    "square": "rio",
+    "old_total_raw_output_setting": 100837,
+    "new_total_raw_output_setting": 86022,
+    "controls": 35,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "63849f9f998784a69ad7eaf3f4ab3778cceed0154683d642259b12fc5bba7b76"
+  },
+  {
+    "square": "charleston",
+    "old_total_raw_output_setting": 1296294,
+    "new_total_raw_output_setting": 879828,
+    "controls": 515,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "cd909be9ff825ca8072433d973b880f22993934d71fb42b5b7d57889faa9afd2"
+  },
+  {
+    "square": "grand-canyon",
+    "old_total_raw_output_setting": 59804,
+    "new_total_raw_output_setting": 42923,
+    "controls": 5,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "142ea3cd313dafd40e4f422f18307638f3ebad949c7cffd5dfa28041870c78fb"
+  },
+  {
+    "square": "hong-kong",
+    "old_total_raw_output_setting": 235764,
+    "new_total_raw_output_setting": 172154,
+    "controls": 136,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "1a2e6e1dee9116746ce2f2729f0a78ccb9670387effaca6e5e72b2e9aab71931"
+  },
+  {
+    "square": "yosemite",
+    "old_total_raw_output_setting": 131051,
+    "new_total_raw_output_setting": 131051,
+    "controls": 53,
+    "terrain_water_other_assets_unchanged": true,
+    "package_sha256": "28bd90f33c45562bbe141c49341b9d6ca5ebbf05628c1a40602a66c99cb6f31f"
+  }
+]

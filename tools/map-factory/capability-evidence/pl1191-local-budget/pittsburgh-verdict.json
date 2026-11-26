@@ -1,0 +1,14 @@
+{
+  "square": "pittsburgh",
+  "water_verdict": "fail",
+  "reason": "1.0342 km\u00b2 flooding beyond the margin; 85.0% minimum mapped-water retention; 20.99 m wet-surface movement.",
+  "artifact_sha256": "74005daae1548fd8c88692169237a0932a76303ed7a7f348b45806c5f4331f33",
+  "source_sha": "83702990610aa4d011efdb4dc322c9f787544342",
+  "observed_at": "2026-11-26T19:56:17.663563Z",
+  "game_minutes": 60.129169802647084,
+  "flood_km2": 1.0342,
+  "minimum_original_point_retention": 0.8496280552603613,
+  "authored_bodies_below_retention": 60,
+  "maximum_surface_movement_p95_m": 20.986718749999994,
+  "scope": "Current-install first hour only; not an exact-runtime causal A/B, geographic safe class or long-term promise."
+}

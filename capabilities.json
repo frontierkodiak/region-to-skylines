@@ -36686,6 +36686,38 @@
           "predicted": null,
           "verdict": "fail",
           "reason": "1.0125 km\u00b2 flooding beyond the reference-water margin; 85.1% minimum original mapped-water point retention; 60 authored water bodies lost more than the calibrated fraction; 12.08 m maximum 95th-percentile wet-surface movement"
+        },
+        {
+          "study": "pl1191-local-budget",
+          "square": "asheville",
+          "observed_at": "2026-11-26T19:31:46.503469Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "83702990610aa4d011efdb4dc322c9f787544342",
+          "artifact_sha256": "2f6e66404fcf09cf0cf20ae8184d32d9810c11d1b45ab494c4b222e3c6e89940",
+          "verdict_json_sha256": "bb2c70ba78a04ce146ad5c7115c89d931f1be5babaac24659fdd2a5028166970",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-local-budget/asheville-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "0.9357 km\u00b2 flooding beyond the margin; 82.6% minimum mapped-water retention; 17.60 m wet-surface movement."
+        },
+        {
+          "study": "pl1191-local-budget",
+          "square": "pittsburgh",
+          "observed_at": "2026-11-26T19:56:17.663563Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "83702990610aa4d011efdb4dc322c9f787544342",
+          "artifact_sha256": "74005daae1548fd8c88692169237a0932a76303ed7a7f348b45806c5f4331f33",
+          "verdict_json_sha256": "1869e6469440a3281a20f223c280110027eac64d3165d2fe244c0fc5ba1807c2",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-local-budget/pittsburgh-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "1.0342 km\u00b2 flooding beyond the margin; 85.0% minimum mapped-water retention; 20.99 m wet-surface movement."
         }
       ],
       "calibration": {

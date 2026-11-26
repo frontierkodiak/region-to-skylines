@@ -1,0 +1,2953 @@
+{
+  "square": "pittsburgh",
+  "scope": "All 13 retained grids. Red flood is >0.5m outside the unchanged 128m initial/mapped margin; red stipple is lost support from every >=54-node authored body failing 95% nearby retention. Raster components are not hydraulic bodies.",
+  "flood_km2_by_time": [
+    0.0,
+    1.0342,
+    0.5765,
+    0.5637,
+    0.5281,
+    0.5018,
+    0.5084,
+    0.5056,
+    0.5056,
+    0.5097,
+    0.5169,
+    0.5069,
+    0.4959
+  ],
+  "flood_components": [
+    {
+      "id": 33,
+      "union_nodes": 1213,
+      "peak_nodes": 1213,
+      "nodes_by_time": [
+        0,
+        1213,
+        679,
+        861,
+        842,
+        839,
+        836,
+        832,
+        833,
+        861,
+        853,
+        838,
+        835
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        6448,
+        5840,
+        7888,
+        6272
+      ],
+      "center_xz": [
+        7104.619950535862,
+        6077.441055234955
+      ],
+      "minimum_source_distance_m": 215.25798475317936,
+      "minimum_edge_distance_m": 752,
+      "minimum_line_distance_m": 0.0,
+      "minimum_lake_distance_m": 560.0,
+      "minimum_river_area_distance_m": 136.7040599250805,
+      "minimum_tunnel_distance_m": 0.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        60.953125,
+        72.734375
+      ],
+      "terrain_cut_max_m": 0.0077972412109375,
+      "terrain_raise_max_m": 0.00775146484375,
+      "context": "unraised ground; nearest mapped river/stream at 0m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 34,
+      "union_nodes": 820,
+      "peak_nodes": 792,
+      "nodes_by_time": [
+        0,
+        552,
+        764,
+        792,
+        782,
+        786,
+        780,
+        784,
+        780,
+        785,
+        785,
+        780,
+        782
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        5184,
+        5952,
+        6240,
+        6272
+      ],
+      "center_xz": [
+        5699.180487804879,
+        6122.712195121951
+      ],
+      "minimum_source_distance_m": 237.8570999570961,
+      "minimum_edge_distance_m": 2368,
+      "minimum_line_distance_m": 97.32420048477151,
+      "minimum_lake_distance_m": 1164.817582284883,
+      "minimum_river_area_distance_m": 128.9961239727768,
+      "minimum_tunnel_distance_m": 97.32420048477151,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        59.65625,
+        66.984375
+      ],
+      "terrain_cut_max_m": 0.007781982421875,
+      "terrain_raise_max_m": 0.0078125,
+      "context": "unraised ground; nearest mapped river/stream at 97m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 12,
+      "union_nodes": 592,
+      "peak_nodes": 591,
+      "nodes_by_time": [
+        0,
+        591,
+        203,
+        149,
+        101,
+        46,
+        25,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        3872,
+        -1744,
+        4736,
+        -864
+      ],
+      "center_xz": [
+        4241.72972972973,
+        -1407.8378378378375
+      ],
+      "minimum_source_distance_m": 222.27910383119686,
+      "minimum_edge_distance_m": 3904,
+      "minimum_line_distance_m": 128.0,
+      "minimum_lake_distance_m": 484.2478704134898,
+      "minimum_river_area_distance_m": 128.9961239727768,
+      "minimum_tunnel_distance_m": 128.0,
+      "raised_terrain_nodes_gt2cm": 165,
+      "terrain_m_range": [
+        61.859375,
+        77.8125
+      ],
+      "terrain_cut_max_m": 0.007781982421875,
+      "terrain_raise_max_m": 3.007415771484375,
+      "context": "road-graded ground; nearest mapped river/stream at 128m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 5,
+      "union_nodes": 535,
+      "peak_nodes": 526,
+      "nodes_by_time": [
+        0,
+        526,
+        65,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        6496,
+        -4352,
+        7056,
+        -3728
+      ],
+      "center_xz": [
+        6786.332710280374,
+        -4094.2654205607478
+      ],
+      "minimum_source_distance_m": 217.6235281397671,
+      "minimum_edge_distance_m": 1584,
+      "minimum_line_distance_m": 0.0,
+      "minimum_lake_distance_m": 2024.4900592494891,
+      "minimum_river_area_distance_m": 128.9961239727768,
+      "minimum_tunnel_distance_m": 0.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        61.640625,
+        71.828125
+      ],
+      "terrain_cut_max_m": 0.007781982421875,
+      "terrain_raise_max_m": 0.00775146484375,
+      "context": "unraised ground; nearest mapped river/stream at 0m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 18,
+      "union_nodes": 352,
+      "peak_nodes": 352,
+      "nodes_by_time": [
+        0,
+        352,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -3600,
+        3344,
+        -2832,
+        3984
+      ],
+      "center_xz": [
+        -3195.909090909091,
+        3580.727272727272
+      ],
+      "minimum_source_distance_m": 1506.4660633416206,
+      "minimum_edge_distance_m": 4656,
+      "minimum_line_distance_m": 257.9922479455536,
+      "minimum_lake_distance_m": 128.9961239727768,
+      "minimum_river_area_distance_m": 1069.4895978923778,
+      "minimum_tunnel_distance_m": 1506.4660633416206,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        57.390625,
+        74.4375
+      ],
+      "terrain_cut_max_m": 0.0077972412109375,
+      "terrain_raise_max_m": 0.0076446533203125,
+      "context": "unraised ground; nearest mapped pond/lake at 129m; inland"
+    },
+    {
+      "id": 3,
+      "union_nodes": 197,
+      "peak_nodes": 136,
+      "nodes_by_time": [
+        0,
+        136,
+        136,
+        117,
+        118,
+        79,
+        136,
+        128,
+        101,
+        104,
+        133,
+        121,
+        91
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        5152,
+        -5376,
+        5808,
+        -4976
+      ],
+      "center_xz": [
+        5513.421319796955,
+        -5142.253807106599
+      ],
+      "minimum_source_distance_m": 192.66551326067673,
+      "minimum_edge_distance_m": 2832,
+      "minimum_line_distance_m": 0.0,
+      "minimum_lake_distance_m": 560.9135405746594,
+      "minimum_river_area_distance_m": 144.0,
+      "minimum_tunnel_distance_m": 0.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        60.6875,
+        68.0
+      ],
+      "terrain_cut_max_m": 0.007568359375,
+      "terrain_raise_max_m": 0.007781982421875,
+      "context": "unraised ground; nearest mapped river/stream at 0m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 21,
+      "union_nodes": 125,
+      "peak_nodes": 119,
+      "nodes_by_time": [
+        0,
+        0,
+        117,
+        106,
+        119,
+        95,
+        99,
+        109,
+        111,
+        101,
+        110,
+        108,
+        108
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        2256,
+        4400,
+        2608,
+        4560
+      ],
+      "center_xz": [
+        2410.111999999999,
+        4473.216
+      ],
+      "minimum_source_distance_m": 307.34996339677673,
+      "minimum_edge_distance_m": 4080,
+      "minimum_line_distance_m": 90.50966799187809,
+      "minimum_lake_distance_m": 1588.518806939345,
+      "minimum_river_area_distance_m": 301.8873962258113,
+      "minimum_tunnel_distance_m": 90.50966799187809,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        61.21875,
+        72.59375
+      ],
+      "terrain_cut_max_m": 0.007537841796875,
+      "terrain_raise_max_m": 0.007781982421875,
+      "context": "unraised ground; nearest mapped river/stream at 91m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 4,
+      "union_nodes": 112,
+      "peak_nodes": 81,
+      "nodes_by_time": [
+        0,
+        73,
+        81,
+        51,
+        2,
+        35,
+        24,
+        38,
+        65,
+        51,
+        63,
+        50,
+        43
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        5840,
+        -5072,
+        6096,
+        -4784
+      ],
+      "center_xz": [
+        5949.0,
+        -4928.285714285714
+      ],
+      "minimum_source_distance_m": 187.275198571514,
+      "minimum_edge_distance_m": 2544,
+      "minimum_line_distance_m": 128.9961239727768,
+      "minimum_lake_distance_m": 1248.4101890003942,
+      "minimum_river_area_distance_m": 128.9961239727768,
+      "minimum_tunnel_distance_m": 128.9961239727768,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        61.0625,
+        63.734375
+      ],
+      "terrain_cut_max_m": 0.0074310302734375,
+      "terrain_raise_max_m": 0.007781982421875,
+      "context": "unraised ground; nearest mapped broad river at 129m; inland"
+    },
+    {
+      "id": 28,
+      "union_nodes": 112,
+      "peak_nodes": 112,
+      "nodes_by_time": [
+        0,
+        112,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -4144,
+        5104,
+        -3872,
+        5344
+      ],
+      "center_xz": [
+        -3990.0,
+        5209.428571428571
+      ],
+      "minimum_source_distance_m": 150.94369811290565,
+      "minimum_edge_distance_m": 3296,
+      "minimum_line_distance_m": 0.0,
+      "minimum_lake_distance_m": 400.0,
+      "minimum_river_area_distance_m": 2238.4566111497447,
+      "minimum_tunnel_distance_m": 0.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        64.875,
+        85.140625
+      ],
+      "terrain_cut_max_m": 0.00762939453125,
+      "terrain_raise_max_m": 0.0076751708984375,
+      "context": "unraised ground; nearest mapped river/stream at 0m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 30,
+      "union_nodes": 96,
+      "peak_nodes": 96,
+      "nodes_by_time": [
+        0,
+        96,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        7840,
+        5568,
+        8144,
+        5760
+      ],
+      "center_xz": [
+        8019.333333333332,
+        5641.166666666666
+      ],
+      "minimum_source_distance_m": 565.685424949238,
+      "minimum_edge_distance_m": 496,
+      "minimum_line_distance_m": 339.03392160667346,
+      "minimum_lake_distance_m": 716.4356216716195,
+      "minimum_river_area_distance_m": 128.9961239727768,
+      "minimum_tunnel_distance_m": 536.6563145999495,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        64.0625,
+        65.765625
+      ],
+      "terrain_cut_max_m": 0.0075836181640625,
+      "terrain_raise_max_m": 0.0076141357421875,
+      "context": "unraised ground; nearest mapped broad river at 129m; inland"
+    },
+    {
+      "id": 15,
+      "union_nodes": 85,
+      "peak_nodes": 85,
+      "nodes_by_time": [
+        0,
+        85,
+        43,
+        20,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4144,
+        -224,
+        4240,
+        64
+      ],
+      "center_xz": [
+        4198.4,
+        -67.3882352941182
+      ],
+      "minimum_source_distance_m": 1726.5920189784267,
+      "minimum_edge_distance_m": 4400,
+      "minimum_line_distance_m": 121.85236969382254,
+      "minimum_lake_distance_m": 128.9961239727768,
+      "minimum_river_area_distance_m": 1233.2461230427607,
+      "minimum_tunnel_distance_m": 121.85236969382254,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        79.4375,
+        84.71875
+      ],
+      "terrain_cut_max_m": 0.007598876953125,
+      "terrain_raise_max_m": 0.007781982421875,
+      "context": "unraised ground; nearest mapped river/stream at 122m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 10,
+      "union_nodes": 78,
+      "peak_nodes": 78,
+      "nodes_by_time": [
+        0,
+        78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -6400,
+        -2864,
+        -6272,
+        -2624
+      ],
+      "center_xz": [
+        -6318.5641025641025,
+        -2741.333333333333
+      ],
+      "minimum_source_distance_m": 192.66551326067673,
+      "minimum_edge_distance_m": 2240,
+      "minimum_line_distance_m": 150.94369811290565,
+      "minimum_lake_distance_m": 1023.624931310292,
+      "minimum_river_area_distance_m": 215.25798475317936,
+      "minimum_tunnel_distance_m": 158.39191898578665,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        72.59375,
+        76.515625
+      ],
+      "terrain_cut_max_m": 0.0070037841796875,
+      "terrain_raise_max_m": 0.0076751708984375,
+      "context": "unraised ground; nearest mapped river/stream at 151m; inland"
+    },
+    {
+      "id": 11,
+      "union_nodes": 45,
+      "peak_nodes": 45,
+      "nodes_by_time": [
+        0,
+        45,
+        13,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -6256,
+        -1776,
+        -6176,
+        -1616
+      ],
+      "center_xz": [
+        -6216.177777777778,
+        -1699.9111111111115
+      ],
+      "minimum_source_distance_m": 176.72577627499618,
+      "minimum_edge_distance_m": 2384,
+      "minimum_line_distance_m": 57.688820407423826,
+      "minimum_lake_distance_m": 1402.6261084123594,
+      "minimum_river_area_distance_m": 365.5571090814676,
+      "minimum_tunnel_distance_m": 57.688820407423826,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        90.421875,
+        92.796875
+      ],
+      "terrain_cut_max_m": 0.007781982421875,
+      "terrain_raise_max_m": 0.0071258544921875,
+      "context": "unraised ground; nearest mapped river/stream at 58m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 1,
+      "union_nodes": 43,
+      "peak_nodes": 43,
+      "nodes_by_time": [
+        0,
+        43,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -5376,
+        -8448,
+        -5280,
+        -8272
+      ],
+      "center_xz": [
+        -5329.116279069767,
+        -8357.209302325582
+      ],
+      "minimum_source_distance_m": 1867.6188047886003,
+      "minimum_edge_distance_m": 192,
+      "minimum_line_distance_m": 0.0,
+      "minimum_lake_distance_m": 260.4611295375953,
+      "minimum_river_area_distance_m": 2626.389156237133,
+      "minimum_tunnel_distance_m": 0.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        133.3125,
+        137.296875
+      ],
+      "terrain_cut_max_m": 0.0077667236328125,
+      "terrain_raise_max_m": 0.0076141357421875,
+      "context": "unraised ground; nearest mapped river/stream at 0m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 9,
+      "union_nodes": 42,
+      "peak_nodes": 42,
+      "nodes_by_time": [
+        0,
+        0,
+        2,
+        0,
+        42,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        -912,
+        -3152,
+        -832,
+        -2960
+      ],
+      "center_xz": [
+        -868.9523809523807,
+        -3064.3809523809523
+      ],
+      "minimum_source_distance_m": 200.47942537826668,
+      "minimum_edge_distance_m": 5488,
+      "minimum_line_distance_m": 131.93938001976514,
+      "minimum_lake_distance_m": 770.6620530427069,
+      "minimum_river_area_distance_m": 1420.0394360721114,
+      "minimum_tunnel_distance_m": 131.93938001976514,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        101.90625,
+        107.34375
+      ],
+      "terrain_cut_max_m": 0.0076446533203125,
+      "terrain_raise_max_m": 0.0076751708984375,
+      "context": "unraised ground; nearest mapped river/stream at 132m; inland"
+    },
+    {
+      "id": 23,
+      "union_nodes": 42,
+      "peak_nodes": 41,
+      "nodes_by_time": [
+        0,
+        0,
+        41,
+        37,
+        11,
+        1,
+        7,
+        7,
+        8,
+        17,
+        2,
+        8,
+        10
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        1808,
+        4448,
+        1968,
+        4560
+      ],
+      "center_xz": [
+        1907.4285714285706,
+        4502.476190476191
+      ],
+      "minimum_source_distance_m": 885.7990742826502,
+      "minimum_edge_distance_m": 4080,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 1980.7069445023915,
+      "minimum_river_area_distance_m": 878.6899339357428,
+      "minimum_tunnel_distance_m": 147.5127113166862,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        68.1875,
+        75.265625
+      ],
+      "terrain_cut_max_m": 0.0076141357421875,
+      "terrain_raise_max_m": 0.0075531005859375,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 35,
+      "union_nodes": 37,
+      "peak_nodes": 37,
+      "nodes_by_time": [
+        0,
+        26,
+        37,
+        20,
+        21,
+        22,
+        21,
+        20,
+        20,
+        21,
+        21,
+        20,
+        20
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        1824,
+        6176,
+        1968,
+        6320
+      ],
+      "center_xz": [
+        1892.7567567567567,
+        6242.162162162162
+      ],
+      "minimum_source_distance_m": 526.3002945087528,
+      "minimum_edge_distance_m": 2320,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 3016.541065525215,
+      "minimum_river_area_distance_m": 1895.1052741206754,
+      "minimum_tunnel_distance_m": 279.8856909525744,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        83.765625,
+        91.53125
+      ],
+      "terrain_cut_max_m": 0.007598876953125,
+      "terrain_raise_max_m": 0.0078125,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 14,
+      "union_nodes": 30,
+      "peak_nodes": 30,
+      "nodes_by_time": [
+        0,
+        30,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4192,
+        -576,
+        4256,
+        -448
+      ],
+      "center_xz": [
+        4217.6,
+        -524.2666666666664
+      ],
+      "minimum_source_distance_m": 1378.3236194740334,
+      "minimum_edge_distance_m": 4384,
+      "minimum_line_distance_m": 57.688820407423826,
+      "minimum_lake_distance_m": 128.9961239727768,
+      "minimum_river_area_distance_m": 984.3576585774096,
+      "minimum_tunnel_distance_m": 57.688820407423826,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        77.40625,
+        81.25
+      ],
+      "terrain_cut_max_m": 0.007720947265625,
+      "terrain_raise_max_m": 0.0054779052734375,
+      "context": "unraised ground; nearest mapped river/stream at 58m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 39,
+      "union_nodes": 29,
+      "peak_nodes": 29,
+      "nodes_by_time": [
+        0,
+        29,
+        3,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -5552,
+        6848,
+        -5360,
+        6976
+      ],
+      "center_xz": [
+        -5464.827586206897,
+        6902.620689655172
+      ],
+      "minimum_source_distance_m": 425.13056817876554,
+      "minimum_edge_distance_m": 1664,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 746.7047609329942,
+      "minimum_river_area_distance_m": 1880.2553018140914,
+      "minimum_tunnel_distance_m": 266.2930716334918,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        96.75,
+        105.640625
+      ],
+      "terrain_cut_max_m": 0.0070037841796875,
+      "terrain_raise_max_m": 0.0068206787109375,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 26,
+      "union_nodes": 27,
+      "peak_nodes": 27,
+      "nodes_by_time": [
+        0,
+        0,
+        27,
+        13,
+        8,
+        16,
+        14,
+        9,
+        16,
+        12,
+        14,
+        13,
+        9
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        2032,
+        4624,
+        2128,
+        4784
+      ],
+      "center_xz": [
+        2081.7777777777774,
+        4685.62962962963
+      ],
+      "minimum_source_distance_m": 829.8433587129562,
+      "minimum_edge_distance_m": 3856,
+      "minimum_line_distance_m": 90.50966799187809,
+      "minimum_lake_distance_m": 2038.6034435367758,
+      "minimum_river_area_distance_m": 839.6570728577233,
+      "minimum_tunnel_distance_m": 90.50966799187809,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        64.96875,
+        77.4375
+      ],
+      "terrain_cut_max_m": 0.007293701171875,
+      "terrain_raise_max_m": 0.007598876953125,
+      "context": "unraised ground; nearest mapped river/stream at 91m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 7,
+      "union_nodes": 20,
+      "peak_nodes": 20,
+      "nodes_by_time": [
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        7264,
+        -3504,
+        7360,
+        -3456
+      ],
+      "center_xz": [
+        7315.200000000001,
+        -3481.6000000000004
+      ],
+      "minimum_source_distance_m": 751.3188404399293,
+      "minimum_edge_distance_m": 1280,
+      "minimum_line_distance_m": 442.5381339500586,
+      "minimum_lake_distance_m": 2450.926355482759,
+      "minimum_river_area_distance_m": 294.15642097360376,
+      "minimum_tunnel_distance_m": 665.876865493914,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        64.625,
+        65.359375
+      ],
+      "terrain_cut_max_m": 0.0048980712890625,
+      "terrain_raise_max_m": 0.007354736328125,
+      "context": "unraised ground; nearest mapped broad river at 294m; inland"
+    },
+    {
+      "id": 8,
+      "union_nodes": 12,
+      "peak_nodes": 12,
+      "nodes_by_time": [
+        0,
+        0,
+        1,
+        12,
+        0,
+        1,
+        5,
+        4,
+        1,
+        1,
+        1,
+        4,
+        0
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        -448,
+        -3184,
+        -368,
+        -3152
+      ],
+      "center_xz": [
+        -400.0,
+        -3162.666666666667
+      ],
+      "minimum_source_distance_m": 656.7800240567614,
+      "minimum_edge_distance_m": 5456,
+      "minimum_line_distance_m": 150.94369811290565,
+      "minimum_lake_distance_m": 923.0211265187812,
+      "minimum_river_area_distance_m": 1839.6521410310156,
+      "minimum_tunnel_distance_m": 193.32873557751316,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        107.59375,
+        111.234375
+      ],
+      "terrain_cut_max_m": 0.0031280517578125,
+      "terrain_raise_max_m": 0.0063323974609375,
+      "context": "unraised ground; nearest mapped river/stream at 151m; inland"
+    },
+    {
+      "id": 29,
+      "union_nodes": 11,
+      "peak_nodes": 10,
+      "nodes_by_time": [
+        0,
+        0,
+        9,
+        10,
+        7,
+        10,
+        9,
+        9,
+        10,
+        8,
+        7,
+        8,
+        9
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        2368,
+        5152,
+        2432,
+        5200
+      ],
+      "center_xz": [
+        2395.636363636364,
+        5175.272727272728
+      ],
+      "minimum_source_distance_m": 1040.0,
+      "minimum_edge_distance_m": 3440,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 2228.829289111214,
+      "minimum_river_area_distance_m": 912.1403400793104,
+      "minimum_tunnel_distance_m": 147.5127113166862,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        73.890625,
+        78.15625
+      ],
+      "terrain_cut_max_m": 0.0064239501953125,
+      "terrain_raise_max_m": 0.0068817138671875,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 31,
+      "union_nodes": 9,
+      "peak_nodes": 9,
+      "nodes_by_time": [
+        0,
+        0,
+        0,
+        9,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t015-water.u16",
+      "bbox_xz": [
+        2560,
+        5680,
+        2640,
+        5696
+      ],
+      "center_xz": [
+        2602.666666666666,
+        5687.111111111111
+      ],
+      "minimum_source_distance_m": 1259.4347938658834,
+      "minimum_edge_distance_m": 2944,
+      "minimum_line_distance_m": 192.66551326067673,
+      "minimum_lake_distance_m": 2485.3104433852927,
+      "minimum_river_area_distance_m": 1074.8618515883797,
+      "minimum_tunnel_distance_m": 208.61447696648477,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        83.53125,
+        84.8125
+      ],
+      "terrain_cut_max_m": 0.005523681640625,
+      "terrain_raise_max_m": 0.0071563720703125,
+      "context": "unraised ground; nearest mapped river/stream at 193m; inland"
+    },
+    {
+      "id": 36,
+      "union_nodes": 8,
+      "peak_nodes": 8,
+      "nodes_by_time": [
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4752,
+        6544,
+        4784,
+        6608
+      ],
+      "center_xz": [
+        4764.0,
+        6574.0
+      ],
+      "minimum_source_distance_m": 1329.5412742747026,
+      "minimum_edge_distance_m": 2032,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 1186.3759943626642,
+      "minimum_river_area_distance_m": 571.090185522392,
+      "minimum_tunnel_distance_m": 1329.5412742747026,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        62.0625,
+        62.484375
+      ],
+      "terrain_cut_max_m": 0.0049591064453125,
+      "terrain_raise_max_m": 0.0071258544921875,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 16,
+      "union_nodes": 5,
+      "peak_nodes": 5,
+      "nodes_by_time": [
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4304,
+        176,
+        4336,
+        240
+      ],
+      "center_xz": [
+        4323.200000000001,
+        208.0
+      ],
+      "minimum_source_distance_m": 2138.5602633547646,
+      "minimum_edge_distance_m": 4304,
+      "minimum_line_distance_m": 480.0,
+      "minimum_lake_distance_m": 229.08513701242165,
+      "minimum_river_area_distance_m": 1609.6508938276027,
+      "minimum_tunnel_distance_m": 480.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        87.21875,
+        87.46875
+      ],
+      "terrain_cut_max_m": 0.0029754638671875,
+      "terrain_raise_max_m": 0.0054168701171875,
+      "context": "unraised ground; nearest mapped pond/lake at 229m; inland"
+    },
+    {
+      "id": 40,
+      "union_nodes": 5,
+      "peak_nodes": 5,
+      "nodes_by_time": [
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4224,
+        7104,
+        4240,
+        7136
+      ],
+      "center_xz": [
+        4230.4,
+        7123.200000000001
+      ],
+      "minimum_source_distance_m": 1432.9605716836734,
+      "minimum_edge_distance_m": 1504,
+      "minimum_line_distance_m": 150.94369811290565,
+      "minimum_lake_distance_m": 701.8147903827619,
+      "minimum_river_area_distance_m": 1235.216580199602,
+      "minimum_tunnel_distance_m": 1020.9955925468042,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        64.3125,
+        64.625
+      ],
+      "terrain_cut_max_m": 0.0026397705078125,
+      "terrain_raise_max_m": 0.003662109375,
+      "context": "unraised ground; nearest mapped river/stream at 151m; inland"
+    },
+    {
+      "id": 37,
+      "union_nodes": 4,
+      "peak_nodes": 4,
+      "nodes_by_time": [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -5200,
+        6736,
+        -5168,
+        6752
+      ],
+      "center_xz": [
+        -5184.0,
+        6744.0
+      ],
+      "minimum_source_distance_m": 627.2734650852051,
+      "minimum_edge_distance_m": 1888,
+      "minimum_line_distance_m": 483.7189266505912,
+      "minimum_lake_distance_m": 837.2144289248723,
+      "minimum_river_area_distance_m": 2256.9076188448653,
+      "minimum_tunnel_distance_m": 675.0407395113276,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        109.96875,
+        110.203125
+      ],
+      "terrain_cut_max_m": 0.0075531005859375,
+      "terrain_raise_max_m": 0.0059661865234375,
+      "context": "unraised ground; nearest mapped river/stream at 484m; inland"
+    },
+    {
+      "id": 6,
+      "union_nodes": 3,
+      "peak_nodes": 3,
+      "nodes_by_time": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        -256,
+        -4288,
+        -240,
+        -4272
+      ],
+      "center_xz": [
+        -250.66666666666606,
+        -4282.666666666667
+      ],
+      "minimum_source_distance_m": 1660.0722875826823,
+      "minimum_edge_distance_m": 4352,
+      "minimum_line_distance_m": 147.5127113166862,
+      "minimum_lake_distance_m": 780.07179156793,
+      "minimum_river_area_distance_m": 2873.102852318378,
+      "minimum_tunnel_distance_m": 157.58172482873766,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        116.4375,
+        117.34375
+      ],
+      "terrain_cut_max_m": 0.0,
+      "terrain_raise_max_m": 0.0072784423828125,
+      "context": "unraised ground; nearest mapped river/stream at 148m; inland"
+    },
+    {
+      "id": 24,
+      "union_nodes": 3,
+      "peak_nodes": 3,
+      "nodes_by_time": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t020-water.u16",
+      "bbox_xz": [
+        1680,
+        4496,
+        1712,
+        4512
+      ],
+      "center_xz": [
+        1696.0,
+        4501.333333333334
+      ],
+      "minimum_source_distance_m": 1129.6725189186466,
+      "minimum_edge_distance_m": 4128,
+      "minimum_line_distance_m": 279.8856909525744,
+      "minimum_lake_distance_m": 2184.981464452273,
+      "minimum_river_area_distance_m": 1100.2835998050684,
+      "minimum_tunnel_distance_m": 288.44410203711914,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        76.65625,
+        77.0
+      ],
+      "terrain_cut_max_m": 0.00225830078125,
+      "terrain_raise_max_m": 0.0015716552734375,
+      "context": "unraised ground; nearest mapped river/stream at 280m; inland"
+    },
+    {
+      "id": 2,
+      "union_nodes": 2,
+      "peak_nodes": 2,
+      "nodes_by_time": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -7968,
+        -7248,
+        -7952,
+        -7248
+      ],
+      "center_xz": [
+        -7960.0,
+        -7248.0
+      ],
+      "minimum_source_distance_m": 694.6653870749572,
+      "minimum_edge_distance_m": 672,
+      "minimum_line_distance_m": 252.98221281347034,
+      "minimum_lake_distance_m": 307.34996339677673,
+      "minimum_river_area_distance_m": 275.27440854536405,
+      "minimum_tunnel_distance_m": 764.8267777738956,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        88.390625,
+        88.46875
+      ],
+      "terrain_cut_max_m": 0.007049560546875,
+      "terrain_raise_max_m": 0.0074920654296875,
+      "context": "unraised ground; nearest mapped river/stream at 253m; inland"
+    },
+    {
+      "id": 17,
+      "union_nodes": 2,
+      "peak_nodes": 2,
+      "nodes_by_time": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -3440,
+        3328,
+        -3440,
+        3344
+      ],
+      "center_xz": [
+        -3440.0,
+        3336.0
+      ],
+      "minimum_source_distance_m": 1767.2577627499618,
+      "minimum_edge_distance_m": 5200,
+      "minimum_line_distance_m": 284.8719010362377,
+      "minimum_lake_distance_m": 172.32527382830412,
+      "minimum_river_area_distance_m": 1088.4704865084768,
+      "minimum_tunnel_distance_m": 1767.2577627499618,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        58.328125,
+        58.375
+      ],
+      "terrain_cut_max_m": 0.005615234375,
+      "terrain_raise_max_m": 0.0,
+      "context": "unraised ground; nearest mapped pond/lake at 172m; inland"
+    },
+    {
+      "id": 27,
+      "union_nodes": 2,
+      "peak_nodes": 2,
+      "nodes_by_time": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t010-water.u16",
+      "bbox_xz": [
+        2192,
+        4848,
+        2208,
+        4864
+      ],
+      "center_xz": [
+        2200.0,
+        4856.0
+      ],
+      "minimum_source_distance_m": 894.4271909999159,
+      "minimum_edge_distance_m": 3776,
+      "minimum_line_distance_m": 150.94369811290565,
+      "minimum_lake_distance_m": 2154.0659228538016,
+      "minimum_river_area_distance_m": 878.6899339357428,
+      "minimum_tunnel_distance_m": 157.58172482873766,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        76.84375,
+        77.21875
+      ],
+      "terrain_cut_max_m": 0.001617431640625,
+      "terrain_raise_max_m": 0.003204345703125,
+      "context": "unraised ground; nearest mapped river/stream at 151m; inland"
+    },
+    {
+      "id": 41,
+      "union_nodes": 2,
+      "peak_nodes": 2,
+      "nodes_by_time": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -3744,
+        7472,
+        -3728,
+        7472
+      ],
+      "center_xz": [
+        -3736.0,
+        7472.0
+      ],
+      "minimum_source_distance_m": 785.468013352549,
+      "minimum_edge_distance_m": 1168,
+      "minimum_line_distance_m": 81.58431221748455,
+      "minimum_lake_distance_m": 982.4052117125601,
+      "minimum_river_area_distance_m": 3692.5351724797424,
+      "minimum_tunnel_distance_m": 81.58431221748455,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        150.828125,
+        150.84375
+      ],
+      "terrain_cut_max_m": 0.0058746337890625,
+      "terrain_raise_max_m": 0.0016326904296875,
+      "context": "unraised ground; nearest mapped river/stream at 82m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 13,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        4832,
+        -1200,
+        4832,
+        -1200
+      ],
+      "center_xz": [
+        4832.0,
+        -1200.0
+      ],
+      "minimum_source_distance_m": 1134.9854624619647,
+      "minimum_edge_distance_m": 3808,
+      "minimum_line_distance_m": 192.66551326067673,
+      "minimum_lake_distance_m": 930.8920452984868,
+      "minimum_river_area_distance_m": 1100.7488360202794,
+      "minimum_tunnel_distance_m": 737.563556583431,
+      "raised_terrain_nodes_gt2cm": 1,
+      "terrain_m_range": [
+        81.734375,
+        81.734375
+      ],
+      "terrain_cut_max_m": 0.0,
+      "terrain_raise_max_m": 3.0044403076171875,
+      "context": "road-graded ground; nearest mapped river/stream at 193m; inland"
+    },
+    {
+      "id": 19,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -3472,
+        3376,
+        -3472,
+        3376
+      ],
+      "center_xz": [
+        -3472.0,
+        3376.0
+      ],
+      "minimum_source_distance_m": 1723.2527382830413,
+      "minimum_edge_distance_m": 5168,
+      "minimum_line_distance_m": 284.8719010362377,
+      "minimum_lake_distance_m": 164.730082255792,
+      "minimum_river_area_distance_m": 1080.5628163137949,
+      "minimum_tunnel_distance_m": 1723.2527382830413,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        58.296875,
+        58.296875
+      ],
+      "terrain_cut_max_m": 0.0057373046875,
+      "terrain_raise_max_m": 0.0,
+      "context": "unraised ground; nearest mapped pond/lake at 165m; inland"
+    },
+    {
+      "id": 20,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -2800,
+        4000,
+        -2800,
+        4000
+      ],
+      "center_xz": [
+        -2800.0,
+        4000.0
+      ],
+      "minimum_source_distance_m": 1770.2248444759778,
+      "minimum_edge_distance_m": 4640,
+      "minimum_line_distance_m": 844.3695873253607,
+      "minimum_lake_distance_m": 1041.8445181503812,
+      "minimum_river_area_distance_m": 1979.3493880565907,
+      "minimum_tunnel_distance_m": 1663.461451311692,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        75.203125,
+        75.203125
+      ],
+      "terrain_cut_max_m": 0.0,
+      "terrain_raise_max_m": 0.0012664794921875,
+      "context": "unraised ground; nearest mapped river/stream at 844m; inland"
+    },
+    {
+      "id": 22,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t015-water.u16",
+      "bbox_xz": [
+        2720,
+        4416,
+        2720,
+        4416
+      ],
+      "center_xz": [
+        2720.0,
+        4416.0
+      ],
+      "minimum_source_distance_m": 237.8570999570961,
+      "minimum_edge_distance_m": 4224,
+      "minimum_line_distance_m": 116.48175822848829,
+      "minimum_lake_distance_m": 1523.0285617807697,
+      "minimum_river_area_distance_m": 203.64675298172568,
+      "minimum_tunnel_distance_m": 116.48175822848829,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        70.15625,
+        70.15625
+      ],
+      "terrain_cut_max_m": 0.0,
+      "terrain_raise_max_m": 0.0018157958984375,
+      "context": "unraised ground; nearest mapped river/stream at 116m; captured tunnel/culvert nearby; inland"
+    },
+    {
+      "id": 25,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t020-water.u16",
+      "bbox_xz": [
+        1744,
+        4496,
+        1744,
+        4496
+      ],
+      "center_xz": [
+        1744.0,
+        4496.0
+      ],
+      "minimum_source_distance_m": 1098.8867093563376,
+      "minimum_edge_distance_m": 4144,
+      "minimum_line_distance_m": 343.5345688573422,
+      "minimum_lake_distance_m": 2161.6586224471243,
+      "minimum_river_area_distance_m": 1076.289923765897,
+      "minimum_tunnel_distance_m": 351.2719744016024,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        76.609375,
+        76.609375
+      ],
+      "terrain_cut_max_m": 0.000762939453125,
+      "terrain_raise_max_m": 0.0,
+      "context": "unraised ground; nearest mapped river/stream at 344m; inland"
+    },
+    {
+      "id": 32,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        7552,
+        5824,
+        7552,
+        5824
+      ],
+      "center_xz": [
+        7552.0,
+        5824.0
+      ],
+      "minimum_source_distance_m": 283.5207223467096,
+      "minimum_edge_distance_m": 1088,
+      "minimum_line_distance_m": 208.0,
+      "minimum_lake_distance_m": 625.8434308994542,
+      "minimum_river_area_distance_m": 172.32527382830412,
+      "minimum_tunnel_distance_m": 208.0,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        65.71875,
+        65.71875
+      ],
+      "terrain_cut_max_m": 0.004364013671875,
+      "terrain_raise_max_m": 0.0,
+      "context": "unraised ground; nearest mapped broad river at 172m; inland"
+    },
+    {
+      "id": 38,
+      "union_nodes": 1,
+      "peak_nodes": 1,
+      "nodes_by_time": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_time": "t005-water.u16",
+      "bbox_xz": [
+        -5328,
+        6816,
+        -5328,
+        6816
+      ],
+      "center_xz": [
+        -5328.0,
+        6816.0
+      ],
+      "minimum_source_distance_m": 687.2554110372649,
+      "minimum_edge_distance_m": 1824,
+      "minimum_line_distance_m": 365.20679073642646,
+      "minimum_lake_distance_m": 797.1147972531936,
+      "minimum_river_area_distance_m": 2120.28677305689,
+      "minimum_tunnel_distance_m": 532.5861432669836,
+      "raised_terrain_nodes_gt2cm": 0,
+      "terrain_m_range": [
+        107.515625,
+        107.515625
+      ],
+      "terrain_cut_max_m": 0.0,
+      "terrain_raise_max_m": 0.0056304931640625,
+      "context": "unraised ground; nearest mapped river/stream at 365m; inland"
+    }
+  ],
+  "losing_bodies": [
+    {
+      "id": 50,
+      "initial_nodes": 1259,
+      "minimum_retained": 0.007942811755361398,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 1249,
+      "ever_lost_nodes": 1249,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 345,
+      "context": "river/stream reach",
+      "center_xz": [
+        2492.1111993645754,
+        -3635.355043685465
+      ]
+    },
+    {
+      "id": 28,
+      "initial_nodes": 1176,
+      "minimum_retained": 0.08673469387755102,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 1074,
+      "ever_lost_nodes": 1074,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 320,
+      "context": "river/stream reach",
+      "center_xz": [
+        7628.9795918367345,
+        -5208.598639455782
+      ]
+    },
+    {
+      "id": 90,
+      "initial_nodes": 1004,
+      "minimum_retained": 0.08266932270916334,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 921,
+      "ever_lost_nodes": 921,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 292,
+      "context": "river/stream reach",
+      "center_xz": [
+        -3376.908366533865,
+        6479.155378486055
+      ]
+    },
+    {
+      "id": 38,
+      "initial_nodes": 653,
+      "minimum_retained": 0.24808575803981622,
+      "worst_time": "t040-water.u16",
+      "lost_nodes": 491,
+      "ever_lost_nodes": 491,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 4,
+      "river_area_nodes": 0,
+      "line_nodes": 192,
+      "context": "lake/stream interface",
+      "center_xz": [
+        4294.836140888208,
+        -5482.021439509954
+      ]
+    },
+    {
+      "id": 54,
+      "initial_nodes": 554,
+      "minimum_retained": 0.37184115523465705,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 348,
+      "ever_lost_nodes": 348,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 2,
+      "river_area_nodes": 0,
+      "line_nodes": 154,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -5021.342960288808,
+        -3295.595667870036
+      ]
+    },
+    {
+      "id": 73,
+      "initial_nodes": 414,
+      "minimum_retained": 0.20772946859903382,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 328,
+      "ever_lost_nodes": 328,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 6,
+      "river_area_nodes": 0,
+      "line_nodes": 116,
+      "context": "lake/stream interface",
+      "center_xz": [
+        4939.400966183575,
+        -449.8164251207727
+      ]
+    },
+    {
+      "id": 101,
+      "initial_nodes": 489,
+      "minimum_retained": 0.43558282208588955,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 276,
+      "ever_lost_nodes": 276,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 10,
+      "river_area_nodes": 0,
+      "line_nodes": 132,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -5556.155419222903,
+        7594.993865030674
+      ]
+    },
+    {
+      "id": 111,
+      "initial_nodes": 267,
+      "minimum_retained": 0.0,
+      "worst_time": "t045-water.u16",
+      "lost_nodes": 267,
+      "ever_lost_nodes": 267,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 81,
+      "context": "river/stream reach",
+      "center_xz": [
+        -7204.374531835206,
+        8101.573033707864
+      ]
+    },
+    {
+      "id": 98,
+      "initial_nodes": 824,
+      "minimum_retained": 0.6783980582524272,
+      "worst_time": "t025-water.u16",
+      "lost_nodes": 265,
+      "ever_lost_nodes": 265,
+      "sources_in_body": 7,
+      "edge": true,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 226,
+      "context": "river/stream reach",
+      "center_xz": [
+        6177.417475728156,
+        7635.436893203883
+      ]
+    },
+    {
+      "id": 93,
+      "initial_nodes": 2707,
+      "minimum_retained": 0.9294421869227928,
+      "worst_time": "t025-water.u16",
+      "lost_nodes": 191,
+      "ever_lost_nodes": 191,
+      "sources_in_body": 11,
+      "edge": true,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 748,
+      "context": "river/stream reach",
+      "center_xz": [
+        54.34207609900295,
+        7505.926856298485
+      ]
+    },
+    {
+      "id": 106,
+      "initial_nodes": 320,
+      "minimum_retained": 0.403125,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 191,
+      "ever_lost_nodes": 191,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 100,
+      "context": "river/stream reach",
+      "center_xz": [
+        -4707.85,
+        7836.5999999999985
+      ]
+    },
+    {
+      "id": 8,
+      "initial_nodes": 190,
+      "minimum_retained": 0.0,
+      "worst_time": "t050-water.u16",
+      "lost_nodes": 190,
+      "ever_lost_nodes": 190,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 50,
+      "context": "river/stream reach",
+      "center_xz": [
+        -6006.484210526316,
+        -8245.22105263158
+      ]
+    },
+    {
+      "id": 112,
+      "initial_nodes": 218,
+      "minimum_retained": 0.18807339449541285,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 177,
+      "ever_lost_nodes": 177,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 66,
+      "context": "river/stream reach",
+      "center_xz": [
+        1153.3944954128438,
+        8001.027522935779
+      ]
+    },
+    {
+      "id": 10,
+      "initial_nodes": 257,
+      "minimum_retained": 0.3151750972762646,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 176,
+      "ever_lost_nodes": 176,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 7,
+      "river_area_nodes": 0,
+      "line_nodes": 72,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -5232.871595330739,
+        -7690.0856031128405
+      ]
+    },
+    {
+      "id": 76,
+      "initial_nodes": 215,
+      "minimum_retained": 0.2,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 172,
+      "ever_lost_nodes": 172,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 55,
+      "context": "river/stream reach",
+      "center_xz": [
+        -7739.311627906976,
+        125.3953488372099
+      ]
+    },
+    {
+      "id": 95,
+      "initial_nodes": 204,
+      "minimum_retained": 0.16666666666666666,
+      "worst_time": "t055-water.u16",
+      "lost_nodes": 170,
+      "ever_lost_nodes": 170,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 58,
+      "context": "river/stream reach",
+      "center_xz": [
+        -3116.9411764705883,
+        6324.941176470587
+      ]
+    },
+    {
+      "id": 51,
+      "initial_nodes": 173,
+      "minimum_retained": 0.1676300578034682,
+      "worst_time": "t035-water.u16",
+      "lost_nodes": 144,
+      "ever_lost_nodes": 144,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 47,
+      "context": "river/stream reach",
+      "center_xz": [
+        3730.9595375722547,
+        -4335.260115606937
+      ]
+    },
+    {
+      "id": 43,
+      "initial_nodes": 222,
+      "minimum_retained": 0.36036036036036034,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 142,
+      "ever_lost_nodes": 142,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 58,
+      "context": "river/stream reach",
+      "center_xz": [
+        -6769.585585585585,
+        -5242.738738738739
+      ]
+    },
+    {
+      "id": 64,
+      "initial_nodes": 183,
+      "minimum_retained": 0.2786885245901639,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 132,
+      "ever_lost_nodes": 132,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 50,
+      "context": "river/stream reach",
+      "center_xz": [
+        -5919.562841530054,
+        -1216.8743169398904
+      ]
+    },
+    {
+      "id": 21,
+      "initial_nodes": 211,
+      "minimum_retained": 0.41232227488151657,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 124,
+      "ever_lost_nodes": 124,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 55,
+      "context": "river/stream reach",
+      "center_xz": [
+        -863.3175355450239,
+        -6468.398104265403
+      ]
+    },
+    {
+      "id": 47,
+      "initial_nodes": 144,
+      "minimum_retained": 0.2222222222222222,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 112,
+      "ever_lost_nodes": 112,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 41,
+      "context": "river/stream reach",
+      "center_xz": [
+        -4934.777777777777,
+        -4908.333333333334
+      ]
+    },
+    {
+      "id": 40,
+      "initial_nodes": 147,
+      "minimum_retained": 0.25170068027210885,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 110,
+      "ever_lost_nodes": 110,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 42,
+      "context": "river/stream reach",
+      "center_xz": [
+        7128.163265306122,
+        -5413.224489795919
+      ]
+    },
+    {
+      "id": 16,
+      "initial_nodes": 142,
+      "minimum_retained": 0.2535211267605634,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 106,
+      "ever_lost_nodes": 106,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 48,
+      "context": "river/stream reach",
+      "center_xz": [
+        -4617.239436619719,
+        -7859.830985915493
+      ]
+    },
+    {
+      "id": 87,
+      "initial_nodes": 160,
+      "minimum_retained": 0.35,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 104,
+      "ever_lost_nodes": 104,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 40,
+      "context": "river/stream reach",
+      "center_xz": [
+        -1771.6999999999998,
+        5065.700000000001
+      ]
+    },
+    {
+      "id": 22,
+      "initial_nodes": 144,
+      "minimum_retained": 0.3680555555555556,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 91,
+      "ever_lost_nodes": 91,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 5,
+      "river_area_nodes": 0,
+      "line_nodes": 44,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -5704.555555555556,
+        -6543.666666666666
+      ]
+    },
+    {
+      "id": 18,
+      "initial_nodes": 166,
+      "minimum_retained": 0.463855421686747,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 89,
+      "ever_lost_nodes": 89,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 5,
+      "river_area_nodes": 0,
+      "line_nodes": 43,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -3007.325301204819,
+        -7431.1325301204815
+      ]
+    },
+    {
+      "id": 33,
+      "initial_nodes": 150,
+      "minimum_retained": 0.4066666666666667,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 89,
+      "ever_lost_nodes": 89,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 38,
+      "context": "river/stream reach",
+      "center_xz": [
+        -5534.826666666667,
+        -5970.346666666666
+      ]
+    },
+    {
+      "id": 4,
+      "initial_nodes": 1466,
+      "minimum_retained": 0.9433833560709414,
+      "worst_time": "t055-water.u16",
+      "lost_nodes": 83,
+      "ever_lost_nodes": 83,
+      "sources_in_body": 7,
+      "edge": true,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 393,
+      "context": "river/stream reach",
+      "center_xz": [
+        -448.70941336971373,
+        -7512.807639836289
+      ]
+    },
+    {
+      "id": 49,
+      "initial_nodes": 111,
+      "minimum_retained": 0.2702702702702703,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 81,
+      "ever_lost_nodes": 81,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 28,
+      "context": "river/stream reach",
+      "center_xz": [
+        7032.936936936936,
+        -4728.216216216217
+      ]
+    },
+    {
+      "id": 102,
+      "initial_nodes": 151,
+      "minimum_retained": 0.47019867549668876,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 80,
+      "ever_lost_nodes": 80,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 46,
+      "context": "river/stream reach",
+      "center_xz": [
+        -2758.4635761589407,
+        7179.337748344371
+      ]
+    },
+    {
+      "id": 109,
+      "initial_nodes": 125,
+      "minimum_retained": 0.376,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 78,
+      "ever_lost_nodes": 78,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 33,
+      "context": "river/stream reach",
+      "center_xz": [
+        2374.9120000000003,
+        7959.808000000001
+      ]
+    },
+    {
+      "id": 65,
+      "initial_nodes": 131,
+      "minimum_retained": 0.4122137404580153,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 77,
+      "ever_lost_nodes": 77,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 36,
+      "context": "river/stream reach",
+      "center_xz": [
+        -5339.114503816794,
+        -1377.099236641221
+      ]
+    },
+    {
+      "id": 31,
+      "initial_nodes": 166,
+      "minimum_retained": 0.5602409638554217,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 73,
+      "ever_lost_nodes": 73,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 2,
+      "river_area_nodes": 0,
+      "line_nodes": 46,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -2191.5180722891564,
+        -6189.204819277109
+      ]
+    },
+    {
+      "id": 96,
+      "initial_nodes": 727,
+      "minimum_retained": 0.8995873452544704,
+      "worst_time": "t020-water.u16",
+      "lost_nodes": 73,
+      "ever_lost_nodes": 73,
+      "sources_in_body": 1,
+      "edge": true,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 198,
+      "context": "river/stream reach",
+      "center_xz": [
+        7509.590096286107,
+        7654.096286107289
+      ]
+    },
+    {
+      "id": 30,
+      "initial_nodes": 96,
+      "minimum_retained": 0.25,
+      "worst_time": "t050-water.u16",
+      "lost_nodes": 72,
+      "ever_lost_nodes": 72,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 25,
+      "context": "river/stream reach",
+      "center_xz": [
+        -6627.0,
+        -6089.5
+      ]
+    },
+    {
+      "id": 77,
+      "initial_nodes": 196,
+      "minimum_retained": 0.6326530612244898,
+      "worst_time": "t020-water.u16",
+      "lost_nodes": 72,
+      "ever_lost_nodes": 72,
+      "sources_in_body": 2,
+      "edge": true,
+      "lake_nodes": 8,
+      "river_area_nodes": 0,
+      "line_nodes": 52,
+      "context": "lake/stream interface",
+      "center_xz": [
+        -8520.244897959185,
+        776.9795918367345
+      ]
+    },
+    {
+      "id": 37,
+      "initial_nodes": 149,
+      "minimum_retained": 0.5570469798657718,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 66,
+      "ever_lost_nodes": 66,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 43,
+      "context": "river/stream reach",
+      "center_xz": [
+        -131.9731543624166,
+        -5531.597315436242
+      ]
+    },
+    {
+      "id": 70,
+      "initial_nodes": 83,
+      "minimum_retained": 0.3253012048192771,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 56,
+      "ever_lost_nodes": 56,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 21,
+      "context": "river/stream reach",
+      "center_xz": [
+        5046.168674698794,
+        -927.2289156626503
+      ]
+    },
+    {
+      "id": 32,
+      "initial_nodes": 91,
+      "minimum_retained": 0.42857142857142855,
+      "worst_time": "t055-water.u16",
+      "lost_nodes": 52,
+      "ever_lost_nodes": 52,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 30,
+      "context": "river/stream reach",
+      "center_xz": [
+        -1811.868131868132,
+        -6100.571428571428
+      ]
+    },
+    {
+      "id": 83,
+      "initial_nodes": 94,
+      "minimum_retained": 0.44680851063829785,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 52,
+      "ever_lost_nodes": 52,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 25,
+      "context": "river/stream reach",
+      "center_xz": [
+        1379.744680851063,
+        4802.723404255319
+      ]
+    },
+    {
+      "id": 99,
+      "initial_nodes": 88,
+      "minimum_retained": 0.4431818181818182,
+      "worst_time": "t050-water.u16",
+      "lost_nodes": 49,
+      "ever_lost_nodes": 49,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 24,
+      "context": "river/stream reach",
+      "center_xz": [
+        1946.727272727272,
+        7096.363636363636
+      ]
+    },
+    {
+      "id": 72,
+      "initial_nodes": 86,
+      "minimum_retained": 0.46511627906976744,
+      "worst_time": "t050-water.u16",
+      "lost_nodes": 46,
+      "ever_lost_nodes": 46,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 23,
+      "context": "river/stream reach",
+      "center_xz": [
+        4429.767441860466,
+        -757.7674418604647
+      ]
+    },
+    {
+      "id": 23,
+      "initial_nodes": 92,
+      "minimum_retained": 0.5108695652173914,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 45,
+      "ever_lost_nodes": 45,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 23,
+      "context": "river/stream reach",
+      "center_xz": [
+        3502.260869565218,
+        -6590.086956521739
+      ]
+    },
+    {
+      "id": 48,
+      "initial_nodes": 88,
+      "minimum_retained": 0.48863636363636365,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 45,
+      "ever_lost_nodes": 45,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 24,
+      "context": "river/stream reach",
+      "center_xz": [
+        -5311.272727272728,
+        -4705.818181818182
+      ]
+    },
+    {
+      "id": 20,
+      "initial_nodes": 74,
+      "minimum_retained": 0.47297297297297297,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 39,
+      "ever_lost_nodes": 39,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 18,
+      "context": "river/stream reach",
+      "center_xz": [
+        -7641.945945945946,
+        -7475.459459459459
+      ]
+    },
+    {
+      "id": 53,
+      "initial_nodes": 60,
+      "minimum_retained": 0.4166666666666667,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 35,
+      "ever_lost_nodes": 35,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 19,
+      "context": "river/stream reach",
+      "center_xz": [
+        -821.6000000000004,
+        -3896.0
+      ]
+    },
+    {
+      "id": 100,
+      "initial_nodes": 107,
+      "minimum_retained": 0.6915887850467289,
+      "worst_time": "t055-water.u16",
+      "lost_nodes": 33,
+      "ever_lost_nodes": 33,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 33,
+      "context": "river/stream reach",
+      "center_xz": [
+        -1191.476635514019,
+        7110.728971962617
+      ]
+    },
+    {
+      "id": 71,
+      "initial_nodes": 63,
+      "minimum_retained": 0.5396825396825397,
+      "worst_time": "t035-water.u16",
+      "lost_nodes": 29,
+      "ever_lost_nodes": 29,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 17,
+      "context": "river/stream reach",
+      "center_xz": [
+        -7272.380952380952,
+        -806.0952380952385
+      ]
+    },
+    {
+      "id": 79,
+      "initial_nodes": 64,
+      "minimum_retained": 0.546875,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 29,
+      "ever_lost_nodes": 29,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 16,
+      "context": "river/stream reach",
+      "center_xz": [
+        -1922.5,
+        4370.25
+      ]
+    },
+    {
+      "id": 103,
+      "initial_nodes": 160,
+      "minimum_retained": 0.8375,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 26,
+      "ever_lost_nodes": 26,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 44,
+      "context": "river/stream reach",
+      "center_xz": [
+        -2738.1000000000004,
+        7614.6
+      ]
+    },
+    {
+      "id": 14,
+      "initial_nodes": 66,
+      "minimum_retained": 0.6212121212121212,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 25,
+      "ever_lost_nodes": 25,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 18,
+      "context": "river/stream reach",
+      "center_xz": [
+        6013.818181818182,
+        -7841.212121212121
+      ]
+    },
+    {
+      "id": 39,
+      "initial_nodes": 81,
+      "minimum_retained": 0.691358024691358,
+      "worst_time": "t010-water.u16",
+      "lost_nodes": 25,
+      "ever_lost_nodes": 25,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 22,
+      "context": "river/stream reach",
+      "center_xz": [
+        5987.95061728395,
+        -5544.691358024691
+      ]
+    },
+    {
+      "id": 19,
+      "initial_nodes": 64,
+      "minimum_retained": 0.640625,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 23,
+      "ever_lost_nodes": 23,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 16,
+      "context": "river/stream reach",
+      "center_xz": [
+        -2495.25,
+        -7571.0
+      ]
+    },
+    {
+      "id": 108,
+      "initial_nodes": 156,
+      "minimum_retained": 0.8589743589743589,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 22,
+      "ever_lost_nodes": 22,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 48,
+      "context": "river/stream reach",
+      "center_xz": [
+        -3965.128205128205,
+        7819.6923076923085
+      ]
+    },
+    {
+      "id": 58,
+      "initial_nodes": 96,
+      "minimum_retained": 0.78125,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 21,
+      "ever_lost_nodes": 21,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 28,
+      "context": "river/stream reach",
+      "center_xz": [
+        -2653.666666666667,
+        -3093.333333333333
+      ]
+    },
+    {
+      "id": 74,
+      "initial_nodes": 57,
+      "minimum_retained": 0.6491228070175439,
+      "worst_time": "t045-water.u16",
+      "lost_nodes": 20,
+      "ever_lost_nodes": 20,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 15,
+      "context": "river/stream reach",
+      "center_xz": [
+        -7702.456140350877,
+        -349.7543859649122
+      ]
+    },
+    {
+      "id": 17,
+      "initial_nodes": 83,
+      "minimum_retained": 0.7951807228915663,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 17,
+      "ever_lost_nodes": 17,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 21,
+      "context": "river/stream reach",
+      "center_xz": [
+        -3651.6626506024095,
+        -7630.265060240964
+      ]
+    },
+    {
+      "id": 91,
+      "initial_nodes": 57,
+      "minimum_retained": 0.7719298245614035,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 13,
+      "ever_lost_nodes": 13,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 16,
+      "context": "river/stream reach",
+      "center_xz": [
+        -3584.2807017543855,
+        5573.333333333334
+      ]
+    },
+    {
+      "id": 57,
+      "initial_nodes": 82,
+      "minimum_retained": 0.9146341463414634,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 7,
+      "ever_lost_nodes": 7,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 24,
+      "context": "river/stream reach",
+      "center_xz": [
+        -2902.243902439024,
+        -3632.9756097560976
+      ]
+    },
+    {
+      "id": 116,
+      "initial_nodes": 59,
+      "minimum_retained": 0.9152542372881356,
+      "worst_time": "t060-water.u16",
+      "lost_nodes": 5,
+      "ever_lost_nodes": 5,
+      "sources_in_body": 0,
+      "edge": false,
+      "lake_nodes": 0,
+      "river_area_nodes": 0,
+      "line_nodes": 19,
+      "context": "river/stream reach",
+      "center_xz": [
+        -4202.033898305085,
+        8432.813559322032
+      ]
+    }
+  ],
+  "sea_level_m": 48.057765015283515,
+  "all_flood_nodes_within128m_of_source": 0,
+  "all_flood_nodes_within128m_of_edge": 0,
+  "flood_union_nodes": 4707,
+  "lost_body_nodes": 9198
+}

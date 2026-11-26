@@ -85,9 +85,11 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
   }
 }
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
-const waterTrial = "tools/map-factory/capability-evidence/pl1191-stock-water";
-mkdirSync(`dist/${waterTrial}`, { recursive: true });
-for (const name of readdirSync(waterTrial)) copyFileSync(`${waterTrial}/${name}`, `dist/${waterTrial}/${name}`);
+for (const study of ["pl1191-stock-water", "pl1191-local-budget"]) {
+  const waterTrial = `tools/map-factory/capability-evidence/${study}`;
+  mkdirSync(`dist/${waterTrial}`, { recursive: true });
+  for (const name of readdirSync(waterTrial)) copyFileSync(`${waterTrial}/${name}`, `dist/${waterTrial}/${name}`);
+}
 // The terrain-shape survey the stock reference cites, byte for byte.
 mkdirSync("dist/tools/map-factory/survey", { recursive: true });
 copyFileSync("tools/map-factory/survey/terrain-interest.json", "dist/tools/map-factory/survey/terrain-interest.json");

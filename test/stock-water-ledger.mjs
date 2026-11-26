@@ -17,6 +17,6 @@ export function beforeStockWater(text) {
   if (marker < 0 || key < 0 || begin < 0 || end < 0) throw new Error('Missing water-results array');
   const rows = JSON.parse(text.slice(begin, end));
   if (!rows.length) return text;
-  if (!rows.every(row => row.study === 'pl1191-stock-water')) throw new Error('Unowned water observations cannot be removed from historical checks');
+  if (!rows.every(row => ['pl1191-stock-water', 'pl1191-local-budget'].includes(row.study))) throw new Error('Unowned water observations cannot be removed from historical checks');
   return text.slice(0, begin) + '[]' + text.slice(end);
 }
