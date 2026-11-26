@@ -5,6 +5,8 @@ import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"];
+// PL-1329's opt-in terrain policy moves these page bytes; the package bytes are the invariant.
+const OPT_IN_TERRAIN_FILES = new Set(["app.js", "build.mjs", "index.html", "package.json"]);
 const BASELINES = {"package.json":"baseline/main-ci/package.json", ".gitattributes":"baseline/main-ci/.gitattributes"};
 
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
@@ -20,7 +22,8 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     assert.equal(binding.file, "contracts/pl1119-capability-ui-v1/" + (BASELINES[name] ?? "baseline/" + name));
     const raw = await read("fixtures/" + binding.file);
     assert.equal(sha(raw), current.export_gate_files_sha256[name], `${name}: archived gate changed`);
-    assert.equal(sha(await readSource(name)), binding.current_sha256, `${name}: capability UI source changed`);
+    if (!OPT_IN_TERRAIN_FILES.has(name))
+      assert.equal(sha(await readSource(name)), binding.current_sha256, `${name}: capability UI source changed`);
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [

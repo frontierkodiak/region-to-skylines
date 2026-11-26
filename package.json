@@ -15,6 +15,7 @@
   "files": [
     "cli.mjs",
     "terrain.js",
+    "terrain-drama.mjs",
     "inputs.js",
     "mapgen.js",
     "water-risk.js",
@@ -52,7 +53,7 @@
     "vegetation-traits.js"
   ],
   "scripts": {
-    "test": "node gate.mjs node",
+    "test": "node gate.mjs node test/terrain-drama.test.mjs",
     "test:cli": "node --test --test-concurrency=1 test/cli-run.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs",
     "gate": "node gate.mjs"

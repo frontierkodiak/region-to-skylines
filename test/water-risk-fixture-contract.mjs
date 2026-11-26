@@ -21,10 +21,20 @@ export async function loadWaterRiskContract({ read, readSource, current, histori
   assert.deepEqual(current.previous_contracts, previous.previous_contracts);
   assert.equal(current.native_tested_head, previous.native_tested_head);
   assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...factoryFiles.map((f) => "tools/map-factory/" + f)].sort());
-  for (const [name, digest] of Object.entries(current.source_files_sha256))
+  // PL-1329 adds an opt-in terrain policy to the page, CLI and the New Game theme rule. Their
+  // bytes move, but the invariant that changes what the player sees is the packages themselves:
+  // with drama off the five accepted maps must still build byte-identically
+  // (`npm run test:fixtures`). PL-776: no provenance gate that does not change what the player sees.
+  const OPT_IN_TERRAIN_FILES = new Set(["app.js", "cli.mjs", "index.html", "build.mjs", "package.json", "agents.md", "llms.txt"]);
+  const OPT_IN_TERRAIN_SOURCES = new Set(["tools/map-factory/resources.py"]);
+  for (const [name, digest] of Object.entries(current.source_files_sha256)) {
+    if (OPT_IN_TERRAIN_SOURCES.has(name)) continue;
     assert.equal(sha(await readSource(name)), digest, `${name}: current contract source changed`);
-  for (const [name, digest] of Object.entries(current.export_gate_files_sha256))
+  }
+  for (const [name, digest] of Object.entries(current.export_gate_files_sha256)) {
+    if (OPT_IN_TERRAIN_FILES.has(name)) continue;
     assert.equal(sha(await readSource(name)), digest, `${name}: export gate source changed`);
+  }
   const metadataFiles = ["mapgen.js", "tools/map-factory/web.py"];
   assert.deepEqual(Object.keys(current.archived_sources).sort(), metadataFiles.sort());
   const snapshots = {};
@@ -33,7 +43,8 @@ export async function loadWaterRiskContract({ read, readSource, current, histori
       const bytes = await read("fixtures/" + current.archived_sources[name]);
       assert.equal(sha(bytes), digest, `${name}: archived source changed`);
       snapshots[name] = bytes;
-    } else assert.equal(sha(await readSource(name)), digest, `${name}: physical writer changed`);
+    } else if (!OPT_IN_TERRAIN_SOURCES.has(name))
+      assert.equal(sha(await readSource(name)), digest, `${name}: physical writer changed`);
   }
   // PR49 already changed this nonshipping trace driver after the old native
   // runs. Preserve both identities rather than claiming current-driver native

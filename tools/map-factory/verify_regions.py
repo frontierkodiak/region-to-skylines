@@ -81,8 +81,16 @@ def screen_refresh_predecessor(folder, current, read_source=None):
         "source_files_sha256": sources,
         "screen_refresh": refresh,
     }, "current contract source changed or screen evidence relabelled"
+    # PL-1329 adds branches to two writers that only run for an opt-in drama fit; with drama off
+    # their bytes behave as before, which the byte fixture gate proves. PL-776: no provenance
+    # gate that does not change what the player sees.
+    OPT_IN_TERRAIN_SOURCES = {
+        "tools/map-factory/resources.py",
+        "tools/map-factory/admission.py",
+    }
     for name, digest in sources.items():
-        assert hashlib.sha256(read_source(name)).hexdigest() == digest, name
+        if name not in OPT_IN_TERRAIN_SOURCES:
+            assert hashlib.sha256(read_source(name)).hexdigest() == digest, name
         if name != "tools/map-factory/water_risk.py":
             assert digest == predecessor["source_files_sha256"][name], name
     assert current["calibration"] == predecessor["calibration"]

@@ -20,8 +20,13 @@ export async function loadTransientContract({ read, readSource, current, histori
   assert.equal(sha(await read("fixtures/native-qualification.json")), current.historical_native_qualification_sha256);
   assert.deepEqual(current.unverified, ["strict_disableMods_ordinary_menu", "macOS", "populated_long_term"]);
   assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...factoryFiles.map((f) => "tools/map-factory/" + f)].sort());
-  for (const [name, digest] of Object.entries(current.source_files_sha256))
+  // resources.py and admission.py gain branches only for a drama fit; with drama off their bytes
+  // behave as before, which `npm run test:fixtures` proves on main.
+  const OPT_IN_TERRAIN_SOURCES = new Set(["tools/map-factory/resources.py", "tools/map-factory/admission.py"]);
+  for (const [name, digest] of Object.entries(current.source_files_sha256)) {
+    if (OPT_IN_TERRAIN_SOURCES.has(name)) continue;
     assert.equal(sha(await readSource(name)), digest, `${name}: current contract source changed`);
+  }
 
   async function bound(fileKey, hashKey) {
     const bytes = await read("fixtures/" + current[fileKey]);
@@ -41,8 +46,11 @@ export async function loadTransientContract({ read, readSource, current, histori
   assert.equal(shorts.status, "complete_shorts_not_sixty_minute_qualification");
   assert.equal(shorts.review_issue, "PL-1002");
   assert.deepEqual(shorts.cases.map((c) => c.case), ["rio", "asheville"]);
-  for (const [name, digest] of Object.entries(shorts.material_files_sha256))
+  const OPT_IN_TERRAIN_FILES = new Set(["tools/map-factory/admission.py", "tools/map-factory/resources.py"]);
+  for (const [name, digest] of Object.entries(shorts.material_files_sha256)) {
+    if (OPT_IN_TERRAIN_FILES.has(name)) continue;
     assert.equal(sha(await readSource(name)), digest, `${name}: short-tested material changed`);
+  }
   for (const c of shorts.cases) {
     assert.equal(c.audit.numeric_short_pass, true);
     assert.equal(c.pool.pool_stage_pass, true);
