@@ -68,10 +68,11 @@ def cut_water(ground, footprint, stage, depth, taper):
 
 
 def inlet_settings(catchment_km2, broad_inlets, design):
-    """Share one network's game-setting budget; splitting feeds adds no supply.
+    """Share a network budget that does not grow with its inlet count.
 
     These are serialized settings, not discharge units. Integer allocation
-    avoids a per-head minimum silently multiplying the network budget.
+    avoids a per-head minimum silently multiplying the network budget. Minor
+    inlet caps can leave part of the budget unused; it is not redistributed.
     """
     count = len(broad_inlets)
     if not count:

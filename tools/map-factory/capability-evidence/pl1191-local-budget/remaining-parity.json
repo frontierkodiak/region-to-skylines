@@ -1,0 +1,38 @@
+[
+  {
+    "square": "innsbruck",
+    "expected": "6fd961a077a5b0fa9a3216179dedf48844ead69be7cfcf042ec9c9c08c6e0d17",
+    "actual": "6fd961a077a5b0fa9a3216179dedf48844ead69be7cfcf042ec9c9c08c6e0d17",
+    "bytes": 6831210
+  },
+  {
+    "square": "rio",
+    "expected": "63849f9f998784a69ad7eaf3f4ab3778cceed0154683d642259b12fc5bba7b76",
+    "actual": "63849f9f998784a69ad7eaf3f4ab3778cceed0154683d642259b12fc5bba7b76",
+    "bytes": 5709007
+  },
+  {
+    "square": "charleston",
+    "expected": "cd909be9ff825ca8072433d973b880f22993934d71fb42b5b7d57889faa9afd2",
+    "actual": "cd909be9ff825ca8072433d973b880f22993934d71fb42b5b7d57889faa9afd2",
+    "bytes": 6839014
+  },
+  {
+    "square": "grand-canyon",
+    "expected": "142ea3cd313dafd40e4f422f18307638f3ebad949c7cffd5dfa28041870c78fb",
+    "actual": "142ea3cd313dafd40e4f422f18307638f3ebad949c7cffd5dfa28041870c78fb",
+    "bytes": 6254928
+  },
+  {
+    "square": "hong-kong",
+    "expected": "1a2e6e1dee9116746ce2f2729f0a78ccb9670387effaca6e5e72b2e9aab71931",
+    "actual": "1a2e6e1dee9116746ce2f2729f0a78ccb9670387effaca6e5e72b2e9aab71931",
+    "bytes": 6711918
+  },
+  {
+    "square": "yosemite",
+    "expected": "28bd90f33c45562bbe141c49341b9d6ca5ebbf05628c1a40602a66c99cb6f31f",
+    "actual": "28bd90f33c45562bbe141c49341b9d6ca5ebbf05628c1a40602a66c99cb6f31f",
+    "bytes": 6549794
+  }
+]

@@ -33,15 +33,24 @@ test("saved study deterministically projects original bytes, distinct from histo
 test("the new failed packages do not invent six observations or a cleared-water prediction", () => {
   const trial = JSON.parse(read("tools/map-factory/capability-evidence/pl1191-stock-water/verdicts.json"));
   assert.equal(trial.rows.length, 8);
-  const observed = cap.game_agreement.filter(row => row.study === "pl1191-stock-water");
-  assert.deepEqual(observed.map(row => row.square), ["asheville", "pittsburgh"]);
-  for (const row of observed) {
-    const raw = read(row.evidence[0]), verdict = JSON.parse(raw);
-    assert.equal(row.verdict_json_sha256, sha(raw));
-    assert.equal(row.artifact_sha256, verdict.artifact_sha256);
-    assert.notEqual(row.artifact_sha256, row.verdict_json_sha256);
-    assert.equal(row.observed, false);
-    assert.equal(row.predicted, null);
+  for (const study of ["pl1191-stock-water", "pl1191-local-budget"]) {
+    const observed = cap.game_agreement.filter(row => row.study === study);
+    assert.deepEqual(observed.map(row => row.square), ["asheville", "pittsburgh"]);
+    for (const row of observed) {
+      const raw = read(row.evidence[0]), verdict = JSON.parse(raw);
+      assert.equal(row.verdict_json_sha256, sha(raw));
+      assert.equal(row.artifact_sha256, verdict.artifact_sha256);
+      assert.notEqual(row.artifact_sha256, row.verdict_json_sha256);
+      assert.equal(row.observed, false);
+      assert.equal(row.predicted, null);
+      if (study === "pl1191-local-budget") {
+        const latest = trial.rows.find(r => r.slug === row.square);
+        assert.equal(latest.artifact_sha256, verdict.artifact_sha256);
+        assert.equal(latest.flood_km2, verdict.flood_km2);
+        assert.equal(latest.minimum_original_point_retention, verdict.minimum_original_point_retention);
+        assert.ok(read(`tools/map-factory/capability-evidence/pl1191-local-budget/${row.square}-overlay.png`).length > 1000);
+      }
+    }
   }
   const unrun = trial.rows.filter(row => row.observed_at === null);
   assert.equal(unrun.length, 6);
