@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-from stock_water import Design, hydrology
+from stock_water import Design, hydrology, inlet_settings
 
 DESIGN = Design(40, 192, 40, 2, 54, 0.5, 0.01)
 SQUARE = {"lat": 0, "lon": 0, "rotation": 0, "scale": 1}
@@ -14,6 +14,27 @@ def point(x, z):
 
 
 class StockWaterTest(unittest.TestCase):
+    def test_splitting_a_network_into_more_feeds_does_not_multiply_its_budget(self):
+        totals = []
+        for count in [1, 2, 8, 202]:
+            settings, budget = inlet_settings(241, [True] * count, DESIGN)
+            encoded = [round(value * 65535) for value in settings]
+            self.assertTrue(all(value > 0 for value in encoded))
+            self.assertEqual(sum(encoded), round(budget * 65535))
+            totals.append(sum(encoded))
+        self.assertEqual(len(set(totals)), 1)
+
+    def test_minor_feed_caps_do_not_redistribute_unused_supply(self):
+        settings, budget = inlet_settings(75, [False, True], DESIGN)
+        self.assertEqual(
+            round(settings[0] * 65535), round(DESIGN.minor_river_setting * 65535)
+        )
+        self.assertLess(sum(settings), budget)
+
+    def test_too_many_inlets_fail_explicitly_instead_of_omitting_a_branch(self):
+        with self.assertRaises(ValueError):
+            inlet_settings(1, [True] * 40000, DESIGN)
+
     def test_river_is_cut_only_with_one_sparse_upstream_control(self):
         ground = np.full((1081, 1081), 100.0)
         banks = ground.copy()
@@ -44,7 +65,7 @@ class StockWaterTest(unittest.TestCase):
         self.assertEqual(len(report["sources"]), 1)
         self.assertEqual(report["sources"][0]["role"], "inlet")
         self.assertEqual(report["water_max_raise_m"], 0)
-        self.assertEqual(report["sources"][0]["capacity"], 0.5)
+        self.assertAlmostEqual(report["sources"][0]["capacity"], 0.5, delta=1 / 65535)
         self.assertAlmostEqual(report["sea_level_m"], 98, delta=1 / 128)
         self.assertLessEqual(abs(report["sources"][0]["position"][0]), 8640 - 128)
 

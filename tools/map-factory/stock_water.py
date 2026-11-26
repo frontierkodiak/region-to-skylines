@@ -67,6 +67,39 @@ def cut_water(ground, footprint, stage, depth, taper):
     ground[footprint] = np.minimum(ground[footprint], desired[footprint])
 
 
+def inlet_settings(catchment_km2, broad_inlets, design):
+    """Share one network's game-setting budget; splitting feeds adds no supply.
+
+    These are serialized settings, not discharge units. Integer allocation
+    avoids a per-head minimum silently multiplying the network budget.
+    """
+    count = len(broad_inlets)
+    if not count:
+        return [], 0
+    budget = int(
+        np.floor(
+            np.clip(
+                design.river_setting * np.sqrt(max(catchment_km2, 1) / 75),
+                0.01,
+                design.river_setting,
+            )
+            * 65535
+            + 0.5
+        )
+    )
+    if count > budget:
+        raise ValueError(
+            "Network budget cannot give every retained inlet a positive setting"
+        )
+    quotient, remainder = divmod(budget, count)
+    minor_cap = int(np.floor(design.minor_river_setting * 65535 + 0.5))
+    settings = [
+        min(quotient + (i < remainder), 65535 if broad else minor_cap) / 65535
+        for i, broad in enumerate(broad_inlets)
+    ]
+    return settings, budget / 65535
+
+
 def hydrology(ground, banks, geometry, design):
     if ground.shape != (SIZE, SIZE) or banks.shape != ground.shape:
         raise ValueError("Expected complete 1081-square game-metre terrain")
@@ -284,22 +317,14 @@ def hydrology(ground, banks, geometry, design):
                 index = int(np.argmax(stage[rows, cols]))
                 inlets = [(int(rows[index]), int(cols[index]))]
             catchment_km2 = float(areas[river_nodes].max() / 1e6)
-            setting = np.clip(
-                design.river_setting
-                * np.sqrt(max(catchment_km2, 1) / (75 * len(inlets))),
-                0.01,
-                design.river_setting,
+            settings, budget = inlet_settings(
+                catchment_km2,
+                [bool(broad_channel[row, col]) for row, col in inlets],
+                design,
             )
-            settings = []
-            for row, col in inlets:
+            for (row, col), actual in zip(inlets, settings):
                 # Keep the source on the channel; no local circular source pool.
-                actual = (
-                    setting
-                    if broad_channel[row, col]
-                    else min(setting, design.minor_river_setting)
-                )
                 source(row, col, actual, "inlet", component)
-                settings.append(float(actual))
             ports.append(
                 {
                     "component": component,
@@ -309,6 +334,8 @@ def hydrology(ground, banks, geometry, design):
                     "inland_head_source_row_cols": [list(rc) for rc in inland_heads],
                     "map_local_catchment_km2": catchment_km2,
                     "inlet_settings": settings,
+                    "inlet_setting_budget": budget,
+                    "inlet_setting_sum": sum(settings),
                     "off_map_catchment": "unknown",
                 }
             )
