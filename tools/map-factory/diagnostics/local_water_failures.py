@@ -12,12 +12,15 @@ from stock_water import raster
 
 ROOT = Path(sys.argv[1])
 OUT = Path(sys.argv[2])
+NATIVE = Path(sys.argv[3]) if len(sys.argv) > 3 else ROOT / "trial-d-native"
+PREPARED = Path(sys.argv[4]) if len(sys.argv) > 4 else ROOT / "trial-d-prepared"
+LABEL = sys.argv[5] if len(sys.argv) > 5 else "rejected PR107"
 OUT.mkdir(exist_ok=True)
 
 
 def run(slug):
-    folder = ROOT / "trial-d-native" / (slug + "-attempt-1")
-    prep = ROOT / "trial-d-prepared" / slug
+    folder = NATIVE / (slug + "-attempt-1")
+    prep = PREPARED / slug
     hydro = json.loads((prep / "hydrology.json").read_text())
     geo = json.loads((prep / "geometry.json").read_text())
 
@@ -194,7 +197,7 @@ def run(slug):
 
     draw.text(
         (20, 15),
-        slug.title() + " — rejected PR107: all 13 captures",
+        slug.title() + " — " + LABEL + ": all 13 captures",
         font=font(32),
         fill="#172016",
     )
