@@ -1,0 +1,316 @@
+{
+  "rows": [
+    {
+      "source": "offline_workshop",
+      "genus": "Ulmus",
+      "title": "American Elm",
+      "view": "close",
+      "image_sha256": "4ebc07a6e1430f9e54dcb3d43a4fb318f63bc5629da19e921326e1ae1535e19d",
+      "predicted": "Ulmus",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 0.011074304580688477,
+        "Tilia": 0.05440908297896385,
+        "Ulmus": 0.9345166087150574
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Ulmus",
+      "title": "American Elm",
+      "view": "gameplay",
+      "image_sha256": "8fe215842b9452271bdc7bc1e01513a8a7f452f8dabfe477c8ec1a273cdfd61b",
+      "predicted": "Ulmus",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 0.0012787500163540244,
+        "Tilia": 0.06391911953687668,
+        "Ulmus": 0.9348021745681763
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Ulmus",
+      "title": "American Elm",
+      "view": "billboard",
+      "image_sha256": "06feaa31e1747624520da7ec745e77544e97412f9bd4880a3bf0b01d98fdfb73",
+      "predicted": "Tilia",
+      "correct": false,
+      "probabilities": {
+        "Gleditsia": 0.01846221461892128,
+        "Tilia": 0.8271543979644775,
+        "Ulmus": 0.1543833464384079
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Kaiserlinde 16m",
+      "view": "close",
+      "image_sha256": "1d2fb69e9ab7ad60ac666a73f8ee8a9f8aca881040f5076988a1b5dd6ba0e06d",
+      "predicted": "Ulmus",
+      "correct": false,
+      "probabilities": {
+        "Gleditsia": 0.02236301265656948,
+        "Tilia": 0.3728395104408264,
+        "Ulmus": 0.6047974824905396
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Kaiserlinde 16m",
+      "view": "gameplay",
+      "image_sha256": "e8b7ba7e539b8f91f5924eadeb2840864a44475356503d709d4f7dae4c0fc914",
+      "predicted": "Ulmus",
+      "correct": false,
+      "probabilities": {
+        "Gleditsia": 0.0009494860423728824,
+        "Tilia": 0.2882833778858185,
+        "Ulmus": 0.7107671499252319
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Kaiserlinde 16m",
+      "view": "billboard",
+      "image_sha256": "b3bb623cb065c8593320801c1b952a5baefa408c87f1fc5c692f878952a32361",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 0.172990620136261,
+        "Tilia": 0.41549694538116455,
+        "Ulmus": 0.41151246428489685
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Bigleaf Linden",
+      "view": "close",
+      "image_sha256": "2704df0b2e523466870a8acae5153e94862ce57783b3fd3aa996e71327bf8916",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 0.03520724177360535,
+        "Tilia": 0.5268869996070862,
+        "Ulmus": 0.43790578842163086
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Bigleaf Linden",
+      "view": "gameplay",
+      "image_sha256": "790a61d8928daae37535360011188054f5e2ea0099aaa3e1fe35a6af9f4cecb8",
+      "predicted": "Ulmus",
+      "correct": false,
+      "probabilities": {
+        "Gleditsia": 0.013507732190191746,
+        "Tilia": 0.013562151230871677,
+        "Ulmus": 0.9729300737380981
+      }
+    },
+    {
+      "source": "offline_workshop",
+      "genus": "Tilia",
+      "title": "Bigleaf Linden",
+      "view": "billboard",
+      "image_sha256": "48b4c3b9f2da903b7e700e3eaf41929bea18cfa58a91167796262a410b42be6d",
+      "predicted": "Gleditsia",
+      "correct": false,
+      "probabilities": {
+        "Gleditsia": 0.3836338222026825,
+        "Tilia": 0.2934323251247406,
+        "Ulmus": 0.32293379306793213
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 7874496,
+      "split": "val",
+      "image_sha256": "db290c43884150c31c6565ff55a997e518586b2b4c3b413ff8b659e7e9203702",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 8.016405193735782e-14,
+        "Tilia": 1.0,
+        "Ulmus": 4.183929203094294e-09
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Gleditsia",
+      "photo_id": 8932440,
+      "split": "test",
+      "image_sha256": "c4fcb7d88ecee11a80c007103bfb7f384f2d3006320202025a6a11e6ab9d52cf",
+      "predicted": "Gleditsia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 1.0,
+        "Tilia": 7.001996205069361e-12,
+        "Ulmus": 1.8996920703173714e-10
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 48578731,
+      "split": "test",
+      "image_sha256": "1913e471201535248ad51a34b31efde144ad99601881137f06760d7b34e1fa8e",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 3.5844214263391905e-09,
+        "Tilia": 0.9999998807907104,
+        "Ulmus": 1.5817178677934862e-07
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 88384107,
+      "split": "val",
+      "image_sha256": "d5459ef2a708ba954663535347d6b4a718ca1f5f5db0fdeff2e1dffc04bc6e7d",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 7.572053539739443e-10,
+        "Tilia": 1.0,
+        "Ulmus": 3.1146096812761925e-09
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Gleditsia",
+      "photo_id": 203128146,
+      "split": "test",
+      "image_sha256": "a7c0b0acb7d23fdf7cf435867c2c8e9e3e859eeb546a2983a548b56e9d0a8f1a",
+      "predicted": "Gleditsia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 1.0,
+        "Tilia": 1.5719297066264792e-13,
+        "Ulmus": 5.062389309834492e-13
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 219645101,
+      "split": "test",
+      "image_sha256": "1d5306b722272d59c20059ef659733c10c6a973da650811ab2045239fa5ee9e0",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 4.2920696293954896e-13,
+        "Tilia": 1.0,
+        "Ulmus": 8.75324701610225e-10
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 383108490,
+      "split": "val",
+      "image_sha256": "81f56d721339f704e5d498748b9ce5aa7dcb0265ad7f44ba39a18520ecf245c4",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 1.1918823616952068e-07,
+        "Tilia": 0.991034209728241,
+        "Ulmus": 0.00896571483463049
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Tilia",
+      "photo_id": 401480934,
+      "split": "val",
+      "image_sha256": "91804d97e7f615baf3718e2c6abc924226b624b2b9e0ceccd4d8ffd514a1cc7f",
+      "predicted": "Tilia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 6.924743710303577e-14,
+        "Tilia": 1.0,
+        "Ulmus": 6.5711049934691346e-09
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Ulmus",
+      "photo_id": 435313157,
+      "split": "test",
+      "image_sha256": "0e1ad84614fe46afa94c8cf38957f9c788a51e097062199e558bfb2c74c7f2a2",
+      "predicted": "Ulmus",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 9.380878296383344e-09,
+        "Tilia": 1.4101146916800644e-09,
+        "Ulmus": 1.0
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Gleditsia",
+      "photo_id": 456197154,
+      "split": "test",
+      "image_sha256": "ba4c18b1b1274f3cae6955157dcd604633ec74967a1f3e3716f416dbe222e3aa",
+      "predicted": "Gleditsia",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 1.0,
+        "Tilia": 2.767771012379683e-10,
+        "Ulmus": 4.917943274840297e-10
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Ulmus",
+      "photo_id": 621206775,
+      "split": "val",
+      "image_sha256": "a354b00563a31e10282d2ca232beda5f57a5251230b207036da652b74660e3b5",
+      "predicted": "Ulmus",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 2.571408863616398e-08,
+        "Tilia": 4.6714490054000635e-08,
+        "Ulmus": 1.0
+      }
+    },
+    {
+      "source": "reserved_inat",
+      "genus": "Ulmus",
+      "photo_id": 753836942,
+      "split": "val",
+      "image_sha256": "de5329b6f66a05d3a7059e0728fc5de4b1a6acd318e94923440851b0630b7f49",
+      "predicted": "Ulmus",
+      "correct": true,
+      "probabilities": {
+        "Gleditsia": 1.7430834553522345e-09,
+        "Tilia": 9.404664824685938e-10,
+        "Ulmus": 1.0
+      }
+    }
+  ],
+  "passed_first_check": false,
+  "cma_es_started": false,
+  "weights_sha256": "ac2e37c2f89ef8e6b889176a9a3f418970ad9db15a218bd29e3321e95c46ae97",
+  "scorer_sha256": "4280242104786dc4e1268b103f7b439a6a01803b2c8acce81e63baa96d7176ab",
+  "prompts": [
+    "a photo of a {genus} tree",
+    "a photo of {genus} leaves",
+    "a photo of the crown of a {genus} tree"
+  ],
+  "device": "cuda:0",
+  "dtype": "fp32",
+  "wall_seconds": 58.0115188381169,
+  "versions": {
+    "open-clip-torch": "3.2.0",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130"
+  },
+  "limits": "Offline main-mesh projections, not native billboard reconstruction. Full-frame classifier input; no crop/prompt/temperature tuning. Reserved photos are research-grade labels, not guaranteed whole-tree portraits."
+}

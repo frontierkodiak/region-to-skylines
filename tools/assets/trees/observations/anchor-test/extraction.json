@@ -1,0 +1,74 @@
+{
+  "reader_sha256": "c1b67129674f07710f5fce92a7aba8935c6d1bc91a44343769be3f002b11283c",
+  "anchors": [
+    {
+      "prefab": "2456536855.American Elm_Data",
+      "crp_sha256": "1232315b88b706d644d99c95e97549db0a24bb539fef73f93ffea9f27f5d1ae4",
+      "main_triangles": 2480,
+      "textures": {
+        "_MainTex": {
+          "name": "_MainTex",
+          "checksum": "f40a307b990c17d5286176c97d7d6c6e",
+          "size": [
+            2048,
+            1024
+          ]
+        },
+        "_XYCAMap": {
+          "name": "_XYCAMap",
+          "checksum": "b87ba2a8b2b660f45e2978ebd7cf5a85",
+          "size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "prefab": "2928288862.Kaiserlinde 16m_Data",
+      "crp_sha256": "bec2cc7f0ace5518a285f6371409bbcdf36a03687e4911cc7b4a4ba04f592844",
+      "main_triangles": 2238,
+      "textures": {
+        "_MainTex": {
+          "name": "_MainTex",
+          "checksum": "d1ed2abeca3ea80b06716fe5e3e14165",
+          "size": [
+            2048,
+            1024
+          ]
+        },
+        "_XYCAMap": {
+          "name": "_XYCAMap",
+          "checksum": "df24b8c4437703268b9158238eeee600",
+          "size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    },
+    {
+      "prefab": "2402946167.Bigleaf Linden_Data",
+      "crp_sha256": "6db20ba3ad399c32a2e22c1f172a2f5a4c5d7060ae2dfd617caedceee84e795a",
+      "main_triangles": 1926,
+      "textures": {
+        "_MainTex": {
+          "name": "_MainTex",
+          "checksum": "6d9b2c6b28b84d4603467d04a437bee1",
+          "size": [
+            2048,
+            1024
+          ]
+        },
+        "_XYCAMap": {
+          "name": "_XYCAMap",
+          "checksum": "44e517a615b415e059eddb1aa27a57b2",
+          "size": [
+            2048,
+            1024
+          ]
+        }
+      }
+    }
+  ]
+}

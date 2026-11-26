@@ -1,6 +1,23 @@
 # Review and remaining acceptance
 
-## Latest direction: external biological judges first
+## Latest result — 2026-11-26: stop after failed anchor screen
+
+Read observations/anchor-test/REPORT.md and results.json. Exact accepted
+PL-1326 anchors were extracted and rendered offline: both Tilia assets and
+American Elm. Gleditsia uses held-out photos only, explicitly authorised by
+the November 26 lead direction. BioCLIP got 4/9 Workshop projections and
+12/12 reserved photos correct. Both Tilia assets fail at gameplay; Kaiserlinde
+also fails close. No CMA-ES, parameter tuning or alternative prompt/crop search
+followed. Stop pending lead direction; do not implement around this failure.
+
+Accepted PL-1326 native close captures were reused once per available genus
+for a qualitative silhouette/alpha check, not a new game run. Offline colour
+and lighting remain darker/different; distant views are main-mesh projections,
+not native billboard rendering. This does not establish BioCLIP accuracy on
+native screenshots. No slot or model process remains. The obsolete PL-1326
+dependency wakeup is disabled now that its result has been consumed.
+
+## Previous preparation (superseded where it conflicts)
 
 Read JUDGES.md. Tripo is shelved, not blocked on credentials. No commercial
 calls or key requests should resume. The old preview preferences do not

@@ -6,6 +6,21 @@ are historical opinions, not validated fitness or pipeline acceptance.
 
 ## First gate: Workshop anchors, before optimisation
 
+**November 26 direction supersedes the fallback below.** Use both reviewed
+Tilia assets and American Elm from accepted PR103 `de93357`. There is no vetted
+Gleditsia Workshop match; the lead explicitly permits held-out iNat photos as
+its only anchor. Extract exact CRPs and render offline rather than occupy the
+native slot. If the genus check fails, report the failure and stop; do not
+continue with close-only fitness or measured-target optimisation by default.
+
+The executed check is `anchor_probe.py`, reusing this module's frozen loader,
+not its older strict three-native-anchor manifest CLI. It scored nine offline
+projections plus twelve reserved photographs. Results: 4/9 and 12/12 correct,
+respectively. See observations/anchor-test/REPORT.md for domain limitations.
+No BioCLIP fitness views are admitted by this result. No optimisation started.
+
+The remainder documents the earlier native protocol, not a claim that it ran:
+
 `biological_judge.py` requires one vetted Workshop anchor for each of
 Gleditsia, Tilia and Ulmus, with supply-review evidence, exact prefab and CRP
 hash. Each needs hash-bound native single-target captures at camera sizes

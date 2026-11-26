@@ -1,0 +1,58 @@
+{
+  "supply_revision": "de93357178fe706f83eed58c53106618e0805c3a",
+  "handback_attachment": "01a2150d-5629-76a5-aa11-aab52ac3fdee",
+  "handback_sha256": "221d670c218a364297bb2a442a198684b18c90060480510ab5f2d6a539958ff1",
+  "executed_renderer_sha256": "81154bfc8bbd5aba9fd55ef79d5a73a02f56cb0dba891054919a7975ec2cdd9d",
+  "formatted_renderer_sha256": "38df9bae299cff9a532622b09bb17b40c3041a509dd0ad216cae843dfda28085",
+  "biological_loader_sha256": "5101dafb8542ecef0013bbbfaff6a8aff89c479a8e1c6278f238ed2536b14c87",
+  "native_close_sha256": {
+    "Ulmus": "1f4de08a0e5e10b29ebe91e6d42a1a5725a100dc951ba7763ec93c27c099929f",
+    "Tilia": "282f27958adedf862cb563d1ef1e8567a331a0e395e739e4f1bab357006755e8"
+  },
+  "render_receipts": [
+    {
+      "prefab": "2456536855.American Elm_Data",
+      "crp_sha256": "1232315b88b706d644d99c95e97549db0a24bb539fef73f93ffea9f27f5d1ae4",
+      "triangles": 2480,
+      "field_of_view_vertical": 45,
+      "views": {
+        "close": 52,
+        "gameplay": 140,
+        "billboard": 550
+      },
+      "source": "offline mesh; native billboard shader is not reproduced",
+      "exposure": 0,
+      "blender": "5.2.1 LTS"
+    },
+    {
+      "prefab": "2928288862.Kaiserlinde 16m_Data",
+      "crp_sha256": "bec2cc7f0ace5518a285f6371409bbcdf36a03687e4911cc7b4a4ba04f592844",
+      "triangles": 2238,
+      "field_of_view_vertical": 45,
+      "views": {
+        "close": 52,
+        "gameplay": 140,
+        "billboard": 550
+      },
+      "source": "offline mesh; native billboard shader is not reproduced",
+      "exposure": 0,
+      "blender": "5.2.1 LTS"
+    },
+    {
+      "prefab": "2402946167.Bigleaf Linden_Data",
+      "crp_sha256": "6db20ba3ad399c32a2e22c1f172a2f5a4c5d7060ae2dfd617caedceee84e795a",
+      "triangles": 1926,
+      "field_of_view_vertical": 45,
+      "views": {
+        "close": 52,
+        "gameplay": 140,
+        "billboard": 550
+      },
+      "source": "offline mesh; native billboard shader is not reproduced",
+      "exposure": 0,
+      "blender": "5.2.1 LTS"
+    }
+  ],
+  "no_optimisation_started": true,
+  "native_session_started": false
+}
