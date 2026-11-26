@@ -71,6 +71,11 @@ def run(slug):
         if lakes.any()
         else np.full(wet.shape, np.inf)
     )
+    river_area_distance = (
+        ndi.distance_transform_edt(~river_areas) * 16
+        if river_areas.any()
+        else np.full(wet.shape, np.inf)
+    )
     rows, cols = np.indices(wet.shape)
     edge_distance = np.minimum.reduce([rows, cols, 1080 - rows, 1080 - cols]) * 16
     counts = np.bincount(labels.ravel())
@@ -107,6 +112,16 @@ def run(slug):
                 "edge": bool((edge_distance[body] == 0).any()),
                 "lake_nodes": int((body & lakes).sum()),
                 "river_area_nodes": int((body & river_areas).sum()),
+                "line_nodes": int((body & lines).sum()),
+                "context": (
+                    "river-area/channel"
+                    if (body & river_areas).any()
+                    else "lake/stream interface"
+                    if (body & lakes).any() and (body & lines).any()
+                    else "pond/lake"
+                    if (body & lakes).any()
+                    else "river/stream reach"
+                ),
                 "center_xz": [
                     float(cc.mean() * 16 - 8640),
                     float(rr.mean() * 16 - 8640),
@@ -141,6 +156,7 @@ def run(slug):
                 "minimum_edge_distance_m": int(edge_distance[body].min()),
                 "minimum_line_distance_m": float(line_distance[body].min()),
                 "minimum_lake_distance_m": float(lake_distance[body].min()),
+                "minimum_river_area_distance_m": float(river_area_distance[body].min()),
                 "minimum_tunnel_distance_m": float(tunnel_distance[body].min()),
                 "raised_terrain_nodes_gt2cm": int(
                     ((terrain - original > 0.02) & body).sum()
@@ -156,6 +172,33 @@ def run(slug):
                     np.maximum(terrain - original, 0)[body].max()
                 ),
             }
+        )
+        component = components[-1]
+        nearest = min(
+            [
+                (component["minimum_lake_distance_m"], "pond/lake"),
+                (component["minimum_river_area_distance_m"], "broad river"),
+                (component["minimum_line_distance_m"], "river/stream"),
+            ],
+            key=lambda item: item[0],
+        )
+        component["context"] = (
+            (
+                "road-graded ground"
+                if component["raised_terrain_nodes_gt2cm"]
+                else "unraised ground"
+            )
+            + f"; nearest mapped {nearest[1]} at {nearest[0]:.0f}m"
+            + (
+                "; captured tunnel/culvert nearby"
+                if component["minimum_tunnel_distance_m"] <= 128
+                else ""
+            )
+            + (
+                "; map-edge reach"
+                if component["minimum_edge_distance_m"] <= 128
+                else "; inland"
+            )
         )
     components.sort(key=lambda r: -r["union_nodes"])
     retained.sort(key=lambda r: -r["lost_nodes"])
