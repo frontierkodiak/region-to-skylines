@@ -1,0 +1,35 @@
+{
+  "stage": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/native-short-02-537124",
+  "display": ":57",
+  "offline_steam": {
+    "flags": {
+      "wants_offline_mode": true,
+      "skip_offline_mode_warning": true
+    },
+    "preflight_sync": [
+      {
+        "timestamp": "2026-11-25 16:45:17",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "latest_sync": [
+      {
+        "timestamp": "2026-11-25 16:45:17",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "fresh_syncs": 0,
+    "cloud_initial_sha256": "fd46d2b5fbb0a1b660f09c7b0d404de314f00a2a48d38fb05c4df4c6d35fb33d"
+  },
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "raw_receipt_sha256": "e064d38f3d190b77aa9556f0fb941f01a282b2f367f3552b2a2bd3232ca3b295",
+  "projection": "Run/account guards, mod identity and teardown; audio graph/process dumps omitted"
+}

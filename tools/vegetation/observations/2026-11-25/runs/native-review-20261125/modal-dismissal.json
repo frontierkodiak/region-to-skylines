@@ -1,0 +1,13 @@
+{
+  "before": {
+    "count": 1,
+    "top": "(Library) ExceptionPanel",
+    "top_visible": true
+  },
+  "after": {
+    "count": 0,
+    "top": null,
+    "top_visible": false
+  },
+  "reason": "Known duplicate-prefab import warning; all timing samples from this acquisition review run rejected"
+}

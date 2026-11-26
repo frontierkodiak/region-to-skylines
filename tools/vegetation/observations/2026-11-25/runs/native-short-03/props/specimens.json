@@ -1,0 +1,695 @@
+[
+  {
+    "candidate": "2750065287.JVC decal rock (32)_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2750065287.JVC decal rock (32)_Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.82510375976562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.722328186035156,
+        "size": 78.00090789794922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.816362738609314,
+          0.5775395035743713
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2750065287.JVC decal rock (32)_Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2750069218.JVC decal rocks (32)_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2750069218.JVC decal rocks (32)_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.69732666015625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999908447265625,
+        "size": 77.4144058227539,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191512227058411,
+          0.5735776424407959
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2750069218.JVC decal rocks (32)_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2754185471.JVC decal rock mix_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2754185471.JVC decal rock mix_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          162.69732666015625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999977111816406,
+        "size": 77.41426086425781,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518187522888,
+          0.5735767483711243
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2754185471.JVC decal rock mix_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 01_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 01_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1380.6534423828125,
+            159.67237854003906,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1319.3465576171875,
+            159.31732177734375,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.82293701171875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99999237060547,
+        "size": 93.6946029663086,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 01_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1380.6534423828125,
+              159.67237854003906,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1319.3465576171875,
+              159.31732177734375,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 02_Data",
+    "base_neighbour": "Fallen Tree 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 02_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1364.230712890625,
+            159.6207733154297,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1335.769287109375,
+            159.4123077392578,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.35357666015625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 44.4567985534668,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 02_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1364.230712890625,
+              159.6207733154297,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1335.769287109375,
+              159.4123077392578,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 03_Data",
+    "base_neighbour": "High Flower Pot 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 03_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1378.2265625,
+            159.6608123779297,
+            -1350
+          ]
+        },
+        {
+          "name": "High Flower Pot 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1321.7734375,
+            159.32923889160156,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.08135986328125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 85.69281005859375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 03_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1378.2265625,
+              159.6608123779297,
+              -1350
+            ]
+          },
+          {
+            "name": "High Flower Pot 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1321.7734375,
+              159.32923889160156,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 04_Data",
+    "base_neighbour": "Rock 08",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 04_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1380.0438232421875,
+            159.66937255859375,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 08",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1319.9561767578125,
+            159.3203582763672,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.2449493408203,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 91.5670394897461,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 04_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1380.0438232421875,
+              159.66937255859375,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 08",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1319.9561767578125,
+              159.3203582763672,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 05_Data",
+    "base_neighbour": "Flower pot 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 05_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.0489501953125,
+            159.64456176757812,
+            -1350
+          ]
+        },
+        {
+          "name": "Flower pot 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.9510498046875,
+            159.35047912597656,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.8911895751953,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 72.9642562866211,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 05_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.0489501953125,
+              159.64456176757812,
+              -1350
+            ]
+          },
+          {
+            "name": "Flower pot 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.9510498046875,
+              159.35047912597656,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2803411105.Landscape Grass 06_Data",
+    "base_neighbour": "Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2803411105.Landscape Grass 06_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.779541015625,
+            159.61573791503906,
+            -1350
+          ]
+        },
+        {
+          "name": "Hedge 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.220458984375,
+            159.42210388183594,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.75271606445312,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 39.611724853515625,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2803411105.Landscape Grass 06_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.779541015625,
+              159.61573791503906,
+              -1350
+            ]
+          },
+          {
+            "name": "Hedge 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.220458984375,
+              159.42210388183594,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

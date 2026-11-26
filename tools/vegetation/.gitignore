@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+data/index.html
+data/native/
+observations/native/*.png

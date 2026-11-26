@@ -1,0 +1,146 @@
+[
+  {
+    "name": "2456536855.American Elm_Data",
+    "main": {
+      "triangles": 2480,
+      "vertices": 3674,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        13.395637512207031,
+        15.0225248336792,
+        14.161795616149902
+      ],
+      "size_m": [
+        14.729243278503418,
+        14.960259437561035,
+        14.760186195373535
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        14.760186195373535,
+        14.960259437561035,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 2048,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 2048,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      1.2999999523162842
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 3674
+  },
+  {
+    "name": "2402946167.Bigleaf Linden_Data",
+    "main": {
+      "triangles": 1926,
+      "vertices": 2442,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.052870750427246,
+        12.38297176361084,
+        9.105277061462402
+      ],
+      "size_m": [
+        9.282934188842773,
+        12.297269821166992,
+        9.527872085571289
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.527872085571289,
+        12.297269821166992,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 2048,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 2048,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      1.5
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 2442
+  },
+  {
+    "name": "2928288862.Kaiserlinde 16m_Data",
+    "main": {
+      "triangles": 2238,
+      "vertices": 2562,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        11.491754531860352,
+        16.678585052490234,
+        10.467813491821289
+      ],
+      "size_m": [
+        12.306047439575195,
+        16.478586196899414,
+        11.232094764709473
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        12.306047439575195,
+        16.478586196899414,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 2048,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 2048,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      0.8600000143051147,
+      1.1100000143051147
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 2562
+  }
+]

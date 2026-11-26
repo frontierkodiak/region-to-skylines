@@ -1,0 +1,1007 @@
+[
+  {
+    "candidate": "2456536855.American Elm_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2456536855.American Elm_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png",
+      "gameplay": "pair-01-gameplay.png",
+      "side": "pair-01-side.png",
+      "back": "pair-01-back.png",
+      "transition-near": "pair-01-transition-near.png",
+      "transition-far": "pair-01-transition-far.png",
+      "wind-second-frame": "pair-01-wind-second-frame.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          167.27639770507812,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 25,
+        "size": 69.39562225341797,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.4226182997226715,
+          0.9063077569007874
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          167.27639770507812,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 49.78318405151367,
+        "size": 694.531005859375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.763606607913971,
+          0.6456817984580994
+        ],
+        "ok": true
+      },
+      "side": {
+        "position": [
+          -1350,
+          167.33248901367188,
+          -1350
+        ],
+        "yaw": 89.16559600830078,
+        "heading_deg": 89.16559600830078,
+        "pitch": 25.231698989868164,
+        "size": 75.24007415771484,
+        "max_size": 4000,
+        "forward": [
+          0.9044954180717468,
+          -0.42627984285354614,
+          0.013173170387744904
+        ],
+        "ok": true
+      },
+      "back": {
+        "position": [
+          -1350,
+          167.27694702148438,
+          -1350
+        ],
+        "yaw": 179.0972442626953,
+        "heading_deg": 179.0972442626953,
+        "pitch": 25.000085830688477,
+        "size": 69.39778900146484,
+        "max_size": 4000,
+        "forward": [
+          0.014279224909842014,
+          -0.42261967062950134,
+          -0.9061946868896484
+        ],
+        "ok": true
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          167.27647399902344,
+          -1350
+        ],
+        "yaw": 1.7792887687683105,
+        "heading_deg": 1.7792887687683105,
+        "pitch": 49.752830505371094,
+        "size": 268.0166931152344,
+        "max_size": 4000,
+        "forward": [
+          0.020060628652572632,
+          -0.7632644772529602,
+          0.6457747220993042
+        ],
+        "ok": true
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          167.27645874023438,
+          -1350
+        ],
+        "yaw": 0.0006048930226825178,
+        "heading_deg": 0.0006048930226825178,
+        "pitch": 49.99991989135742,
+        "size": 329.4438781738281,
+        "max_size": 4000,
+        "forward": [
+          6.786161520722089e-06,
+          -0.7660436630249023,
+          0.6427885890007019
+        ],
+        "ok": true
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          167.27645874023438,
+          -1350
+        ],
+        "yaw": 2.229338775805445e-07,
+        "heading_deg": 2.229338633696898e-07,
+        "pitch": 49.999977111816406,
+        "size": 71.99783325195312,
+        "max_size": 4000,
+        "forward": [
+          2.5010429283156554e-09,
+          -0.7660441398620605,
+          0.6427879333496094
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1350,
+              158.90005493164062,
+              -1325.5701904296875
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1350,
+              160.20733642578125,
+              -1374.4298095703125
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "2456536855.American Elm_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2402946167.Bigleaf Linden_Data",
+    "base_neighbour": "mp9-YoungLinden",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2402946167.Bigleaf Linden_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1366.443359375,
+            159.62684631347656,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-YoungLinden",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1333.556640625,
+            159.39764404296875,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png",
+      "gameplay": "pair-02-gameplay.png",
+      "side": "pair-02-side.png",
+      "back": "pair-02-back.png",
+      "transition-near": "pair-02-transition-near.png",
+      "transition-far": "pair-02-transition-far.png",
+      "wind-second-frame": "pair-02-wind-second-frame.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          166.89447021484375,
+          -1350
+        ],
+        "yaw": 1.5178476531207963e-11,
+        "heading_deg": 1.517719283583574e-11,
+        "pitch": 25.249479293823242,
+        "size": 48.755558013916016,
+        "max_size": 4000,
+        "forward": [
+          2.396042348903893e-13,
+          -0.42656055092811584,
+          0.9044589996337891
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          166.89068603515625,
+          -1350
+        ],
+        "yaw": 5.186879520861646e-15,
+        "heading_deg": 0,
+        "pitch": 49.768310546875,
+        "size": 693.9605712890625,
+        "max_size": 4000,
+        "forward": [
+          5.847030053716013e-17,
+          -0.7634389400482178,
+          0.6458799839019775
+        ],
+        "ok": true
+      },
+      "side": {
+        "position": [
+          -1350,
+          166.91510009765625,
+          -1350
+        ],
+        "yaw": 89.16694641113281,
+        "heading_deg": 89.16694641113281,
+        "pitch": 25.231319427490234,
+        "size": 54.57512283325195,
+        "max_size": 4000,
+        "forward": [
+          0.9044986367225647,
+          -0.4262739419937134,
+          0.013151690363883972
+        ],
+        "ok": true
+      },
+      "back": {
+        "position": [
+          -1350,
+          166.89083862304688,
+          -1350
+        ],
+        "yaw": 179.16506958007812,
+        "heading_deg": 179.16506958007812,
+        "pitch": 25.000078201293945,
+        "size": 48.54939651489258,
+        "max_size": 4000,
+        "forward": [
+          0.013206291943788528,
+          -0.4226195812225342,
+          -0.9062109589576721
+        ],
+        "ok": true
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          166.89068603515625,
+          -1350
+        ],
+        "yaw": 1.7809689044952393,
+        "heading_deg": 1.7809689044952393,
+        "pitch": 49.752601623535156,
+        "size": 267.8085021972656,
+        "max_size": 4000,
+        "forward": [
+          0.020079659298062325,
+          -0.7632617950439453,
+          0.6457772850990295
+        ],
+        "ok": true
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          166.89068603515625,
+          -1350
+        ],
+        "yaw": 0.0006632152362726629,
+        "heading_deg": 0.0006632152362726629,
+        "pitch": 49.999908447265625,
+        "size": 329.39892578125,
+        "max_size": 4000,
+        "forward": [
+          7.440468834829517e-06,
+          -0.766043484210968,
+          0.6427887678146362
+        ],
+        "ok": true
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          166.89068603515625,
+          -1350
+        ],
+        "yaw": 2.446878966111399e-07,
+        "heading_deg": 2.446878966111399e-07,
+        "pitch": 49.999977111816406,
+        "size": 51.36176681518555,
+        "max_size": 4000,
+        "forward": [
+          2.745096372436251e-09,
+          -0.7660441398620605,
+          0.6427879333496094
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1350,
+              159.096435546875,
+              -1333.556640625
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1350,
+              159.97750854492188,
+              -1366.443359375
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "2402946167.Bigleaf Linden_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1366.443359375,
+              159.62684631347656,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-YoungLinden",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1333.556640625,
+              159.39764404296875,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "2928288862.Kaiserlinde 16m_Data",
+    "base_neighbour": "mp9-BloomingJacarandavnl",
+    "pair": {
+      "specimens": [
+        {
+          "name": "2928288862.Kaiserlinde 16m_Data",
+          "created": true,
+          "id": 262141,
+          "position": [
+            -1374.4298095703125,
+            159.64573669433594,
+            -1350
+          ]
+        },
+        {
+          "name": "mp9-BloomingJacarandavnl",
+          "created": true,
+          "id": 262139,
+          "position": [
+            -1325.5701904296875,
+            159.34840393066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png",
+      "gameplay": "pair-03-gameplay.png",
+      "side": "pair-03-side.png",
+      "back": "pair-03-back.png",
+      "transition-near": "pair-03-transition-near.png",
+      "transition-far": "pair-03-transition-far.png",
+      "wind-second-frame": "pair-03-wind-second-frame.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          166.81915283203125,
+          -1350
+        ],
+        "yaw": 1.6643426220541713e-11,
+        "heading_deg": 1.6655121726216748e-11,
+        "pitch": 25.24993133544922,
+        "size": 69.3790054321289,
+        "max_size": 4000,
+        "forward": [
+          2.6272861382119206e-13,
+          -0.4265676736831665,
+          0.9044556617736816
+        ],
+        "ok": true
+      },
+      "gameplay": {
+        "position": [
+          -1350,
+          166.81851196289062,
+          -1350
+        ],
+        "yaw": 6.1336442449080354e-15,
+        "heading_deg": 0,
+        "pitch": 49.75004959106445,
+        "size": 693.6947021484375,
+        "max_size": 4000,
+        "forward": [
+          6.916898178802708e-17,
+          -0.7632330060005188,
+          0.6461233496665955
+        ],
+        "ok": true
+      },
+      "side": {
+        "position": [
+          -1350,
+          166.87452697753906,
+          -1350
+        ],
+        "yaw": 89.16638946533203,
+        "heading_deg": 89.16638946533203,
+        "pitch": 25.23147964477539,
+        "size": 75.42620086669922,
+        "max_size": 4000,
+        "forward": [
+          0.9044972658157349,
+          -0.42627641558647156,
+          0.013160645961761475
+        ],
+        "ok": true
+      },
+      "back": {
+        "position": [
+          -1350,
+          166.81895446777344,
+          -1350
+        ],
+        "yaw": 179.16574096679688,
+        "heading_deg": 179.16574096679688,
+        "pitch": 25.000076293945312,
+        "size": 69.59117126464844,
+        "max_size": 4000,
+        "forward": [
+          0.01319592259824276,
+          -0.4226195216178894,
+          -0.9062111973762512
+        ],
+        "ok": true
+      },
+      "transition-near": {
+        "position": [
+          -1350,
+          166.81851196289062,
+          -1350
+        ],
+        "yaw": 1.6509920358657837,
+        "heading_deg": 1.6509920358657837,
+        "pitch": 49.770660400390625,
+        "size": 268.16156005859375,
+        "max_size": 4000,
+        "forward": [
+          0.018607713282108307,
+          -0.7634654641151428,
+          0.6455805897712708
+        ],
+        "ok": true
+      },
+      "transition-far": {
+        "position": [
+          -1350,
+          166.81851196289062,
+          -1350
+        ],
+        "yaw": 0.0005691639962606132,
+        "heading_deg": 0.0005691639962606132,
+        "pitch": 49.99992370605469,
+        "size": 329.43804931640625,
+        "max_size": 4000,
+        "forward": [
+          6.385325377777917e-06,
+          -0.7660436630249023,
+          0.6427885890007019
+        ],
+        "ok": true
+      },
+      "wind-second-frame": {
+        "position": [
+          -1350,
+          166.81851196289062,
+          -1350
+        ],
+        "yaw": 1.9439777076968312e-07,
+        "heading_deg": 1.9439778498053784e-07,
+        "pitch": 49.999977111816406,
+        "size": 72.00016784667969,
+        "max_size": 4000,
+        "forward": [
+          2.180903235782239e-09,
+          -0.7660441398620605,
+          0.6427879333496094
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "gameplay": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "side": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1350,
+              158.90005493164062,
+              -1325.5701904296875
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1350,
+              160.20733642578125,
+              -1374.4298095703125
+            ]
+          }
+        ]
+      },
+      "back": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-near": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "transition-far": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 125694,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 39640,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      },
+      "wind-second-frame": {
+        "specimens": [
+          {
+            "name": "2928288862.Kaiserlinde 16m_Data",
+            "created": true,
+            "id": 262141,
+            "position": [
+              -1374.4298095703125,
+              159.64573669433594,
+              -1350
+            ]
+          },
+          {
+            "name": "mp9-BloomingJacarandavnl",
+            "created": true,
+            "id": 262139,
+            "position": [
+              -1325.5701904296875,
+              159.34840393066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

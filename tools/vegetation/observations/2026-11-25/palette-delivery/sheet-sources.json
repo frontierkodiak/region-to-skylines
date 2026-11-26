@@ -1,0 +1,133 @@
+{
+  "composition": "Twenty native comparisons from explicit short-session sources, not one continuous capture session",
+  "sources": [
+    {
+      "run": "native-final-20-b",
+      "chosen_names": [
+        "1089035056.Forest Beech Full_Data",
+        "1230960704.PD - Pine Regular _Data",
+        "1515191700.Norway Spruce Tall_Data",
+        "1774634417.Silver Birch 2_Data",
+        "2029030150.Lombardy Poplar_Data",
+        "2129899406.Western Red Cedar 04_Data",
+        "2202615391.Douglas Fir 08 32m_Data",
+        "2242682818.Alder 05 14m_Data",
+        "2402946167.Bigleaf Linden_Data",
+        "2456536855.American Elm_Data",
+        "2932179333.Norway Maple Giant 27m_Data",
+        "704607028.Live Oak Tree_Data",
+        "843982695.Stone Pine Medium_Data",
+        "958858484.Olive tree 3_Data"
+      ],
+      "source_specimens_sha256": "9583467af3b2da980e8c7b66923543d54cee39d4bdfe4f9c1c9a0cf5b3fc1eb7",
+      "build_sha256": "b9505127634c9926692e390147366962df253e4405985949851e3094ffd7d23b",
+      "session_receipt_sha256": "39f5315f5cf7c97b3be61a219d49acaceaec5e4d41240fda26e724b337314451",
+      "resources": {
+        "sample_count": 115,
+        "elapsed_sampler_seconds": 570.278,
+        "sampled_board_peak_mib": 12775.0,
+        "sampled_board_peak_watts": 95.11,
+        "sampled_board_peak_celsius": 61.0,
+        "game_peak_mib": null,
+        "game_peak_basis": "Not sampled per process; menu process samples are not a peak",
+        "gpu_csv_sha256": "2ae0ef9a0313356ea41fb5d283065fcc10294662560dde42831cffd2e897dadc",
+        "gpu": {
+          "bus": "0b:00.0",
+          "name": "NVIDIA GeForce RTX 3090",
+          "egl": "egl1",
+          "label": "PL-1326 vegetation supply",
+          "mem_used_before_mib": 6935,
+          "mem_total_mib": 24576
+        },
+        "sampler_first": "2026/11/25 17:57:20.899",
+        "sampler_last": "2026/11/25 18:06:51.177"
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "whole_run_completed": false,
+      "scope": "Only the explicitly named completed seven-view captures are used; a stopped session is not claimed complete"
+    },
+    {
+      "run": "native-final-20",
+      "chosen_names": [
+        "2135000720.Large Eucalyptus _Data",
+        "2953236892.Cherry Blossom 2_Data",
+        "668294281.Bald Cypress_Data"
+      ],
+      "source_specimens_sha256": "e68187ebdd70e86713c36a5c2afa38f25a39cf6d19b91fc3abb981499f1a9ca5",
+      "build_sha256": "b9505127634c9926692e390147366962df253e4405985949851e3094ffd7d23b",
+      "session_receipt_sha256": "e5068b3ca17d4f3b3a6cb4de35a92c27d30c7f1a32f359245d377d74d46db463",
+      "resources": {
+        "sample_count": 113,
+        "elapsed_sampler_seconds": 560.293,
+        "sampled_board_peak_mib": 12775.0,
+        "sampled_board_peak_watts": 94.21,
+        "sampled_board_peak_celsius": 61.0,
+        "game_peak_mib": null,
+        "game_peak_basis": "Not sampled per process; menu process samples are not a peak",
+        "gpu_csv_sha256": "ea03b2f2ed688e0e7c3a54251e2263ca6d63cd28e672d3208760d08109b53c40",
+        "gpu": {
+          "bus": "0b:00.0",
+          "name": "NVIDIA GeForce RTX 3090",
+          "egl": "egl1",
+          "label": "PL-1326 vegetation supply",
+          "mem_used_before_mib": 6935,
+          "mem_total_mib": 24576
+        },
+        "sampler_first": "2026/11/25 17:46:44.451",
+        "sampler_last": "2026/11/25 17:56:04.744"
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "whole_run_completed": false,
+      "scope": "Only the explicitly named completed seven-view captures are used; a stopped session is not claimed complete"
+    },
+    {
+      "run": "native-tail-three",
+      "chosen_names": [
+        "1547344928.Coast Redwood_Data",
+        "2593482657.Canary Date Palm 15m_Data",
+        "2787290146.Plumeria_Data"
+      ],
+      "source_specimens_sha256": "997440847710b5b982257b48ed3e36f7425ab31800478cd199ea814397395f4d",
+      "build_sha256": "b9505127634c9926692e390147366962df253e4405985949851e3094ffd7d23b",
+      "session_receipt_sha256": "6b5ba834d60d88a53ab94cfc97cc65375136258269e6bbd7b9d7d7b801cb4d87",
+      "resources": {
+        "sample_count": 48,
+        "elapsed_sampler_seconds": 235.125,
+        "sampled_board_peak_mib": 12524.0,
+        "sampled_board_peak_watts": 89.93,
+        "sampled_board_peak_celsius": 51.0,
+        "game_peak_mib": null,
+        "game_peak_basis": "Not sampled per process; menu process samples are not a peak",
+        "gpu_csv_sha256": "6363424e4bd6f8d793bcc7a88467388082ca97649026db151f4823d7c6f753d1",
+        "gpu": {
+          "bus": "0b:00.0",
+          "name": "NVIDIA GeForce RTX 3090",
+          "egl": "egl1",
+          "label": "PL-1326 vegetation supply",
+          "mem_used_before_mib": 6935,
+          "mem_total_mib": 24576
+        },
+        "sampler_first": "2026/11/25 18:07:54.010",
+        "sampler_last": "2026/11/25 18:11:49.135"
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "whole_run_completed": true,
+      "scope": "Only the explicitly named completed seven-view captures are used; a stopped session is not claimed complete"
+    }
+  ],
+  "save_reload_source_run": "native-palette-save-only",
+  "benchmark_source_run": "native-benchmark-clean",
+  "no_pixels_changed": true
+}

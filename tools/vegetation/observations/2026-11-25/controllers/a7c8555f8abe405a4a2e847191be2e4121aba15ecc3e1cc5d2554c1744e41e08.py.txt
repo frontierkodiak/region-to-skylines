@@ -1,0 +1,70 @@
+import hashlib
+import json
+from pathlib import Path
+
+root = Path('region-to-skylines/tools/vegetation')
+obs = root / 'observations/2026-11-25'
+run = Path('native-palette-delivery')
+rows = json.loads((run / 'specimens.json').read_text())
+notes = json.loads(Path('multiview-notes.json').read_text())
+reload = json.loads((run / 'save-reload.json').read_text())
+cleanup = json.loads((run / 'cleanup.json').read_text())
+expected = json.loads(Path('review-final-20-b.json').read_text())['selected_names']
+assert len(rows) == len(set(r['candidate'] for r in rows)) == 20
+assert [r['candidate'] for r in rows] == expected
+assert reload['identity_stable'] is True
+assert reload['before_instances'] == reload['after_instances']
+assert set(reload['before_instances']) == set(expected)
+assert sum(reload['before_instances'].values()) == 20
+assert all(not v for v in cleanup.values())
+assert all(not v for v in json.loads((run / 'session-receipt.json').read_text())['cleanup'].values())
+
+views = {'close', 'wind-second-frame', 'gameplay', 'side', 'back', 'transition-near', 'transition-far'}
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+audit = []
+reviews = []
+for i, row in enumerate(rows):
+    name = row['candidate']
+    assert set(row['views']) == views
+    assert row['placements']['close'] == row['placements']['wind-second-frame']
+    first, second = (row['cameras'][v] for v in ['close', 'wind-second-frame'])
+    deltas = {k: abs(first[k] - second[k]) for k in ['size', 'pitch', 'yaw']}
+    deltas['position_m'] = max(abs(a-b) for a,b in zip(first['position'], second['position']))
+    assert max(deltas.values()) < 0.1, (name, deltas)
+    assert abs(row['cameras']['gameplay']['size'] - 200) < 0.4
+    frames = {v: digest(run / filename) for v, filename in row['views'].items()}
+    original_hashes = json.loads((obs / 'runs' / row['source_run'] / 'image-sha256.json').read_text())
+    assert all(frames[v] == original_hashes[row['source_frame_names'][v]] for v in frames)
+    assert all('rendered_camera' in c for c in row['cameras'].values())
+    assert second['simulation_frame'] > first['simulation_frame']
+    page = f'multiview-{i // 3 + 1:02}.jpg'
+    gameplay, billboard, text = notes[name]
+    reviews.append({
+        'prefab': name, 'source_run': row['source_run'],
+        'gates': {'gameplay_art': gameplay, 'billboard': billboard, 'wind': 'unknown', 'save_reload': 'pass'},
+        'notes': text,
+        'wind_limit': 'Consecutive frames preserve placement and settled camera; two stills do not establish plausible animation or separate trunk/foliage motion.',
+        'evidence_contact': f'multi-view/{page}',
+        'contact_sha256': digest(Path('final-multiview-delivery') / page),
+        'native_frame_sha256': frames,
+        'bioclip': 'not_run',
+        'scope': 'Coarse visual gameplay form only, not botanical authentication, scale accuracy or full forest certification',
+    })
+    audit.append({'prefab': name, 'native_pngs': 7, 'wind_camera_delta': deltas,
+                  'simulation_frames': [first['simulation_frame'], second['simulation_frame']],
+                  'rendered_camera_metadata_present': all('rendered_camera' in c for c in row['cameras'].values())})
+
+p = obs / 'multi-view-reviews.json'
+data = json.loads(p.read_text())
+data['reviews'] = [r for r in data['reviews'] if r['prefab'] not in set(expected)] + reviews
+p.write_text(json.dumps(data, indent=2) + '\n')
+(obs / 'final-palette-audit.json').write_text(json.dumps({
+    'run': run.name, 'specimens': 20, 'native_pngs': 140,
+    'save_reload_identity_stable': True, 'palette_instances': 20, 'cleanup_empty': True,
+    'specimens_sha256': digest(run / 'specimens.json'),
+    'save_reload_sha256': digest(run / 'save-reload.json'),
+    'camera_checks': audit, 'bioclip': 'not_run',
+}, indent=2) + '\n')
+print('Verified 20 identities, 140 PNGs, fixed wind placements/poses and save/reload; wrote explicit visual gates')

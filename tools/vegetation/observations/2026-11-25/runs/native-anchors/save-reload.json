@@ -1,0 +1,18 @@
+{
+  "save": {
+    "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Saves/PL1326_QA_438043_1795642627.crp",
+    "bytes": 3205274
+  },
+  "before_instances": {
+    "2402946167.Bigleaf Linden_Data": 1,
+    "2928288862.Kaiserlinde 16m_Data": 1,
+    "2456536855.American Elm_Data": 1
+  },
+  "after_instances": {
+    "2402946167.Bigleaf Linden_Data": 1,
+    "2928288862.Kaiserlinde 16m_Data": 1,
+    "2456536855.American Elm_Data": 1
+  },
+  "identity_stable": true,
+  "loaded_tree_names_stable": true
+}

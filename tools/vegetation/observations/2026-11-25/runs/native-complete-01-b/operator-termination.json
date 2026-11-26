@@ -1,0 +1,6 @@
+{
+  "pid": 395254,
+  "reason": "Native bridge stopped answering; exact owned game ignored SIGTERM",
+  "signal": "SIGKILL",
+  "utc": "2026-11-25T21:27:23Z"
+}

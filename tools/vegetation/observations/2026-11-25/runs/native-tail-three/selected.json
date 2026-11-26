@@ -1,0 +1,146 @@
+[
+  {
+    "name": "1547344928.Coast Redwood_Data",
+    "main": {
+      "triangles": 3374,
+      "vertices": 3560,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        14.710556030273438,
+        52.900550842285156,
+        15.047796249389648
+      ],
+      "size_m": [
+        14.88591480255127,
+        51.78659439086914,
+        15.622228622436523
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        15.622227668762207,
+        51.78659439086914,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 2048,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 2048,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      1,
+      2
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 3560
+  },
+  {
+    "name": "2593482657.Canary Date Palm 15m_Data",
+    "main": {
+      "triangles": 2950,
+      "vertices": 7129,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.595870971679688,
+        18.82714080810547,
+        9.698914527893066
+      ],
+      "size_m": [
+        9.715768814086914,
+        18.764368057250977,
+        9.770245552062988
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.770245552062988,
+        18.764368057250977,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 2048,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 2048,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      0.949999988079071,
+      1.0499999523162842
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 7129
+  },
+  {
+    "name": "2787290146.Plumeria_Data",
+    "main": {
+      "triangles": 5100,
+      "vertices": 6835,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        8.134305953979492,
+        7.711184978485107,
+        9.051498413085938
+      ],
+      "size_m": [
+        8.180135726928711,
+        7.631895065307617,
+        9.930122375488281
+      ],
+      "size_basis": "TreeInfoGen.m_size, before instance random scale"
+    },
+    "lod": {
+      "triangles": 2,
+      "vertices": 4,
+      "cpu_readable": true,
+      "renderer_bounds_size_m": [
+        9.930122375488281,
+        7.631895065307617,
+        0
+      ]
+    },
+    "textures": [
+      {
+        "channel": "_MainTex",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "channel": "_XYCAMap",
+        "width": 1024,
+        "height": 1024
+      }
+    ],
+    "scale_range": [
+      0.75,
+      1.2000000476837158
+    ],
+    "shader": "Custom/Trees/Default",
+    "lod_distance_m": 300,
+    "vertex_color_count": 6835
+  }
+]

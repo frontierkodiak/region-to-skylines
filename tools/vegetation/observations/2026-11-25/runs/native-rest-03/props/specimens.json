@@ -1,0 +1,464 @@
+[
+  {
+    "candidate": "916034338.Tufts Brown _Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Brown _Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1371.5140380859375,
+            159.63790893554688,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1328.4859619140625,
+            159.3654022216797,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3348388671875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 65.11870574951172,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Brown _Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1371.5140380859375,
+              159.63790893554688,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1328.4859619140625,
+              159.3654022216797,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "916034338.Tufts Dark Green _Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Dark Green _Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1371.5140380859375,
+            159.63790893554688,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1328.4859619140625,
+            159.3654022216797,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.33258056640625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 65.68909454345703,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Dark Green _Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1371.5140380859375,
+              159.63790893554688,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1328.4859619140625,
+              159.3654022216797,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "916034338.Tufts Light Green _Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Light Green _Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1371.5140380859375,
+            159.63790893554688,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1328.4859619140625,
+            159.3654022216797,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3325653076172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 65.6892318725586,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Light Green _Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1371.5140380859375,
+              159.63790893554688,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1328.4859619140625,
+              159.3654022216797,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "916034338.Tufts Short Brown_Data",
+    "base_neighbour": "Plant Pot 05",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Short Brown_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1363.131103515625,
+            159.61705017089844,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 05",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1336.868896484375,
+            159.4197235107422,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.03985595703125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 40.17572021484375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Short Brown_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1363.131103515625,
+              159.61705017089844,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 05",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1336.868896484375,
+              159.4197235107422,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "916034338.Tufts Short Dark Green_Data",
+    "base_neighbour": "Plant Pot 05",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Short Dark Green_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1363.131103515625,
+            159.61705017089844,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 05",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1336.868896484375,
+            159.4197235107422,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.03720092773438,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998474121094,
+        "size": 39.937442779541016,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Short Dark Green_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1363.131103515625,
+              159.61705017089844,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 05",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1336.868896484375,
+              159.4197235107422,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "916034338.Tufts Short Light Green _Data",
+    "base_neighbour": "Plant Pot 05",
+    "pair": {
+      "specimens": [
+        {
+          "name": "916034338.Tufts Short Light Green _Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1363.131103515625,
+            159.61705017089844,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 05",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1336.868896484375,
+            159.4197235107422,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.0371551513672,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.9999885559082,
+        "size": 39.937381744384766,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519379615784,
+          0.5735765695571899
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "916034338.Tufts Short Light Green _Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1363.131103515625,
+              159.61705017089844,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 05",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1336.868896484375,
+              159.4197235107422,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

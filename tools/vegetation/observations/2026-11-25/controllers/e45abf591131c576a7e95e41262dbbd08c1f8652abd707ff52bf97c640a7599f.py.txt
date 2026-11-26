@@ -1,0 +1,509 @@
+"""Foreground blade-only native catalog, A/B/A render timing and specimen sheet.
+
+Run from tools/cs1-harness's locked environment. Only already-cached packages
+are copied into this session's local Assets directory; --noWorkshop and the
+read-only offline guard are mandatory. Session teardown removes those copies.
+One uniquely named QA save is written, reloaded and tracked for deletion.
+No subscriptions, credentials, purchases or account settings are changed.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import socket
+import subprocess
+import sys
+import time
+
+from assemble import check_frame, classify
+from framing import pair_framing
+from installed import natural_prop, prefab_collisions
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "cs1-harness"))
+from cs1_harness.cli import slot, staging
+from cs1_harness.config import Config
+
+
+def write(path, value):
+    path.write_text(json.dumps(value, indent=2) + "\n")
+
+
+def replay_safe(session, op, **params):
+    if op not in {"camera", "camera_state", "status", "screenshot", "job", "vegetation_catalog", "ui"}:
+        raise ValueError("Not a replay-safe observer/setter operation")
+    for attempt in range(3):
+        try:
+            return session.client.call(op, **params)
+        except (ConnectionResetError, BrokenPipeError, TimeoutError) as error:
+            session.receipt.setdefault("transport_retries", []).append(
+                {"op": op, "attempt": attempt + 1, "error": type(error).__name__}
+            )
+            if attempt == 2:
+                raise
+            session.alive()
+            time.sleep(0.5)
+
+
+def job(session, op, **params):
+    session.client.call(op, **params)
+    return wait_job(session)
+
+
+def wait_job(session):
+    deadline = time.monotonic() + 180
+    while time.monotonic() < deadline:
+        session.alive()
+        result = replay_safe(session, "job")
+        if result["state"] == "failed":
+            raise RuntimeError(result["error"])
+        if result["state"] == "done":
+            return result["result"]
+        time.sleep(0.25)
+    raise TimeoutError("Native job did not finish")
+
+
+def capture(session, out, name):
+    target = session.stage / "shots" / f"{name}.png"
+    target.unlink(missing_ok=True)
+    state = replay_safe(session, "status")
+    if state["modal"]["count"]:
+        raise ValueError(f"A native modal obstructs the evidence frame: {state['modal']}")
+    replay_safe(session, "screenshot", path=str(target))
+    deadline = time.monotonic() + 30
+    while time.monotonic() < deadline:
+        if target.exists() and target.stat().st_size > 0:
+            time.sleep(0.3)
+            shutil.copyfile(target, out / target.name)
+            return target.name
+        time.sleep(0.2)
+    raise TimeoutError(str(target))
+
+
+def capture_sheet(session, out, catalog, selected, base, *, overview=False, multiview=False):
+    specimens = []
+    # One quiet patch, identical weather/lighting, common frame for each pair.
+    x, z = catalog["forest_patch"]
+    for i, candidate in enumerate(selected):
+        h = candidate["main"]["size_m"][1]
+        traits = classify(candidate["name"])
+        similar = [t for t in base if traits["genus"] and classify(t["name"])["genus"] == traits["genus"]]
+        if not similar:
+            similar = [t for t in base if classify(t["name"])["form"] == traits["form"]] or base
+        neighbour = min(similar, key=lambda t: abs(t["main"]["size_m"][1] - h))
+        low = h < 3 or candidate.get("kind") == "PropInfo"
+        framing = pair_framing(candidate, neighbour, low=low)
+        gap, height = framing["gap"], framing["height"]
+        try:
+            pair = job(
+                session,
+                "vegetation_pair",
+                left=candidate["name"],
+                right=neighbour["name"],
+                x=x,
+                z=z,
+                gap=gap,
+                kind=candidate.get("kind", "TreeInfo"),
+            )
+        except (RuntimeError, ValueError) as error:
+            if not overview:
+                raise
+            specimens.append({"candidate": candidate["name"], "error": str(error), "views": {}})
+            write(out / "specimens.json", specimens)
+            continue
+        if not all(t["created"] for t in pair["specimens"]):
+            raise ValueError("Native specimen placement failed")
+        ground = sum(t["position"][1] for t in pair["specimens"]) / 2
+        views, cameras, placements = {}, {}, {}
+        viewspecs = [("close", framing["size"], 0)]
+        if overview:
+            viewspecs = viewspecs[:1]
+        else:
+            if multiview:
+                viewspecs.append(("wind-second-frame", framing["size"], 0))
+            viewspecs.append(("gameplay", 700, 0))
+        if multiview:
+            distance = candidate["lod_distance_m"]
+            viewspecs += [
+                ("side", framing["size"], 90),
+                ("back", framing["size"], 180),
+                ("transition-near", distance * 0.9, 0),
+                ("transition-far", distance * 1.1, 0),
+            ]
+        for view, size, yaw in viewspecs:
+            if multiview and view != "wind-second-frame":
+                pair = job(
+                    session,
+                    "vegetation_pair",
+                    left=candidate["name"],
+                    right=neighbour["name"],
+                    x=x,
+                    z=z,
+                    gap=gap,
+                    yaw=yaw,
+                )
+                if not all(t["created"] for t in pair["specimens"]):
+                    raise ValueError("Native multi-angle placement failed")
+                ground = sum(t["position"][1] for t in pair["specimens"]) / 2
+            placements[view] = pair
+            if view != "wind-second-frame":
+                replay_safe(
+                    session,
+                    "camera",
+                    position=[x, ground + height * 0.4, z],
+                    size=size,
+                    pitch=(55 if low else 25) if view in ("close", "side", "back") else 50,
+                    yaw=yaw,
+                )
+            time.sleep(1)
+            cameras[view] = replay_safe(session, "camera_state")
+            views[view] = capture(session, out, f"pair-{i + 1:02d}-{view}")
+        specimens.append(
+            {
+                "candidate": candidate["name"],
+                "base_neighbour": neighbour["name"],
+                "pair": pair,
+                "views": views,
+                "cameras": cameras,
+                "placements": placements,
+            }
+        )
+        write(out / "specimens.json", specimens)
+        print("specimen", i + 1, candidate["name"], flush=True)
+
+
+def capture_overviews(session, out, catalog, allowed, skip_names=()):
+    skip = set(skip_names)
+    trees, props = catalog["trees"], catalog.get("props", [])
+    for folder, rows, base in [
+        (
+            "overview",
+            [
+                t
+                for t in trees
+                if t["name"].split(".")[0] in allowed and t.get("main") and t["name"] not in skip
+            ],
+            [t for t in trees if "." not in t["name"] and t["name"] != "TreeTemplate" and t.get("main")],
+        ),
+        (
+            "props",
+            [
+                p
+                for p in props
+                if p["name"].split(".")[0] in allowed and p.get("main") and p["name"] not in skip
+            ],
+            [p for p in props if "." not in p["name"] and natural_prop(p["name"]) and p.get("main")],
+        ),
+    ]:
+        if rows and base:
+            target = out / folder
+            target.mkdir()
+            capture_sheet(session, target, catalog, rows, base, overview=True)
+
+
+def run(installed, out, wait_minutes, sheet_only=False, review_plan=None):
+    if socket.gethostname().split(".")[0] != "blade":
+        raise SystemExit("Native runs are restricted to blade")
+    out.mkdir(parents=True, exist_ok=False)
+    cfg = Config.for_host()
+    driver_source = Path(__file__).read_bytes()
+    (out / "driver-source.txt").write_bytes(driver_source)
+    source_hashes = {Path(__file__).name: hashlib.sha256(driver_source).hexdigest()}
+    for name in ("assemble.py", "framing.py", "installed.py"):
+        module_source = Path(__file__).with_name(name).read_bytes()
+        (out / f"{name}.txt").write_bytes(module_source)
+        source_hashes[name] = hashlib.sha256(module_source).hexdigest()
+    write(out / "source-files.json", source_hashes)
+    inventory = json.loads(installed.read_text())
+    current_assembly = hashlib.sha256(
+        (cfg.game_dir / "Cities_Data/Managed/Assembly-CSharp.dll").read_bytes()
+    ).hexdigest()
+    if inventory["assembly_sha256"] != current_assembly:
+        raise ValueError("Installed inventory describes a different game assembly")
+    packages = [
+        p
+        for p in inventory["workshop_packages"]
+        if {"TreeInfo", "PropInfo"}.intersection(p["components"]) and not p["contains_assembly"]
+    ]
+    plan = json.loads(review_plan.read_text()) if review_plan else None
+    if plan:
+        if not plan.get("overview_only") and "selected_names" not in plan:
+            raise ValueError("Complete the explicit selection before acquiring a native slot")
+        packages = [p for p in packages if p["workshop_id"] in plan["ids"]]
+    conflicts = prefab_collisions(packages)
+    if conflicts:
+        write(out / "rejected-prefab-collisions.json", conflicts)
+        raise ValueError(
+            "Selected Workshop packs contain colliding prefab identities; do not mask the import failure"
+        )
+    workshop = Path("/peach/Games/SteamLibrary/steamapps/workshop/content/255710")
+    with slot(
+        cfg,
+        staging(cfg, out),
+        wait_minutes,
+        {
+            "issue": "PL-1326",
+            "label": "Vegetation supply: native inventory and comparisons",
+            "eta_minutes": 10 if plan and (plan.get("overview_only") or plan.get("reference_only")) else 25,
+        },
+    ) as session:
+        session.require_offline = True
+        session.record = False
+        session.live = False
+        session.label = "PL-1326 vegetation supply"
+        for p in packages:
+            source = workshop / p["workshop_id"] / p["file"]
+            if hashlib.sha256(source.read_bytes()).hexdigest() != p["sha256"]:
+                raise ValueError(f"Cached package changed: {p['workshop_id']}/{p['file']}")
+            session.install_file(source, cfg.data_dir / "Addons/Assets/PL1326" / p["workshop_id"])
+        map_path = cfg.game_dir / "Files/Maps/Grand River.crp"
+        pinned_build = json.loads((cfg.build_dir / "build-receipt.json").read_text())
+        write(out / "build-at-launch.json", pinned_build)
+        session.launch(["--noWorkshop"])
+        # Use the path the game lists: Flatpak and /peach's symlink alias can
+        # name the same file differently. This is the map-check driver's rule.
+        listed = next(
+            (
+                m
+                for m in session.client.call("maps")["maps"]
+                if m.get("path") and Path(m["path"]).exists() and Path(m["path"]).samefile(map_path)
+            ),
+            None,
+        )
+        if listed is None:
+            raise ValueError("The exact stock Grand River package is not listed by the game")
+        write(out / "map.json", {**listed, "sha256": hashlib.sha256(map_path.read_bytes()).hexdigest()})
+        session.client.call("new_game", path=listed["path"], city="PL1326 disposable vegetation comparison")
+        session.client.wait(
+            lambda s: s.get("in_game") and not s.get("loading"), 600, "disposable city", alive=session.alive
+        )
+        session.client.timeout = 20
+        session.client.call("run", paused=True, day_night=False)
+        session.client.call("time_of_day", hour=12)
+        session.client.call("run", paused=True, day_night=False)
+        session.client.call("ui", visible=False)
+        write(
+            out / "environment.json",
+            {
+                "cpu_cores": os.cpu_count(),
+                "uptime": subprocess.check_output(["uptime"], text=True).strip(),
+                "native_status": session.client.call("status"),
+                "driver_sha256": hashlib.sha256(driver_source).hexdigest(),
+                "inventory_sha256": hashlib.sha256(installed.read_bytes()).hexdigest(),
+            },
+        )
+        catalog = session.client.call("vegetation_catalog")
+        write(out / "native-catalog.json", catalog)
+        if plan and plan.get("overview_only"):
+            allowed = {p["workshop_id"] for p in packages}
+            capture_overviews(session, out, catalog, allowed, plan.get("skip_names", []))
+        else:
+            trees = catalog["trees"]
+            pair_base = [
+                t for t in trees if "." not in t["name"] and t["name"] != "TreeTemplate" and t.get("main")
+            ]
+            base = [
+                t
+                for t in trees
+                if "." not in t["name"]
+                and t.get("main")
+                and not any(
+                    word in t["name"].lower()
+                    for word in ("grass", "bush", "flower", "reed", "fern", "winter")
+                )
+            ]
+            allowed = {p["workshop_id"] for p in packages}
+            custom = [
+                t
+                for t in trees
+                if t["name"].split(".")[0] in allowed
+                and t.get("main")
+                and t["main"]["triangles"] is not None
+                and t["main"]["size_m"][1] >= 4
+                and not any(
+                    word in t["name"].lower()
+                    for word in ("snag", "stump", "fallen", "dead", "flower", "grass", "bush")
+                )
+            ]
+            # This is an installed-candidate sample, not a claim about the global
+            # best twenty. Round-robin packs prevents one huge pack filling the sheet.
+            groups = {}
+            for t in sorted(custom, key=lambda t: t["main"]["triangles"]):
+                groups.setdefault(t["name"].split(".")[0], []).append(t)
+            selected = []
+            while groups and len(selected) < 20:
+                for prefix in list(groups):
+                    selected.append(groups[prefix].pop(0))
+                    if not groups[prefix]:
+                        del groups[prefix]
+                    if len(selected) == 20:
+                        break
+            write(out / "selected.json", selected)
+            if not selected or not base:
+                raise ValueError("No usable native trees loaded")
+            baseline = next((t for t in base if t["name"] == "Conifer2"), base[0])
+            candidate = max(selected, key=lambda t: t["main"]["triangles"])
+            if plan and not sheet_only:
+                comparable = [
+                    t
+                    for t in custom
+                    if classify(t["name"])["form"] == classify(baseline["name"])["form"]
+                    and t["main"]["triangles"] <= plan["triangle_target"]
+                    and all(max(tex["width"], tex["height"]) <= 1024 for tex in t["textures"])
+                    and 0.8 <= t["main"]["size_m"][1] / baseline["main"]["size_m"][1] <= 1.2
+                ]
+                if not comparable:
+                    raise ValueError("No size/form/budget-matched native reference candidate")
+                candidate = max(comparable, key=lambda t: t["main"]["triangles"])
+            point = catalog["forest_patch"]
+            timing = []
+            if plan and plan.get("diagnostic_resolution") and not sheet_only:
+                session.client.call("camera", position=point, size=350, pitch=50, yaw=0)
+                job(session, "vegetation_retarget", name=baseline["name"])
+                probe = []
+                try:
+                    for repeat in range(3):
+                        for width, height in [(1920, 1080), (960, 540), (1920, 1080)]:
+                            session.client.call("vegetation_resolution", width=width, height=height)
+                            time.sleep(2)
+                            status = session.client.call("status")
+                            if status["screen"] != [width, height]:
+                                raise ValueError("Diagnostic resolution did not take effect")
+                            probe.append(
+                                {
+                                    "repeat": repeat,
+                                    "screen": status["screen"],
+                                    **job(session, "vegetation_frames", frames=120),
+                                }
+                            )
+                            write(out / "limiter-probe.json", probe)
+                finally:
+                    session.client.call("vegetation_resolution", width=cfg.width, height=cfg.height)
+                    time.sleep(2)
+            # Same positions, growth, camera and instance count. A/B/A bounds drift;
+            # raw wall-frame samples are retained, not mislabelled GPU timings.
+            for size in () if sheet_only else (350, 1400):
+                session.client.call("camera", position=point, size=size, pitch=50, yaw=0)
+                time.sleep(4)
+                framing = session.client.call(
+                    "world_observe",
+                    screen_points=[{"name": "center", "x": cfg.width // 2, "y": cfg.height // 2}],
+                )
+                center = framing["screen_points"][0]
+                if not center["hit"] or center["water"]["wet"]:
+                    raise ValueError("Benchmark camera is not over dry terrain")
+                image_name = capture(session, out, f"framing-{size}")
+                framing["frame_image"] = check_frame(out / image_name)
+                write(out / f"framing-{size}.json", framing)
+                for repeat in range(5):
+                    for arm, info in [("A-before", baseline), ("B", candidate), ("A-after", baseline)]:
+                        population = job(session, "vegetation_retarget", name=info["name"])
+                        sample = job(session, "vegetation_frames", frames=300)
+                        timing.append(
+                            {
+                                "size": size,
+                                "repeat": repeat,
+                                "arm": arm,
+                                "name": info["name"],
+                                "population": population,
+                                **sample,
+                            }
+                        )
+                        write(out / "frame-samples.json", timing)
+                        print("timed", size, repeat, arm, population["instances"], flush=True)
+                        if repeat == 0:
+                            capture(session, out, f"bench-{size}-{arm}")
+            if plan:
+                names = plan["selected_names"]
+                lookup = {t["name"]: t for t in trees if t["name"].split(".")[0] in allowed and t.get("main")}
+                required_count = len(names) if plan.get("reference_only") else 20
+                if (
+                    not 1 <= required_count <= 20
+                    or len(names) != required_count
+                    or len(set(names)) != required_count
+                    or set(names) - lookup.keys()
+                ):
+                    raise ValueError(
+                        "Selection must contain distinct loaded names (twenty for the full palette)"
+                    )
+                selected = [lookup[n] for n in names]
+            write(out / "selected.json", selected)
+            capture_sheet(session, out, catalog, selected, pair_base, multiview=bool(plan))
+            if plan:
+                reference_names = plan.get("reference_names", [])
+                if reference_names:
+                    references = [lookup[n] for n in reference_names]
+                    ref_out = out / "references"
+                    ref_out.mkdir()
+                    capture_sheet(session, ref_out, catalog, references, pair_base, multiview=True)
+                palette_names = list(dict.fromkeys([t["name"] for t in selected] + reference_names))
+                palette = job(session, "vegetation_palette", names=palette_names, x=point[0], z=point[1])
+                if not all(t["created"] for t in palette["specimens"]):
+                    raise ValueError("Not every selected prefab was placed in the save/reload palette")
+                write(out / "palette.json", palette)
+                before = session.client.call("vegetation_catalog")
+                if before["created_prefab_counts"] != dict.fromkeys(palette_names, 1):
+                    raise ValueError("Save palette does not contain exactly one of every selected identity")
+                save_name = f"PL1326_QA_{os.getpid()}_{int(time.time())}"
+                saved = session.client.call("save_game", name=save_name)
+                expected = cfg.data_dir / "Saves" / f"{save_name}.crp"
+                session.track(expected)
+                receipt = wait_job(session)
+                if Path(saved["path"]).resolve() != expected.resolve() or not expected.exists():
+                    raise ValueError("Disposable save did not land at its exact owned path")
+                session.client.call("load_game", name=save_name)
+                time.sleep(2)
+                session.client.wait(
+                    lambda state: state.get("in_game") and not state.get("loading"),
+                    600,
+                    "QA save reload",
+                    alive=session.alive,
+                )
+                after = session.client.call("vegetation_catalog")
+                identity_stable = before["created_prefab_counts"] == after["created_prefab_counts"]
+                write(
+                    out / "save-reload.json",
+                    {
+                        "save": receipt,
+                        "before_instances": before["created_prefab_counts"],
+                        "after_instances": after["created_prefab_counts"],
+                        "identity_stable": identity_stable,
+                        "loaded_tree_names_stable": {t["name"] for t in before["trees"]}
+                        == {t["name"] for t in after["trees"]},
+                    },
+                )
+                if not identity_stable:
+                    raise ValueError("Native specimen identity changed on save/reload")
+        write(out / "status.json", session.client.call("status"))
+        write(
+            out / "build.json",
+            pinned_build,
+        )
+    write(out / "session-receipt.json", session.receipt)
+    write(
+        out / "cleanup.json",
+        {
+            "game_pids": __import__("cs1_harness.session", fromlist=["game_pids"]).game_pids(),
+            "state_file_exists": cfg.state_file.exists(),
+            "installed_files_remaining": [str(p) for p in session.installed if p.exists()],
+        },
+    )
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--installed", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--wait-minutes", type=float, default=30)
+    parser.add_argument(
+        "--review-plan", type=Path, help="Explicit overview or preselected native review plan"
+    )
+    parser.add_argument(
+        "--sheet-only", action="store_true", help="Capture the native sheet without repeating timing"
+    )
+    args = parser.parse_args()
+    run(args.installed, args.out, args.wait_minutes, args.sheet_only, args.review_plan)

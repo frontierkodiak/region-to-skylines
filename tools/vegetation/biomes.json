@@ -1,0 +1,21 @@
+{
+  "scheme": "RESOLVE Ecoregions 2017",
+  "source": "https://developers.google.com/earth-engine/datasets/catalog/RESOLVE_ECOREGIONS_2017",
+  "interpretation": "Biome assignments below are screening hypotheses from named forms/genera, not occurrence or suitability predictions. Urban planting can differ. An unassigned asset is unknown, not absent.",
+  "biomes": [
+    {"id": 1, "name": "Tropical & Subtropical Moist Broadleaf Forests", "forms": ["broadleaf_evergreen", "palm"], "gap": "Palms and ornamentals do not substitute for diverse closed-canopy tropical hardwoods, lianas or epiphytes."},
+    {"id": 2, "name": "Tropical & Subtropical Dry Broadleaf Forests", "forms": ["broadleaf_deciduous", "broadleaf_evergreen"], "gap": "Few named dry-forest canopy genera or deciduous drought forms."},
+    {"id": 3, "name": "Tropical & Subtropical Coniferous Forests", "forms": ["needleleaf_evergreen"], "gap": "Generic pine silhouettes; regional pine architecture and broadleaf associates need matching."},
+    {"id": 4, "name": "Temperate Broadleaf & Mixed Forests", "forms": ["broadleaf_deciduous", "needleleaf_evergreen"], "gap": "Most varied named supply, but limited oak/maple age classes and understory diversity."},
+    {"id": 5, "name": "Temperate Conifer Forests", "forms": ["needleleaf_evergreen"], "gap": "Pines, spruce and redwoods provide forms; cedar/fir/hemlock coverage requires Workshop review."},
+    {"id": 6, "name": "Boreal Forests/Taiga", "forms": ["needleleaf_evergreen", "broadleaf_deciduous"], "gap": "Pine, spruce and birch forms; missing larch variation, dwarf woodland and wet understory."},
+    {"id": 7, "name": "Tropical & Subtropical Grasslands, Savannas & Shrublands", "forms": ["grass", "shrub", "broadleaf_deciduous"], "gap": "Baobab and umbrella-thorn silhouettes help; regional grass/shrub mixes remain thin."},
+    {"id": 8, "name": "Temperate Grasslands, Savannas & Shrublands", "forms": ["grass", "shrub"], "gap": "Generic grass/hedge fillers do not represent diverse prairie or steppe grasses and forbs."},
+    {"id": 9, "name": "Flooded Grasslands & Savannas", "forms": ["grass", "shrub"], "gap": "Reeds and wetland structure are thin; distinguish living plants from tied-reed decoration."},
+    {"id": 10, "name": "Montane Grasslands & Shrublands", "forms": ["grass", "shrub"], "gap": "Few low alpine/tussock forms; normal trees are not an alpine vegetation substitute."},
+    {"id": 11, "name": "Tundra", "forms": ["shrub", "grass"], "gap": "No named dwarf willow/birch, sedge, moss/lichen palette established. Snowy tree prefabs are not tundra coverage."},
+    {"id": 12, "name": "Mediterranean Forests, Woodlands & Scrub", "forms": ["broadleaf_evergreen", "shrub", "needleleaf_evergreen"], "gap": "Pine and evergreen oak can supply silhouettes; olive, cork oak and maquis diversity need Workshop review."},
+    {"id": 13, "name": "Deserts & Xeric Shrublands", "forms": ["shrub", "succulent"], "gap": "No named cactus/succulent or xeric shrub palette established from built-in names."},
+    {"id": 14, "name": "Mangroves", "forms": ["broadleaf_evergreen"], "gap": "No named built-in mangrove with prop/pneumatophore roots established."}
+  ]
+}

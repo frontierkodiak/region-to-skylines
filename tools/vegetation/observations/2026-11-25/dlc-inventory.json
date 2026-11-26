@@ -1,0 +1,455 @@
+{
+  "app": 255710,
+  "owned": true,
+  "build_id": 25432556,
+  "dlc": [
+    {
+      "app": 340160,
+      "title": "Cities: Skylines - Preorder Pack",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 346791,
+      "title": "Cities: Skylines - Deluxe Edition Upgrade Pack",
+      "available": true,
+      "licensed": true,
+      "installed": true
+    },
+    {
+      "app": 352510,
+      "title": "Cities: Skylines - Soundtrack",
+      "available": false,
+      "licensed": true,
+      "installed": true
+    },
+    {
+      "app": 352511,
+      "title": "Cities: Skylines - The Architecture Artbook",
+      "available": false,
+      "licensed": true,
+      "installed": true
+    },
+    {
+      "app": 352512,
+      "title": "Cities: Skylines - The Monuments Booklet",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 355600,
+      "title": "Cities: Skylines - Post Cards",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 365040,
+      "title": "Cities: Skylines - Korean language",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 369150,
+      "title": "Cities: Skylines - After Dark",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 420610,
+      "title": "Cities: Skylines - Snowfall",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 456200,
+      "title": "Cities: Skylines - Match Day",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 515190,
+      "title": "Cities: Skylines - Content Creator Pack: Art Deco",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 515191,
+      "title": "Cities: Skylines - Natural Disasters",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 525940,
+      "title": "Cities: Skylines - Juventus F.C Club Pack",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 526610,
+      "title": "Cities: Skylines - Chelsea F.C Club Pack",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 526611,
+      "title": "Cities: Skylines - FC Barcelona Club Pack",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 526612,
+      "title": "Cities: Skylines - Paris Saint-Germain F.C.",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 536610,
+      "title": "Cities: Skylines - Stadiums: European Club Pack",
+      "available": false,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 547500,
+      "title": "Cities: Skylines - Content Creator Pack: High-Tech Buildings",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 547501,
+      "title": "Cities: Skylines - Relaxation Station",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 547502,
+      "title": "Cities: Skylines - Mass Transit",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 563850,
+      "title": "Cities: Skylines - Pearls From the East",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 614580,
+      "title": "Cities: Skylines - Green Cities",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 614581,
+      "title": "Cities: Skylines - Concerts",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 614582,
+      "title": "Cities: Skylines - Rock City Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 715190,
+      "title": "Cities: Skylines - Content Creator Pack: European Suburbia",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 715191,
+      "title": "Cities: Skylines - Parklife",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 715192,
+      "title": "Cities: Skylines - Carols, Candles and Candy",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 715193,
+      "title": "Cities: Skylines - All That Jazz",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 715194,
+      "title": "Cities: Skylines - Industries",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 815380,
+      "title": "Cities: Skylines - Country Road Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 944070,
+      "title": "Cities: Skylines - Synthetic Dawn Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 944071,
+      "title": "Cities: Skylines - Campus",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1059820,
+      "title": "Cities: Skylines - Content Creator Pack: University City",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1065490,
+      "title": "Cities: Skylines - Deep Focus Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1065491,
+      "title": "Cities: Skylines - Campus Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1146930,
+      "title": "Cities: Skylines - Sunset Harbor",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1148020,
+      "title": "Cities: Skylines - Content Creator Pack: Modern City Center",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1148021,
+      "title": "Cities: Skylines - Downtown Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1148022,
+      "title": "Cities: Skylines - Content Creator Pack: Modern Japan",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1196100,
+      "title": "Cities: Skylines - Coast to Coast Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1531470,
+      "title": "Cities: Skylines - Content Creator Pack: Train Stations",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1531471,
+      "title": "Cities: Skylines - Content Creator Pack: Bridges & Piers",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1531472,
+      "title": "Cities: Skylines - Rail Hawk Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1531473,
+      "title": "Cities: Skylines - Sunny Breeze Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1726380,
+      "title": "Cities: Skylines - Airports",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1726381,
+      "title": "Cities: Skylines - Content Creator Pack: Vehicles of the World",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1726382,
+      "title": "Cities: Skylines - Content Creator Pack: Map Pack",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1726383,
+      "title": "Cities: Skylines - On Air Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1726384,
+      "title": "Cities: Skylines - Calm The Mind Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1992290,
+      "title": "Cities: Skylines - Content Creator Pack: Mid-Century Modern",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1992291,
+      "title": "Cities: Skylines - Content Creator Pack: Seaside Resorts",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1992292,
+      "title": "Cities: Skylines - Shoreline Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 1992293,
+      "title": "Cities: Skylines - Paradise Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2008400,
+      "title": "Cities: Skylines - Plazas & Promenades",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2144480,
+      "title": "Cities: Skylines - Content Creator Pack: Heart of Korea",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2144481,
+      "title": "Cities: Skylines - Content Creator Pack: Skyscrapers",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2144482,
+      "title": "Cities: Skylines - K-pop Station",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2144483,
+      "title": "Cities: Skylines - 80's Downtown Beat",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2148900,
+      "title": "Cities: Skylines - Content Creator Pack: Africa in Miniature",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2148901,
+      "title": "Cities: Skylines - Financial Districts",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2148902,
+      "title": "Cities: Skylines - JADIA Radio",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2148903,
+      "title": "Cities: Skylines - Content Creator Pack: Map Pack 2",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2148904,
+      "title": "Cities: Skylines - African Vibes",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    },
+    {
+      "app": 2224690,
+      "title": "Cities: Skylines - Content Creator Pack: Sports Venues",
+      "available": true,
+      "licensed": false,
+      "installed": false
+    }
+  ]
+}

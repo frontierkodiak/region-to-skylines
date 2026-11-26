@@ -1,0 +1,2928 @@
+[
+  {
+    "candidate": "3787628166.Detail Leaves 11_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 11_Data",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-01-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.99542236328125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.72157287597656,
+        "size": 9.527792930603027,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8163551092147827,
+          0.5775502920150757
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 11_Data",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 12_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 12_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-02-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9700164794922,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999900817871094,
+        "size": 9.168206214904785,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191510438919067,
+          0.573577880859375
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 12_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 13_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 13_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-03-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96998596191406,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.99998092651367,
+        "size": 9.168087005615234,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191518783569336,
+          0.5735766291618347
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 13_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 14_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 14_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-04-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 14_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 15_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 15_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-05-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 15_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 16_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 16_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-06-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 16_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 17_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 17_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-07-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 17_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 18_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 18_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-08-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 18_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 7_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 7_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-09-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.96994018554688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 54.999996185302734,
+        "size": 9.168083190917969,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191519975662231,
+          0.5735765099525452
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 7_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 8_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 8_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-10-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9699249267578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168082237243652,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 8_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "3787628166.Detail Leaves 9_Data",
+    "base_neighbour": "Plant Pot 06",
+    "pair": {
+      "specimens": [
+        {
+          "name": "3787628166.Detail Leaves 9_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 06",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-11-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          159.9699249267578,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 9.168082237243652,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "3787628166.Detail Leaves 9_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 06",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "505113180.Rocketbeans Gorge McCrate Aufste_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "505113180.Rocketbeans Gorge McCrate Aufste_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1351.2952880859375,
+            159.53396606445312,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1348.7047119140625,
+            159.51025390625,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-12-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.0024871826172,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 7.554584980010986,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "505113180.Rocketbeans Gorge McCrate Aufste_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1351.2952880859375,
+              159.53396606445312,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1348.7047119140625,
+              159.51025390625,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "721947777.[tga] Monkey Bars \"Rocket 1\"_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "721947777.[tga] Monkey Bars \"Rocket 1\"_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1351.3387451171875,
+            159.5343475341797,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1348.6612548828125,
+            159.50985717773438,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-13-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.81289672851562,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 6.140159606933594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "721947777.[tga] Monkey Bars \"Rocket 1\"_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1351.3387451171875,
+              159.5343475341797,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1348.6612548828125,
+              159.50985717773438,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "767694900.R69 Big Decal Grass_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "767694900.R69 Big Decal Grass_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-14-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.7553253173828,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 74.26468658447266,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "767694900.R69 Big Decal Grass_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "767695270.R69 Big Decal Rocks_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "767695270.R69 Big Decal Rocks_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-15-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1034393310547,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 75.4429931640625,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "767695270.R69 Big Decal Rocks_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "773321363.Decal Rock 03_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "773321363.Decal Rock 03_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-16-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.0973663330078,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 75.44820404052734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "773321363.Decal Rock 03_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "773328242.Decal Rock 02_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "773328242.Decal Rock 02_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-17-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.09735107421875,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 75.44821166992188,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "773328242.Decal Rock 02_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "808637188.Manicured Grass_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "808637188.Manicured Grass_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1364.1807861328125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1335.8192138671875,
+            159.41262817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-18-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.77716064453125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 42.66401290893555,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "808637188.Manicured Grass_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1364.1807861328125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1335.8192138671875,
+              159.41262817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "810221081.Decal Grass 01_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "810221081.Decal Grass 01_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1364.1807861328125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1335.8192138671875,
+            159.41262817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-19-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.78341674804688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 42.35747146606445,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "810221081.Decal Grass 01_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1364.1807861328125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1335.8192138671875,
+              159.41262817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "810221653.Decal Grass 02_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "810221653.Decal Grass 02_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1364.1807861328125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1335.8192138671875,
+            159.41262817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-20-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.78343200683594,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 42.35738754272461,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "810221653.Decal Grass 02_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1364.1807861328125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1335.8192138671875,
+              159.41262817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "810222472.Decal Grass 03_Data",
+    "base_neighbour": "Fallen Tree 03",
+    "pair": {
+      "specimens": [
+        {
+          "name": "810222472.Decal Grass 03_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1364.1807861328125,
+            159.62062072753906,
+            -1350
+          ]
+        },
+        {
+          "name": "Fallen Tree 03",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1335.8192138671875,
+            159.41262817382812,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-21-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.783447265625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 42.357383728027344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "810222472.Decal Grass 03_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1364.1807861328125,
+              159.62062072753906,
+              -1350
+            ]
+          },
+          {
+            "name": "Fallen Tree 03",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1335.8192138671875,
+              159.41262817382812,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "810222980.Decal Rock 04_Data",
+    "base_neighbour": "Rock 02",
+    "pair": {
+      "specimens": [
+        {
+          "name": "810222980.Decal Rock 04_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1374.25,
+            159.64517211914062,
+            -1350
+          ]
+        },
+        {
+          "name": "Rock 02",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1325.75,
+            159.34938049316406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-22-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          165.85862731933594,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 80.97998809814453,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "810222980.Decal Rock 04_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1374.25,
+              159.64517211914062,
+              -1350
+            ]
+          },
+          {
+            "name": "Rock 02",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1325.75,
+              159.34938049316406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "854668114.Grass Square Pattern_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "854668114.Grass Square Pattern_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-23-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.37132263183594,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 38.325992584228516,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "854668114.Grass Square Pattern_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "854668114.Grass Square Pattern 45\u00b0_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "854668114.Grass Square Pattern 45\u00b0_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-24-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.31976318359375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 37.92396926879883,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "854668114.Grass Square Pattern 45\u00b0_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "854668114.Garden Grass 16x16_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "854668114.Garden Grass 16x16_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-25-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3197479248047,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 37.92385482788086,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "854668114.Garden Grass 16x16_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "854668114.Garden Grass_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "854668114.Garden Grass_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-26-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.31971740722656,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 33.664546966552734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "854668114.Garden Grass_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal Leaves Dense_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal Leaves Dense_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-27-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.11203002929688,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 38.85639953613281,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal Leaves Dense_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal Leaves Edge_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal Leaves Edge_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-28-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1221923828125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 24.630800247192383,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal Leaves Edge_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal Leaves Sparse_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal Leaves Sparse_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-29-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.11976623535156,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 38.762855529785156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal Leaves Sparse_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal S Leaves Dense_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal S Leaves Dense_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-30-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1197509765625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 38.906761169433594,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal S Leaves Dense_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal S Leaves Edge_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal S Leaves Edge_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1353.25,
+            159.5516357421875,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1346.75,
+            159.49293518066406,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-31-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1221923828125,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 24.64117431640625,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal S Leaves Edge_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1353.25,
+              159.5516357421875,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1346.75,
+              159.49293518066406,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "875912707.R69 Big Decal S Leaves Sparse_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "875912707.R69 Big Decal S Leaves Sparse_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-32-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1197509765625,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 38.76548385620117,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "875912707.R69 Big Decal S Leaves Sparse_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "882354398.R69 Big Decal Dry Grass 1_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "882354398.R69 Big Decal Dry Grass 1_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-33-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.32766723632812,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 33.674774169921875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "882354398.R69 Big Decal Dry Grass 1_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "882354398.R69 Big Decal Dry Grass 2_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "882354398.R69 Big Decal Dry Grass 2_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-34-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3197021484375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 33.62202835083008,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "882354398.R69 Big Decal Dry Grass 2_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "887752608.Decal Grass 053_Data",
+    "base_neighbour": "hedge",
+    "pair": {
+      "specimens": [
+        {
+          "name": "887752608.Decal Grass 053_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1362.25,
+            159.61361694335938,
+            -1350
+          ]
+        },
+        {
+          "name": "hedge",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1337.75,
+            159.4257354736328,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-35-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.3197021484375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 37.844268798828125,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "887752608.Decal Grass 053_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1362.25,
+              159.61361694335938,
+              -1350
+            ]
+          },
+          {
+            "name": "hedge",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1337.75,
+              159.4257354736328,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "891738274.R69 Big Decal Moss 1_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "891738274.R69 Big Decal Moss 1_Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1359.25,
+            159.5982666015625,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1340.75,
+            159.44677734375,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-36-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.11509704589844,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 29.84691047668457,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "891738274.R69 Big Decal Moss 1_Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1359.25,
+              159.5982666015625,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1340.75,
+              159.44677734375,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "891738274.R69 Big Decal Moss 2_Data",
+    "base_neighbour": "Plant Pot 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "891738274.R69 Big Decal Moss 2_Data",
+          "created": true,
+          "id": 53483,
+          "position": [
+            -1359.25,
+            159.5982666015625,
+            -1350
+          ]
+        },
+        {
+          "name": "Plant Pot 01",
+          "created": true,
+          "id": 40577,
+          "position": [
+            -1340.75,
+            159.44677734375,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-37-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          161.1224365234375,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 29.771482467651367,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "891738274.R69 Big Decal Moss 2_Data",
+            "created": true,
+            "id": 53483,
+            "position": [
+              -1359.25,
+              159.5982666015625,
+              -1350
+            ]
+          },
+          {
+            "name": "Plant Pot 01",
+            "created": true,
+            "id": 40577,
+            "position": [
+              -1340.75,
+              159.44677734375,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "candidate": "901663218.Meadow Grass _Data",
+    "base_neighbour": "Sparse Hedge 01",
+    "pair": {
+      "specimens": [
+        {
+          "name": "901663218.Meadow Grass _Data",
+          "created": true,
+          "id": 65528,
+          "position": [
+            -1375.078125,
+            159.64788818359375,
+            -1350
+          ]
+        },
+        {
+          "name": "Sparse Hedge 01",
+          "created": true,
+          "id": 65511,
+          "position": [
+            -1324.921875,
+            159.344970703125,
+            -1350
+          ]
+        }
+      ]
+    },
+    "views": {
+      "close": "pair-38-close.png"
+    },
+    "cameras": {
+      "close": {
+        "position": [
+          -1350,
+          160.7048797607422,
+          -1350
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 55,
+        "size": 75.70972442626953,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.8191521167755127,
+          0.5735764503479004
+        ],
+        "ok": true
+      }
+    },
+    "placements": {
+      "close": {
+        "specimens": [
+          {
+            "name": "901663218.Meadow Grass _Data",
+            "created": true,
+            "id": 65528,
+            "position": [
+              -1375.078125,
+              159.64788818359375,
+              -1350
+            ]
+          },
+          {
+            "name": "Sparse Hedge 01",
+            "created": true,
+            "id": 65511,
+            "position": [
+              -1324.921875,
+              159.344970703125,
+              -1350
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

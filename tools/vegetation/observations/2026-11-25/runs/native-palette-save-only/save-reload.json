@@ -1,0 +1,52 @@
+{
+  "save": {
+    "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Saves/PL1326_QA_868196_1795648431.crp",
+    "bytes": 3117042
+  },
+  "before_instances": {
+    "2202615391.Douglas Fir 08 32m_Data": 1,
+    "2593482657.Canary Date Palm 15m_Data": 1,
+    "843982695.Stone Pine Medium_Data": 1,
+    "2932179333.Norway Maple Giant 27m_Data": 1,
+    "2456536855.American Elm_Data": 1,
+    "958858484.Olive tree 3_Data": 1,
+    "2242682818.Alder 05 14m_Data": 1,
+    "2787290146.Plumeria_Data": 1,
+    "1089035056.Forest Beech Full_Data": 1,
+    "2953236892.Cherry Blossom 2_Data": 1,
+    "1774634417.Silver Birch 2_Data": 1,
+    "1547344928.Coast Redwood_Data": 1,
+    "2129899406.Western Red Cedar 04_Data": 1,
+    "704607028.Live Oak Tree_Data": 1,
+    "1230960704.PD - Pine Regular _Data": 1,
+    "2029030150.Lombardy Poplar_Data": 1,
+    "668294281.Bald Cypress_Data": 1,
+    "1515191700.Norway Spruce Tall_Data": 1,
+    "2135000720.Large Eucalyptus _Data": 1,
+    "2402946167.Bigleaf Linden_Data": 1
+  },
+  "after_instances": {
+    "2202615391.Douglas Fir 08 32m_Data": 1,
+    "2593482657.Canary Date Palm 15m_Data": 1,
+    "843982695.Stone Pine Medium_Data": 1,
+    "2932179333.Norway Maple Giant 27m_Data": 1,
+    "2456536855.American Elm_Data": 1,
+    "958858484.Olive tree 3_Data": 1,
+    "2242682818.Alder 05 14m_Data": 1,
+    "2787290146.Plumeria_Data": 1,
+    "1089035056.Forest Beech Full_Data": 1,
+    "2953236892.Cherry Blossom 2_Data": 1,
+    "1774634417.Silver Birch 2_Data": 1,
+    "1547344928.Coast Redwood_Data": 1,
+    "2129899406.Western Red Cedar 04_Data": 1,
+    "704607028.Live Oak Tree_Data": 1,
+    "1230960704.PD - Pine Regular _Data": 1,
+    "2029030150.Lombardy Poplar_Data": 1,
+    "668294281.Bald Cypress_Data": 1,
+    "1515191700.Norway Spruce Tall_Data": 1,
+    "2135000720.Large Eucalyptus _Data": 1,
+    "2402946167.Bigleaf Linden_Data": 1
+  },
+  "identity_stable": true,
+  "loaded_tree_names_stable": true
+}
