@@ -14,7 +14,7 @@ import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CS1, DEFAULTS, sampleElevation, fetchBasemapWater, smooth, carveWater, encode16, png16 } from "../../terrain.js";
-import { fitDrama, dramaFit, dramaSources, wetMaskFor } from "../../terrain-drama.mjs";
+import { dryRealPercentile, fitDrama, dramaFit, dramaSources, wetMaskFor } from "../../terrain-drama.mjs";
 import { captureInputs, oceanMask } from "../../inputs.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -94,7 +94,8 @@ if (fixture) {
 /** The shaped ground and the writer's geometry, from raw elevation and the captured water. */
 async function buildDramaInputs({ sq, ground, w, sea, elev = null }) {
   const tunnelsCut = { ...w, rivers: (w.rivers ?? []).filter((r) => r.brunnel !== "tunnel") };
-  const spec = fitDrama(ground, { sea, spacing: (CS1.extent * sq.scale) / (N - 1), wet: wetMaskFor(sq, tunnelsCut) });
+  const wet = wetMaskFor(sq, tunnelsCut);
+  const spec = fitDrama(ground, { sea, spacing: (CS1.extent * sq.scale) / (N - 1), wet });
   const carved = carveWater(ground, sq, w, { depth: DEFAULTS.rd / spec.high, halfWidth: DEFAULTS.rw, lakeDepth: DEFAULTS.ld / spec.high });
   const fit = dramaFit(ground, carved.heights, spec, { sea });
   const banks = dramaFit(ground, ground, spec, { sea }).game;
@@ -103,7 +104,10 @@ async function buildDramaInputs({ sq, ground, w, sea, elev = null }) {
     sq, rivers: w.rivers, lakes: w.lakes, riverAreas: w.riverAreas, fragments: w.fragments,
     source: w.source, zoom: w.zoom, tiles: w.tiles, streams: w.streams, roads: w.roads, oceans: w.oceans ?? [],
     sources, seaLevel: fit.seaLevel,
-    fit: { base: fit.base, verticalScale: fit.verticalScale, drama: fit.drama },
+    fit: {
+      base: fit.base, verticalScale: fit.verticalScale, drama: fit.drama,
+      real_p75_m: dryRealPercentile(ground, sea, wet, 0.75),
+    },
     provenance: { capture: "terrain_drama_inputs.mjs", elevation: elev ? { source: "AWS Terrain Tiles / Terrarium", zoom: elev.zoom, tiles: elev.tiles } : { source: "shipping capture (inverted through its recorded fit)" },
       water: "OpenFreeMap / OpenStreetMap", terrain: "terrain-drama.mjs per-square-gain-v1" },
   };

@@ -350,6 +350,23 @@ export function dramaSources(sq, water, carved, fit) {
 }
 
 /** The ready-to-play writer's inputs for a square, with the shaped terrain. */
+/**
+ * The upper quartile of the real ground over dry cells, for the New Game theme rule. Under the
+ * transform the recorded fit can no longer invert game height to real elevation, so the real
+ * value the rule needs is measured here and recorded in the geometry.
+ */
+export function dryRealPercentile(ground, sea, wet, p = 0.75) {
+  const values = [];
+  for (let i = 0; i < ground.length; i++) {
+    if (sea?.[i] || wet?.[i]) continue;
+    values.push(ground[i]);
+  }
+  if (values.length < 4096) return null;
+  values.sort((a, b) => a - b);
+  const x = (values.length - 1) * p, lo = Math.floor(x), hi = Math.ceil(x);
+  return values[lo] + (values[hi] - values[lo]) * (x - lo);
+}
+
 export async function captureDramaInputs(sq, options = {}) {
   const legacy = await captureInputs(sq, options);
   const { base, verticalScale } = legacy.geometry.fit;

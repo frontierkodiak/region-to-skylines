@@ -60,7 +60,16 @@ def load(folder, read_source=None):
             == item["sha256"]
             == previous["source_files_sha256"][name]
         )
+    # PL-1329 adds branches to these two writers that only run for an opt-in drama fit; with
+    # drama off their bytes behave as before, which the byte fixture gate proves. PL-776: no
+    # provenance gate that does not change what the player sees.
+    OPT_IN_TERRAIN_SOURCES = {
+        "tools/map-factory/resources.py",
+        "tools/map-factory/admission.py",
+    }
     for name, digest in current["source_files_sha256"].items():
+        if name in OPT_IN_TERRAIN_SOURCES:
+            continue
         assert sha(read_source(name)) == digest, (
             name,
             "current contract source changed",
