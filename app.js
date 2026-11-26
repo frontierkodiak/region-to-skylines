@@ -112,7 +112,11 @@ map.on("move", () => {
   state.lon = c.lng; state.lat = c.lat;
   refreshSquare();
 });
-map.on("moveend", () => { writeHash(); schedule(); });
+function autoHeight() { state.vscale = "auto"; $("vscale").value = "auto"; }
+map.on("moveend", () => {
+  if (result && (Math.abs(state.lon-result.sq.lon)>1e-5 || Math.abs(state.lat-result.sq.lat)>1e-5)) autoHeight();
+  writeHash(); schedule();
+});
 map.on("movestart", () => { job?.abort(); capabilityView.reset(); vegetationView.reset(); });
 
 // ---------------------------------------------------------------- controls
@@ -130,6 +134,7 @@ function renderPresets() {
 renderPresets();
 function usePreset(p) {
   map.stop();
+  autoHeight();
   Object.assign(state, { lon: p.lon, lat: p.lat, rotation: 0 });
   typedTitle = null;
   $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
@@ -187,6 +192,7 @@ $("search").onsubmit = async (e) => {
     }
     if (!hit) return setStatus(`No place called "${q}"`);
     Object.assign(state, { lon: Number(hit.lon), lat: Number(hit.lat) });
+    autoHeight();
     $("name").value = slugify(q) || coordName(state.lat, state.lon);
     searched = { q, lon: state.lon, lat: state.lat };
     typedTitle = null;
@@ -209,6 +215,7 @@ function schedule(delay = 450) {
   clearTimeout(timer);
   $("previewwrap").setAttribute("aria-busy", "true");
   $("preview3d").hidden = true;
+  $("clip-warning").hidden = true;
   $("preview-place").textContent = titleFor(); $("retry").hidden = true;
   $("mapname").textContent = titleFor();
   setDownload("busy"); timer = setTimeout(build, delay);
@@ -281,6 +288,9 @@ function setDownload(water) {
     ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
     : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
   if (pendingRiskMap && pendingRiskMap.selection === result && pendingRiskMap.key === selectionKey()) dl.textContent = "Review water risk";
+  const clipped = water !== "busy" && result?.fit.clipped > 0;
+  dl.classList.toggle("clipped", clipped);
+  if (clipped && !dl.disabled) dl.textContent = fallback ? "Download clipped heightmap" : "Download clipped map";
   const check = checkedPreset()?.check, note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
@@ -334,14 +344,16 @@ function showSources(sources, fit) {
 
 const m = (v) => `${Math.round(v).toLocaleString()} m`;
 function showStats(fit, elev, waterNote, sq) {
-  const rows = [["Real ground", `${m(fit.realMin)} to ${m(fit.realMax)}`], ["Relief", m(fit.realMax - fit.base)], ["In game", `${m(Math.max(0,fit.gameMin))} to ${m(Math.min(1024,fit.gameMax))}`], ["Water", result.raw.w ? `${new Set(result.raw.w.rivers.map(r=>r.name||"?")).size} rivers · ${result.built.carved.lakes} lakes` : "None mapped"]];
+  const rows = [["Real ground", `${m(fit.realMin)} to ${m(fit.realMax)}`], ["Relief", m(fit.realMax - fit.base)], ["In game", `${m(fit.gameMin)} to ${m(fit.gameMax)}${fit.clipped > 0 ? " · limit 1,024 m" : ""}`], ["Water", result.raw.w ? `${new Set(result.raw.w.rivers.map(r=>r.name||"?")).size} rivers · ${result.built.carved.lakes} lakes` : "None mapped"]];
   const fill=(id,values)=>$(id).replaceChildren(...values.flatMap(([k,v])=>{const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=k;dd.textContent=v;return[dt,dd];}));
   fill("stats",rows);
+  $("stats").querySelectorAll("dd")[2].classList.toggle("clipped",fit.clipped>0);
   fill("extra-stats",[["Height scale",`${fit.verticalScale.toFixed(2)}×`],["Map width",km(extentOf(sq),sq.scale)],["Elevation data",`zoom ${elev.zoom} · ${elev.metresPerTilePx.toFixed(1)} m/px · ${elev.tiles} tiles`],...(fit.seaLevel!==null?[["Sea level",m(fit.seaLevel)]]:[])]);
   $("clip-key").hidden=!fit.clipped;
-  $("height-note").hidden=!(fit.clipped>0||fit.verticalScale<1);
-  $("height-note").querySelector("span").textContent=fit.clipped>0?"Peaks clipped at 1,024 m.":`Heights scaled to ${fit.verticalScale.toFixed(2)}×.`;
-  $("fit-height").hidden=!fit.clipped;
+  $("clip-warning").hidden=!(fit.clipped>0);
+  $("clip-warning").querySelector("strong").textContent=`${Math.round(fit.clipped*100)}% of this map is cut off at the game's 1,024 m limit`;
+  $("height-note").hidden=!(fit.verticalScale<1&&!fit.clipped);
+  $("height-note").querySelector("span").textContent=`Heights scaled to ${fit.verticalScale.toFixed(2)}×.`;
 
 }
 
@@ -513,7 +525,7 @@ scene.add(new THREE.HemisphereLight(0xe8f0ff, 0x4a4030, 1.1));
 const sun = new THREE.DirectionalLight(0xfff3dd, 2.2);
 sun.position.set(-6, 9, -4);
 scene.add(sun);
-let mesh = null, water = null;
+let mesh = null, water = null, ceiling = null;
 let footprint = null;
 const footprintLines = new THREE.Group(); scene.add(footprintLines);
 
@@ -579,7 +591,7 @@ function drawPreview(fit, wet) {
       let rgb = tint((g - lo) / span);
       if (wet && anyWet(wet, r * STEP, c * STEP, STEP)) rgb = [0.24, 0.47, 0.78];
       if (fit.sea?.[src]) rgb = [0.18, 0.36, 0.6];
-      if(rawHeight>1024||rawHeight<0)rgb=[0.9,0.35,0.16];
+      if(rawHeight>1024||rawHeight<0)rgb=[1,0,0];
       col.set(rgb, 3 * i);
     }
   }
@@ -600,13 +612,51 @@ function drawPreview(fit, wet) {
   }
   placeNorth(result.sq.rotation);
   previewY = (g) => -0.25 + (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq));
+  drawCeiling(fit, pos, n, STEP);
   $("legend").textContent = `Height ×${EXAG}`;
+  resize();
   const box=new THREE.Box3().setFromObject(mesh),center=box.getCenter(new THREE.Vector3());
   controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(10,10,10));camera.lookAt(center);camera.updateMatrixWorld();camera.zoom=1;camera.updateProjectionMatrix();
   const points=[];for(const x of[box.min.x,box.max.x])for(const y of[box.min.y,box.max.y])for(const z of[box.min.z,box.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));
   const width=Math.max(...points.map(p=>p.x))-Math.min(...points.map(p=>p.x)),height=Math.max(...points.map(p=>p.y))-Math.min(...points.map(p=>p.y));
   camera.zoom=Math.min(1.65/width,1.65/height);camera.updateProjectionMatrix();drawFootprint();
   resize();
+}
+
+function drawCeiling(fit, pos, n, step) {
+  if (ceiling) {
+    scene.remove(ceiling);
+    ceiling.traverse(o => { o.geometry?.dispose(); o.material?.dispose(); });
+    ceiling = null;
+  }
+  if (!fit.clipped) return;
+  ceiling = new THREE.Group();
+  const y = previewY(CS1.maxHeight), cuts = [];
+  // Intersect each preview triangle with the height limit: only its removed portion is red.
+  const vertex = i => [pos.getX(i), pos.getZ(i), fit.game[Math.floor(i/n)*step*CS1.px+(i%n)*step]];
+  for (let r=0;r<n-1;r++) for(let c=0;c<n-1;c++) {
+    const a=r*n+c,b=a+1,d=a+n,e=d+1;
+    for (const ids of [[a,d,b],[b,d,e]]) {
+      const input=ids.map(vertex), polygon=[];
+      for (let i=0;i<3;i++) {
+        const p=input[i],q=input[(i+1)%3],inside=p[2]>CS1.maxHeight,next=q[2]>CS1.maxHeight;
+        if(inside) polygon.push(p);
+        if(inside!==next) {
+          const t=(CS1.maxHeight-p[2])/(q[2]-p[2]);
+          polygon.push([p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t,CS1.maxHeight]);
+        }
+      }
+      for(let i=1;i<polygon.length-1;i++) for(const p of [polygon[0],polygon[i],polygon[i+1]]) cuts.push(p[0],y+.001,p[1]);
+    }
+  }
+  const plane=new THREE.Mesh(new THREE.PlaneGeometry(2,2).rotateX(-Math.PI/2),
+    new THREE.MeshBasicMaterial({color:0xe02020,transparent:true,opacity:.18,side:THREE.DoubleSide,depthWrite:false}));
+  plane.position.y=y;plane.renderOrder=8;ceiling.add(plane);
+  const border=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[-1,y,-1],[1,y,-1],[1,y,1],[-1,y,1]].map(p=>new THREE.Vector3(...p))),new THREE.LineBasicMaterial({color:0xc51d1d}));
+  border.renderOrder=8;ceiling.add(border);
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute("position",new THREE.Float32BufferAttribute(cuts,3));
+  const caps=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:0xe02020,side:THREE.DoubleSide}));
+  caps.renderOrder=9;ceiling.add(caps);scene.add(ceiling);
 }
 
 function showFootprint(value, square) {

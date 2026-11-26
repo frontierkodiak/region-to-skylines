@@ -34,6 +34,8 @@
       <div id="presets" role="group" aria-label="Presets"></div>
 
       <section id="previewwrap" aria-label="3D map" aria-busy="true">
+        <div id="clip-warning" role="status" hidden><strong></strong><button id="fit-height" type="button">Fit height</button></div>
+        <div id="preview-model">
         <h2 id="preview-place"></h2>
         <canvas id="preview3d" aria-label="3D terrain. Drag to rotate, pinch to zoom."></canvas>
         <div id="status" role="status">Loading terrain…</div>
@@ -45,8 +47,9 @@
           <span id="footprint-key" hidden><i class="key-footprint"></i>384 m</span>
           <span id="clip-key" hidden><i class="key-clipped"></i>Clipped</span>
         </div>
+        </div>
       </section>
-      <div id="height-note" hidden><span></span><button id="fit-height" class="linkish" type="button">Fit height</button></div>
+      <div id="height-note" hidden><span></span></div>
 
       <section id="capabilities" aria-label="Map connections and land">
         <div class="capability-row" role="group" aria-label="Map capabilities"></div>

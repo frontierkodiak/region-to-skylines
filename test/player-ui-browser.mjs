@@ -34,6 +34,60 @@ await mkdir(out,{recursive:true});
 const [before,beforeURL]=await serve(resolve(beforeRoot)),[after,afterURL]=await serve(resolve(afterRoot));
 const results=[];
 const places=[['asheville',-82.555,35.58],['innsbruck',11.4,47.27],['grand-canyon',-112.11,36.08]];
+async function clipping(page,name,device) {
+ for(const[version,base]of[['before',beforeURL],['after',afterURL]])for(const height of ['1','auto']) {
+  await page.goto('about:blank');
+  await page.goto(base+`/#c=11.4,47.27&r=0&s=1&h=${height}&rivers=1&n=innsbruck`);
+  await page.waitForFunction(()=>window.__regionmap?.result?.raw.water==='basemap',null,{timeout:100000});
+  const fit=await page.evaluate(()=>{const f=__regionmap.result.fit;return {clipped:f.clipped,min:f.gameMin,max:f.gameMax,headroom:f.headroom};});
+  assert.equal(fit.clipped>0,height==='1');
+  if(version==='after') {
+   assert.equal(await page.locator('#clip-warning').isVisible(),height==='1');
+   const range=await page.locator('#stats dd').nth(2).innerText();
+   if(height==='1') {
+    assert.match(await page.locator('#clip-warning').innerText(),new RegExp(`${Math.round(fit.clipped*100)}% of this map is cut off`));
+    assert.equal(range,`${Math.round(fit.min).toLocaleString('en-US')} m to ${Math.round(fit.max).toLocaleString('en-US')} m · limit 1,024 m`);
+    assert.equal(await page.locator('#stats dd').nth(2).evaluate(el=>el.classList.contains('clipped')),true);
+    assert.equal(await page.locator('#dl').isEnabled(),true);
+    assert.equal(await page.locator('#dl').innerText(),'Download clipped map');
+    const button=await page.locator('#fit-height').boundingBox();assert.ok(button.height>=44);
+    const red=await page.evaluate(()=>{
+     const src=document.querySelector('#preview3d'),c=document.createElement('canvas');c.width=src.width;c.height=src.height;
+     const ctx=c.getContext('2d');ctx.drawImage(src,0,0);const p=ctx.getImageData(0,0,c.width,c.height).data;
+     let red=0;for(let i=0;i<p.length;i+=4)if(p[i]>150&&p[i+1]<90&&p[i+2]<90)red++;return red;
+    });assert.ok(red>50,'cut terrain must render red, not only its label');
+   } else {
+    assert.equal(await page.locator('#dl').evaluate(el=>el.classList.contains('clipped')),false);
+    assert.doesNotMatch(range,/limit/);
+   }
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+   assert.equal(await page.locator('[data-capability]').count(),8);
+   const canvas=await page.locator('#preview3d').boundingBox();assert.ok(canvas.height>150);
+  }
+  await page.locator('details').evaluateAll(ds=>ds.forEach(d=>d.open=false));
+  await page.evaluate(()=>new Promise(r=>{scrollTo(0,0);requestAnimationFrame(()=>requestAnimationFrame(r));}));
+  const label=height==='1'?'true':'auto';
+  await page.screenshot({path:`${out}/${name}-${device}-${version}-${label}.png`,fullPage:true});
+  await page.locator('#previewwrap').screenshot({path:`${out}/${name}-${device}-${version}-${label}-model.png`});
+  results.push({browser:name,device,version,height,...fit});
+  console.log(name,device,version,height,'clipping pass');
+  if(version==='after'&&height==='1') {
+   await page.locator('#fit-height').click();
+   assert.equal(await page.locator('#vscale').inputValue(),'auto');
+   assert.equal(await page.evaluate(()=>__regionmap.result.fit.clipped),0);
+   assert.equal(await page.locator('#clip-warning').isVisible(),false);
+   assert.equal(await page.locator('#dl').innerText(),'Download ready-to-play map');
+  }
+ }
+ await page.locator('#settings').evaluate(el=>el.open=true);await page.locator('#vscale').selectOption('1');
+ await page.getByRole('button',{name:'Grand Canyon',exact:true}).click();
+ await page.waitForFunction(()=>Math.abs(window.__regionmap?.result?.sq.lon+112.11)<.01,null,{timeout:100000});
+ assert.equal(await page.locator('#vscale').inputValue(),'auto');
+ assert.equal(await page.evaluate(()=>__regionmap.result.fit.clipped),0);
+ await page.goto(afterURL+'/');await page.waitForFunction(()=>window.__regionmap?.result,null,{timeout:100000});
+ assert.equal(await page.locator('#vscale').inputValue(),'auto');
+ assert.equal(await page.evaluate(()=>__regionmap.result.fit.clipped),0);
+}
 try{
  for(const[name,engine]of[['chromium',chromium],['webkit',webkit]]){
   const browser=await engine.launch({headless:true});
@@ -41,6 +95,7 @@ try{
    for(const[device,width,height]of[['ipad',768,1024],['phone',390,844]]){
     const page=await browser.newPage({viewport:{width,height},hasTouch:true,ignoreHTTPSErrors:true});
     const errors=[];let vegetationCaptured=false;page.on('pageerror',e=>errors.push(e.message));
+    if(process.env.CLIPPING_ONLY){await clipping(page,name,device);assert.deepEqual(errors,[]);await page.close();continue;}
     for(const[slug,lon,lat]of places)for(const[version,base]of[['before',beforeURL],['after',afterURL]]){
      const hash=`#c=${lon},${lat}&r=0&s=1&h=auto&rivers=1&n=${slug}`;
      await page.goto('about:blank');await page.goto(base+'/'+hash,{waitUntil:'domcontentloaded'});
