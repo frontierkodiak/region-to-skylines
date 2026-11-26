@@ -1,0 +1,105 @@
+{
+  "audit_source_sha256": "e6aaeb2258721297dd90e823a077182189742e4588d795b4923622260c6fe9a9",
+  "collector_pids": [
+    155376,
+    182790,
+    336345
+  ],
+  "collector_pids_still_present": [],
+  "current_steam_instances": [
+    "2805625336",
+    "1535750170",
+    "383239864"
+  ],
+  "followup_integrity_sha256": "76c82febcc61a229c5b889199456401e72e8a7e48fb84f0668065929c41da059",
+  "games": [
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136357945",
+      "owned_alive": false,
+      "pid": 186636
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136374570",
+      "owned_alive": false,
+      "pid": 199478
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136321979",
+      "owned_alive": false,
+      "pid": 158243
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136337693",
+      "owned_alive": false,
+      "pid": 168467
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136712887",
+      "owned_alive": false,
+      "pid": 417207
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136651499",
+      "owned_alive": false,
+      "pid": 369278
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136666664",
+      "owned_alive": false,
+      "pid": 381294
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136681808",
+      "owned_alive": false,
+      "pid": 392829
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136624833",
+      "owned_alive": false,
+      "pid": 351497
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136608886",
+      "owned_alive": false,
+      "pid": 340388
+    },
+    {
+      "current_start_ticks": null,
+      "observed_start_ticks": "136697629",
+      "owned_alive": false,
+      "pid": 404054
+    }
+  ],
+  "initial_integrity_sha256": "5fee526fc0d47e4a3a56d65eed802d3fd41644602da5636e099679488f61b861",
+  "observation_sha256": {
+    "raw/asheville/observation.json": "d8ad8658966775557eb7b5ff06b8dcff833d816eaeb4827b5acab692bc1750fb",
+    "raw/boston-attempt-1/observation.json": "eb653d805069768f95ff7f268095d03177992670fe2e156382a5357dd4f781d2",
+    "raw/charleston-attempt-1/observation.json": "7fa33620e28fe00a7361622633adf105baecdd2c51e579d5d6eac0cae9e557d9",
+    "raw/grand-canyon-attempt-1/observation.json": "6c35db0ba6bafc077fbe11ec6d6af011a57aa30466e40245af221dcdbbe8a327",
+    "raw/hong-kong-attempt-1/observation.json": "162b829285718ab46a40b72f744b2ee975e93158a246254bfa46b6f4a145cf9f",
+    "raw/innsbruck/observation.json": "72580e0d1c67c331d6442a4660543f53d5509c9795821d1dac7a1b8ce00b5ca6",
+    "raw/pittsburgh-attempt-1/observation.json": "ed502e0d04d503685bd900d93f5246793eb6e6618d57afd890eea05fea7f22be",
+    "raw/rio-attempt-2/observation.json": "100c59d1e0524baeef8e2828ea76cba1bafafd67727fc188c1dd9d494507bf61",
+    "raw/rio/observation.json": "0b1eb958ba840c53412bedecaf6323fc8536c3492bcaeea1b7bce31e589aca2c",
+    "raw/stock-1/observation.json": "9d6889555ab31c2c57a4387b796c757d37784e62c42698f117e69ed7b9573c8e",
+    "raw/stock-2/observation.json": "2cd7b3a4829238699414d1e5a83feb188153159602c6e256bdb57594abee4011",
+    "raw/yosemite-attempt-1/observation.json": "9bcc4457e8738d2df81bf060fa4099187ba85bb9f318fd59493e263f5d121388"
+  },
+  "observed_at": "2026-11-21T15:28:55.028957+00:00",
+  "owned_monitor_pids_still_present": [],
+  "reported_steam_remainders": [
+    "3933505219"
+  ],
+  "reported_steam_remainders_still_present": [],
+  "scope": "read-only later exit audit; no process stopped; foreign Steam instances remain untouched"
+}

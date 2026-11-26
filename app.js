@@ -2,11 +2,16 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
-import { waterRiskDecision, calibrationText } from "./water-risk.js";
+import { buildDramaMap, captureDramaInputs, dramaDetails } from "./terrain-drama.mjs";
+import { waterRiskDecision } from "./water-risk.js";
+import { mountCapabilities } from "./capability-ui.js";
+import { mountVegetation } from "./vegetation-ui.js";
 
 const $ = (id) => document.getElementById(id);
-const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
+const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, terrain: "auto", ...DEFAULTS };
 let result = null, job = null;
+const capabilityView = mountCapabilities($("capabilities"), { onFootprint: showFootprint });
+const vegetationView = mountVegetation($("vegetation"));
 // What the map is called in the game's New Game list: a name typed into the name field, else
 // the preset's or searched place's name, else the name field.
 let typedTitle = null, searched = null;
@@ -21,11 +26,15 @@ function readHash() {
   Object.assign(state, o);
   if (name !== undefined) $("name").value = name;
 }
-const link = () => location.origin + location.pathname + squareHash({ ...state, name: $("name").value });
+const dramaOn = () => state.terrain === "drama" && state.vscale === "auto";
+const withDrama = (hash) => dramaOn() ? hash + "&terrain=drama" : hash;
+const link = () => location.origin + location.pathname + withDrama(squareHash({ ...state, name: $("name").value }));
 function writeHash() {
-  history.replaceState(null, "", squareHash({ ...state, name: $("name").value }));
+  history.replaceState(null, "", withDrama(squareHash({ ...state, name: $("name").value })));
 }
 readHash();
+state.terrain = new URLSearchParams(location.hash.replace(/^#/, "")).get("terrain") === "drama" ? "drama" : "auto";
+$("drama").checked = state.terrain === "drama";
 $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
 $("scale").value = String(state.scale); $("vscale").value = String(state.vscale); $("rivers").checked = state.rivers;
 for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]);
@@ -86,6 +95,8 @@ map.on("load", () => {
   map.addLayer({ id: "sources", type: "circle", source: "sources",
     paint: { "circle-radius": 5, "circle-color": ["match", ["get", "kind"], "lake", "#1fb5d6", "exit", "#9aa3ad", "#1d5fd1"],
       "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } });
+  map.addSource("footprint",{type:"geojson",data:{type:"FeatureCollection",features:[]}});
+  map.addLayer({id:"footprint",type:"line",source:"footprint",paint:{"line-color":"#2f7d4f","line-width":3}});
   fitToSquare(false);
   schedule(0);
 });
@@ -106,7 +117,12 @@ map.on("move", () => {
   state.lon = c.lng; state.lat = c.lat;
   refreshSquare();
 });
-map.on("moveend", () => { writeHash(); schedule(); });
+function autoHeight() { state.vscale = "auto"; $("vscale").value = "auto"; }
+map.on("moveend", () => {
+  if (result && (Math.abs(state.lon-result.sq.lon)>1e-5 || Math.abs(state.lat-result.sq.lat)>1e-5)) autoHeight();
+  writeHash(); schedule();
+});
+map.on("movestart", () => { job?.abort(); capabilityView.reset(); vegetationView.reset(); });
 
 // ---------------------------------------------------------------- controls
 
@@ -122,13 +138,16 @@ function renderPresets() {
 }
 renderPresets();
 function usePreset(p) {
+  map.stop();
+  autoHeight();
   Object.assign(state, { lon: p.lon, lat: p.lat, rotation: 0 });
   typedTitle = null;
   $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
   $("name").value = p.slug;
   refreshSquare();
-  fitToSquare();
+  fitToSquare(false);
   writeHash();
+  schedule(0);
 }
 
 $("rot").oninput = (e) => {
@@ -138,41 +157,18 @@ $("rot").oninput = (e) => {
   map.jumpTo({ bearing: state.rotation });
 };
 $("rot").onchange = () => { fitToSquare(); writeHash(); schedule(); };
-$("scale").onchange = (e) => { state.scale = Number(e.target.value); scaleNote(); refreshSquare(); fitToSquare(); };
+$("scale").onchange = (e) => { state.scale = Number(e.target.value); refreshSquare(); fitToSquare(); };
 
 /** Real ground in km, one way everywhere: 2 decimals at true size (17.28, 9.6, 1.92), else 1 (25.9). */
 const km = (metres, s = state.scale) =>
   (metres / 1000).toFixed(s === 1 ? 2 : 1).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "") + " km";
-/**
- * What the scale choice does, in plain words, from the real extent and the height factor in
- * use (once terrain is loaded). Cities: Skylines 1 terrain is 1 game metre = 1 real metre.
- */
-function scaleNote(fit = result?.fit) {
-  const s = state.scale, E = 17280 * s, el = $("scalenote");
-  const vs = fit && result.sq.scale === s ? fit.verticalScale : null;
-  const steep = vs === null ? "" : (() => {
-    const f = vs * s;
-    const how = Math.abs(f - 1) < 0.03 ? "as steep as real" : `${f.toFixed(2)}x as steep as real`;
-    return ` With Height at ${vs.toFixed(2)}x, slopes are ${how}` +
-      (Math.abs(f - 1) >= 0.03 && state.vscale !== "slopes" && s !== 1 ? "; Height \u201cReal slopes\u201d keeps them true." : ".");
-  })();
-  el.classList.toggle("warn", s !== 1);
-  el.textContent = s === 1
-    ? `True size: the game's map is 17.28 km across and 1 game metre is 1 real metre, so a real block is a game block. The 25 tiles you can build on without mods are the middle 9.6 km.${vs !== null && vs < 1 ? steep : ""}`
-    : s > 1
-      ? `Fits more region: ${km(E)} of real ground squeezed into the 17.28 km map, so everything is ${Math.round(100 / s)}% of real size and real streets won't match the game's road sizes.${steep}`
-      : `Zooms in: ${km(E)} of real ground stretched over the 17.28 km map, so everything is ${(1 / s).toFixed(1)}x real size. Good for a single town; the region around it is lost.${steep}`;
-  const t = (id, v) => ($(id).textContent = v);
-  t("tTile", s === 1 ? "1.92 km" : `1.92 km of game ground (${km(1920 * s)} real)`);
-  t("t25", km(9600 * s)); t("t81", km(E));
-}
-scaleNote();
 $("vscale").onchange = (e) => {
   state.vscale = ["auto", "slopes"].includes(e.target.value) ? e.target.value : Number(e.target.value);
   writeHash();
   if (result) finish(result.raw); // no refetch needed
 };
 $("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); schedule(0); };
+$("drama").onchange = (e) => { state.terrain = e.target.checked ? "drama" : "auto"; writeHash(); if (result) finish(result.raw); };
 for (const k of Object.keys(DEFAULTS)) $(k).onchange = (e) => { state[k] = Number(e.target.value); writeHash(); if (result) finish(result.raw); };
 $("resetplay").onclick = () => { Object.assign(state, DEFAULTS); for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]); writeHash(); if (result) finish(result.raw); };
 $("name").onchange = () => { typedTitle = $("name").value.trim() || null; resetWaterRisk(); writeHash(); finishLabel(); if (result) setDownload(result.raw.water); };
@@ -187,7 +183,7 @@ $("search").onsubmit = async (e) => {
   e.preventDefault();
   const q = $("q").value.trim();
   if (!q) return;
-  setStatus(`Searching “${q}”…`);
+  setStatus(`Searching "${q}"…`);
   try {
     let hit;
     if (searchCache.has(q.toLowerCase())) hit = searchCache.get(q.toLowerCase());
@@ -200,13 +196,15 @@ $("search").onsubmit = async (e) => {
       [hit] = await r.json();
       searchCache.set(q.toLowerCase(), hit);
     }
-    if (!hit) return setStatus(`No place called “${q}”`);
+    if (!hit) return setStatus(`No place called "${q}"`);
     Object.assign(state, { lon: Number(hit.lon), lat: Number(hit.lat) });
+    autoHeight();
     $("name").value = slugify(q) || coordName(state.lat, state.lon);
     searched = { q, lon: state.lon, lat: state.lat };
     typedTitle = null;
     refreshSquare();
-    fitToSquare();
+    fitToSquare(false);
+    schedule(0);
   } catch {
     setStatus("Search failed; drag the map instead");
   }
@@ -216,17 +214,35 @@ $("search").onsubmit = async (e) => {
 
 let timer;
 function schedule(delay = 450) {
+  job?.abort();
+  capabilityView.reset();
+  vegetationView.reset();
   resetWaterRisk();
   clearTimeout(timer);
-  timer = setTimeout(build, delay);
+  $("previewwrap").setAttribute("aria-busy", "true");
+  $("preview3d").hidden = true;
+  $("clip-warning").hidden = true;
+  $("preview-place").textContent = titleFor(); $("retry").hidden = true;
+  $("mapname").textContent = titleFor();
+  setDownload("busy"); timer = setTimeout(build, delay);
 }
 const setStatus = (t) => ($("status").textContent = t);
+function terrainUnavailable() {
+  $("previewwrap").setAttribute("aria-busy", "false");
+  setStatus("Terrain unavailable"); $("retry").hidden = false;
+  capabilityView.unavailable(); vegetationView.unavailable();
+}
 
 async function build() {
   job?.abort();
   const ctl = (job = new AbortController());
   // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
+  const deadline = setTimeout(() => {
+    ctl.abort(new Error("Terrain deadline"));
+    if(job===ctl)terrainUnavailable();
+  }, 30000);
   const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
+  vegetationView.update(sq);
   renderPresets();
   setDownload("busy");
   try {
@@ -237,7 +253,11 @@ async function build() {
     });
     if (ctl.signal.aborted) return;
     elev.sea = seaMask(elev.heights);
-    if (!sq.rivers) return finish({ sq, elev, w: null, waterNote: "off", water: "off" });
+    if (!sq.rivers) {
+      finish({ sq, elev, w: null, waterNote: "off", water: "off" });
+      void capabilityView.update(sq);
+      return;
+    }
     // Bare terrain at once; then the rivers and lakes from the basemap's vector tiles, a second or two.
     finish({ sq, elev, w: null, waterNote: "loading…", water: "loading" }, "Loading rivers and lakes…");
     let w = null;
@@ -249,10 +269,13 @@ async function build() {
     if (ctl.signal.aborted) return;
     finish({ sq, elev, w, water: w ? "basemap" : "failed",
       waterNote: w ? undefined : "The basemap's water tiles didn't load: not cut. Move the map a little to retry." });
+    void capabilityView.update(sq);
   } catch (err) {
-    if (!ctl.signal.aborted) setStatus(`Failed: ${err.message}. Move the map to retry.`);
-  }
+    if (job === ctl) terrainUnavailable();
+  } finally { clearTimeout(deadline); }
 }
+$("retry").onclick = () => schedule(0);
+$("fit-height").onclick = () => { $("vscale").value = "auto"; $("vscale").dispatchEvent(new Event("change")); };
 
 /**
  * The download button: the ready-to-play map file, or the heightmap if this browser couldn't
@@ -271,10 +294,13 @@ function setDownload(water) {
     ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
     : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
   if (pendingRiskMap && pendingRiskMap.selection === result && pendingRiskMap.key === selectionKey()) dl.textContent = "Review water risk";
+  const clipped = water !== "busy" && result?.fit.clipped > 0;
+  dl.classList.toggle("clipped", clipped);
+  if (clipped && !dl.disabled) dl.textContent = fallback ? "Download clipped heightmap" : "Download clipped map";
   const check = checkedPreset()?.check, note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
-  $("crpmapname").textContent = `\u201c${titleFor()} - Ready to Play\u201d`;
+  $("crpmapname").textContent = `"${titleFor()} - Ready to Play"`;
 }
 /** The preset whose square this is, if any (some carry a note from their game test). */
 const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e-6 && Math.abs(p.lat - state.lat) < 1e-6 && state.rotation === 0 && state.scale === 1);
@@ -283,18 +309,19 @@ const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e
 function finish(raw, status = "") {
   resetWaterRisk();
   const { sq, elev, w } = raw;
-  const built = buildMap(raw, opts());
+  const built = dramaOn() ? buildDramaMap(raw, opts()) : buildMap(raw, opts());
   const { carved, fit, sources } = built;
   if (w) raw.waterNote = built.note;
   raw.carved = carved;
   result = { raw, fit, sq, sources, built };
+  $("previewwrap").setAttribute("aria-busy", "false"); $("retry").hidden = raw.water !== "failed";
+  $("preview3d").hidden = false;
   showStats(fit, elev, raw.waterNote, sq);
-  scaleNote(fit);
   drawPreview(fit, carved.wet);
   showSources(sources, fit);
   setStatus(status);
   setDownload(raw.water);
-  $("mapname").textContent = `${fallback ? `${fileName()}.png` : `${baseName()}.crp`} · ${km(extentOf(sq), sq.scale)} · ${Math.round(fit.gameMin)}–${Math.round(fit.gameMax)} m`;
+  $("mapname").textContent = `${fallback ? `${fileName()}.png` : `${baseName()}.crp`} · ${km(extentOf(sq), sq.scale)}`;
 }
 
 /** Water source suggestions: dots on the map, pins in the preview, a list in the panel. */
@@ -323,27 +350,17 @@ function showSources(sources, fit) {
 
 const m = (v) => `${Math.round(v).toLocaleString()} m`;
 function showStats(fit, elev, waterNote, sq) {
-  const rows = [
-    ["Real ground", fit.seaLevel === null ? `${m(fit.realMin)} to ${m(fit.realMax)}` : `sea to ${m(fit.realMax)} (sea 10–40 m deep)`],
-    ["Relief", m(fit.realMax - fit.base)],
-    ["In game", `${m(fit.gameMin)} to ${m(fit.gameMax)} of 1,024 m`],
-    ["Height", fit.verticalScale === 1 ? "1:1 true height" : `${fit.verticalScale.toFixed(2)}x` +
-      (state.vscale === "slopes" ? (fit.verticalScale < 1 / sq.scale - 1e-6 ? " (real slopes, squeezed to fit)" : " (real slopes)") : state.vscale === "auto" ? " (squeezed to fit)" : ""),
-      fit.verticalScale < 1 ? "warn" : ""],
-    ["Headroom", m(fit.headroom), fit.headroom < 0 ? "warn" : ""],
-  ];
-  if (fit.seaLevel !== null) rows.push(["Sea level in game", `${m(fit.seaLevel)} (set the editor's sea level here)`, "warn"]);
-  if (fit.clipped > 0) rows.push(["Clipped", `${(fit.clipped * 100).toFixed(2)}% of pixels`, "warn"]);
-  rows.push(
-    ["Size", `${km(extentOf(sq), sq.scale)} · ${(extentOf(sq) / (CS1.px - 1)).toFixed(1)} m/px`],
-    ["Elevation data", `zoom ${elev.zoom} · ${elev.metresPerTilePx.toFixed(1)} m/px · ${elev.tiles} tiles`],
-    ["Water", waterNote],
-  );
-  $("stats").replaceChildren(...rows.flatMap(([k, v, cls]) => {
-    const dt = document.createElement("dt"), dd = document.createElement("dd");
-    dt.textContent = k; dd.textContent = v; if (cls) dd.className = cls;
-    return [dt, dd];
-  }));
+  const rows = [["Real ground", `${m(fit.realMin)} to ${m(fit.realMax)}`], ["Relief", m(fit.realMax - fit.base)], ["In game", `${m(fit.gameMin)} to ${m(fit.gameMax)}${fit.clipped > 0 ? " · limit 1,024 m" : ""}`], ["Water", result.raw.w ? `${new Set(result.raw.w.rivers.map(r=>r.name||"?")).size} rivers · ${result.built.carved.lakes} lakes` : "None mapped"]];
+  const fill=(id,values)=>$(id).replaceChildren(...values.flatMap(([k,v])=>{const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=k;dd.textContent=v;return[dt,dd];}));
+  fill("stats",rows);
+  $("stats").querySelectorAll("dd")[2].classList.toggle("clipped",fit.clipped>0);
+  fill("extra-stats",[["Height scale",`${fit.verticalScale.toFixed(2)}×`],["Map width",km(extentOf(sq),sq.scale)],["Elevation data",`zoom ${elev.zoom} · ${elev.metresPerTilePx.toFixed(1)} m/px · ${elev.tiles} tiles`],...(fit.seaLevel!==null?[["Sea level",m(fit.seaLevel)]]:[])]);
+  $("clip-key").hidden=!fit.clipped;
+  $("clip-warning").hidden=!(fit.clipped>0);
+  $("clip-warning").querySelector("strong").textContent=`${Math.round(fit.clipped*100)}% of this map is cut off at the game's 1,024 m limit`;
+  $("height-note").hidden=!(fit.verticalScale<1&&!fit.clipped);
+  $("height-note").querySelector("span").textContent=`Heights scaled to ${fit.verticalScale.toFixed(2)}×.`;
+
 }
 
 // ---------------------------------------------------------------- downloads
@@ -376,7 +393,7 @@ function showWaterRisk(map, selection, key) {
   $("water-risk-reasons").replaceChildren(...decision.reasons.map((text) => {
     const li = document.createElement("li"); li.textContent = text; return li;
   }));
-  $("water-risk-calibration").textContent = calibrationText(map.waterRisk);
+  $("water-risk-calibration").textContent = "Based on terrain and mapped water, not a game test.";
   $("water-risk-continue").hidden = decision.action !== "review";
   pendingRiskMap = decision.action === "review" ? { map, selection, key } : null;
   return decision;
@@ -387,7 +404,7 @@ $("water-risk-continue").onclick = () => {
   save(new Blob([pending.map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
   pendingRiskMap = null;
   $("water-risk-continue").hidden = true;
-  setStatus(`Saved ${baseName()}.crp with the water-risk warning acknowledged`);
+  setStatus(`Saved ${baseName()}.crp`);
 };
 $("water-risk-report").onclick = () => {
   if (!lastWaterRisk || lastWaterRisk.selection !== result || lastWaterRisk.key !== selectionKey()) return;
@@ -399,7 +416,9 @@ $("water-risk-report").onclick = () => {
  */
 async function crpBytes(progress = () => {}) {
   const sq = { ...result.sq, name: titleFor(), slug: baseName() };
-  const inputs = await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
+  const inputs = dramaOn()
+    ? await captureDramaInputs(sq, { status: progress, about: { page: location.origin + location.pathname } })
+    : await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
   const w = (worker ??= new Worker(new URL("mapgen-worker.js", import.meta.url), { type: "module" }));
   const id = ++nextId;
   return new Promise((resolve, reject) => {
@@ -443,12 +462,12 @@ $("dl").onclick = async () => {
       const decision = showWaterRisk(map, selection, key);
       if (decision.action === "download") {
         save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
-        setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+        setStatus(`Saved ${baseName()}.crp: "${map.mapName}" in New Game`);
       } else setStatus(decision.action === "review" ? "Map built; review the water risk before downloading" : "Water check unavailable; choose another square or use the heightmap");
-    } else setStatus("Square changed; the previous map was not downloaded");
+    } else setStatus("Square changed; map not saved");
   } catch (err) {
     lastBuild = { error: err.message };
-    fallback = `This browser couldn't build the map file (${err.message}). Here is the heightmap instead; the Map Editor steps are under Advanced.`;
+    fallback = "Map export failed. Download a heightmap.";
   }
   clearInterval(timer);
   building = false;
@@ -469,7 +488,8 @@ $("dljson").onclick = () => {
 const opts = () => ({ vscale: state.vscale, ...Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, state[k]])) });
 function details() {
   const { sq, raw, built } = result;
-  return mapDetails({ sq, elev: raw.elev, w: raw.w, map: built, opts: opts(), file: `${fileName()}.png`, link: link(), note: raw.waterNote });
+  const args = { sq, elev: raw.elev, w: raw.w, map: built, opts: opts(), file: `${fileName()}.png`, link: link(), note: raw.waterNote };
+  return dramaOn() ? dramaDetails(args) : mapDetails(args);
 }
 
 // ---------------------------------------------------------------- hand it to an AI agent
@@ -486,7 +506,7 @@ function agentPrompt() {
     `Instructions for AI agents: ${SITE}/agents.md`,
     `In short, run: npx -y ${CLI_TGZ} "${link()}" --install`,
     "If it stops with exit 5, show me the water-risk reasons; do not add --allow-water-risk without my agreement.",
-    "then tell me what it printed and what to do in the game.",
+    "Then tell me what it printed and what to do in the game.",
   ].join("\n");
 }
 $("agentcopy").onclick = async () => {
@@ -514,7 +534,9 @@ scene.add(new THREE.HemisphereLight(0xe8f0ff, 0x4a4030, 1.1));
 const sun = new THREE.DirectionalLight(0xfff3dd, 2.2);
 sun.position.set(-6, 9, -4);
 scene.add(sun);
-let mesh = null, water = null;
+let mesh = null, water = null, ceiling = null;
+let footprint = null;
+const footprintLines = new THREE.Group(); scene.add(footprintLines);
 
 function resize() {
   const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -573,23 +595,24 @@ function drawPreview(fit, wet) {
   const lo = fit.seaLevel ?? fit.gameMin, span = Math.max(fit.gameMax - lo, 1);
   for (let r = 0; r < n; r++) {
     for (let c = 0; c < n; c++) {
-      const i = r * n + c, src = r * STEP * CS1.px + c * STEP, g = fit.game[src];
+      const i = r * n + c, src = r * STEP * CS1.px + c * STEP, rawHeight = fit.game[src], g = Math.min(1024, Math.max(0,rawHeight));
       pos.setY(i, (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq)));
       let rgb = tint((g - lo) / span);
       if (wet && anyWet(wet, r * STEP, c * STEP, STEP)) rgb = [0.24, 0.47, 0.78];
       if (fit.sea?.[src]) rgb = [0.18, 0.36, 0.6];
+      if(rawHeight>1024||rawHeight<0)rgb=[1,0,0];
       col.set(rgb, 3 * i);
     }
   }
   geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
   geo.computeVertexNormals();
-  if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); }
+  if (mesh) { scene.remove(mesh); mesh.traverse(o=>o.geometry?.dispose()); mesh.material.dispose(); }
   mesh = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true }));
   mesh.position.y = -0.25;
   mesh.add(skirt(pos, n));
   mesh.add(tileGrid(pos, n));
   scene.add(mesh);
-  if (water) { scene.remove(water); water = null; }
+  if (water) { scene.remove(water); water.geometry.dispose(); water.material.dispose(); water = null; }
   if (fit.seaLevel !== null) {
     water = new THREE.Mesh(new THREE.PlaneGeometry(size, size).rotateX(-Math.PI / 2),
       new THREE.MeshLambertMaterial({ color: 0x3f7fc0, transparent: true, opacity: 0.75 }));
@@ -598,8 +621,75 @@ function drawPreview(fit, wet) {
   }
   placeNorth(result.sq.rotation);
   previewY = (g) => -0.25 + (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq));
-  $("legend").textContent = `Height x${EXAG} · lines: in-game tiles, white = start · drag to orbit`;
+  drawCeiling(fit, pos, n, STEP);
+  $("legend").textContent = `Height ×${EXAG}`;
   resize();
+  const box=new THREE.Box3().setFromObject(mesh),center=box.getCenter(new THREE.Vector3());
+  controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(10,10,10));camera.lookAt(center);camera.updateMatrixWorld();camera.zoom=1;camera.updateProjectionMatrix();
+  const points=[];for(const x of[box.min.x,box.max.x])for(const y of[box.min.y,box.max.y])for(const z of[box.min.z,box.max.z])points.push(new THREE.Vector3(x,y,z).project(camera));
+  const width=Math.max(...points.map(p=>p.x))-Math.min(...points.map(p=>p.x)),height=Math.max(...points.map(p=>p.y))-Math.min(...points.map(p=>p.y));
+  camera.zoom=Math.min(1.65/width,1.65/height);camera.updateProjectionMatrix();drawFootprint();
+  resize();
+}
+
+function drawCeiling(fit, pos, n, step) {
+  if (ceiling) {
+    scene.remove(ceiling);
+    ceiling.traverse(o => { o.geometry?.dispose(); o.material?.dispose(); });
+    ceiling = null;
+  }
+  if (!fit.clipped) return;
+  ceiling = new THREE.Group();
+  const y = previewY(CS1.maxHeight), cuts = [];
+  // Intersect each preview triangle with the height limit: only its removed portion is red.
+  const vertex = i => [pos.getX(i), pos.getZ(i), fit.game[Math.floor(i/n)*step*CS1.px+(i%n)*step]];
+  for (let r=0;r<n-1;r++) for(let c=0;c<n-1;c++) {
+    const a=r*n+c,b=a+1,d=a+n,e=d+1;
+    for (const ids of [[a,d,b],[b,d,e]]) {
+      const input=ids.map(vertex), polygon=[];
+      for (let i=0;i<3;i++) {
+        const p=input[i],q=input[(i+1)%3],inside=p[2]>CS1.maxHeight,next=q[2]>CS1.maxHeight;
+        if(inside) polygon.push(p);
+        if(inside!==next) {
+          const t=(CS1.maxHeight-p[2])/(q[2]-p[2]);
+          polygon.push([p[0]+(q[0]-p[0])*t,p[1]+(q[1]-p[1])*t,CS1.maxHeight]);
+        }
+      }
+      for(let i=1;i<polygon.length-1;i++) for(const p of [polygon[0],polygon[i],polygon[i+1]]) cuts.push(p[0],y+.001,p[1]);
+    }
+  }
+  const plane=new THREE.Mesh(new THREE.PlaneGeometry(2,2).rotateX(-Math.PI/2),
+    new THREE.MeshBasicMaterial({color:0xe02020,transparent:true,opacity:.18,side:THREE.DoubleSide,depthWrite:false}));
+  plane.position.y=y;plane.renderOrder=8;ceiling.add(plane);
+  const border=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[-1,y,-1],[1,y,-1],[1,y,1],[-1,y,1]].map(p=>new THREE.Vector3(...p))),new THREE.LineBasicMaterial({color:0xc51d1d}));
+  border.renderOrder=8;ceiling.add(border);
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute("position",new THREE.Float32BufferAttribute(cuts,3));
+  const caps=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:0xe02020,side:THREE.DoubleSide}));
+  caps.renderOrder=9;ceiling.add(caps);scene.add(ceiling);
+}
+
+function showFootprint(value, square) {
+  footprint=value?.footprint==='candidate'&&result&&(!square||square.lon===result.sq.lon&&square.lat===result.sq.lat)?value.center_xz:null;
+  $('footprint-key').hidden=!footprint;
+  const coords=footprint?[[-192,-192],[192,-192],[192,192],[-192,192],[-192,-192]].map(([x,z])=>squareToLonLat(result.sq,(footprint[0]+x)*result.sq.scale,(footprint[1]+z)*result.sq.scale)):[];
+  map.getSource('footprint')?.setData({type:'FeatureCollection',features:coords.length?[{type:'Feature',properties:{},geometry:{type:'Polygon',coordinates:[coords]}}]:[]});
+  drawFootprint();
+}
+function drawFootprint() {
+  footprintLines.children.forEach(o=>{o.geometry.dispose();o.material.dispose();});footprintLines.clear();
+  if(!footprint||!result)return render();
+  const points=[],corners=[[-192,-192],[192,-192],[192,192],[-192,192],[-192,-192]];
+  for(let k=0;k<4;k++)for(let t=0;t<1;t+=1/24){
+    const x=footprint[0]+corners[k][0]*(1-t)+corners[k+1][0]*t,z=footprint[1]+corners[k][1]*(1-t)+corners[k+1][1]*t;
+    const row=Math.max(0,Math.min(1080,Math.round((8640-z)/16))),col=Math.max(0,Math.min(1080,Math.round((x+8640)/16)));
+    points.push(new THREE.Vector3(x/8640,previewY(Math.min(1024,Math.max(0,result.fit.game[row*1081+col])))+.012,-z/8640));
+  }
+  const path=new THREE.CatmullRomCurve3(points,true,'centripetal');
+  for(const[radius,color,order]of[[.004,0x17462d,20],[.002,0xf7fff8,21]]){
+    const line=new THREE.Mesh(new THREE.TubeGeometry(path,points.length*2,radius,4,true),new THREE.MeshBasicMaterial({color,depthTest:false}));
+    line.renderOrder=order;footprintLines.add(line);
+  }
+  render();
 }
 
 // The 9 x 9 in-game tiles as lines draped on the terrain. At STEP 4 the preview has 270 cells a

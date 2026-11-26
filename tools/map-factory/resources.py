@@ -195,7 +195,19 @@ def choose_environment(sq, terrain, depth, knobs=None, fit=None):
     fit = fit or {}
     base = float(fit.get("base", 0.0))
     vertical_scale = float(fit.get("verticalScale", 1.0)) or 1.0
-    real_p75 = p75_above_floor / vertical_scale + base
+    if fit.get("drama"):
+        # The per-square transform (PL-1329) spreads the map over its own vertical budget, so
+        # height above the fixed floor no longer compares like the affine fit's did. Compare
+        # shape on the map's own scale instead, and take real elevation from the recorded p75.
+        span = float(ground.max()) - float(ground.min())
+        ground = FIT_FLOOR_M + (ground - float(ground.min())) / max(span, 1.0) * (1000.0 - FIT_FLOOR_M)
+        p75 = float(np.percentile(ground, 75))
+        p75_above_floor = p75 - FIT_FLOOR_M
+        high_share = float(np.mean(ground - FIT_FLOOR_M >= MOUNTAIN_HIGH_ABOVE_FLOOR_M))
+        recorded = fit.get("real_p75_m")
+        real_p75 = float(recorded) if recorded is not None else p75_above_floor / vertical_scale + base
+    else:
+        real_p75 = p75_above_floor / vertical_scale + base
     lat, lon = float(sq["lat"]), float(sq["lon"])
     receipt = {
         "latitude": round(lat, 4),

@@ -1,0 +1,1123 @@
+{
+ "schema": 1,
+ "note": "One accepted outside-readiness stopped-study publication as a typed evidence study, referenced from Road, Ship and Air. Its outcome is Unknown: both controls ran, then the byte-backed gate refused admission and no holdout request exists. It is not pooled with the outside-query, outside-stock, rail or native studies, not a qualification, promise or certificate, and no archived collector, evaluator, scorer or game runs as a product check.",
+ "source_manifest": {
+  "schema": 1,
+  "file": "tools/map-factory/capability-evidence/outside-readiness-sources.json",
+  "sha256": "c2af9f3b80b34dba6f6ba12a0cbd4dc18c6183c319ebfa3d770fc05eef343982",
+  "commit": "4eca4d291cc133513e8bac6484185d3a3b6e80ae",
+  "frozen_commit": "bd00a4cd1719afb32a67601949103ca8ef9cf76d",
+  "prefix": "tools/map-factory/capability-evidence/outside-readiness-stock-v2",
+  "publication_files": 26,
+  "copied_files": 25,
+  "linked_files": 1,
+  "raw_files": 51,
+  "raw_copied_files": 5
+ },
+ "studies": {
+  "outside-readiness-stock-v2": {
+   "study": "outside-readiness-stock-v2",
+   "kind": "outside_readiness_stock_study",
+   "title": "Corrected outside-query controls on a frozen unseen stock cohort",
+   "evidence_only": true,
+   "certificates": "none",
+   "scope": "One corrected control-readiness opening on a frozen, previously unqueried stock cohort. Both control openings ran as frozen and returned the required literal labels; the byte-backed readiness gate then refused admission, so no holdout request was issued and all six planned mode/class cells stay Unknown. It is not a model, a qualification, an admission repair, a new calibration score, a retry of the old study or a game run.",
+   "method": "The frozen pre-control plan bound source, build, catalog, inputs, selection, requests, predictions, controls, protocol, structural expectations and stop policy before the first control request. This ledger re-checks the archived bytes, re-derives the canonical 82-file study-tree digest, derives the versioned 30-file contract closure from the two constant declarations it parses as data, and checks that every closure file is present in the freeze with the same hash. It then re-derives the control arithmetic and the retained raw hashes. It does not run the collector, driver, auditor, bundle builder, evaluator, reporter, scorer, model or game.",
+   "survives": "The two corrected controls are complete, released and returned the required literal labels: six positive requests succeeded and six invalid-vehicle requests failed. The independent pre-request build index equals the request's effective argument on all twelve rows, the opening graph equals the post graph on both openings, and all ten owned PID/start identities are gone after the driver exited, verified by a post-exit audit rather than a self-attestation. Controls are known controls, not holdout predictions and not independent capability votes.",
+   "stopped": "The frozen freeze.json binds an 82-file study-tree source manifest. The accepted readiness contract requires frozen.source_files to be exactly the versioned 30-file closure and requires the runtime phase's source_sha256 to equal that closure's digest. The collector recorded the 82-file digest instead. Those two values cannot both be true of one measured opening. Correcting the recorded binding would rewrite a measured field after the controls; changing the closure would change the frozen source digest and require new controls. The no-retry rule forbids both, so the unchanged checker is left refusing and both digests stay recorded.",
+   "result": "unknown",
+   "limits": "The outcome is Unknown and limited: zero of six planned holdout requests were issued, so no holdout accuracy, precision or recall exists; those denominators stay null and not estimable, never 0%. The two controls are control-readiness observations, not a decision law, not holdout votes and not a qualification. No geographic negative, service, spawning, sustained-navigation, stable-water or admission claim follows. The old PL-1294 six Unknowns are unchanged and the new controls do not rescue them. Replaying the retained checks needs the exact licensed game bytes and CRPs named by hash in bundle.json; they stay in the same-owner private blade holding and are neither in this repository nor attached to the issue. A fresh clone cannot reproduce the full verify: it expects the untracked .build/Cs1Harness.dll and the original absolute staged-source path. File identity is not memory attestation, compiler trust or strict-no-mods evidence. Assemble_v2, finalize_v2 and report_v2 were written after the controls, are outside the frozen measurement closure, and measure and qualify nothing. No certificate, app adoption, model refit, public merge or Shelf page follows.",
+   "source": {
+    "publication_commit": "4eca4d291cc133513e8bac6484185d3a3b6e80ae",
+    "publication_base": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+    "frozen_commit": "bd00a4cd1719afb32a67601949103ca8ef9cf76d",
+    "internal_merge": "10be1b73598d7080afae44010c9de8b99d295316",
+    "pull_request": 93,
+    "branch": "PL-1313-stock-v2",
+    "target": "PL-1142-native-v2",
+    "source_issue": "01a2097f-7ea5-7803-ad5b-21f13dc72289",
+    "review": {
+     "pass": "01a2099e-0d6c-7a16-8749-a3544357356a",
+     "acceptance": "01a209a4-8c98-7e83-b6e3-0fbcb257f550"
+    },
+    "native_sources": {
+     "outside_query_model": "030db86ce470b972b6ef3462a2698744dff40ebb",
+     "stock_exclusion_source": "914c153687106197e5f3a745d3ff7e181181ea8a"
+    },
+    "module": {
+     "version": 3,
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "target": "PL-1142-native-v2",
+     "members": 25,
+     "created_at": "2026-11-23T18:08:52.583137+00:00"
+    }
+   },
+   "closure": {
+    "prefix": "tools/map-factory/capability-evidence/outside-readiness-stock-v2",
+    "publication_files": 26,
+    "copied_files": 25,
+    "linked_files": 1,
+    "frozen_publication_files": 20,
+    "post_control_files": [
+     "RESULTS.md",
+     "assemble_v2.py",
+     "bundle.json",
+     "evaluation.json",
+     "finalize_v2.py",
+     "report_v2.py"
+    ],
+    "frozen_changed_files": [
+     "README.md",
+     "module.json"
+    ],
+    "module_members": 25
+   },
+   "population": {
+    "packages": 105,
+    "eligible": 25,
+    "excluded_hashes": 26
+   },
+   "selection": {
+    "rule": "first_package_covering_six_strata",
+    "max_packages": 3,
+    "covered_cells": [
+     "air:no_path",
+     "air:success",
+     "road:no_path",
+     "road:success",
+     "ship:no_path",
+     "ship:success"
+    ],
+    "missing_cells": [],
+    "pool": 25,
+    "selected": [
+     {
+      "file": "PL Cavern Coast.crp",
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac"
+     }
+    ]
+   },
+   "requests": {
+    "planned": 18,
+    "controls": 12,
+    "holdout": 6,
+    "query_ids": [
+     "stock-1/air/invalid-vehicle",
+     "stock-1/air/positive",
+     "stock-1/road/invalid-vehicle",
+     "stock-1/road/positive",
+     "stock-1/ship/invalid-vehicle",
+     "stock-1/ship/positive",
+     "stock-2/air/invalid-vehicle",
+     "stock-2/air/positive",
+     "stock-2/road/invalid-vehicle",
+     "stock-2/road/positive",
+     "stock-2/ship/invalid-vehicle",
+     "stock-2/ship/positive",
+     "stock-v2-01/air/no_path",
+     "stock-v2-01/air/success",
+     "stock-v2-01/road/no_path",
+     "stock-v2-01/road/success",
+     "stock-v2-01/ship/no_path",
+     "stock-v2-01/ship/success"
+    ]
+   },
+   "holdout": {
+    "planned": 6,
+    "observed": 0,
+    "unknown": 6,
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "records": [
+     {
+      "class": "success",
+      "mode": "road",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "success",
+      "query_id": "stock-v2-01/road/success",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     },
+     {
+      "class": "no_path",
+      "mode": "road",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "no_path",
+      "query_id": "stock-v2-01/road/no_path",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     },
+     {
+      "class": "success",
+      "mode": "ship",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "success",
+      "query_id": "stock-v2-01/ship/success",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     },
+     {
+      "class": "no_path",
+      "mode": "ship",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "no_path",
+      "query_id": "stock-v2-01/ship/no_path",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     },
+     {
+      "class": "success",
+      "mode": "air",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "success",
+      "query_id": "stock-v2-01/air/success",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     },
+     {
+      "class": "no_path",
+      "mode": "air",
+      "package_locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PL Cavern Coast.crp",
+      "package_sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+      "prediction": "no_path",
+      "query_id": "stock-v2-01/air/no_path",
+      "reason": "readiness admission refused before any holdout request; no substitute or retry",
+      "status": "unobserved_unknown"
+     }
+    ]
+   },
+   "controls": {
+    "openings": 2,
+    "inventories_per_opening": 3,
+    "inventory": {
+     "files": 45,
+     "roots": 11,
+     "plugins": 7,
+     "assemblies": 23
+    },
+    "requests": 12,
+    "successes": 6,
+    "failures": 6,
+    "pre_equals_effective": 12,
+    "all_complete": true,
+    "all_released": true,
+    "graph_opening_equals_post": true,
+    "owned_processes": 10,
+    "owned_processes_gone": 10
+   },
+   "control_rows": [
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/air/invalid-vehicle",
+     "mode": "air",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/air/positive",
+     "mode": "air",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/road/invalid-vehicle",
+     "mode": "road",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/road/positive",
+     "mode": "road",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/ship/invalid-vehicle",
+     "mode": "ship",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-1",
+     "query_id": "stock-1/ship/positive",
+     "mode": "ship",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 9189,
+     "effective_build_index": 9189
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/air/invalid-vehicle",
+     "mode": "air",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/air/positive",
+     "mode": "air",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/road/invalid-vehicle",
+     "mode": "road",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/road/positive",
+     "mode": "road",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/ship/invalid-vehicle",
+     "mode": "ship",
+     "kind": "invalid-vehicle",
+     "label": "no_path",
+     "flags": 8,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    },
+    {
+     "case_id": "stock-2",
+     "query_id": "stock-2/ship/positive",
+     "mode": "ship",
+     "kind": "positive",
+     "label": "success",
+     "flags": 4,
+     "complete": true,
+     "released": true,
+     "pre_build_index": 12256,
+     "effective_build_index": 12256
+    }
+   ],
+   "freeze": {
+    "frozen_at": "2026-11-23T17:59:46.247926+00:00",
+    "git_commit_at_freeze": "5e5343b6e254952a27e622df25028f3229c7c688",
+    "source_files": 82,
+    "source_sha256": "03f7fb7c8eb8e3d6dd94f6444c5cd0cbd2156c325148b1006b564776a34f226d",
+    "contract_source_files": [
+     "tools/cs1-harness/mod/CityOps.cs",
+     "tools/cs1-harness/mod/Harness.cs",
+     "tools/cs1-harness/mod/Json.cs",
+     "tools/cs1-harness/mod/NetworkOps.cs",
+     "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.py",
+     "tools/map-factory/capability-evidence/outside-query-model-v1/model.py",
+     "tools/map-factory/capability-evidence/outside-query-model-v1/topology.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/audit_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/build_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/check_study.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/collect_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluate_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/readiness_v3.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/run_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/schema_v3.py",
+     "tools/map-factory/capability-evidence/outside-readiness-stock-v2/stock_v2.py",
+     "tools/map-factory/capability-evidence/outside-readiness-v1/evidence.py",
+     "tools/map-factory/capability-evidence/outside-readiness-v1/protocol.py",
+     "tools/map-factory/capability-evidence/outside-readiness-v1/readiness.py",
+     "tools/map-factory/capability-evidence/outside-readiness-v1/schema.py",
+     "tools/map-factory/capability-evidence/outside-stock-budget-v1/build.json",
+     "tools/map-factory/capability-evidence/outside-stock-budget-v1/build_study.py",
+     "tools/map-factory/capability-evidence/outside-stock-budget-v1/prior-stock-catalogs.json",
+     "tools/map-factory/capability-evidence/outside-stock-budget-v1/study.py",
+     "tools/map-factory/crp.py",
+     "tools/map-factory/netcodec.py",
+     "tools/map-factory/network_writer.py",
+     "tools/map-factory/survey/measure_maps.py",
+     "tools/map-factory/template.py"
+    ],
+    "contract_source_sha256": "561e4b522bc27fe9c06eb59a0ed875461b47277a2379c18d5998b8e753854860",
+    "non_contract_source_files": 52,
+    "protocol": {
+     "entry": "NewGameFromMap",
+     "invert_traffic": false,
+     "max_length": 100000,
+     "seed": 857,
+     "version": 2
+    },
+    "stop_policy": {
+     "max_control_openings": 2,
+     "max_control_requests": 12,
+     "max_holdout_requests": 18,
+     "max_openings": 5,
+     "max_package_openings": 3,
+     "max_path_requests": 30,
+     "no_retry": true,
+     "preserve_failed_opening_and_planned_requests": true,
+     "seconds_load": 600,
+     "seconds_per_opening": 900,
+     "seconds_per_query": 30,
+     "seconds_total": 4500,
+     "stop_on": [
+      "failed_or_missing_control",
+      "decoder_or_catalog_ambiguity",
+      "missing_required_fact",
+      "graph_or_context_drift",
+      "source_request_prediction_or_schema_change",
+      "plugin_assembly_or_pid_start_coverage_change",
+      "unreleased_handle",
+      "deadline_or_count_limit"
+     ]
+    },
+    "old_fact_count": 84,
+    "old_publication_files": 142,
+    "readiness_files": 24,
+    "dll": {
+     "bytes": 145408,
+     "mvid": "65019b31-a6bb-4e72-a75d-ca664806ef23",
+     "path": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-1313-stock-v2/tools/cs1-harness/.build/Cs1Harness.dll",
+     "sha256": "7b15fba2e424954e51120a9fdbe79e7d43606e5922f2fdd6389a3044a6944d75"
+    },
+    "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+    "compiler": {
+     "csc_path": "/home/caleb/.cache/cs1-harness/dotnet/sdk/8.0.427/Roslyn/bincore/csc.dll",
+     "csc_sha256": "2b9a5bbe002b353e44c78506e1bccbbc55dcdf2338abb11a68a5056329cb7334",
+     "dotnet": "8.0.427"
+    },
+    "prior_sessions": [
+     "PL-1294/budget-01/2026-11-23T11:55:27.852513+00:00",
+     "PL-1294/budget-02/2026-11-23T11:59:54.799187+00:00",
+     "PL-1294/holdout-01/2026-11-23T11:40:30.266582+00:00",
+     "PL-1294/holdout-02/2026-11-23T11:43:43.914514+00:00",
+     "PL-1294/holdout-03/2026-11-23T11:47:01.397608+00:00",
+     "PL-1294/holdout-04/2026-11-23T11:50:11.910856+00:00",
+     "PL-1294/holdout-05/2026-11-23T11:52:50.039888+00:00",
+     "PL-1294/stock-1/2026-11-23T11:32:17.914534+00:00",
+     "PL-1294/stock-2/2026-11-23T11:36:45.984773+00:00"
+    ]
+   },
+   "readiness": {
+    "ready_for_measurement": false,
+    "pre_export_qualification": "unknown",
+    "missing_native_fact": "No independently validated native decision law relating the consumed place/export fields to literal path results; chord parameter has no native-cost conversion.",
+    "reasons": [
+     "stock-1: runtime policy differs from freeze",
+     "stock-2: runtime policy differs from freeze"
+    ],
+    "scope": "post-control assembly correction only; no measurement or contract change",
+    "contract_source_files": 30,
+    "contract_source_sha256": "561e4b522bc27fe9c06eb59a0ed875461b47277a2379c18d5998b8e753854860",
+    "study_source_files": 82,
+    "study_source_sha256": "03f7fb7c8eb8e3d6dd94f6444c5cd0cbd2156c325148b1006b564776a34f226d",
+    "bundle_sha256": "767de08aeb6df62a5e81dcc5d4ec98f03d282f6685347e39a07796e0df38018b",
+    "assembler_sha256": "d8c41863b6ed62b02d3e6f9dfa3d0f55283d978850b9b6243183e163956a7961",
+    "assembler_file": "assemble_v2.py"
+   },
+   "runtime": {
+    "openings": 2,
+    "phase_inventories": 6,
+    "process_identities": 10,
+    "sessions": [
+     "PL-1313/stock-1/9a892bbd-483b-452a-90e3-b91370822ded",
+     "PL-1313/stock-2/c51cf8b9-4b2a-4062-93db-f58fd4193444"
+    ]
+   },
+   "observation_windows": [
+    {
+     "case_id": "stock-1",
+     "started_at": "2026-11-23T17:59:52.682228+00:00",
+     "finished_at": "2026-11-23T18:02:41.041863+00:00",
+     "source": [
+      "raw/drivers/stock-1/driver-launch.json",
+      "raw/stock-1/auditor-receipt.json"
+     ]
+    },
+    {
+     "case_id": "stock-2",
+     "started_at": "2026-11-23T18:03:35.454317+00:00",
+     "finished_at": "2026-11-23T18:06:27.677137+00:00",
+     "source": [
+      "raw/drivers/stock-2/driver-launch.json",
+      "raw/stock-2/auditor-receipt.json"
+     ]
+    }
+   ],
+   "bundle": {
+    "version": 2,
+    "policy_source_sha256": "03f7fb7c8eb8e3d6dd94f6444c5cd0cbd2156c325148b1006b564776a34f226d",
+    "policy_dll_sha256": "7b15fba2e424954e51120a9fdbe79e7d43606e5922f2fdd6389a3044a6944d75",
+    "files": 45,
+    "roots": 11,
+    "plugins": 7,
+    "assemblies": 23,
+    "process_roles": [
+     "game",
+     "driver",
+     "collector",
+     "auditor",
+     "monitor"
+    ]
+   },
+   "verification": {
+    "tests": 59,
+    "check_study_verify": "original_producer_build_context_only",
+    "fresh_clone_limit": "requires the untracked .build/Cs1Harness.dll and the original absolute staged-source path",
+    "retained_byte_replay": true,
+    "retained_byte_replay_scope": "51 raw hashes, the built DLL SHA-256 and MVID, and all ten owned PID/start chains, without rebuilding"
+   },
+   "exclusions": {
+    "rows": 26,
+    "sources": {
+     "PL-1294_freeze": {
+      "path": "outside-stock-budget-v1/freeze.json",
+      "sha256": "717f6c0335f4558c77d2d23b4b1181a540f70ca21779365eeae6939c8c1ef3c8"
+     },
+     "old_query_model_packages": {
+      "path": "outside-query-model-v1/packages.json",
+      "sha256": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb"
+     },
+     "stock_freeze": {
+      "commit": "914c153687106197e5f3a745d3ff7e181181ea8a",
+      "path": "tools/map-factory/capability-evidence/rail-stock-holdout-v1/freeze.json",
+      "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18"
+     }
+    },
+    "rule": "exclude by content hash: blank CO, old nine geographic, both accepted controls, all ten PL-1239 selected, every PL-1294 selection including unsupported, and duplicate hashes after the first path"
+   },
+   "files": [
+    {
+     "bytes": 5658,
+     "sha256": "b42218d0f06bcccf962d7ebeb97b8825317cd1a25cb258eb36110342c98ad7d1",
+     "git_blob": "c2a8b919169e92bca39cfb7daba865217e6fb199",
+     "role": "document",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 4301,
+      "sha256": "4ed6fe62c0034c214bf7f22551894228a0fb846130f65a52bbf582b90444eec4",
+      "git_blob": "50cbe5eeb4db9519d476f64318ea694ddebdbe7e"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/README.md"
+    },
+    {
+     "bytes": 6767,
+     "sha256": "0c08b933443079b06dffe3fc36bd82d1524fd19be1265d8fc42f46f9f0a2c2b0",
+     "git_blob": "a986c1309c68be63a9b2aef9afaa23a8b8f887e0",
+     "role": "document",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/RESULTS.md"
+    },
+    {
+     "bytes": 10368,
+     "sha256": "d8c41863b6ed62b02d3e6f9dfa3d0f55283d978850b9b6243183e163956a7961",
+     "git_blob": "80d88b06053fc264ae2103024b59d2b5fcfa2560",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/assemble_v2.py"
+    },
+    {
+     "bytes": 4169,
+     "sha256": "1a4ca1511c2d58cb2cdad8339009b609385e69a85ec8ce95da89b4b196d7f54c",
+     "git_blob": "f7bc4a9798c78b1325035769cc9c71376a90b4b2",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 4169,
+      "sha256": "1a4ca1511c2d58cb2cdad8339009b609385e69a85ec8ce95da89b4b196d7f54c",
+      "git_blob": "f7bc4a9798c78b1325035769cc9c71376a90b4b2"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/audit_v2.py"
+    },
+    {
+     "bytes": 10035,
+     "sha256": "fa8037e01f21080eddac064c271529e2f963147799f151e0e4a7aeee0f99d0f2",
+     "git_blob": "bfe3920bc73bb207f6dc894ccb83f6715ecac3e3",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 10035,
+      "sha256": "fa8037e01f21080eddac064c271529e2f963147799f151e0e4a7aeee0f99d0f2",
+      "git_blob": "bfe3920bc73bb207f6dc894ccb83f6715ecac3e3"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/build_v2.py"
+    },
+    {
+     "bytes": 212650,
+     "sha256": "767de08aeb6df62a5e81dcc5d4ec98f03d282f6685347e39a07796e0df38018b",
+     "git_blob": "7142df3088038ab5c04ba40ca5867cf45abc8bf5",
+     "role": "readiness_bundle",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle.json"
+    },
+    {
+     "bytes": 8776,
+     "sha256": "509d61af5c10da0922c835aa7cd3827c94e2e0df0ea28a7c5430a7ed9f6a89d7",
+     "git_blob": "7ec512fdbb01dece74dfa4003381e324ab15ce93",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 8776,
+      "sha256": "509d61af5c10da0922c835aa7cd3827c94e2e0df0ea28a7c5430a7ed9f6a89d7",
+      "git_blob": "7ec512fdbb01dece74dfa4003381e324ab15ce93"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle_v2.py"
+    },
+    {
+     "bytes": 3928,
+     "sha256": "fccf86d4a28dd185e632160f684830ac8a887a3fcbc0f5fba00b3674129e804b",
+     "git_blob": "95ac1502fabb88b5bacff09734e958aff06f2bff",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 3928,
+      "sha256": "fccf86d4a28dd185e632160f684830ac8a887a3fcbc0f5fba00b3674129e804b",
+      "git_blob": "95ac1502fabb88b5bacff09734e958aff06f2bff"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/check_study.py"
+    },
+    {
+     "bytes": 16184,
+     "sha256": "b1cae3fb77628fbb8e1c689a4470aff9b35a525d5d7c68a20d35a48bebd1ff81",
+     "git_blob": "418ebf58baeabcf97d20aa0b6f29a2fff86d3e27",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 16184,
+      "sha256": "b1cae3fb77628fbb8e1c689a4470aff9b35a525d5d7c68a20d35a48bebd1ff81",
+      "git_blob": "418ebf58baeabcf97d20aa0b6f29a2fff86d3e27"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/collect_v2.py"
+    },
+    {
+     "bytes": 9579,
+     "sha256": "722512d9fa51078b6cdd0b420b43703721fbec626f6dff652ae677587a8d0ef7",
+     "git_blob": "99cd64b5941e8859549f91cf1695d29b8622b66c",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 9579,
+      "sha256": "722512d9fa51078b6cdd0b420b43703721fbec626f6dff652ae677587a8d0ef7",
+      "git_blob": "99cd64b5941e8859549f91cf1695d29b8622b66c"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluate_v2.py"
+    },
+    {
+     "bytes": 15262,
+     "sha256": "fe1672bc713f8bd69ee2c9481b92c7cf76a27a27fc60532aeed2f136c302a609",
+     "git_blob": "8bc5874dcc60b72c8ab64d41cb6f27187d7debcd",
+     "role": "report",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluation.json"
+    },
+    {
+     "bytes": 6121,
+     "sha256": "8bd8392301c7f358b38af7c41e23c6d7702380f23f265bc8e03b9ff1babcc68b",
+     "git_blob": "d58aed6d8da2932972b81c32c96f99614009c788",
+     "role": "provenance",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 6121,
+      "sha256": "8bd8392301c7f358b38af7c41e23c6d7702380f23f265bc8e03b9ff1babcc68b",
+      "git_blob": "d58aed6d8da2932972b81c32c96f99614009c788"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/exclusions.json"
+    },
+    {
+     "bytes": 4368,
+     "sha256": "14de2571eb62fa0d46a37c63010d4bdc2d9bef53ac03e47cf95cbdbd41898179",
+     "git_blob": "6acd84f3ec2130f0887763e245b518be786bf4fe",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/finalize_v2.py"
+    },
+    {
+     "bytes": 39864,
+     "sha256": "8e8d6a52043adfb3a4e542991934325bcaba61721cbc31a1ab89ce4ea8c97d1f",
+     "git_blob": "be7f34f241f62bf09a9c86045e730e34e18a046a",
+     "role": "frozen_plan",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 39864,
+      "sha256": "8e8d6a52043adfb3a4e542991934325bcaba61721cbc31a1ab89ce4ea8c97d1f",
+      "git_blob": "be7f34f241f62bf09a9c86045e730e34e18a046a"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/freeze.json"
+    },
+    {
+     "bytes": 61844,
+     "sha256": "a9704585c2d4a008030d2d65c574badaf1157f0ece042b7e3e4e7730ad1f7ee5",
+     "git_blob": "ffa9978f1cb14bd80c8a20a6789d6926255b6ef7",
+     "role": "provenance",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 61844,
+      "sha256": "a9704585c2d4a008030d2d65c574badaf1157f0ece042b7e3e4e7730ad1f7ee5",
+      "git_blob": "ffa9978f1cb14bd80c8a20a6789d6926255b6ef7"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/inventory.json"
+    },
+    {
+     "bytes": 2262,
+     "sha256": "ff07df29fef1c820c52e03f912791da650fec3642c63f23d336f7b8a0b8d5730",
+     "git_blob": "7c2cfc18db3d9465e4681f14949be70ea83b07b8",
+     "role": "module",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 1766,
+      "sha256": "dde0c9bcdbe50e66dcc0a7d4da126f6ca4c4b311c28b0cb610a90e15e9295e0b",
+      "git_blob": "4903ea1f35dde70f642184e7697842b6922f8663"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/module.json"
+    },
+    {
+     "bytes": 667,
+     "sha256": "2f881983ae9bce49b387c90469a8bdc31ea17a26a42a446115a7c98f44635d7f",
+     "git_blob": "0c057b1657fb318ad3530b83044552b78d22d51e",
+     "role": "provenance",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 667,
+      "sha256": "2f881983ae9bce49b387c90469a8bdc31ea17a26a42a446115a7c98f44635d7f",
+      "git_blob": "0c057b1657fb318ad3530b83044552b78d22d51e"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/predictions.json"
+    },
+    {
+     "bytes": 7233,
+     "sha256": "113c6d4e4b64da864318095a52b2e43c9412677184aed45318e04b4b73e3e99e",
+     "git_blob": "0c15483febf2e6013e47b4643ed15ca7bc548142",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 7233,
+      "sha256": "113c6d4e4b64da864318095a52b2e43c9412677184aed45318e04b4b73e3e99e",
+      "git_blob": "0c15483febf2e6013e47b4643ed15ca7bc548142"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/readiness_v3.py"
+    },
+    {
+     "bytes": 12256,
+     "sha256": "90f329a1bfcf6c870f3d4e77191b3a8af38f76a6b805036964b3171af28f3c90",
+     "git_blob": "2c9c8a5e645bcc50e4f7e9021ec7f94e3d8c7d61",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": null,
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/report_v2.py"
+    },
+    {
+     "bytes": 7484,
+     "sha256": "e656ce84e6344c456bdeefefbb9e1809d92d261c402f6cf05b25030fbbbbef6d",
+     "git_blob": "2aa82ed1956d1a4abf0d85c002935140b6081cb4",
+     "role": "provenance",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 7484,
+      "sha256": "e656ce84e6344c456bdeefefbb9e1809d92d261c402f6cf05b25030fbbbbef6d",
+      "git_blob": "2aa82ed1956d1a4abf0d85c002935140b6081cb4"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/requests.json"
+    },
+    {
+     "bytes": 6106,
+     "sha256": "b9151e3c0932e49726506d62b7ca449d27ea406fdaf0d42984bdb1779491997d",
+     "git_blob": "a62df2efe6df2bd6514a9712030d9452613dd8c1",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 6106,
+      "sha256": "b9151e3c0932e49726506d62b7ca449d27ea406fdaf0d42984bdb1779491997d",
+      "git_blob": "a62df2efe6df2bd6514a9712030d9452613dd8c1"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/run_v2.py"
+    },
+    {
+     "bytes": 7482,
+     "sha256": "76f4a1b7461fa8be8cae3ee29536fdb3109f097eaeea8e9525f2073a5c6e418e",
+     "git_blob": "8193e43b3763f59f96928ed78a5e0a048bc88e8d",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 7482,
+      "sha256": "76f4a1b7461fa8be8cae3ee29536fdb3109f097eaeea8e9525f2073a5c6e418e",
+      "git_blob": "8193e43b3763f59f96928ed78a5e0a048bc88e8d"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/schema_v3.py"
+    },
+    {
+     "bytes": 7719,
+     "sha256": "50b44bb9ce7d76691974527db970b182d6968eb4a0cc3036493e943d0ae2a092",
+     "git_blob": "6340351848df323e62542cd5e1c66700c517f158",
+     "role": "provenance",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 7719,
+      "sha256": "50b44bb9ce7d76691974527db970b182d6968eb4a0cc3036493e943d0ae2a092",
+      "git_blob": "6340351848df323e62542cd5e1c66700c517f158"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/selection.json"
+    },
+    {
+     "bytes": 28557,
+     "sha256": "51060fcf3309efbc2a97f60a980b078aeb02bafd59d8b4e8d8325ea83d7f5bcd",
+     "git_blob": "71bf6cacacd471aada29d7ff7003ac7f3bb239e2",
+     "role": "tool",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 28557,
+      "sha256": "51060fcf3309efbc2a97f60a980b078aeb02bafd59d8b4e8d8325ea83d7f5bcd",
+      "git_blob": "71bf6cacacd471aada29d7ff7003ac7f3bb239e2"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/stock_v2.py"
+    },
+    {
+     "bytes": 16847,
+     "sha256": "c5066d0eca39f5d4c5025284d19bab6ee1a09db9748b0271b975d54d2b7ee856",
+     "git_blob": "e4e8a240cdf4050d3e72c200753f711a548e2e4c",
+     "role": "test",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 16847,
+      "sha256": "c5066d0eca39f5d4c5025284d19bab6ee1a09db9748b0271b975d54d2b7ee856",
+      "git_blob": "e4e8a240cdf4050d3e72c200753f711a548e2e4c"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/test_study_v2.py"
+    }
+   ],
+   "linked": [
+    {
+     "bytes": 2536297,
+     "sha256": "39068858a8ea98351f30e9adadd52a198115711dacb15232840830b6dde4fe62",
+     "git_blob": "11feeb5c31f425c770d7894fa1109c2f228c46da",
+     "role": "frozen_features",
+     "source": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+     "frozen": {
+      "bytes": 2536297,
+      "sha256": "39068858a8ea98351f30e9adadd52a198115711dacb15232840830b6dde4fe62",
+      "git_blob": "11feeb5c31f425c770d7894fa1109c2f228c46da"
+     },
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2/features.json.gz"
+    }
+   ],
+   "raw_manifest": [
+    {
+     "path": "drivers/stock-1/collector.log",
+     "sha256": "847f12e093c0f8500ebc34dca08f0cf1e1d6c25d30776ee3fd1f8f2188653f6c"
+    },
+    {
+     "path": "drivers/stock-1/driver-launch.json",
+     "sha256": "4d230dda46c718866e4ec3234925c11b94e970c5f5bc59d088561e1c1bdd67e2"
+    },
+    {
+     "path": "drivers/stock-2/collector.log",
+     "sha256": "5bfaad3385d0fb4b3ba364408c751c8cfe9ec504d450c03cc168f9a5d3be1709"
+    },
+    {
+     "path": "drivers/stock-2/driver-launch.json",
+     "sha256": "6e664f2c8a0e3538e4e9407ffd95e9dfe040af5e6ac331f739d0d60f81f6f3a1"
+    },
+    {
+     "path": "readiness-result.json",
+     "sha256": "f165968cf17f5970b902a5d68400f388d778e0cde8a9fd007851736386d9c3cf"
+    },
+    {
+     "path": "stock-1/auditor-receipt.json",
+     "sha256": "242238861062b11ca556706a669e5f55363f7a94aa9795c7a95a1426d91c65c0"
+    },
+    {
+     "path": "stock-1/finalize.json",
+     "sha256": "77151df6eeba9a9c5e2aece02a9f8ca7dd81a39dc99293740f58adc72615d3af"
+    },
+    {
+     "path": "stock-1/game.log",
+     "sha256": "084d16a1956fe40ab13ff1c28608b1152465a18c998c70a2c523d82a806a220c"
+    },
+    {
+     "path": "stock-1/gpu.csv",
+     "sha256": "206e363e963128cadee0dc63acb25cf9428b0003d969d274bc934215abbca0fa"
+    },
+    {
+     "path": "stock-1/graph-opening.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_air_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_air_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_road_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_road_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_ship_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post-stock-1_ship_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-post.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_air_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_air_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_road_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_road_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_ship_invalid-vehicle.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/graph-pre-stock-1_ship_positive.json",
+     "sha256": "7421f82fe8e6a6dec02aa41d3d306bc61c61ef5e22d36265bf2819332fcccd6b"
+    },
+    {
+     "path": "stock-1/monitor-receipt.json",
+     "sha256": "e33b0804f515d9a3adcd8b773e8f2744a209c0b51247668b54e7679a11758cb8"
+    },
+    {
+     "path": "stock-1/networks-opening.json",
+     "sha256": "569b41bd23c094b49df8afffcfe6ee57af8360232e88e977d06703c3824fdc5f"
+    },
+    {
+     "path": "stock-1/networks-post.json",
+     "sha256": "569b41bd23c094b49df8afffcfe6ee57af8360232e88e977d06703c3824fdc5f"
+    },
+    {
+     "path": "stock-1/observation.json",
+     "sha256": "9832da1003a25ab4b3f21f45c13836e1d5024476aaab8f4db960f302bed328d7"
+    },
+    {
+     "path": "stock-1/opening.json",
+     "sha256": "a2c2667b5cf5998a68811326076f50c77d854021bef5068d899350c678c05866"
+    },
+    {
+     "path": "stock-2/auditor-receipt.json",
+     "sha256": "e243dc6021d32faf145ab1624376204fb49ce6f3272dc64c11bd9efd15849b6a"
+    },
+    {
+     "path": "stock-2/finalize.json",
+     "sha256": "4a1faa14b9842181bb51387db847e65703fff57c8ccba8dd65692dccc86d7840"
+    },
+    {
+     "path": "stock-2/game.log",
+     "sha256": "fe9fe5c469e5acc6ebb9fbfdbe958325e3488eb7721a28d234f1ad912aa78fe8"
+    },
+    {
+     "path": "stock-2/gpu.csv",
+     "sha256": "1d5838d73b6a314b3d27373b79ca77472edcb7c9758bc29f999462fb7c2c817e"
+    },
+    {
+     "path": "stock-2/graph-opening.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_air_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_air_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_road_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_road_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_ship_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post-stock-2_ship_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-post.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_air_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_air_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_road_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_road_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_ship_invalid-vehicle.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/graph-pre-stock-2_ship_positive.json",
+     "sha256": "de05bfccdc1911225c6e8e936f5c3a6c2cbaff199387cd6f7c5ed3d6b5e3fa84"
+    },
+    {
+     "path": "stock-2/monitor-receipt.json",
+     "sha256": "529b8933c2daa523cd8a6a3daaa60e66323d574f2e018c98106882da614dc9bc"
+    },
+    {
+     "path": "stock-2/networks-opening.json",
+     "sha256": "4c7517f366e07927a44320df313348fd33c327e595a199aff3ec4ab943580db7"
+    },
+    {
+     "path": "stock-2/networks-post.json",
+     "sha256": "4c7517f366e07927a44320df313348fd33c327e595a199aff3ec4ab943580db7"
+    },
+    {
+     "path": "stock-2/observation.json",
+     "sha256": "529109edb060a492829ab4410f47c4736a8f835c154724eb983e0642e298d54d"
+    },
+    {
+     "path": "stock-2/opening.json",
+     "sha256": "c903f526d1d8e2a6808f6bc52645a747fd382e435430618b7a8077644f186b87"
+    }
+   ],
+   "raw": [
+    {
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-1/driver-launch.json.gz",
+     "role": "raw_driver_launch",
+     "raw_path": "drivers/stock-1/driver-launch.json",
+     "raw_sha256": "4d230dda46c718866e4ec3234925c11b94e970c5f5bc59d088561e1c1bdd67e2",
+     "raw_bytes": 758,
+     "sha256": "75b60736066aee84ac025022f394f915b54cad72bf0f678ad17c0be8c591d609",
+     "bytes": 389
+    },
+    {
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-2/driver-launch.json.gz",
+     "role": "raw_driver_launch",
+     "raw_path": "drivers/stock-2/driver-launch.json",
+     "raw_sha256": "6e664f2c8a0e3538e4e9407ffd95e9dfe040af5e6ac331f739d0d60f81f6f3a1",
+     "raw_bytes": 758,
+     "sha256": "4a67fc09da6ae99ab6dfd2444d030e05feb2137ea57d8024c62a12ca2465e1e0",
+     "bytes": 391
+    },
+    {
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/readiness-result.json.gz",
+     "role": "raw_readiness_result",
+     "raw_path": "readiness-result.json",
+     "raw_sha256": "f165968cf17f5970b902a5d68400f388d778e0cde8a9fd007851736386d9c3cf",
+     "raw_bytes": 909,
+     "sha256": "6300d3f4e9c8eee9c315f3c919cfbe0182deed138214ac88d63f6c037b092f2e",
+     "bytes": 564
+    },
+    {
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-1/auditor-receipt.json.gz",
+     "role": "raw_auditor_receipt",
+     "raw_path": "stock-1/auditor-receipt.json",
+     "raw_sha256": "242238861062b11ca556706a669e5f55363f7a94aa9795c7a95a1426d91c65c0",
+     "raw_bytes": 8909,
+     "sha256": "aa185d11eb7d9b9c1af7782beb4f54d093547623e170764cee34644eff79f00d",
+     "bytes": 970
+    },
+    {
+     "path": "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz",
+     "role": "raw_auditor_receipt",
+     "raw_path": "stock-2/auditor-receipt.json",
+     "raw_sha256": "e243dc6021d32faf145ab1624376204fb49ce6f3272dc64c11bd9efd15849b6a",
+     "raw_bytes": 8897,
+     "sha256": "c37d2533c970bca57761bdf201b5a8cf4027eccc3867a46b95a71cada1161eea",
+     "bytes": 944
+    }
+   ],
+   "evidence_sha256": "3c143f3a5692333a19340df7c395bde120491edc1871eaf4be761c1ac7ac3c0a",
+   "linked_sha256": "fcb8b823fceffb2a62b1fc5c67a79dabc44a36bb21f9e4ec5ddee33f59f3f483",
+   "raw_manifest_sha256": "1f7324fbda9b35dd0b597712009121b4e6dab7618980f725634d300234d056ae",
+   "raw_evidence_sha256": "6e9661c1ce29862b583b82de4aa9782857d57746e8daa976260aeda58c83eefb"
+  }
+ }
+}

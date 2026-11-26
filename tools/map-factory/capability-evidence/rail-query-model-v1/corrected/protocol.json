@@ -1,0 +1,155 @@
+{
+  "corrects": {
+    "artifacts_preserved_at_prefix_root": {
+      "bridge.json": "cc1794b78600ca482528627d41a883a364e3ff93eef7f0251895116cc8fd711d",
+      "catalogs.json": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+      "evaluation.json": "1e345edcd5c2759b107847f5433308bd50de675e26cfb39921ffcad1ad455533",
+      "integrity.json": "8ce8c9bef003b998d6948d6afb9b5af84e9f81d3882c0c24fe2b3f0fe9228253",
+      "predictions.json": "2b7a0b0b6304a6bbf7010141cdb553a79909e2e83505a7c54442dc68155ea74d",
+      "protocol.json": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b"
+    },
+    "review": "changes requested on PR81 with constructed domain, tie, reversal, length and binding defects",
+    "reviewed_head": "97e00389f4ad0eb30aa1ff1d775876c87f4ab27c"
+  },
+  "estimable": "precision and recall are null when their denominator is zero; no always-fail accuracy headline",
+  "excluded_from_primary": "midpoint, reversed-position and invalid-vehicle diagnostics; rail-v1 and rail-v2 selector revisions; the rio fair-queue denial; any outcome or path",
+  "families": {
+    "junction": {
+      "frozen": "after the topology-only family failed to separate observed successes from observed failures; every member is reported and none is adopted",
+      "rules": [
+        "junction:continuation:any_lane",
+        "junction:continuation:index_same",
+        "junction:continuation:index_mirror",
+        "junction:continuation:orientation_index",
+        "junction:continuation:orientation_mirror",
+        "junction:single:any_lane",
+        "junction:single:index_same",
+        "junction:single:index_mirror",
+        "junction:single:orientation_index",
+        "junction:single:orientation_mirror"
+      ]
+    },
+    "topology_only": {
+      "frozen": "before any prediction was scored",
+      "rules": [
+        "always_fail",
+        "always_candidate",
+        "weak_component",
+        "lane:any_lane:forbidden",
+        "lane:any_lane:deadend",
+        "lane:any_lane:allowed",
+        "lane:index_same:forbidden",
+        "lane:index_same:deadend",
+        "lane:index_same:allowed",
+        "lane:index_mirror:forbidden",
+        "lane:index_mirror:deadend",
+        "lane:index_mirror:allowed",
+        "lane:orientation_index:forbidden",
+        "lane:orientation_index:deadend",
+        "lane:orientation_index:allowed",
+        "lane:orientation_mirror:forbidden",
+        "lane:orientation_mirror:deadend",
+        "lane:orientation_mirror:allowed"
+      ]
+    }
+  },
+  "features_allowed": "pre-query topology, geometry, lane direction bits, category, flags and request parameters only",
+  "features_forbidden": "place names, artifact ids, special segment ids, successful paths, observation bytes, old scores",
+  "fitted_rule": "junction:continuation:any_lane",
+  "freeze": "rail-query-model-v2-corrected",
+  "frozen_at": "2026-11-21T19:17:43.782675+00:00",
+  "junctions": {
+    "all": "every incident Train segment pair continues",
+    "continuation": "a disjoint pairing, straightest first: a node passes one continuation per segment",
+    "single": "only the single straightest incident pair continues"
+  },
+  "max_length": 100000.0,
+  "model_version": "rail-query-model-v2-corrected",
+  "negative_label": "complete and released selected request whose native result reports success=false; this is an observed failure for that exact request, mode, flags and protocol, never a geographic negative",
+  "packages": {
+    "asheville": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+    "boston": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+    "charleston": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+    "grand-canyon": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+    "hong-kong": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+    "innsbruck": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+    "pittsburgh": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+    "rio": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+    "stock-1": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+    "stock-2": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+    "yosemite": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+  },
+  "pairings": {
+    "any_lane": "all Train lane pairs continue",
+    "index_mirror": "Train lane ordinal i continues onto ordinal n-1-i",
+    "index_same": "Train lane ordinal i continues onto ordinal i",
+    "orientation_index": "i at a mixed node, n-1-i at a same-sided node",
+    "orientation_mirror": "n-1-i at a mixed node, i at a same-sided node"
+  },
+  "positive_label": "complete and released native path whose returned first and last positions equal the requested literal offsets",
+  "primary_rule": "lane:orientation_index:forbidden",
+  "primary_set": "selected literal-boundary requests: non-diagnostic, position_kind=boundary, from the frozen query-freeze plan of each accepted opening",
+  "protocol_copied_from_source": "PathManager.CreatePath, vehicle Train, category All, laneTypes Vehicle|TransportVehicle|CargoVehicle, seed 857, maxLength 100000, literal [segment,lane,offset] endpoints",
+  "rules": [
+    "always_fail",
+    "always_candidate",
+    "weak_component",
+    "lane:any_lane:forbidden",
+    "lane:any_lane:deadend",
+    "lane:any_lane:allowed",
+    "lane:index_same:forbidden",
+    "lane:index_same:deadend",
+    "lane:index_same:allowed",
+    "lane:index_mirror:forbidden",
+    "lane:index_mirror:deadend",
+    "lane:index_mirror:allowed",
+    "lane:orientation_index:forbidden",
+    "lane:orientation_index:deadend",
+    "lane:orientation_index:allowed",
+    "lane:orientation_mirror:forbidden",
+    "lane:orientation_mirror:deadend",
+    "lane:orientation_mirror:allowed",
+    "junction:continuation:any_lane",
+    "junction:continuation:index_same",
+    "junction:continuation:index_mirror",
+    "junction:continuation:orientation_index",
+    "junction:continuation:orientation_mirror",
+    "junction:single:any_lane",
+    "junction:single:index_same",
+    "junction:single:index_mirror",
+    "junction:single:orientation_index",
+    "junction:single:orientation_mirror"
+  ],
+  "schema": 2,
+  "scope": "retrospective query-scoped rail reachability over the frozen PL-1215 native study",
+  "splits": {
+    "cohort": {
+      "packages": [
+        "asheville",
+        "innsbruck",
+        "boston",
+        "charleston",
+        "grand-canyon",
+        "hong-kong",
+        "pittsburgh",
+        "rio",
+        "yosemite"
+      ],
+      "role": "evaluation group; every selected query of a package stays in that package's group"
+    },
+    "stock_controls": {
+      "packages": [
+        "stock-1",
+        "stock-2"
+      ],
+      "role": "separate control group; never pooled with the cohort as independent votes"
+    }
+  },
+  "study": "rail-query-model-v1",
+  "unknown_label": "incomplete, unreleased or endpoint-mismatched result; unscored",
+  "uturns": {
+    "allowed": "a train may reverse at any node",
+    "deadend": "a train reverses only at a node with one incident Train segment",
+    "forbidden": "a train never reverses at a node"
+  }
+}

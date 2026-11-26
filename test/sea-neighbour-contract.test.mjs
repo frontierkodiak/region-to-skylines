@@ -12,12 +12,13 @@ const sha = bytes => createHash("sha256").update(bytes).digest("hex");
 
 test("sea-neighbour refresh retains the main capture chain and prepared calibration", async () => {
   const result = await loadFixtureContract(read, source);
-  assert.equal(result.current.version, "pl1072-sea-neighbours-v1");
+  const screen = result.historicalScreen ?? result.current;
+  assert.equal(screen.version, "pl1072-sea-neighbours-v1");
   assert.equal(result.manifest.cases.length, 5);
   assert.deepEqual(Object.keys(result.historicalCaptureSources), ["inputs.js"]);
   const prepared = JSON.parse(await read(PREFIX + "prepared-screen.json"));
-  assert.deepEqual(result.current.risk_cases, prepared.risk_cases);
-  assert.deepEqual(result.current.calibration, prepared.calibration);
+  assert.deepEqual(screen.risk_cases, prepared.risk_cases);
+  assert.deepEqual(screen.calibration, prepared.calibration);
 });
 
 test("refresh archives, current source and native-case identity fail closed", async () => {
@@ -32,7 +33,7 @@ test("refresh archives, current source and native-case identity fail closed", as
   const current = JSON.parse(await read(PREFIX + "current.json"));
   current.cases[0].status = "invented acceptance";
   await assert.rejects(loadFixtureContract(path => path === PREFIX + "current.json" ?
-    Promise.resolve(encode(current)) : read(path), source), /screen evidence relabelled/);
+    Promise.resolve(encode(current)) : read(path), source), /Air predecessor contract changed/);
 });
 
 test("coherent hash rewrites cannot relabel the old corpus or change unrelated features", async () => {
@@ -54,6 +55,6 @@ test("coherent hash rewrites cannot relabel the old corpus or change unrelated f
       [PREFIX + "corpus.json", corpusBytes],
     ]);
     await assert.rejects(loadFixtureContract(path => overrides.has(path) ?
-      Promise.resolve(overrides.get(path)) : read(path), source), /refresh changed labels, bindings or unrelated features/);
+    Promise.resolve(overrides.get(path)) : read(path), source), /Air predecessor contract changed/);
   }
 });

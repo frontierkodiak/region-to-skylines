@@ -355,7 +355,8 @@ def prepare_roads(output, geometry, air=True, ship=True):
     graph["report"]["duplicate_segments_dropped"] = len(graph["edges"]) - len(edges)
     graph["edges"] = edges
     start, why = choose_start(graph, ground, depth, hydro["start_tile"])
-    air, air_report = air_path(data, ground) if air else (None, {"air": "off"})
+    # Plane entries are unconditional; retain the old argument for CLI compatibility.
+    air, air_report = air_path(data, ground)
     ship, ship_report = (
         ship_path(data, ground, depth, start, hydro["sea_level_m"])
         if ship
@@ -621,7 +622,12 @@ if __name__ == "__main__":
     parser.add_argument("--banks", type=Path)
     parser.add_argument("--landcover", type=Path)
     parser.add_argument("--evidence", type=Path)
-    parser.add_argument("--no-air", action="store_false", dest="air")
+    parser.add_argument(
+        "--no-air",
+        action="store_false",
+        dest="air",
+        help="Deprecated: plane entries are always written",
+    )
     parser.add_argument("--no-ship", action="store_false", dest="ship")
     args = parser.parse_args()
     receipt = generate(**vars(args))

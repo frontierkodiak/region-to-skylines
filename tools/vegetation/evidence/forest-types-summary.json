@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "asheville",
+    "elapsed_s": 2.477,
+    "valid_fraction": 0.9568329903978052,
+    "typed_fraction_of_square": 0.3890523191015089,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.49403020549817983,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen needleleaf": 0.14184479259738897,
+      "deciduous broadleaf": 0.8320847335617108,
+      "mixed forest types": 0.026070473840900294
+    },
+    "counts": {
+      "0": 423846,
+      "1": 41997,
+      "4": 241137,
+      "5": 7292,
+      "255": 32224
+    }
+  },
+  {
+    "slug": "innsbruck",
+    "elapsed_s": 1.742,
+    "valid_fraction": 0.7892527220507545,
+    "typed_fraction_of_square": 0.40493452074759945,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.7091833090679339,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen needleleaf": 0.9298701600532995,
+      "deciduous broadleaf": 0.002947738646751677,
+      "mixed forest types": 0.06718210129994887
+    },
+    "counts": {
+      "0": 286892,
+      "1": 279922,
+      "4": 1025,
+      "5": 21335,
+      "255": 157322
+    }
+  },
+  {
+    "slug": "rio",
+    "elapsed_s": 0.885,
+    "valid_fraction": 0.23965701088820301,
+    "typed_fraction_of_square": 0.1773043659979424,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.5745173466905703,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen broadleaf": 0.9892899705199775,
+      "deciduous broadleaf": 0.01071002948002258
+    },
+    "counts": {
+      "0": 46546,
+      "2": 130410,
+      "4": 1947,
+      "255": 567593
+    }
+  },
+  {
+    "slug": "charleston",
+    "elapsed_s": 0.828,
+    "valid_fraction": 0.4924781914437586,
+    "typed_fraction_of_square": 0.09597506215706447,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.27162826829832454,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen needleleaf": 1.0
+    },
+    "counts": {
+      "0": 295988,
+      "1": 71645,
+      "255": 378863
+    }
+  },
+  {
+    "slug": "boston",
+    "elapsed_s": 1.153,
+    "valid_fraction": 0.2919332454561043,
+    "typed_fraction_of_square": 0.014397933813443073,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.05441880473868826,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen needleleaf": 0.19843924191750278,
+      "deciduous broadleaf": 0.7437924394446134,
+      "mixed forest types": 0.057768318637883856
+    },
+    "counts": {
+      "0": 207179,
+      "1": 2369,
+      "4": 7798,
+      "5": 581,
+      "255": 528569
+    }
+  },
+  {
+    "slug": "boreal",
+    "elapsed_s": 0.778,
+    "valid_fraction": 0.8914113404492455,
+    "typed_fraction_of_square": 0.7636665166323731,
+    "typed_fraction_of_chmv2_ge2m_samples": 0.9447098526937214,
+    "mix_over_typed_chmv2_samples": {
+      "evergreen needleleaf": 0.7104504285768304,
+      "deciduous broadleaf": 0.012673216883558849,
+      "mixed forest types": 0.2768763545396108
+    },
+    "counts": {
+      "0": 95361,
+      "1": 394009,
+      "4": 8301,
+      "5": 167764,
+      "255": 81061
+    }
+  }
+]

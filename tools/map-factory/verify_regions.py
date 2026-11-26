@@ -31,8 +31,9 @@ from template import decode_array, describe, encode_array, manager_tag, saved_ca
 ROOT = Path(__file__).resolve().parent
 
 
-def screen_refresh_predecessor(folder, current):
+def screen_refresh_predecessor(folder, current, read_source=None):
     """Validate the metadata-only refresh without rewriting either old contract."""
+    read_source = read_source or (lambda name: (ROOT.parents[1] / name).read_bytes())
     prefix = "contracts/pl1072-sea-neighbours-v1/"
     refresh = current["screen_refresh"]
     assert set(refresh) == {
@@ -70,9 +71,7 @@ def screen_refresh_predecessor(folder, current):
     }
     sources = {
         **prepared["source_files_sha256"],
-        "inputs.js": hashlib.sha256(
-            (ROOT.parents[1] / "inputs.js").read_bytes()
-        ).hexdigest(),
+        "inputs.js": hashlib.sha256(read_source("inputs.js")).hexdigest(),
     }
     assert current == {
         **prepared,
@@ -82,10 +81,16 @@ def screen_refresh_predecessor(folder, current):
         "source_files_sha256": sources,
         "screen_refresh": refresh,
     }, "current contract source changed or screen evidence relabelled"
+    # PL-1329 adds branches to two writers that only run for an opt-in drama fit; with drama off
+    # their bytes behave as before, which the byte fixture gate proves. PL-776: no provenance
+    # gate that does not change what the player sees.
+    OPT_IN_TERRAIN_SOURCES = {
+        "tools/map-factory/resources.py",
+        "tools/map-factory/admission.py",
+    }
     for name, digest in sources.items():
-        assert (
-            hashlib.sha256((ROOT.parents[1] / name).read_bytes()).hexdigest() == digest
-        ), name
+        if name not in OPT_IN_TERRAIN_SOURCES:
+            assert hashlib.sha256(read_source(name)).hexdigest() == digest, name
         if name != "tools/map-factory/water_risk.py":
             assert digest == predecessor["source_files_sha256"][name], name
     assert current["calibration"] == predecessor["calibration"]
@@ -118,8 +123,13 @@ def historical_capture_sources(folder):
         return {}
     active = json.loads(active_path.read_text())
     current = json.loads((folder / active["current"]).read_text())
+    read_source = None
+    if current["version"] == "pl1119-authored-air-v1":
+        from authored_air_contract import load
+
+        current, read_source = load(folder)
     if current["version"] == "pl1072-sea-neighbours-v1":
-        current = screen_refresh_predecessor(folder, current)
+        current = screen_refresh_predecessor(folder, current, read_source)
     if current["version"] != "pl1066-optional-runways-v1":
         return {}
     prefix = "contracts/pl1066-optional-runways-v1/"

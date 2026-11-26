@@ -1,7 +1,7 @@
 """Outside air and ship connections as two-way paths across the map (PL-982).
 
-A flight path follows the extended centreline of the region's main runway, from
-map edge to map edge, so planes arrive on the real approach track. A ship lane
+A flight path uses a mapped runway axis when it crosses the square, otherwise
+a deterministic east-west overflight. Every export gets plane entries. A ship lane
 runs through deep, edge-connected sea from one edge, past the starting tile's
 shore, to another edge. Both return graph fragments in `osm_highways`' format
 (kinds "air" and "ship", two-way, outside nodes on the edge) that
@@ -112,7 +112,7 @@ def air_path(geometry, ground):
     sq = geometry["sq"]
     airport = geometry.get("airport") or AIRPORTS.get(sq.get("slug"))
     if airport is None:
-        return None, {"air": "no airport for this square"}
+        return overflight(ground)
     centre = to_game(sq, airport["lon"], airport["lat"])
     heading = math.radians(airport["heading"])
     north = 1000 / 111320
@@ -125,7 +125,7 @@ def air_path(geometry, ground):
     direction = (ahead - centre) / np.linalg.norm(ahead - centre)
     span = _clip_line(centre, direction)
     if span is None:
-        return None, {"air": f"{airport['name']} runway axis misses the square"}
+        return overflight(ground)
     t0, t1 = span
     count = max(2, int(math.ceil((t1 - t0) / SPACING)) + 1)
     points = [centre + t * direction for t in np.linspace(t0, t1, count)]
@@ -145,6 +145,21 @@ def air_path(geometry, ground):
             ],
             "altitude_m": altitude,
             "nodes": count,
+        }
+    }
+
+
+def overflight(ground):
+    """Always-authored plane entries, independent of airports or place names."""
+    points = np.column_stack([np.linspace(-EDGE, EDGE, 181), np.zeros(181)])
+    terrain = sample(ground, points)
+    altitude = float(min(1000.0, max(300.0, terrain.max() + 300.0)))
+    return _fragment(points, [altitude] * len(points), "air"), {
+        "air": {
+            "source": "authored_overflight",
+            "edges": ["west", "east"],
+            "altitude_m": altitude,
+            "nodes": len(points),
         }
     }
 

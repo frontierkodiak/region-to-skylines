@@ -1,0 +1,54 @@
+{
+  "prefabs": {
+    "Train Connection Track": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Oneway Track": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Track": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Track Bridge": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Track Elevated": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Track Slope": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ],
+    "Train Track Tunnel": [
+      {
+        "override_direction_limit": null,
+        "prefab_max_turn_angle": 45,
+        "prefab_max_turn_angle_cos": 0.7071067690849304
+      }
+    ]
+  },
+  "scope": "observed public runtime fields only; not an identified junction law"
+}

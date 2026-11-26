@@ -1,0 +1,1980 @@
+{
+  "accepted_head": "364628b81701c134e3f469f9e175c4fe40f7a311",
+  "accepted_prefix": "tools/map-factory/capability-evidence/rail-query-model-v1",
+  "accepted_prefix_hashes": {
+    "bridge.py": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a",
+    "corrected/evaluation.json": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+    "corrected/integrity.json": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+    "corrected/predictions.json": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+    "corrected/protocol.json": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+    "model.py": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+    "openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+    "packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+    "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d"
+  },
+  "audited_at": "2026-11-21T20:22:58.435493+00:00",
+  "exporter": {
+    "build": null,
+    "note": "the container records a package format and the section a data version; it carries no exporter build or revision. Those fields are null on purpose rather than guessed, and the game-side build receipt is bound with the labels, not here",
+    "revision": null
+  },
+  "limits": [
+    "the prefab lane template and the integer flag-name tables are observed catalogs, not export bytes; both are hash-bound and leave-one-package-out checked",
+    "the two stock controls need their own package's prefab template for lanes; their tangents and all segment and node topology come directly from the export bytes",
+    "node OneWayIn/OneWayOut flag names are recomputed by the game at load and are never used",
+    "the exports carry no query, outcome or path, and this audit reads none",
+    "FILE identity is not memory attestation or strict no-mods"
+  ],
+  "packages": {
+    "asheville": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5407075,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2942,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 137891,
+            "kind": 3,
+            "name": "Asheville - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 1345949,
+            "kind": 3,
+            "name": "Asheville - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6894275,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/asheville/PL857-asheville.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Sunny",
+          "mapName": "Asheville - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "simulator_asset_sha256": "ee77b49eb98a689eabdd911bf207b048ba0f36a524f24cc79718952d3bfc1cf9"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 762,
+          "checked": 762,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 761,
+          "checked": 761,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 761,
+        "invert_checked": 761,
+        "lane_agree": 761,
+        "lane_checked": 761,
+        "missing": [],
+        "outside_agree": 762,
+        "outside_checked": 762,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+        "identical": true,
+        "native_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+        "nodes": 762,
+        "segments": 761
+      },
+      "native": {
+        "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+        "plan_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+        "train_segments": 761
+      },
+      "opening": "asheville",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2775853,
+        "nodes": 2537,
+        "prefabs": 244,
+        "segments": 2568
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0040433467652286,
+            "min": 0.9999999811535489
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 2568
+          },
+          "segments": 2568,
+          "segments_with_non_unit_magnitude": 2325,
+          "start_magnitude": {
+            "max": 1.008160219929145,
+            "min": 0.9999999811535489
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000392435056,
+            "end_min": 0.9999999614889613,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000400412175,
+            "start_min": 0.9999999614889613
+          }
+        },
+        "train_segments_covered": 761,
+        "versus_chord": {
+          "ends": 1522,
+          "max_degrees": 16.75622341091724,
+          "mean_degrees": 1.713892904349698,
+          "p50_degrees": 0.9785197920330392,
+          "p90_degrees": 4.298420469830645,
+          "p99_degrees": 9.617191944132745,
+          "share_over_1_degree": 0.4980289093298292
+        }
+      }
+    },
+    "boston": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5534445,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2939,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 97139,
+            "kind": 3,
+            "name": "Boston - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 843934,
+            "kind": 3,
+            "name": "Boston - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6478866,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Sunny",
+          "mapName": "Boston - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+        "simulator_asset_sha256": "abd8ab043031c5b34b0d71d918a94dc078f784e3a18125a0d2ba1eef552712c3"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 1180,
+          "checked": 1180,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 1180,
+        "invert_checked": 1180,
+        "lane_agree": 1180,
+        "lane_checked": 1180,
+        "missing": [],
+        "outside_agree": 1180,
+        "outside_checked": 1180,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+        "identical": true,
+        "native_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+        "nodes": 1180,
+        "segments": 1180
+      },
+      "native": {
+        "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+        "plan_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+        "train_segments": 1180
+      },
+      "opening": "boston",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2687285,
+        "nodes": 5790,
+        "prefabs": 246,
+        "segments": 5993
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.005199865235764,
+            "min": 0.9999999643533297
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 5993
+          },
+          "segments": 5993,
+          "segments_with_non_unit_magnitude": 4628,
+          "start_magnitude": {
+            "max": 1.0047400503565749,
+            "min": 0.9999999638587707
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000410713392,
+            "end_min": 0.9999999596879042,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000407384144,
+            "start_min": 0.9999999596879042
+          }
+        },
+        "train_segments_covered": 1180,
+        "versus_chord": {
+          "ends": 2360,
+          "max_degrees": 99.32381516983268,
+          "mean_degrees": 1.105960722480995,
+          "p50_degrees": 0.163092692878094,
+          "p90_degrees": 2.695311067821648,
+          "p99_degrees": 11.163476610733662,
+          "share_over_1_degree": 0.2911016949152542
+        }
+      }
+    },
+    "charleston": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5897411,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2943,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 94123,
+            "kind": 3,
+            "name": "Charleston - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 794781,
+            "kind": 3,
+            "name": "Charleston - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6789679,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/charleston/PL857-charleston.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Sunny",
+          "mapName": "Charleston - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "simulator_asset_sha256": "94c770a855d62328342197a64de9d006ec982c69c2c478edd26518b7f9dbb139"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 195,
+          "checked": 195,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 194,
+          "checked": 194,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 194,
+        "invert_checked": 194,
+        "lane_agree": 194,
+        "lane_checked": 194,
+        "missing": [],
+        "outside_agree": 195,
+        "outside_checked": 195,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+        "identical": true,
+        "native_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+        "nodes": 195,
+        "segments": 194
+      },
+      "native": {
+        "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+        "plan_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+        "train_segments": 194
+      },
+      "opening": "charleston",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 3085233,
+        "nodes": 2221,
+        "prefabs": 246,
+        "segments": 2241
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0035090520284378,
+            "min": 0.9999999626910772
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 2241
+          },
+          "segments": 2241,
+          "segments_with_non_unit_magnitude": 1183,
+          "start_magnitude": {
+            "max": 1.0035090520284378,
+            "min": 0.9999999626910772
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000390845127,
+            "end_min": 0.9999999611617972,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000390845127,
+            "start_min": 0.9999999610478351
+          }
+        },
+        "train_segments_covered": 194,
+        "versus_chord": {
+          "ends": 388,
+          "max_degrees": 25.647391331033393,
+          "mean_degrees": 1.3175006174054058,
+          "p50_degrees": 0.2762859649919593,
+          "p90_degrees": 3.5482879820869138,
+          "p99_degrees": 10.636281456730504,
+          "share_over_1_degree": 0.38402061855670105
+        }
+      }
+    },
+    "grand-canyon": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 4917744,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2945,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 138482,
+            "kind": 3,
+            "name": "Grand Canyon - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 1288694,
+            "kind": 3,
+            "name": "Grand Canyon - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6348292,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/PL857-grand-canyon.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "North",
+          "mapName": "Grand Canyon - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "simulator_asset_sha256": "a51d6fcfcb9d31e190850ca761293954f71534ee00a1c95393afeaa89c49db03"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 150,
+          "checked": 150,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 149,
+          "checked": 149,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 149,
+        "invert_checked": 149,
+        "lane_agree": 149,
+        "lane_checked": 149,
+        "missing": [],
+        "outside_agree": 150,
+        "outside_checked": 150,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+        "identical": true,
+        "native_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+        "nodes": 150,
+        "segments": 149
+      },
+      "native": {
+        "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+        "plan_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+        "train_segments": 149
+      },
+      "opening": "grand-canyon",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2673916,
+        "nodes": 150,
+        "prefabs": 238,
+        "segments": 149
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0006183169245648,
+            "min": 0.9999999777824959
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 149
+          },
+          "segments": 149,
+          "segments_with_non_unit_magnitude": 144,
+          "start_magnitude": {
+            "max": 1.0006183169245648,
+            "min": 0.9999999777824959
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000370241022,
+            "end_min": 0.9999999632389234,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000370241022,
+            "start_min": 0.9999999632389234
+          }
+        },
+        "train_segments_covered": 149,
+        "versus_chord": {
+          "ends": 298,
+          "max_degrees": 10.087442061256256,
+          "mean_degrees": 1.9064254196745196,
+          "p50_degrees": 0.8366116491544807,
+          "p90_degrees": 5.2401242027292225,
+          "p99_degrees": 9.893630256765084,
+          "share_over_1_degree": 0.4664429530201342
+        }
+      }
+    },
+    "hong-kong": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5200998,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2945,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 117005,
+            "kind": 3,
+            "name": "Hong Kong - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 1210291,
+            "kind": 3,
+            "name": "Hong Kong - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6531657,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Tropical",
+          "mapName": "Hong Kong - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "simulator_asset_sha256": "0a35f8a36f2d09f7424e31e7528b0a2fe1c1f62f5e9615aa4f8d75bd55305b07"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 712,
+          "checked": 712,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 713,
+          "checked": 713,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 713,
+        "invert_checked": 713,
+        "lane_agree": 713,
+        "lane_checked": 713,
+        "missing": [
+          "node_flag_value:273",
+          "node_flag_value:4194369"
+        ],
+        "outside_agree": 712,
+        "outside_checked": 712,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+        "identical": true,
+        "native_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+        "nodes": 712,
+        "segments": 713
+      },
+      "native": {
+        "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+        "plan_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+        "train_segments": 713
+      },
+      "opening": "hong-kong",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2306004,
+        "nodes": 5005,
+        "prefabs": 248,
+        "segments": 5069
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0106320451591162,
+            "min": 0.9999999615744325
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 5069
+          },
+          "segments": 5069,
+          "segments_with_non_unit_magnitude": 4408,
+          "start_magnitude": {
+            "max": 1.0106320346950504,
+            "min": 0.9999999615744325
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000393021022,
+            "end_min": 0.9999999582677495,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000393021022,
+            "start_min": 0.9999999582677495
+          }
+        },
+        "train_segments_covered": 713,
+        "versus_chord": {
+          "ends": 1426,
+          "max_degrees": 85.802250518797,
+          "mean_degrees": 1.4282080569295195,
+          "p50_degrees": 0.21422643985045733,
+          "p90_degrees": 3.7368269448147533,
+          "p99_degrees": 15.18147593215184,
+          "share_over_1_degree": 0.32047685834502104
+        }
+      }
+    },
+    "innsbruck": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 4921396,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2942,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 107642,
+            "kind": 3,
+            "name": "Innsbruck - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 943695,
+            "kind": 3,
+            "name": "Innsbruck - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 5976093,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/PL857-innsbruck.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "North",
+          "mapName": "Innsbruck - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "simulator_asset_sha256": "614c1b97ffa0969ef05f4f6839c398aa1d66ae310a85f1ed7510aed46a567818"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 692,
+          "checked": 692,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 693,
+          "checked": 693,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 693,
+        "invert_checked": 693,
+        "lane_agree": 693,
+        "lane_checked": 693,
+        "missing": [],
+        "outside_agree": 692,
+        "outside_checked": 692,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+        "identical": true,
+        "native_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+        "nodes": 692,
+        "segments": 693
+      },
+      "native": {
+        "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+        "plan_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+        "train_segments": 693
+      },
+      "opening": "innsbruck",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2530022,
+        "nodes": 1690,
+        "prefabs": 248,
+        "segments": 1706
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.003366354628652,
+            "min": 0.9999999698065789
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1706
+          },
+          "segments": 1706,
+          "segments_with_non_unit_magnitude": 1188,
+          "start_magnitude": {
+            "max": 1.0033663391036896,
+            "min": 0.9999999698065789
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000369850703,
+            "end_min": 0.9999999603408717,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000369850703,
+            "start_min": 0.9999999603408717
+          }
+        },
+        "train_segments_covered": 693,
+        "versus_chord": {
+          "ends": 1386,
+          "max_degrees": 19.536431195988577,
+          "mean_degrees": 1.6421971234257475,
+          "p50_degrees": 0.6401167915197196,
+          "p90_degrees": 5.127335293724124,
+          "p99_degrees": 9.978337786262292,
+          "share_over_1_degree": 0.4126984126984127
+        }
+      }
+    },
+    "pittsburgh": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5763981,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2943,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 149278,
+            "kind": 3,
+            "name": "Pittsburgh - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 1476753,
+            "kind": 3,
+            "name": "Pittsburgh - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 7393376,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/PL857-pittsburgh.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Sunny",
+          "mapName": "Pittsburgh - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "simulator_asset_sha256": "1922e915567d9a89c7b26e3b9f1106a54a6f82affc9c900fd24f91e388a96a34"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 2569,
+          "checked": 2569,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 2584,
+          "checked": 2584,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 2584,
+        "invert_checked": 2584,
+        "lane_agree": 2584,
+        "lane_checked": 2584,
+        "missing": [],
+        "outside_agree": 2569,
+        "outside_checked": 2569,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+        "identical": true,
+        "native_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+        "nodes": 2569,
+        "segments": 2584
+      },
+      "native": {
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "plan_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "train_segments": 2584
+      },
+      "opening": "pittsburgh",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2755351,
+        "nodes": 5942,
+        "prefabs": 248,
+        "segments": 6064
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0376385472477316,
+            "min": 0.9999999733196099
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 6064
+          },
+          "segments": 6064,
+          "segments_with_non_unit_magnitude": 5572,
+          "start_magnitude": {
+            "max": 1.03763855903726,
+            "min": 0.9999999733196099
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000402687368,
+            "end_min": 0.9999999605515831,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000402687368,
+            "start_min": 0.9999999605515831
+          }
+        },
+        "train_segments_covered": 2584,
+        "versus_chord": {
+          "ends": 5168,
+          "max_degrees": 32.97126776300566,
+          "mean_degrees": 1.6460230455977645,
+          "p50_degrees": 0.636905778208148,
+          "p90_degrees": 4.3016812759285,
+          "p99_degrees": 13.280966459038822,
+          "share_over_1_degree": 0.4136996904024768
+        }
+      }
+    },
+    "rio": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 5341744,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2950,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 111609,
+            "kind": 3,
+            "name": "Rio de Janeiro - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 1105205,
+            "kind": 3,
+            "name": "Rio de Janeiro - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 6561930,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/rio/PL857-rio.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Tropical",
+          "mapName": "Rio de Janeiro - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "simulator_asset_sha256": "e0acee48f6c670607df9e2e128aaf257f8b24e773333fdbe1be268979d194a2c"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 490,
+          "checked": 490,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 500,
+          "checked": 500,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 500,
+        "invert_checked": 500,
+        "lane_agree": 500,
+        "lane_checked": 500,
+        "missing": [],
+        "outside_agree": 490,
+        "outside_checked": 490,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+        "identical": true,
+        "native_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+        "nodes": 490,
+        "segments": 500
+      },
+      "native": {
+        "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+        "plan_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+        "train_segments": 500
+      },
+      "opening": "rio",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2691762,
+        "nodes": 3298,
+        "prefabs": 248,
+        "segments": 3401
+      },
+      "split": "cohort",
+      "status": "export_derivable",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0079575638083682,
+            "min": 0.9999999658471109
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 3401
+          },
+          "segments": 3401,
+          "segments_with_non_unit_magnitude": 2664,
+          "start_magnitude": {
+            "max": 1.0079575593874568,
+            "min": 0.9999999658471109
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000411332346,
+            "end_min": 0.9999999607791273,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000411332346,
+            "start_min": 0.9999999607791273
+          }
+        },
+        "train_segments_covered": 500,
+        "versus_chord": {
+          "ends": 1000,
+          "max_degrees": 104.52226286173476,
+          "mean_degrees": 2.6350143884728654,
+          "p50_degrees": 0.6571763604258626,
+          "p90_degrees": 8.00359686444261,
+          "p99_degrees": 24.02178964289388,
+          "share_over_1_degree": 0.423
+        }
+      }
+    },
+    "stock-1": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 2383339,
+            "kind": 3,
+            "name": "Asanu Beach_SteamPreview"
+          },
+          {
+            "bytes": 111212,
+            "kind": 3,
+            "name": "Asanu Beach_Snapshot"
+          },
+          {
+            "bytes": 4648225,
+            "kind": 52,
+            "name": "Asanu Beach_Data"
+          },
+          {
+            "bytes": 2913,
+            "kind": 100,
+            "name": "AP Asanu Beach"
+          }
+        ],
+        "author_present": false,
+        "bytes": 7146032,
+        "format": 8,
+        "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Asanu Beach.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Tropical",
+          "mapName": "Asanu Beach",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+        "simulator_asset_sha256": "291506bf856a9a71fbab27556d65eeb1aa59ae6486c58ec0866f8a79bb62b199"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 220,
+          "checked": 220,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 217,
+          "checked": 217,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {
+          "invert": [
+            29000
+          ],
+          "segment_present": [
+            3235,
+            22521,
+            26749
+          ]
+        },
+        "invert_agree": 213,
+        "invert_checked": 214,
+        "lane_agree": 214,
+        "lane_checked": 214,
+        "missing": [
+          "prefab:Train Track Bridge",
+          "segment_flag_value:81"
+        ],
+        "outside_agree": 220,
+        "outside_checked": 220,
+        "unseen_prefabs": [
+          "Train Track Bridge"
+        ]
+      },
+      "model_input_digest": {
+        "export_sha256": "2121279423976ac370971ec273bef951a30ce526c04c7bc6d185ca3493fdede0",
+        "identical": true,
+        "native_sha256": "2121279423976ac370971ec273bef951a30ce526c04c7bc6d185ca3493fdede0",
+        "nodes": 220,
+        "segments": 217
+      },
+      "native": {
+        "networks_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+        "plan_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+        "train_segments": 217
+      },
+      "opening": "stock-1",
+      "own_catalog_required": true,
+      "section": {
+        "current_version_section": false,
+        "data_version": 114007,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2129224,
+        "nodes": 1457,
+        "prefabs": 402,
+        "segments": 1449
+      },
+      "split": "stock_controls",
+      "status": "export_derivable_with_own_catalog",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.1550667494456168,
+            "min": 0.999999917371076
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1449
+          },
+          "segments": 1449,
+          "segments_with_non_unit_magnitude": 996,
+          "start_magnitude": {
+            "max": 1.0785034272918226,
+            "min": 0.9999183085371668
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.000000118886554,
+            "end_min": 0.9999999155075305,
+            "non_unit_share": 0.0006901311249137336,
+            "start_max": 1.0000000853934559,
+            "start_min": 0.9992788810431976
+          }
+        },
+        "train_segments_covered": 217,
+        "versus_chord": {
+          "ends": 434,
+          "max_degrees": 32.579147162728596,
+          "mean_degrees": 0.8173689946153366,
+          "p50_degrees": 0.29028115992611214,
+          "p90_degrees": 1.1704890613084629,
+          "p99_degrees": 7.923724685533561,
+          "share_over_1_degree": 0.17050691244239632
+        }
+      }
+    },
+    "stock-2": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 338107,
+            "kind": 3,
+            "name": "Hanami Bay_SteamPreview"
+          },
+          {
+            "bytes": 122663,
+            "kind": 3,
+            "name": "Hanami Bay_Snapshot"
+          },
+          {
+            "bytes": 4327913,
+            "kind": 52,
+            "name": "Hanami Bay_Data"
+          },
+          {
+            "bytes": 2908,
+            "kind": 100,
+            "name": "AP Hanami Bay"
+          }
+        ],
+        "author_present": false,
+        "bytes": 4791928,
+        "format": 8,
+        "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Hanami Bay.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "Sunny",
+          "mapName": "Hanami Bay",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+        "simulator_asset_sha256": "ecf61c097580713937ca4be9730518df66eae945bd0e001174c6d47297f95d3e"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "invert": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "lanes": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "node_outside": {
+          "agree": 228,
+          "checked": 228,
+          "rate": 1.0
+        },
+        "position": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "prefab": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "segment_present": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        },
+        "start": {
+          "agree": 225,
+          "checked": 225,
+          "rate": 1.0
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 225,
+        "invert_checked": 225,
+        "lane_agree": 225,
+        "lane_checked": 225,
+        "missing": [
+          "node_flag_value:1065089",
+          "node_flag_value:1065249",
+          "node_flag_value:268451873",
+          "node_flag_value:268451969",
+          "node_flag_value:65",
+          "prefab:Castle Wall 1",
+          "prefab:Trench Ruins 01",
+          "segment_flag_value:16385",
+          "segment_flag_value:24641",
+          "segment_flag_value:32769",
+          "segment_flag_value:4177",
+          "segment_flag_value:805310529",
+          "segment_flag_value:805314625",
+          "segment_flag_value:805322753",
+          "segment_flag_value:805339137",
+          "segment_flag_value:805339153",
+          "segment_flag_value:805343297",
+          "segment_flag_value:805355521"
+        ],
+        "outside_agree": 228,
+        "outside_checked": 228,
+        "unseen_prefabs": [
+          "Castle Wall 1",
+          "Trench Ruins 01"
+        ]
+      },
+      "model_input_digest": {
+        "export_sha256": "5cfa8390c421f0b3ada2922c76a7c002a349157f9f76d06105d44cea32bcf93a",
+        "identical": true,
+        "native_sha256": "5cfa8390c421f0b3ada2922c76a7c002a349157f9f76d06105d44cea32bcf93a",
+        "nodes": 228,
+        "segments": 225
+      },
+      "native": {
+        "networks_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+        "plan_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81",
+        "train_segments": 225
+      },
+      "opening": "stock-2",
+      "own_catalog_required": true,
+      "section": {
+        "current_version_section": false,
+        "data_version": 114009,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2062376,
+        "nodes": 1752,
+        "prefabs": 403,
+        "segments": 1743
+      },
+      "split": "stock_controls",
+      "status": "export_derivable_with_own_catalog",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0280014085256324,
+            "min": 0.9999999179024524
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1743
+          },
+          "segments": 1743,
+          "segments_with_non_unit_magnitude": 1336,
+          "start_magnitude": {
+            "max": 1.0285533430259115,
+            "min": 0.9999999179024524
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000908390068,
+            "end_min": 0.9999999055110171,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000908390068,
+            "start_min": 0.9999999179024524
+          }
+        },
+        "train_segments_covered": 225,
+        "versus_chord": {
+          "ends": 450,
+          "max_degrees": 28.447475842169883,
+          "mean_degrees": 0.953250524580843,
+          "p50_degrees": 0.6191142398233076,
+          "p90_degrees": 2.383392111642425,
+          "p99_degrees": 3.581477283335329,
+          "share_over_1_degree": 0.2822222222222222
+        }
+      }
+    },
+    "yosemite": {
+      "crp": {
+        "asset_kinds": [
+          3,
+          3,
+          52,
+          100
+        ],
+        "assets": [
+          {
+            "bytes": 4783430,
+            "kind": 52,
+            "name": "Asheville - Ready to Play_Data"
+          },
+          {
+            "bytes": 2948,
+            "kind": 100,
+            "name": "PL848-Asheville-final-template"
+          },
+          {
+            "bytes": 111602,
+            "kind": 3,
+            "name": "Yosemite Valley - Ready to Play_Snapshot"
+          },
+          {
+            "bytes": 950781,
+            "kind": 3,
+            "name": "Yosemite Valley - Ready to Play_SteamPreview"
+          }
+        ],
+        "author_present": false,
+        "bytes": 5849190,
+        "format": 12,
+        "locator": "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/PL857-yosemite.crp",
+        "metadata": {
+          "buildGuid": null,
+          "environment": "North",
+          "mapName": "Yosemite Valley - Ready to Play",
+          "publishedFileId": null,
+          "steamAuthor": null,
+          "timeCreated": null
+        },
+        "package_version": 0,
+        "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "simulator_asset_sha256": "83f0910bad00081589533639d3fde65a5adaa801a8702d119c329272478002dd"
+      },
+      "field_failures": {},
+      "fields": {
+        "end": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "invert": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "lanes": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "node_outside": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "position": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "prefab": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "segment_present": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        },
+        "start": {
+          "agree": 0,
+          "checked": 0,
+          "rate": null
+        }
+      },
+      "leave_one_package_out": {
+        "field_failures": {},
+        "invert_agree": 0,
+        "invert_checked": 0,
+        "lane_agree": 0,
+        "lane_checked": 0,
+        "missing": [],
+        "outside_agree": 0,
+        "outside_checked": 0,
+        "unseen_prefabs": []
+      },
+      "model_input_digest": {
+        "export_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "identical": true,
+        "native_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "nodes": 0,
+        "segments": 0
+      },
+      "native": {
+        "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+        "plan_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+        "train_segments": 0
+      },
+      "opening": "yosemite",
+      "own_catalog_required": false,
+      "section": {
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2564441,
+        "nodes": 0,
+        "prefabs": 236,
+        "segments": 0
+      },
+      "split": "cohort",
+      "status": "no_train_domain",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": null,
+            "min": null
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {},
+          "segments": 0,
+          "segments_with_non_unit_magnitude": 0,
+          "start_magnitude": {
+            "max": null,
+            "min": null
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": null,
+            "end_min": null,
+            "non_unit_share": null,
+            "start_max": null,
+            "start_min": null
+          }
+        },
+        "train_segments_covered": 0,
+        "versus_chord": {
+          "ends": 0
+        }
+      }
+    }
+  },
+  "precision": {
+    "note": "a unit vector's float32 resolution is about 6e-4 degrees, so the tolerances are boundary conventions, not measurement precision",
+    "positions": "IEEE-754 binary32 components, compared at 0.01 m (the accepted bridge's tolerance)",
+    "tangents": "IEEE-754 binary32 components; horizontal projection is unit to float32; turn angles computed in double",
+    "threshold_tolerance_degrees": 1e-06,
+    "tie_tolerance_degrees": 1e-06
+  },
+  "readers": {
+    "catalogs": "observed prefab lane templates and integer flag names, hash-bound and leave-one-package-out checked",
+    "container": "survey/measure_maps.py:read_any (package formats >= 2, read-only)",
+    "net": "netcodec.py:NetSection (declared version; older layouts decode read-only)",
+    "section": "network_writer.py:section_start (unique manager tag)",
+    "version": "survey/measure_maps.py:data_version (DataSerializer header)"
+  },
+  "schema": 1,
+  "status": "export_bridge_established",
+  "study": "rail-junction-fit-v1",
+  "tangents": {
+    "native_attested": false,
+    "statement": "the accepted networks.json snapshots do not emit endpoint tangents; every ruled-on tangent value is read from export bytes, so it is an export-derived hypothesis and not a completed native bridge"
+  },
+  "totals": {
+    "digests_identical": 11,
+    "fields": {
+      "end": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "invert": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "lanes": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "node_outside": {
+        "agree": 7198,
+        "checked": 7198,
+        "rate": 1.0
+      },
+      "position": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "prefab": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "segment_present": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      },
+      "start": {
+        "agree": 7216,
+        "checked": 7216,
+        "rate": 1.0
+      }
+    },
+    "packages": 11,
+    "statuses": {
+      "asheville": "export_derivable",
+      "boston": "export_derivable",
+      "charleston": "export_derivable",
+      "grand-canyon": "export_derivable",
+      "hong-kong": "export_derivable",
+      "innsbruck": "export_derivable",
+      "pittsburgh": "export_derivable",
+      "rio": "export_derivable",
+      "stock-1": "export_derivable_with_own_catalog",
+      "stock-2": "export_derivable_with_own_catalog",
+      "yosemite": "no_train_domain"
+    },
+    "tangent_missing": 0,
+    "tangent_train_segments": 7216
+  }
+}

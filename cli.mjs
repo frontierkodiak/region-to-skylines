@@ -10,6 +10,7 @@ import { homedir, platform } from "node:os";
 import { join, resolve } from "node:path";
 import { CS1, SITE, DEFAULTS, PRESETS, sampleElevation, seaMask, fetchBasemapWater, buildMap, mapDetails, parseHash, squareHash, extentOf, encode16, png16, pngRGB, waterMap, slugify, coordName, squareProblem, describeSpot } from "./terrain.js";
 import { waterRiskDecision, calibrationText } from "./water-risk.js";
+import { buildDramaMap, captureDramaInputs, dramaDetails } from "./terrain-drama.mjs";
 
 const presetNames = PRESETS.map((p) => p.name).join(", ");
 
@@ -34,6 +35,8 @@ Options
   --rotate <deg>     turn the square clockwise, -180 to 180 (default 0, or the preset's)
   --scale <x>        real ground per map: 0.5, 0.75, 1 (true size, 17.28 km), 1.5 or 2
   --height <h>       (heightmap) auto (default: 1:1, squeezed if too tall), slopes, or a factor
+  --terrain <t>      auto (default: the square's own heights) or drama (fit the square to the
+                     shipped maps' terrain band: regional trend and local relief, gained apart)
   --no-rivers        (heightmap) don't cut rivers and lakes
   --name <name>      file name without extension (default: from the place)
   --out <dir>        where to write the map file and <name>.json, plus <name>-water.png for a
@@ -70,6 +73,7 @@ try {
     allowPositionals: true,
     options: {
       heightmap: { type: "boolean" }, title: { type: "string" }, rotate: { type: "string" }, scale: { type: "string" }, height: { type: "string" },
+      terrain: { type: "string" },
       "no-rivers": { type: "boolean" }, name: { type: "string" }, out: { type: "string" },
       install: { type: "boolean" }, "game-dir": { type: "string" }, force: { type: "boolean" },
       json: { type: "boolean" }, help: { type: "boolean", short: "h" },
@@ -103,6 +107,8 @@ if (/^https?:\/\//.test(where)) {
   if (o.lon === undefined) fail(1, `that link has no square in it (expected ${SITE}/#c=lon,lat&...)`);
   ({ name } = o); delete o.name;
   Object.assign(sq, o);
+  // the page writes its terrain choice into the link; parseHash keeps only the square's fields
+  if (new URLSearchParams(hash.replace(/^#/, "")).get("terrain") === "drama") v.terrain = "drama";
   title = PRESETS.find((p) => p.lon === sq.lon && p.lat === sq.lat)?.name ?? name;
   const bad = squareProblem(sq);
   if (bad) fail(1, `that link's square is not one the page makes: ${bad}`);
@@ -137,11 +143,14 @@ if (v.rotate !== undefined) sq.rotation = v.rotate.trim() === "" ? NaN : Number(
 if (v.scale !== undefined) sq.scale = Number(v.scale);
 if (v.height !== undefined) sq.vscale = ["auto", "slopes"].includes(v.height) ? v.height : v.height.trim() === "" ? NaN : Number(v.height);
 { const bad = squareProblem(sq); if (bad) fail(1, bad.replace(/^(rotation|scale|height)/, "--$1").replace("--rotation", "--rotate")); }
+if (v.terrain !== undefined && !["auto", "drama"].includes(v.terrain)) fail(1, "--terrain takes auto or drama");
+if (v.terrain === "drama" && sq.vscale !== "auto") fail(1, "--terrain drama sets the height itself; keep --height auto or pick a factor without it");
+const drama = v.terrain === "drama";
 if (v["no-rivers"]) sq.rivers = false;
 if (v.name) name = v.name;
 name = String(name || "map").trim().replace(/[^\w.-]+/g, "-") || "map";
 title = String(v.title ?? title ?? name).trim() || name;
-const link = SITE + "/" + squareHash({ ...sq, name });
+const link = SITE + "/" + squareHash({ ...sq, name }) + (drama ? "&terrain=drama" : "");
 
 // ---------------------------------------------------------------- build
 
@@ -178,7 +187,9 @@ if (crp) {
   const status = (s) => { if (s !== last) log(`  ${(last = s)}…`); };
   try {
     const t = performance.now();
-    const inputs = await captureInputs({ ...sq, name: title, slug: name }, { status, about: { cli: "region-to-skylines", link } });
+    const inputs = drama
+      ? await captureDramaInputs({ ...sq, name: title, slug: name }, { status, about: { cli: "region-to-skylines", link } })
+      : await captureInputs({ ...sq, name: title, slug: name }, { status, about: { cli: "region-to-skylines", link } });
     const { loadPyodide } = await import("pyodide");
     const { fromUrl } = await import("geotiff");
     status("Loading Python (the first run downloads about 30 MB)");
@@ -209,8 +220,10 @@ if (crp) {
       log(`  rivers and lakes: ${w.tiles} OpenStreetMap tiles at zoom ${w.zoom}`);
     }
   } catch (err) { fail(2, `download failed: ${err.message}. Try again in a minute.`); }
-  map = buildMap({ sq, elev, w }, opts);
-  details = mapDetails({ sq, elev, w, map, opts, file: `${name}.png`, link });
+  map = drama ? buildDramaMap({ sq, elev, w }, opts) : buildMap({ sq, elev, w }, opts);
+  details = drama
+    ? dramaDetails({ sq, elev, w, map, opts, file: `${name}.png`, link })
+    : mapDetails({ sq, elev, w, map, opts, file: `${name}.png`, link });
   bytes = Buffer.from(await (await png16(encode16(map.fit.game), CS1.px, CS1.px)).arrayBuffer());
 }
 if (crp) {

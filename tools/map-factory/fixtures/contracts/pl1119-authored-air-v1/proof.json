@@ -1,0 +1,326 @@
+{
+  "native_tested": false,
+  "predecessor": {
+    "file": "contracts/pl1072-sea-neighbours-v1/current.json",
+    "sha256": "2b4f2f3f898499ff342e23914ae164e7b4ffde84548bcfce4abfdd66f68613d0"
+  },
+  "source_files_sha256": {
+    "inputs.js": "6524fb014af57c915dac4b9618c8fb50986d41ca2eccd88036abbab622472af9",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "247ed6152cfebefac2b08445863128cf94490b0672651076b5665a92420814a1",
+    "tools/map-factory/generate.py": "5a76b5dc10927b592b8d16f6a88ceafed65cb7b3a7a469bc21698d28997b8346",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "4ba1d224485c08efaa59290a9b3e6926842a430ed4f57dd79c3ed59b2ce49c0b",
+    "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+    "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2",
+    "tools/map-factory/water_risk.py": "5108488a96cfc03330c940c66969ff4c708ba7465b5fe1abf89b56ab4773375b",
+    "tools/map-factory/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/plane_entries.py": "ff3b7dae5b6afa59e529e07191b4bbb36dce10a88bba8e03097b530f4773ed62",
+    "tools/map-factory/network_writer.py": "3760363310082b920927183fbf23330e1f4de10a03c463ca2e41be2b58f133e8",
+    "tools/map-factory/netcodec.py": "1312689a3b4149b045128e625cf486ac97f26fb5c329a4bedb11b423129d4512",
+    "tools/map-factory/transport_paths.py": "4ec7338d05ea94e1568bd007af9437486f2f6ba02400584c1915526617b49340"
+  },
+  "cases": [
+    {
+      "slug": "asheville",
+      "kind": "reference",
+      "before": {
+        "expected_crp_sha256": "3d377ef636ec0a8b83467c367cd89f9d1c031f698557b0f6a99cf464d90773d1",
+        "expected_crp_bytes": 6528662,
+        "expected_simulation_sha256": "a41aa9cf52c6257a0bf8de9a0b26582fe5436cfef540f9b24ee16f04052357eb"
+      },
+      "after": {
+        "expected_crp_sha256": "4c194658107be88eddf73ae8fb77b9911d9c7cedaf7b8c050669a5063101b046",
+        "expected_crp_bytes": 6549043,
+        "expected_simulation_sha256": "9eac50b161f34438a52f31855c56f95e4f6fe232e2b4b0f6f46cd6faf1fe2d05"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 193,
+      "added_segments": 192,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "f48ff3d8c729122ee2871656d368b340d94c2156681c583ac62feaee4a159435",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "a86749dd52dfcadddc5341de262df3d943bd1d54479c6508eba7b925ecbafa24"
+      ]
+    },
+    {
+      "slug": "asheville",
+      "kind": "shipping",
+      "before": {
+        "expected_crp_sha256": "f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe",
+        "expected_crp_bytes": 6528628,
+        "expected_simulation_sha256": "fe1408142b26c427f096c5123f74e301553d2598c98829ebfcab7abf4e7362dd"
+      },
+      "after": {
+        "expected_crp_sha256": "8a0de0dc3b374328fa5af4cc115c122a9a51ab2fda139c5c57342cc177b056c6",
+        "expected_crp_bytes": 6549009,
+        "expected_simulation_sha256": "9ebfb2ad3a133970fa4ce11461cca1af97595ba7f7e20898151a5e144d088741"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 193,
+      "added_segments": 192,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "f48ff3d8c729122ee2871656d368b340d94c2156681c583ac62feaee4a159435",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "99a5b131d71c89f80327e37f4aa3ed30ecead4f2c9c0f6356068b05d2024294f"
+      ]
+    },
+    {
+      "slug": "innsbruck",
+      "kind": "reference",
+      "before": {
+        "expected_crp_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+        "expected_crp_bytes": 5758116,
+        "expected_simulation_sha256": "dd2076ee85c8f4225358f25682e8895105be2c0663daac935869ec64ddd668ea"
+      },
+      "after": {
+        "expected_crp_sha256": "613622d56764c16754c9ec3639ddf8495b7169eb7a5dd83d8b21bbd793924423",
+        "expected_crp_bytes": 5777550,
+        "expected_simulation_sha256": "1dfb7cb8ff98f539a662344e3bc322f1edb2328ba620d7aec329cad3964adcfb"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 184,
+      "added_segments": 183,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "06c851e98ab2f7d03f2722fabf4ba0d827e41ed215b0b9759449b29b30e67858",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "297cf4dc4468270358229bb27ee297fc0def1ef8b6896c307db9a99bd48257ed"
+      ]
+    },
+    {
+      "slug": "innsbruck",
+      "kind": "shipping",
+      "before": {
+        "expected_crp_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+        "expected_crp_bytes": 5758116,
+        "expected_simulation_sha256": "dd2076ee85c8f4225358f25682e8895105be2c0663daac935869ec64ddd668ea"
+      },
+      "after": {
+        "expected_crp_sha256": "613622d56764c16754c9ec3639ddf8495b7169eb7a5dd83d8b21bbd793924423",
+        "expected_crp_bytes": 5777550,
+        "expected_simulation_sha256": "1dfb7cb8ff98f539a662344e3bc322f1edb2328ba620d7aec329cad3964adcfb"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 184,
+      "added_segments": 183,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "06c851e98ab2f7d03f2722fabf4ba0d827e41ed215b0b9759449b29b30e67858",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "297cf4dc4468270358229bb27ee297fc0def1ef8b6896c307db9a99bd48257ed"
+      ]
+    },
+    {
+      "slug": "rio",
+      "kind": "reference",
+      "before": {
+        "expected_crp_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "expected_crp_bytes": 6131949,
+        "expected_simulation_sha256": "fb0c6e5e24c9dac0d9de7a29e84a94437d1b4ce5ca0c09cb879529b607efc402"
+      },
+      "after": {
+        "expected_crp_sha256": "73b096560de7a833beaa08acc2e1e3d9998e21aba4571accace984db1a8c6255",
+        "expected_crp_bytes": 6151173,
+        "expected_simulation_sha256": "80949ab0c12579c653d33aa8e65a9a2d05ddc30012050c4f87e12883855e7eb5"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 182,
+      "added_segments": 181,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "4d0b34312eae5af551578846c3e30372ece62c97f4577cadec3393648a455cb7",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "9762cf2209e9f4aae7aa7c6c8e6154f24358ad0f927e52a2688d161a641b27b8"
+      ]
+    },
+    {
+      "slug": "rio",
+      "kind": "shipping",
+      "before": {
+        "expected_crp_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "expected_crp_bytes": 6131949,
+        "expected_simulation_sha256": "fb0c6e5e24c9dac0d9de7a29e84a94437d1b4ce5ca0c09cb879529b607efc402"
+      },
+      "after": {
+        "expected_crp_sha256": "73b096560de7a833beaa08acc2e1e3d9998e21aba4571accace984db1a8c6255",
+        "expected_crp_bytes": 6151173,
+        "expected_simulation_sha256": "80949ab0c12579c653d33aa8e65a9a2d05ddc30012050c4f87e12883855e7eb5"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 182,
+      "added_segments": 181,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "4d0b34312eae5af551578846c3e30372ece62c97f4577cadec3393648a455cb7",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "9762cf2209e9f4aae7aa7c6c8e6154f24358ad0f927e52a2688d161a641b27b8"
+      ]
+    },
+    {
+      "slug": "pittsburgh",
+      "kind": "reference",
+      "before": {
+        "expected_crp_sha256": "55f68d7ff51effc8eb7b559d7f9769e615d2a0fb53ff63832e346d97ca1c8bed",
+        "expected_crp_bytes": 6638720,
+        "expected_simulation_sha256": "e61927d1bd9bee336d348c59943973d50056535dc2ff01e75ba3aee11d515333"
+      },
+      "after": {
+        "expected_crp_sha256": "db8bd90bb86610dd85b946abddb75e5f9b3a059ce14496195165f861729562cc",
+        "expected_crp_bytes": 6657944,
+        "expected_simulation_sha256": "2bc50a7b03b6b70e9475854486253b1a6a8994f518f198111261fdde3c7f3677"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 182,
+      "added_segments": 181,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "8e814d1cb7b8d05bd4270e8e93bdeb23c5a71f2248ad9f7569eec261d4fe0842",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "2c70e94b53409d8a45f9a65ed4cbd98c436220b567f6dd6599f67fec14815284"
+      ]
+    },
+    {
+      "slug": "pittsburgh",
+      "kind": "shipping",
+      "before": {
+        "expected_crp_sha256": "2b899e38b859d78816925131002c2ee48877e43a2c47f8ab9d174d47376fbba2",
+        "expected_crp_bytes": 6522084,
+        "expected_simulation_sha256": "32b26fad2f51a702b8afa9ad90d3f4a9a78457a10d98876901fc8d620d4337df"
+      },
+      "after": {
+        "expected_crp_sha256": "b6704887bbda6a644acf4b96c700c2679263543748295517d9301cd872ae0b27",
+        "expected_crp_bytes": 6541308,
+        "expected_simulation_sha256": "03eb90eff50f52d2ad739caaf9aa88a8c637590b5ff0eab980aedb96def64062"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 182,
+      "added_segments": 181,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "8e814d1cb7b8d05bd4270e8e93bdeb23c5a71f2248ad9f7569eec261d4fe0842",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "fac769de18c01dae51df9058b8001d52596b3689a27342665b6b63b65ef23f7f"
+      ]
+    },
+    {
+      "slug": "charleston",
+      "kind": "reference",
+      "before": {
+        "expected_crp_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+        "expected_crp_bytes": 6504568,
+        "expected_simulation_sha256": "180193a173300989151683164e3ae93001d2359f3b316471158b294811b5d9d6"
+      },
+      "after": {
+        "expected_crp_sha256": "d3f879e72dc272bb060dda63cc5583468e279fcd570beab002a2a9dc9444d0e4",
+        "expected_crp_bytes": 6527259,
+        "expected_simulation_sha256": "8445fde124d39b2d082d2b6b6f407e0b88e4d7ead3616d12e28cd7178dfea1e4"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 215,
+      "added_segments": 214,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "5622c02f72687cbcb750643b48c296d9e186fbc2821228e23cada4fa0388a871",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "a0bf822069ea56d3fd64b277fc40f8f1ebba54e03425fcb742ebf46758e1d8f1"
+      ]
+    },
+    {
+      "slug": "charleston",
+      "kind": "shipping",
+      "before": {
+        "expected_crp_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+        "expected_crp_bytes": 6504568,
+        "expected_simulation_sha256": "180193a173300989151683164e3ae93001d2359f3b316471158b294811b5d9d6"
+      },
+      "after": {
+        "expected_crp_sha256": "d3f879e72dc272bb060dda63cc5583468e279fcd570beab002a2a9dc9444d0e4",
+        "expected_crp_bytes": 6527259,
+        "expected_simulation_sha256": "8445fde124d39b2d082d2b6b6f407e0b88e4d7ead3616d12e28cd7178dfea1e4"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+      },
+      "plane_entries": 2,
+      "other_managers_equal": true,
+      "existing_network_equal": true,
+      "added_nodes": 215,
+      "added_segments": 214,
+      "added_buildings": 2,
+      "unchanged_managers_sha256": [
+        "5622c02f72687cbcb750643b48c296d9e186fbc2821228e23cada4fa0388a871",
+        "07428fa711e0ce42463febc12ab593f6fdaa4c42e9e0eb22b394e659a81defd4",
+        "a0bf822069ea56d3fd64b277fc40f8f1ebba54e03425fcb742ebf46758e1d8f1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "source": "asheville",
+  "retrieved_at": "2026-11-23T23:30:09.683369+00:00",
+  "count_endpoint_records": 6863,
+  "downloaded_records": 6863,
+  "raw_sha256": "cb6b5d65f46ab211ea24fc8ec53ea3258980bf5487b5c4e3dbeb357c608ee1bf",
+  "fields_requested": [
+    "objectid",
+    "genus",
+    "species",
+    "common_name",
+    "diameter",
+    "height",
+    "canopy_height",
+    "date_planted",
+    "date_removed",
+    "is_native",
+    "lifecyclestatus"
+  ],
+  "schema_sha256": "7e25dbb09cfef1c39f27e5ca12c88c8bd5b49cf9c8193ba0e484bcc47ee1017e",
+  "base": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0",
+  "fields": "objectid,genus,species,common_name,diameter,height,canopy_height,date_planted,date_removed,is_native,lifecyclestatus",
+  "order": "objectid",
+  "license": "No explicit reuse license established from inspected service; public access is not a license grant.",
+  "catalog": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0",
+  "requests": [
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=0&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "47109301b3c417c3bb843995e1385ae7a2be6b904d87ea49fd68c043e44466e5",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=1000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "6b5736be54d625e889b42263db89db992c2c19ff0e3e27a602aa414b753166ba",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=2000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "8b2d69cc5b6a976b08526abadecda449ce7b9762789f52f21a33c0d2d3192904",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=3000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "c56b81f77e3a2c96a78e73c495f6a4ea3d3bba7b8fd522852a82520993716ee1",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=4000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "7c4cc3a60ac79580807d4c473a26a0d9d97513b4baf4bc553ef92da4a68d712c",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=5000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "d2ec66d977c89adfe11cabb8ec30e4540f692ab98516ab4d1c38ef5fee789370",
+      "records": 1000
+    },
+    {
+      "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0/query?where=1%3D1&outFields=objectid%2Cgenus%2Cspecies%2Ccommon_name%2Cdiameter%2Cheight%2Ccanopy_height%2Cdate_planted%2Cdate_removed%2Cis_native%2Clifecyclestatus&outSR=4326&f=geojson&resultOffset=6000&resultRecordCount=1000&orderByFields=objectid",
+      "sha256": "efd98ae724104f22b950c6a392a9e5c2a7b6cc143f601fd20a6d74a8225831b5",
+      "records": 863
+    }
+  ]
+}

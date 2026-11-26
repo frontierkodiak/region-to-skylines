@@ -1,0 +1,131 @@
+{
+  "format": 1,
+  "version": "pl1119-authored-air-v1",
+  "status": "byte_conformance_only_not_native_tested",
+  "scope": "Add plane entries; retain all earlier fixture and native evidence without qualifying the new packages",
+  "predecessor": {
+    "file": "contracts/pl1072-sea-neighbours-v1/current.json",
+    "sha256": "2b4f2f3f898499ff342e23914ae164e7b4ffde84548bcfce4abfdd66f68613d0"
+  },
+  "source_files_sha256": {
+    "inputs.js": "6524fb014af57c915dac4b9618c8fb50986d41ca2eccd88036abbab622472af9",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "247ed6152cfebefac2b08445863128cf94490b0672651076b5665a92420814a1",
+    "tools/map-factory/generate.py": "5a76b5dc10927b592b8d16f6a88ceafed65cb7b3a7a469bc21698d28997b8346",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "4ba1d224485c08efaa59290a9b3e6926842a430ed4f57dd79c3ed59b2ce49c0b",
+    "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+    "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2",
+    "tools/map-factory/water_risk.py": "5108488a96cfc03330c940c66969ff4c708ba7465b5fe1abf89b56ab4773375b",
+    "tools/map-factory/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/plane_entries.py": "ff3b7dae5b6afa59e529e07191b4bbb36dce10a88bba8e03097b530f4773ed62",
+    "tools/map-factory/network_writer.py": "3760363310082b920927183fbf23330e1f4de10a03c463ca2e41be2b58f133e8",
+    "tools/map-factory/netcodec.py": "1312689a3b4149b045128e625cf486ac97f26fb5c329a4bedb11b423129d4512",
+    "tools/map-factory/transport_paths.py": "4ec7338d05ea94e1568bd007af9437486f2f6ba02400584c1915526617b49340"
+  },
+  "export_gate_files_sha256": {
+    "agents.md": "06f6b921e56ee89409dd3c9f07edcbd835db8a3111ff7b89fe34301d08798f4b",
+    "llms.txt": "b3bfb28c0568d10c65c152116d7956db197744215ee3ad52d6fea2f863da7809",
+    "build.mjs": "c713ccb9e3e96d48bbbd70a952a9575878161f13120e31edb8e0a2c66818fbd8",
+    "app.js": "9e4af8e1b40e206ad4810e3e78584e6df9673cab0f9fff85a9c5c3d5107ff22f",
+    "cli.mjs": "5219fdb8eb754a510aff808c827fc9a1a93c0fb8782ddcaf7b509ace5841efce",
+    "water-risk.js": "d608b74a5476b45760de415f11d465ae1ff5f2dfa6f1ca38d63e569ba4b1156b",
+    "mapgen-worker.js": "4c1818667b909ec6a5a7c7930a221c61a6b99cac1e6e23699992e7c61b4c4b95",
+    "index.html": "9f773079f951a40ab5ce1bb2d68e0c90b16052d23671afcb918516e0a0f58216",
+    "style.css": "8d40e28e517e65c309c831de3dfc3562cd91ad9ff19c78cf44a6149ecf5f4200",
+    "package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
+    ".gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8"
+  },
+  "baseline_sources": {
+    "mapgen.js": {
+      "file": "contracts/pl1119-capability-ui-v1/baseline/mapgen.js",
+      "sha256": "e3b99ce463519821b6a82012d8ff44a7493c4c0b76aef1ea126a58740ce80de3"
+    },
+    "tools/map-factory/generate.py": {
+      "file": "contracts/pl1119-capability-ui-v1/baseline/generate.py",
+      "sha256": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce"
+    }
+  },
+  "proof": {
+    "file": "contracts/pl1119-authored-air-v1/proof.json",
+    "sha256": "2a078a82fc06ea9f95c5390e374691a86cbda5fe43e2ac963e42b4b647baef14"
+  },
+  "cases": [
+    {
+      "slug": "asheville",
+      "reference": {
+        "expected_crp_sha256": "4c194658107be88eddf73ae8fb77b9911d9c7cedaf7b8c050669a5063101b046",
+        "expected_crp_bytes": 6549043,
+        "expected_simulation_sha256": "9eac50b161f34438a52f31855c56f95e4f6fe232e2b4b0f6f46cd6faf1fe2d05"
+      },
+      "shipping": {
+        "expected_crp_sha256": "8a0de0dc3b374328fa5af4cc115c122a9a51ab2fda139c5c57342cc177b056c6",
+        "expected_crp_bytes": 6549009,
+        "expected_simulation_sha256": "9ebfb2ad3a133970fa4ce11461cca1af97595ba7f7e20898151a5e144d088741"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "reference": {
+        "expected_crp_sha256": "613622d56764c16754c9ec3639ddf8495b7169eb7a5dd83d8b21bbd793924423",
+        "expected_crp_bytes": 5777550,
+        "expected_simulation_sha256": "1dfb7cb8ff98f539a662344e3bc322f1edb2328ba620d7aec329cad3964adcfb"
+      },
+      "shipping": {
+        "expected_crp_sha256": "613622d56764c16754c9ec3639ddf8495b7169eb7a5dd83d8b21bbd793924423",
+        "expected_crp_bytes": 5777550,
+        "expected_simulation_sha256": "1dfb7cb8ff98f539a662344e3bc322f1edb2328ba620d7aec329cad3964adcfb"
+      }
+    },
+    {
+      "slug": "rio",
+      "reference": {
+        "expected_crp_sha256": "73b096560de7a833beaa08acc2e1e3d9998e21aba4571accace984db1a8c6255",
+        "expected_crp_bytes": 6151173,
+        "expected_simulation_sha256": "80949ab0c12579c653d33aa8e65a9a2d05ddc30012050c4f87e12883855e7eb5"
+      },
+      "shipping": {
+        "expected_crp_sha256": "73b096560de7a833beaa08acc2e1e3d9998e21aba4571accace984db1a8c6255",
+        "expected_crp_bytes": 6151173,
+        "expected_simulation_sha256": "80949ab0c12579c653d33aa8e65a9a2d05ddc30012050c4f87e12883855e7eb5"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "reference": {
+        "expected_crp_sha256": "db8bd90bb86610dd85b946abddb75e5f9b3a059ce14496195165f861729562cc",
+        "expected_crp_bytes": 6657944,
+        "expected_simulation_sha256": "2bc50a7b03b6b70e9475854486253b1a6a8994f518f198111261fdde3c7f3677"
+      },
+      "shipping": {
+        "expected_crp_sha256": "b6704887bbda6a644acf4b96c700c2679263543748295517d9301cd872ae0b27",
+        "expected_crp_bytes": 6541308,
+        "expected_simulation_sha256": "03eb90eff50f52d2ad739caaf9aa88a8c637590b5ff0eab980aedb96def64062"
+      }
+    },
+    {
+      "slug": "charleston",
+      "reference": {
+        "expected_crp_sha256": "d3f879e72dc272bb060dda63cc5583468e279fcd570beab002a2a9dc9444d0e4",
+        "expected_crp_bytes": 6527259,
+        "expected_simulation_sha256": "8445fde124d39b2d082d2b6b6f407e0b88e4d7ead3616d12e28cd7178dfea1e4"
+      },
+      "shipping": {
+        "expected_crp_sha256": "d3f879e72dc272bb060dda63cc5583468e279fcd570beab002a2a9dc9444d0e4",
+        "expected_crp_bytes": 6527259,
+        "expected_simulation_sha256": "8445fde124d39b2d082d2b6b6f407e0b88e4d7ead3616d12e28cd7178dfea1e4"
+      }
+    }
+  ]
+}

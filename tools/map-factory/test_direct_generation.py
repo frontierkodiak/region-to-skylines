@@ -63,6 +63,14 @@ class DirectGenerationTests(unittest.TestCase):
             self.assertEqual(
                 (root / "valid-stage/maps/rio/geometry.json").read_bytes(), raw
             )
+            generation_path = exported / "generation.json"
+            original_receipt = generation_path.read_bytes()
+            changed_receipt = json.loads(original_receipt)
+            changed_receipt["plane_entries"]["entries"] += 1
+            generation_path.write_text(json.dumps(changed_receipt))
+            with self.assertRaisesRegex(ValueError, "plane entries changed"):
+                stage_prepared(root / "inputs", root / "bad-plane-stage", ["rio"])
+            generation_path.write_bytes(original_receipt)
             changed = json.loads(raw)
             changed.setdefault("lakes", []).append(
                 {"rings": [[[-180, -85], [180, -85], [180, 85], [-180, -85]]]}

@@ -47,10 +47,12 @@ test found a problem (Rio de Janeiro and Charleston); pass that note on.
 
 Useful options: `--name <name>` (file name), `--out <dir>`, `--rotate <deg>`, `--scale
 0.5|0.75|1|1.5|2` (1 = true size, 17.28 km), `--height auto|slopes|<factor>`,
-`--title <name>` (the map's name in New Game), `--heightmap` (the heightmap for the Map
+`--title <name>` (the map's name in New Game), `--terrain auto|drama` (**drama** shapes the
+square to the shipped maps' terrain band, off by default), `--heightmap` (the heightmap for the Map
 Editor instead), `--game-dir <dir>` (the game's data folder when it isn't the usual one),
 `--force` (replace a file of the same name), `--json` (machine-readable summary on stdout).
-`--help` lists everything. `--height` and `--no-rivers` shape only the heightmap.
+`--help` lists everything. `--height` and `--no-rivers` shape only the heightmap. `--terrain drama`
+sets the height itself, so it needs `--height auto`.
 
 **Water-risk check:** every square is screened from its initial terrain, water and
 control plan. Exit 5 means no map was exported or installed; the JSON report explains

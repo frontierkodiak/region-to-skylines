@@ -81,12 +81,14 @@ test("presets with a failed game check say so; the others don't", () => {
 const readFixture = async (name) => readFileSync(root + "tools/map-factory/" + name);
 const readContractSource = async (name) => readFileSync(root + name);
 
-test("current partial fixture contract binds all five native packages without claiming acceptance", async () => {
-  const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);
+test("the Air byte reference retains all five historical native packages without inheriting acceptance", async () => {
+  const { manifest, nativeCases, historicalNativeCases, current, historicalScreen, nativeQualification } = await loadFixtureContract(readFixture, readContractSource);
   assert.equal(manifest.cases.length, 5);
-  assert.equal(current.status, "partial_not_accepted");
-  assert.equal(nativeCases.asheville.harness_commit, current.native_tested_head);
-  assert.notEqual(current.native_tested_head, "022d795fb05a4c93ede04f78cce210773f23e58f");
+  assert.equal(current.status, "byte_conformance_only_not_native_tested");
+  assert.equal(nativeQualification, 'not_tested_for_authored_air_packages');
+  assert.equal(historicalScreen.status, "partial_not_accepted");
+  assert.equal(nativeCases.asheville.harness_commit, historicalScreen.native_tested_head);
+  assert.notEqual(historicalScreen.native_tested_head, "022d795fb05a4c93ede04f78cce210773f23e58f");
   assert.notEqual(nativeCases.asheville.native_crp_sha256, historicalNativeCases.asheville.native_crp_sha256);
   assert.deepEqual(nativeCases.rio.failed_checks, ["no_flooding"]);
   assert.deepEqual(nativeCases.charleston.failed_checks, ["ground_truth"]);
@@ -94,11 +96,22 @@ test("current partial fixture contract binds all five native packages without cl
 });
 
 test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {
-  await assert.rejects(loadFixtureContract(readFixture, async (name) => name.endsWith("region.py") ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
+  await assert.rejects(loadFixtureContract(readFixture, async (name) => name === "tools/map-factory/region.py" ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
   await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource), /historical fixture terrain.u16.gz changed/);
   const active = JSON.parse(await readFixture("fixtures/active.json"));
   const currentPath = "fixtures/" + active.current;
-  const original = JSON.parse(await readFixture(currentPath));
+  const air = JSON.parse(await readFixture(currentPath));
+  for (const mutate of [
+    c => c.cases.pop(),
+    c => { c.status = 'native_qualified'; },
+    c => { delete c.source_files_sha256['tools/map-factory/plane_entries.py']; },
+  ]) {
+    const candidate = structuredClone(air); mutate(candidate);
+    await assert.rejects(loadFixtureContract(name => name === currentPath ?
+      Promise.resolve(new TextEncoder().encode(JSON.stringify(candidate))) : readFixture(name), readContractSource));
+  }
+  const historicalPath = 'fixtures/' + air.predecessor.file;
+  const original = JSON.parse(await readFixture(historicalPath));
   for (const mutate of [
     (c) => c.cases.pop(),
     (c) => { c.cases[0].native.strict_vanilla_verified = true; },
@@ -117,6 +130,6 @@ test("current fixture contract refuses stale writers, missing regions and fabric
   ]) {
     const candidate = structuredClone(original);
     mutate(candidate);
-    await assert.rejects(loadFixtureContract(async (name) => name === currentPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
+    await assert.rejects(loadFixtureContract(async (name) => name === historicalPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
   }
 });

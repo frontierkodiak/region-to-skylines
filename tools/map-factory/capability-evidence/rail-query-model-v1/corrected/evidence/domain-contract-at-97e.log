@@ -1,0 +1,87 @@
+test_car_only_middle_segment_blocks_a_train_path (test_rail_query_model.DomainContractTest.test_car_only_middle_segment_blocks_a_train_path) ... FAIL
+test_equal_angle_junction_does_not_depend_on_ids (test_rail_query_model.DomainContractTest.test_equal_angle_junction_does_not_depend_on_ids) ... FAIL
+test_invert_swaps_the_required_travel_bit (test_rail_query_model.DomainContractTest.test_invert_swaps_the_required_travel_bit) ... ERROR
+test_length_bound_rejects_an_oversized_path (test_rail_query_model.DomainContractTest.test_length_bound_rejects_an_oversized_path) ... FAIL
+test_length_bound_relaxes_to_a_shorter_alternative (test_rail_query_model.DomainContractTest.test_length_bound_relaxes_to_a_shorter_alternative) ... FAIL
+test_reversal_hypothesis_is_expressible (test_rail_query_model.DomainContractTest.test_reversal_hypothesis_is_expressible) ... FAIL
+
+======================================================================
+ERROR: test_invert_swaps_the_required_travel_bit (test_rail_query_model.DomainContractTest.test_invert_swaps_the_required_travel_bit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 626, in test_invert_swaps_the_required_travel_bit
+    model.effective_forward(pkg["segments"][10], pkg["segments"][10]["start"])
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'model' has no attribute 'effective_forward'
+
+======================================================================
+FAIL: test_car_only_middle_segment_blocks_a_train_path (test_rail_query_model.DomainContractTest.test_car_only_middle_segment_blocks_a_train_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 607, in test_car_only_middle_segment_blocks_a_train_path
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        model.predict(pkg, request(10, 1, 0, 12, 1, 255), model.FITTED_RULE)[
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        model.NO_PATH,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'success' != 'no_path'
+- success
++ no_path
+
+
+======================================================================
+FAIL: test_equal_angle_junction_does_not_depend_on_ids (test_rail_query_model.DomainContractTest.test_equal_angle_junction_does_not_depend_on_ids)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 657, in test_equal_angle_junction_does_not_depend_on_ids
+    self.assertEqual(original, renamed_result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'prediction': 'success', 'detail': {'path_lower_bound_length': 2.0}} != {'prediction': 'no_path', 'detail': {'reason': 'no_directed_lane_path'}}
+- {'detail': {'path_lower_bound_length': 2.0}, 'prediction': 'success'}
++ {'detail': {'reason': 'no_directed_lane_path'}, 'prediction': 'no_path'}
+
+======================================================================
+FAIL: test_length_bound_rejects_an_oversized_path (test_rail_query_model.DomainContractTest.test_length_bound_rejects_an_oversized_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 678, in test_length_bound_rejects_an_oversized_path
+    self.assertEqual(result["prediction"], model.NO_PATH)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'success' != 'no_path'
+- success
++ no_path
+
+
+======================================================================
+FAIL: test_length_bound_relaxes_to_a_shorter_alternative (test_rail_query_model.DomainContractTest.test_length_bound_relaxes_to_a_shorter_alternative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 707, in test_length_bound_relaxes_to_a_shorter_alternative
+    self.assertLessEqual(
+    ~~~~~~~~~~~~~~~~~~~~^
+        result["detail"]["path_lower_bound_length"], model.MAX_LENGTH
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 149010.0 not less than or equal to 100000.0
+
+======================================================================
+FAIL: test_reversal_hypothesis_is_expressible (test_rail_query_model.DomainContractTest.test_reversal_hypothesis_is_expressible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/caleb/scratch/2026-11-21-pl1225-97e/tree/tools/map-factory/capability-evidence/rail-query-model-v1/test_rail_query_model.py", line 672, in test_reversal_hypothesis_is_expressible
+    self.assertEqual(outcomes["deadend"], model.SUCCESS)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'no_path' != 'success'
+- no_path
++ success
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+FAILED (failures=5, errors=1)

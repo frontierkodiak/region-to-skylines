@@ -60,6 +60,34 @@ How it is built:
   2.4 km and checks whether it runs downhill (an entry or a start) or uphill (an
   exit or a mouth). That places the suggested water sources.
 
+## Capability data
+
+[`capabilities.json`](capabilities.json) is the machine-readable inventory of what
+each square's map can promise, the checks that exist, their game evidence and
+their limits. It is an input to the live checks, not a public explainer page. The
+104-map stock reference is descriptive: below p25, typical or above p75 is not
+a quality gate or a guarantee. Measured agreement stays scoped to its recorded
+maps and protocol; the water screen's old retrospective calibration is not independent proof.
+
+```sh
+node capability-ledger.mjs                    # validate the ledger and source pins
+uv run --project tools/map-factory python tools/map-factory/capabilities.py \
+  PREPARED_EXPORT --out capability-report.json
+```
+
+The second command reads the final grids and authored graph. It does not alter
+the export, bypass the water gate, change real-connection defaults or claim a
+successful game run. The JavaScript core is checked against Python on identical
+normalized inputs; browser approximations are not final exported-water parity.
+
+The preview's icon row updates after a pan and explains each result on hover,
+keyboard focus or tap. It uses preliminary terrain/water and mapped-transport
+estimates: a candidate is **Maybe**. Trees and resources read ESA WorldCover land
+cover and recorded USGS deposits for the central tiles; their detail names the
+measured scope and keeps the export's planted-tree budget and balanced ore/oil
+top-up separate. Fresh-water checks stay **Unknown**. It does not promote game
+promises or change the public writer's connection policy.
+
 ## Water-risk check
 
 Before a map downloads, the page checks its terrain, initial water and water-control

@@ -1,0 +1,47 @@
+{
+  "cleanup_identity": null,
+  "freeze_sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+  "note": "slot denied before session acquisition; runtime and cleanup qualification unavailable, not passing",
+  "observed_at": "2026-11-21T21:55:34.017465+00:00",
+  "owned_collector_joined": true,
+  "owned_native_launches": 0,
+  "owned_sampler_joined": true,
+  "queue": {
+    "holder": {
+      "command": "run",
+      "eta_minutes": 18.9,
+      "game_minutes": 60.0,
+      "held_minutes": 0.9,
+      "issue": "PL-1074",
+      "label": "PL-1074 canonical charleston-center native",
+      "out": "/mango/training/experiments/PL-1074-place-reader/native-integrated/charleston-center",
+      "pid": 1824589,
+      "remaining_minutes": 18.0,
+      "since": 1795298041.4004254
+    },
+    "waiting": []
+  },
+  "raw": {
+    "raw/stock-1/observation.json.gz": {
+      "bytes": 3017,
+      "original_sha256": "1e1b048e6a4ee0f6eb2433242d746da9e119e49b67ded465c6bcada5dabb28a7",
+      "stored_sha256": "0a5993ba30195ac4a0feee874f0df7acd16ad0028ff67e4b83e0fa358188f5af"
+    },
+    "raw/telemetry/stock-1/collector.log.gz": {
+      "bytes": 100,
+      "original_sha256": "5b316e0070910cc629c3db26bdbe6e8c5872dfb9a6926bde14b0d82eac9967c6",
+      "stored_sha256": "a3fb47fe8466f045928dc46538d13291399357fbaf449f721a2e809873bec88b"
+    },
+    "raw/telemetry/stock-1/driver.json.gz": {
+      "bytes": 591,
+      "original_sha256": "37120c6f2bfd0ff50408e19519243e9e7460dc581cbd6b32d4ded76ce3489c71",
+      "stored_sha256": "e91501e814e57f2555d96c0858af699c563159d14a85aa10742aa77bf3959629"
+    },
+    "raw/telemetry/stock-1/process-gpu.jsonl.gz": {
+      "bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    }
+  },
+  "runtime_identity": null
+}

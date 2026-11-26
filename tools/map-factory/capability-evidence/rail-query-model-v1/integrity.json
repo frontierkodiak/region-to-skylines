@@ -1,0 +1,115 @@
+{
+  "code": {
+    "bridge.py": "b15fdcc904c7157b67449d1216dc70dbcd3e6e47a7ab593be401d21616a46347",
+    "evaluate.py": "cc71ca5b19354fc8ea3ad5b71c4b866063991383224cbd7dd8682731b863a5d3",
+    "model.py": "596638d264bcd53eee3598de0686ff0071651c9a94f58bdc993bfd4183de047f",
+    "openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+    "packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+    "predict.py": "5e068892f5d857e9e009fdba8987e83be1180104b0c05b5d42fbdaace2623bbe",
+    "test_rail_query_model.py": "a9327f357ed79d13db4d9e6df51e5d89c92b06e888789ac18b678fbbc7b5c668",
+    "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d"
+  },
+  "environment": {
+    "deps": "tools/map-factory/uv.lock",
+    "python": "3.13.13",
+    "ruff": "0.17.6",
+    "uv": "0.11.11"
+  },
+  "inputs_native": {
+    "capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/networks.json.gz": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+    "capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/observation.json.gz": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+    "capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/query-freeze.json.gz": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+    "capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/networks.json.gz": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+    "capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/observation.json.gz": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+    "capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/query-freeze.json.gz": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+    "capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/networks.json.gz": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+    "capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/observation.json.gz": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+    "capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/query-freeze.json.gz": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+    "capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/networks.json.gz": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+    "capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/observation.json.gz": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+    "capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/query-freeze.json.gz": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+    "capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/networks.json.gz": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+    "capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/observation.json.gz": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+    "capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/query-freeze.json.gz": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+    "capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/networks.json.gz": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+    "capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/observation.json.gz": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+    "capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/query-freeze.json.gz": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+    "capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/networks.json.gz": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+    "capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/observation.json.gz": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+    "capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/query-freeze.json.gz": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+    "capability-evidence/rail-v3/raw/asheville/networks.json.gz": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+    "capability-evidence/rail-v3/raw/asheville/observation.json.gz": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+    "capability-evidence/rail-v3/raw/asheville/query-freeze.json.gz": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+    "capability-evidence/rail-v3/raw/innsbruck/networks.json.gz": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+    "capability-evidence/rail-v3/raw/innsbruck/observation.json.gz": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+    "capability-evidence/rail-v3/raw/innsbruck/query-freeze.json.gz": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+    "capability-evidence/rail-v3/raw/stock-1/networks.json.gz": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+    "capability-evidence/rail-v3/raw/stock-1/observation.json.gz": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+    "capability-evidence/rail-v3/raw/stock-1/query-freeze.json.gz": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+    "capability-evidence/rail-v3/raw/stock-2/networks.json.gz": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+    "capability-evidence/rail-v3/raw/stock-2/observation.json.gz": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+    "capability-evidence/rail-v3/raw/stock-2/query-freeze.json.gz": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81"
+  },
+  "inputs_packages": {
+    "asheville": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/asheville/PL857-asheville.crp",
+      "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+    },
+    "boston": {
+      "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+      "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+    },
+    "charleston": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/charleston/PL857-charleston.crp",
+      "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+    },
+    "grand-canyon": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/PL857-grand-canyon.crp",
+      "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+    },
+    "hong-kong": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp",
+      "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+    },
+    "innsbruck": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/PL857-innsbruck.crp",
+      "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+    },
+    "pittsburgh": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/PL857-pittsburgh.crp",
+      "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+    },
+    "rio": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/rio/PL857-rio.crp",
+      "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+    },
+    "stock-1": {
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Asanu Beach.crp",
+      "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166"
+    },
+    "stock-2": {
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Hanami Bay.crp",
+      "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+    },
+    "yosemite": {
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/PL857-yosemite.crp",
+      "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+    }
+  },
+  "note": "Every input listed here is read-only. The two stock controls are CRP package format 8 and are native-snapshot only for the offline bridge. The nine cohort packages were read at their frozen locators and their bytes are verified against packages.json before every run.",
+  "outputs": {
+    "bridge.json": "cc1794b78600ca482528627d41a883a364e3ff93eef7f0251895116cc8fd711d",
+    "catalogs.json": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+    "evaluation.json": "1e345edcd5c2759b107847f5433308bd50de675e26cfb39921ffcad1ad455533",
+    "predictions.json": "2b7a0b0b6304a6bbf7010141cdb553a79909e2e83505a7c54442dc68155ea74d",
+    "protocol.json": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b"
+  },
+  "schema": 1,
+  "source": {
+    "repository": "frontierkodiak/region-to-skylines",
+    "target_branch": "PL-1142-native-v2",
+    "target_head_at_start": "7c8dcfd74dd0df181b6f167b8d9cd09cc3cae1b3",
+    "worktree_base": "1a0e45c65745ba5f05cf22f947da2e88fed25277"
+  },
+  "study": "rail-query-model-v1"
+}

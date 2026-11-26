@@ -1,0 +1,79 @@
+{
+  "evaluated_at": "2026-11-24T00:01:18.520Z",
+  "model_file": "region-to-skylines/vegetation-model.js",
+  "model_sha256": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
+  "projection_module_sha256": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
+  "design": {
+    "block_width_m": 1000,
+    "exclusion_buffer_m": 250,
+    "min_test_records_per_block": 30,
+    "target": "Entire 1km blocks contained in preset 17.28km square",
+    "training": "All same-source inventory records, excluding whole heldout block and rectangular 250m buffer; neither heldout block nor buffer enters model source-pool or baseline",
+    "projection": "Production gameXZ exact WGS84 local linearization; scale1 rotation0",
+    "query": "Actual exported compositionSampler at heldout block center, {urban:true}; no heldout coordinates or labels supplied",
+    "regional_baseline": "Training-only genus frequencies within 25000m of square center, symmetric pseudocount alpha=0; zero means unsmoothed source-pool proportions",
+    "reporting": "Equal-weight paired block mean over blocks with local estimates; zero-share taxa scored with clipped probability1e-9 only for log-loss, also report their true test mass",
+    "unknown": "Unknown predictions excluded from both paired mean scores; coverage and unknown counts reported explicitly, not silently imputed",
+    "limitations": [
+      "Within-source spatial transfer is not independent-source or cross-city validation.",
+      "No abundance, individual height/crown, wild-versus-planted, or natural-only validation.",
+      "Taxon vocabulary is source-wide; frequencies are strictly training-only.",
+      "Final source-pool fallback was selected after the local-k24 benchmark failed; final results are not an untouched model-selection holdout."
+    ]
+  },
+  "sources": {
+    "boston": {
+      "heldout_blocks": 87,
+      "heldout_records": 40466,
+      "local_evaluable_blocks": 87,
+      "local_unknown_blocks": 0,
+      "local_tvd_wins": 0,
+      "min_train_distance_to_heldout_block_m": 250.00322174277971,
+      "local": {
+        "tvd": 0.3057545932092884,
+        "js_divergence_bits": 0.13837022202103885,
+        "clipped_cross_entropy_nats": 2.853998603401616,
+        "test_mass_with_zero_predicted_share": 0.0007629398168794408,
+        "top_genus_correct": 0.3448275862068966
+      },
+      "regional": {
+        "tvd": 0.3057545932092884,
+        "js_divergence_bits": 0.13837022202103885,
+        "clipped_cross_entropy_nats": 2.853998603401616,
+        "test_mass_with_zero_predicted_share": 0.0007629398168794408,
+        "top_genus_correct": 0.3448275862068966
+      },
+      "mean_tvd_reduction": 0,
+      "production_methods": {
+        "city_inventory_source_pool": 87
+      }
+    },
+    "asheville": {
+      "heldout_blocks": 32,
+      "heldout_records": 3973,
+      "local_evaluable_blocks": 32,
+      "local_unknown_blocks": 0,
+      "local_tvd_wins": 0,
+      "min_train_distance_to_heldout_block_m": 250.0412557176096,
+      "local": {
+        "tvd": 0.4703461133881439,
+        "js_divergence_bits": 0.3057746725711655,
+        "clipped_cross_entropy_nats": 2.9867510036419547,
+        "test_mass_with_zero_predicted_share": 0.0006139046589168243,
+        "top_genus_correct": 0.5
+      },
+      "regional": {
+        "tvd": 0.4703461133881439,
+        "js_divergence_bits": 0.3057746725711655,
+        "clipped_cross_entropy_nats": 2.9867510036419547,
+        "test_mass_with_zero_predicted_share": 0.0006139046589168243,
+        "top_genus_correct": 0.5
+      },
+      "mean_tvd_reduction": 0,
+      "production_methods": {
+        "city_inventory_source_pool": 32
+      }
+    }
+  },
+  "model_commit": "6410b4744123ffa52a1905b0dc898ab9bc7fb4ba"
+}

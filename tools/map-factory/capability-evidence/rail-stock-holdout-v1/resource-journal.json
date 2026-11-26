@@ -1,0 +1,223 @@
+{
+  "host": "blade",
+  "note": "Existing 200 W cap recorded in fleet/blade knowledge; no power settings changed. Total VRAM includes other residents. Samples are not throughput or latency benchmarks.",
+  "openings": [
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2846,
+      "peak_power_w": 117.37,
+      "peak_temperature_c": 47.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-01",
+      "wall_seconds": 164.299142
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 114.4,
+      "peak_temperature_c": 47.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-02",
+      "wall_seconds": 162.518131
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 118.12,
+      "peak_temperature_c": 48.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-03",
+      "wall_seconds": 166.866977
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 115.32,
+      "peak_temperature_c": 48.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-04",
+      "wall_seconds": 164.587736
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 117.28,
+      "peak_temperature_c": 47.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-05",
+      "wall_seconds": 163.162942
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2846,
+      "peak_power_w": 118.54,
+      "peak_temperature_c": 48.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-06",
+      "wall_seconds": 160.01494
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 127.87,
+      "peak_temperature_c": 46.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-07",
+      "wall_seconds": 149.050093
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 114.0,
+      "peak_temperature_c": 46.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-08",
+      "wall_seconds": 156.703775
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 119.79,
+      "peak_temperature_c": 46.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-09",
+      "wall_seconds": 156.680727
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2846,
+      "peak_power_w": 116.28,
+      "peak_temperature_c": 46.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "holdout-10",
+      "wall_seconds": 157.481909
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 118.13,
+      "peak_temperature_c": 47.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "stock-1",
+      "wall_seconds": 175.562853
+    },
+    {
+      "bus": "05:00.0",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "peak_game_vram_mib": 2845,
+      "peak_power_w": 123.1,
+      "peak_temperature_c": 53.0,
+      "peak_total_vram_mib": 10821,
+      "slug": "stock-2",
+      "wall_seconds": 200.346312
+    }
+  ],
+  "settings_changed": false
+}

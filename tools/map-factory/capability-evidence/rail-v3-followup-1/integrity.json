@@ -1,0 +1,308 @@
+{
+  "batch": "followup-1",
+  "driver_sha256": "20921bd218408e5c0b1dd4278c6c14bb8af402aa8b4b57288c74bb1b3f0c0a68",
+  "files": [
+    {
+      "bytes": 77253,
+      "gzip_sha256": "3d2fdd55badd808b1fc65e4eaed7f0865d1477253afc57d3da91bc67c99e8081",
+      "path": "batches/followup-1.json",
+      "sha256": "4821e350fc6fcfc296dc9622e97eb9c10c2b5490e76a6b9cae42e773e5773f67"
+    },
+    {
+      "bytes": 104237,
+      "gzip_sha256": "7c82a626578e789f31ac27e97f15c4be0e234623627c0a44286a5b1107b70cdd",
+      "path": "raw/boston-attempt-1/game.log",
+      "sha256": "9d596255ade492707b6a36b902d371f74eb5f5b100e82dbb4d4e92292d5b4e15"
+    },
+    {
+      "bytes": 3049,
+      "gzip_sha256": "9666e2f40f165b1da2b12dfe0baa96919a4d0188e41fd31f6176c201587616ae",
+      "path": "raw/boston-attempt-1/gpu.csv",
+      "sha256": "42e41015641ea9debf3cda317e3344a25102db56db0ed97553cc5430d72d11a7"
+    },
+    {
+      "bytes": 14023171,
+      "gzip_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "path": "raw/boston-attempt-1/networks.json",
+      "sha256": "6366818b8ff1f1ffbd904445c6f4e666539e4377d9802a9afcef1ef2222db9e5"
+    },
+    {
+      "bytes": 352122,
+      "gzip_sha256": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+      "path": "raw/boston-attempt-1/observation.json",
+      "sha256": "eb653d805069768f95ff7f268095d03177992670fe2e156382a5357dd4f781d2"
+    },
+    {
+      "bytes": 3653,
+      "gzip_sha256": "09d0fae3d85609da272accb07296473aeeec0b02be01ba12cfeb764e5351870a",
+      "path": "raw/boston-attempt-1/panel.json",
+      "sha256": "974b355273acd8a166d4abb59d320c4a7f84117f859ef4988597a8b7ee3d9c75"
+    },
+    {
+      "bytes": 78896,
+      "gzip_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+      "path": "raw/boston-attempt-1/query-freeze.json",
+      "sha256": "1a074e4e9d3d6283b52e870dc6e1f9e0a1f426bf0a9d02d3414e4c82a8099991"
+    },
+    {
+      "bytes": 214392,
+      "gzip_sha256": "7686586fc23a9dbe203bee5b7b556f04d3de04109fc3c9ca50bf15cf9f0cdf18",
+      "path": "raw/boston-attempt-1/ship-water-at-opening.json",
+      "sha256": "d17bb0f03fb8a1b1dc8aa0b1d4f7047eb2f952e903715f84456e942b8a5e28d0"
+    },
+    {
+      "bytes": 103840,
+      "gzip_sha256": "cc047830ff7daab971fc63b2801d714f69dea23203fa8cf3b2c032f4c14c6229",
+      "path": "raw/charleston-attempt-1/game.log",
+      "sha256": "456d28475284fb8157d403be11d62619f2991447ff1745a0fd76368490295d55"
+    },
+    {
+      "bytes": 2036,
+      "gzip_sha256": "af8f6c9dd17bba283b6b54b0cc56af6d915039120a50d87288666ec16b4d1364",
+      "path": "raw/charleston-attempt-1/gpu.csv",
+      "sha256": "14e00b077e79cc1ff266a673debb7705cb43c569b7105ede2547cdca7f4f4d23"
+    },
+    {
+      "bytes": 4794866,
+      "gzip_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "path": "raw/charleston-attempt-1/networks.json",
+      "sha256": "bd55677d7ee1e36c0723cf05a26eab0b823de5fe100863de23fc7efee69e4a25"
+    },
+    {
+      "bytes": 131321,
+      "gzip_sha256": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+      "path": "raw/charleston-attempt-1/observation.json",
+      "sha256": "7fa33620e28fe00a7361622633adf105baecdd2c51e579d5d6eac0cae9e557d9"
+    },
+    {
+      "bytes": 3725,
+      "gzip_sha256": "537e933556571a475f9dd36dc78d349e48509a6e0219c20dbd065a692fa38205",
+      "path": "raw/charleston-attempt-1/panel.json",
+      "sha256": "10ddfdedc01979e37fda364df1a336585c64cf908f3b674ab9170730f29c87c0"
+    },
+    {
+      "bytes": 16145,
+      "gzip_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+      "path": "raw/charleston-attempt-1/query-freeze.json",
+      "sha256": "0d1ba9d574a2254681e918faadadb3dc0c2d5fcd66ef258b044b83e79b03346f"
+    },
+    {
+      "bytes": 248224,
+      "gzip_sha256": "aa5c50313ec14e5b3dc1b8e9bed7f72e72a82545ac512388775236c53d3a888c",
+      "path": "raw/charleston-attempt-1/ship-water-at-opening.json",
+      "sha256": "f0ac790fe255c775d22c13d79f730ae43d885466531b508ca4068b8bb6a2c803"
+    },
+    {
+      "bytes": 103848,
+      "gzip_sha256": "153d943798e97a92a288edc03bf172ba06f312e25b70f8e85ef5a609fda22833",
+      "path": "raw/grand-canyon-attempt-1/game.log",
+      "sha256": "a9ac8e9f2310e23139a71fb531e8f4a53419f121c2bea84d461b096e75de3291"
+    },
+    {
+      "bytes": 2037,
+      "gzip_sha256": "6a55282a7806fb8f47786c634d866d5dcc8cb0c819296a9623b781dd4bdc1732",
+      "path": "raw/grand-canyon-attempt-1/gpu.csv",
+      "sha256": "9f983723fb9f3a149b8b268e03f3c20857a2e042bf728e2885a618a3db11c392"
+    },
+    {
+      "bytes": 265764,
+      "gzip_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "path": "raw/grand-canyon-attempt-1/networks.json",
+      "sha256": "5b775fcfdfac174b24fbb78a717e17f86bd30ca4596b411675aad63d613c412c"
+    },
+    {
+      "bytes": 131344,
+      "gzip_sha256": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+      "path": "raw/grand-canyon-attempt-1/observation.json",
+      "sha256": "6c35db0ba6bafc077fbe11ec6d6af011a57aa30466e40245af221dcdbbe8a327"
+    },
+    {
+      "bytes": 3675,
+      "gzip_sha256": "4142c624ec3426fd45458ecf6fda557dedfd88b526cd71b32e29ac83bde87e51",
+      "path": "raw/grand-canyon-attempt-1/panel.json",
+      "sha256": "49b97516d8381d50dd0c7c7b0dd73ff8a0cab330622099c9c291f62fef54a677"
+    },
+    {
+      "bytes": 16138,
+      "gzip_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+      "path": "raw/grand-canyon-attempt-1/query-freeze.json",
+      "sha256": "c52b4464f1e2c2ff56d9f74001e2ebcf6a79f967229d87a622a7a7ef07d5878d"
+    },
+    {
+      "bytes": 104035,
+      "gzip_sha256": "29c5d19ec45983b468492901f1f0a019b136cf02dd396e4b513dfdaca5de6584",
+      "path": "raw/hong-kong-attempt-1/game.log",
+      "sha256": "0775c110d45f6850a18fac4b7eab9b880efce5b053337677047924de3a1d864a"
+    },
+    {
+      "bytes": 2104,
+      "gzip_sha256": "7e88e57ef4ea25e64e71bd770a0b680d97f96c613f138fc52f8cdbead23cbf7f",
+      "path": "raw/hong-kong-attempt-1/gpu.csv",
+      "sha256": "fa889791904b74b389a49d5350761634c7bde15e8412cc6ab9ae5f19fdbe1ffc"
+    },
+    {
+      "bytes": 12239422,
+      "gzip_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "path": "raw/hong-kong-attempt-1/networks.json",
+      "sha256": "bcae383a2380f5d6c4395513f9bfa6c6b28a1f9e94285872df6875c7d3b5f39c"
+    },
+    {
+      "bytes": 141083,
+      "gzip_sha256": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+      "path": "raw/hong-kong-attempt-1/observation.json",
+      "sha256": "162b829285718ab46a40b72f744b2ee975e93158a246254bfa46b6f4a145cf9f"
+    },
+    {
+      "bytes": 3643,
+      "gzip_sha256": "4c704469d5a24daf9ca704c8727c327c34090d34f3ec0c131983e18228031916",
+      "path": "raw/hong-kong-attempt-1/panel.json",
+      "sha256": "9c92118d0fc6c473483a0ea13bd191ef366bd32664771751341990ac8ca96801"
+    },
+    {
+      "bytes": 23439,
+      "gzip_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+      "path": "raw/hong-kong-attempt-1/query-freeze.json",
+      "sha256": "3f2918292ea9f7de89b3e91488ed73fbb410e2a6ff90f38e53f851278cb10919"
+    },
+    {
+      "bytes": 237656,
+      "gzip_sha256": "7c902d20427fe353e9c55fa96843a8dd43da42cc0c858b8efcc2a24b7a24f9cc",
+      "path": "raw/hong-kong-attempt-1/ship-water-at-opening.json",
+      "sha256": "a6caef6a089519be76cc30bacb95fc020b0c3882dc78c3cc9b284e8f2813694c"
+    },
+    {
+      "bytes": 103978,
+      "gzip_sha256": "cb9eb3ee4d3723a39e4966f006d86815eb921e61314c717ef980d2f36a450bf2",
+      "path": "raw/pittsburgh-attempt-1/game.log",
+      "sha256": "0d2bbf3e5730befd80f46dfd010767d697554773e3e5674e2cbd2f8f13cabae1"
+    },
+    {
+      "bytes": 3600,
+      "gzip_sha256": "30ae7a9a122cb19c29069294caebc86cb7ca4d3e725230f7c941aa066f292cc3",
+      "path": "raw/pittsburgh-attempt-1/gpu.csv",
+      "sha256": "26bf28d11122ce63c163a7761355448ed3850ff58f6277a7630e7c914698f79e"
+    },
+    {
+      "bytes": 13289257,
+      "gzip_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "path": "raw/pittsburgh-attempt-1/networks.json",
+      "sha256": "44d6c9a0aeea6741cca16c77df49dd62595b0780ab943638810000cb5abc4f0e"
+    },
+    {
+      "bytes": 411196,
+      "gzip_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+      "path": "raw/pittsburgh-attempt-1/observation.json",
+      "sha256": "ed502e0d04d503685bd900d93f5246793eb6e6618d57afd890eea05fea7f22be"
+    },
+    {
+      "bytes": 3695,
+      "gzip_sha256": "8aa61d79b1614610d4d41dae86ab0342b21e75cd4659746131a6ebeb733997a5",
+      "path": "raw/pittsburgh-attempt-1/panel.json",
+      "sha256": "3e0c51e717f2ff5ba2859778473f7dc2cc37fd651beac8a7e07dd1a85ce3541e"
+    },
+    {
+      "bytes": 127727,
+      "gzip_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+      "path": "raw/pittsburgh-attempt-1/query-freeze.json",
+      "sha256": "0f50412ba4e22998bc15f48d79b271a61f1fefc249845604a818522ef8911e72"
+    },
+    {
+      "bytes": 103782,
+      "gzip_sha256": "78185d5fd65477994a4cfd18fda777624ac0fbf8cfe093a550c7c55c43c49c98",
+      "path": "raw/rio-attempt-2/game.log",
+      "sha256": "79f16a2a833b41c25a4e8542027e4c3c842bd50c1b699946d377ba9ea4b186c2"
+    },
+    {
+      "bytes": 2102,
+      "gzip_sha256": "08b1577567759841941c5f56c9539e4ce8cb4dbd42193e6e0da7a8010fefc6f8",
+      "path": "raw/rio-attempt-2/gpu.csv",
+      "sha256": "9e790b9461697a8dc69307d5995161f8a265af5c014bc98b5a7376810a558251"
+    },
+    {
+      "bytes": 8144683,
+      "gzip_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "path": "raw/rio-attempt-2/networks.json",
+      "sha256": "3eace8be0b39d06d64e7193e8941d4a95a88a39c0027899790c2d52aec95ba1f"
+    },
+    {
+      "bytes": 142017,
+      "gzip_sha256": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+      "path": "raw/rio-attempt-2/observation.json",
+      "sha256": "100c59d1e0524baeef8e2828ea76cba1bafafd67727fc188c1dd9d494507bf61"
+    },
+    {
+      "bytes": 3658,
+      "gzip_sha256": "6b7968ffcc51730914124118d63794c9e855752a1b0dbf3c05342c83b07213e7",
+      "path": "raw/rio-attempt-2/panel.json",
+      "sha256": "18e63182d7c256e7f91252001ae9497900e5d6186303a4bf685b093547cc7e83"
+    },
+    {
+      "bytes": 23412,
+      "gzip_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+      "path": "raw/rio-attempt-2/query-freeze.json",
+      "sha256": "29f743ee27eebffcce7b6a2ee30b1f656018c70a3c1eadd680393097a9b26fea"
+    },
+    {
+      "bytes": 241575,
+      "gzip_sha256": "d460264282645a8eac19c09c50e10a3e92d1ad72d0607a951509a6494bad8178",
+      "path": "raw/rio-attempt-2/ship-water-at-opening.json",
+      "sha256": "a7c125d160554dec8ca8d2a21e60f7432b94bc1ba33f1ed9f80cf7a07498bdcd"
+    },
+    {
+      "bytes": 3588,
+      "gzip_sha256": "751a0eaa1481c1426652d1d0eb9f69261d646a01152ced213b0d59efb79fccec",
+      "path": "raw/telemetry/followup-1/collector.log",
+      "sha256": "e0ec0cb3a62e450e0d5dcb8d2a1f218710083b8a57399db76ad5adcdcd9e363f"
+    },
+    {
+      "bytes": 317,
+      "gzip_sha256": "3583b23060b89a8b568b9352b76eca4e3df123cd0ec6af6240f9821ffa5e0e0a",
+      "path": "raw/telemetry/followup-1/driver.json",
+      "sha256": "0c10d66e2277d508fde0fa9b92855d51fe4891ea24c93a04a41781a42d427f09"
+    },
+    {
+      "bytes": 284431,
+      "gzip_sha256": "e2f779bf4fd3fd45ddb3694772077f00db14538da3bb08f8dd74b8146424d959",
+      "path": "raw/telemetry/followup-1/process-gpu.jsonl",
+      "sha256": "602eff4a5534e4febe4afd8e8cd7fc05c2c7acb6381a0e7607e7987c49e93984"
+    },
+    {
+      "bytes": 103832,
+      "gzip_sha256": "3847f9b257629583ebd67d4e320678ac4dfa3f766ef4c3d5603e12864560da14",
+      "path": "raw/yosemite-attempt-1/game.log",
+      "sha256": "907589114cd54fd9c17d3bdc52ef9a3b86886dd8e996bdbdb745227e67aea029"
+    },
+    {
+      "bytes": 2041,
+      "gzip_sha256": "3613202643d221199c04f1b395886e3e04bca81c096c2a7d8ebc5c86d593a4f6",
+      "path": "raw/yosemite-attempt-1/gpu.csv",
+      "sha256": "fffc1beb26d15dd90b5faf874001712c0b50435a66a45f38e96b2d82e33cac3f"
+    },
+    {
+      "bytes": 153,
+      "gzip_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "path": "raw/yosemite-attempt-1/networks.json",
+      "sha256": "d4ee9b3d8fb7c64221ef63bb725bd486ca1ed7b399ee98b8bf78e3002a8e12f8"
+    },
+    {
+      "bytes": 132286,
+      "gzip_sha256": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+      "path": "raw/yosemite-attempt-1/observation.json",
+      "sha256": "9bcc4457e8738d2df81bf060fa4099187ba85bb9f318fd59493e263f5d121388"
+    },
+    {
+      "bytes": 3674,
+      "gzip_sha256": "d73848b4a3c26e206d6fc14e5bd45e4610122145d126a3def2f789a8ae403da4",
+      "path": "raw/yosemite-attempt-1/panel.json",
+      "sha256": "b27ec404de4a0bef0a0bf666052f683a28de5193b7565b84d0e20c12c743734d"
+    },
+    {
+      "bytes": 15126,
+      "gzip_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+      "path": "raw/yosemite-attempt-1/query-freeze.json",
+      "sha256": "f1aafa37f89ef0e471318daad0e2cf37b76937bad7f6ab6a210f2b63eff51843"
+    }
+  ],
+  "initial_integrity_sha256": "5fee526fc0d47e4a3a56d65eed802d3fd41644602da5636e099679488f61b861",
+  "retained_at": "2026-11-21T15:26:03.270366+00:00"
+}

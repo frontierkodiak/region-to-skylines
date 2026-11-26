@@ -55,6 +55,13 @@ def preflight(head, base):
             },
         }
     expected.update({FIXTURES + p["file"]: p["sha256"] for p in parents.values()})
+    for binding in (
+        contract.get("predecessor"),
+        contract.get("proof"),
+        *contract.get("baseline_sources", {}).values(),
+    ):
+        if binding:
+            expected[FIXTURES + binding["file"]] = binding["sha256"]
     for path, digest in expected.items():
         if hashlib.sha256(blob(tree, path)).hexdigest() != digest:
             mismatches.append(path)

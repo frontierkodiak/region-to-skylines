@@ -267,6 +267,12 @@ class LandCoverPath(unittest.TestCase):
                 hashlib.sha256(crp.read_bytes()).hexdigest(),
                 self.receipt["package"]["sha256"],
             )
+            staged_receipt = json.loads((crp.parent / "staging.json").read_text())
+            self.assertEqual(staged_receipt["plane_entries"]["entries"], 2)
+            self.assertEqual(
+                staged_receipt["plane_entries"]["simulation_sha256"],
+                self.receipt["package"]["simulation_sha256"],
+            )
 
 
 if __name__ == "__main__":

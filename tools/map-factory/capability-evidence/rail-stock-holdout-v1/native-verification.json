@@ -1,0 +1,279 @@
+{
+  "independent_counts": {
+    "chord:continuation:any_lane": {
+      "tn": 8,
+      "tp": 40
+    },
+    "tangent:continuation:any_lane": {
+      "tn": 8,
+      "tp": 40
+    }
+  },
+  "openings": [
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 1987875,
+      "process_start_ticks": "139236072",
+      "requests": 18,
+      "slug": "stock-1"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2006667,
+      "process_start_ticks": "139256551",
+      "requests": 50,
+      "slug": "stock-2"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2027708,
+      "process_start_ticks": "139278671",
+      "requests": 8,
+      "slug": "holdout-01"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2048788,
+      "process_start_ticks": "139298738",
+      "requests": 8,
+      "slug": "holdout-02"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2064723,
+      "process_start_ticks": "139317180",
+      "requests": 8,
+      "slug": "holdout-03"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2077469,
+      "process_start_ticks": "139334860",
+      "requests": 8,
+      "slug": "holdout-04"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2103517,
+      "process_start_ticks": "139357862",
+      "requests": 8,
+      "slug": "holdout-05"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2129299,
+      "process_start_ticks": "139375353",
+      "requests": 8,
+      "slug": "holdout-06"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2150947,
+      "process_start_ticks": "139392956",
+      "requests": 0,
+      "slug": "holdout-07"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2170836,
+      "process_start_ticks": "139410100",
+      "requests": 0,
+      "slug": "holdout-08"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2194292,
+      "process_start_ticks": "139428597",
+      "requests": 0,
+      "slug": "holdout-09"
+    },
+    {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "error_counts": [
+        0,
+        3,
+        3
+      ],
+      "file_inventory_counts": [
+        57,
+        57,
+        57
+      ],
+      "graph_opening_post_equal": true,
+      "host_pid": 2219944,
+      "process_start_ticks": "139447110",
+      "requests": 0,
+      "slug": "holdout-10"
+    }
+  ],
+  "verified_requests": 48
+}

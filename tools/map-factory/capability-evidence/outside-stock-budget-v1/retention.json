@@ -1,0 +1,647 @@
+{
+  "files": {
+    "budget-01/game.log": {
+      "raw_bytes": 105261,
+      "raw_sha256": "4d35f094e125c23ac85f9d48735189e810c260f32b33bc548ffd50f32e540a04",
+      "retained": "raw/budget-01/game.log.gz",
+      "retained_sha256": "6210e84764f1034c8df14886a0c7e17c00516c3731accde235b45024b82af841"
+    },
+    "budget-01/gpu.csv": {
+      "raw_bytes": 3526,
+      "raw_sha256": "d93f547ced47a1aaaf11bd6c3f9f61f6c77b26eb7995504a287fa7b09fe62c81",
+      "retained": "raw/budget-01/gpu.csv.gz",
+      "retained_sha256": "96da3c2799c946e4d6d7cdeddeb15329b26b89b7453ee3c47c3fcd830885a635"
+    },
+    "budget-01/networks-post.json": {
+      "raw_bytes": 13289131,
+      "raw_sha256": "01114ff6a6166e27c19ed88b774899d398b2592effa76c27b1f07f90eb798d5b",
+      "retained": "raw/budget-01/networks-post.json.gz",
+      "retained_sha256": "087c9147287492eb15aaa267e2127b4428e2027ce33e7c4f36902a03230b2b65"
+    },
+    "budget-01/networks.json": {
+      "raw_bytes": 13289257,
+      "raw_sha256": "33cdef99ca52b040ee0533c9495740b4c0188e71f9c6e1c5fca7f65af86fe9de",
+      "retained": "raw/budget-01/networks.json.gz",
+      "retained_sha256": "7784ef91f460cf798a6c97f39fb84fac2373a4c5a28aecd3167b399458a34b9f"
+    },
+    "budget-01/observation.json": {
+      "raw_bytes": 452571,
+      "raw_sha256": "6b1d65cf25a4bfb610e244cdb7670463c4b7f0a96813c5e4e5355864f32c55bc",
+      "retained": "raw/budget-01/observation.json.gz",
+      "retained_sha256": "9685c1bf5e2f45e7d44c311144220efbb009bf2e6f327d324a834575b274ae82"
+    },
+    "budget-01/query-freeze.json": {
+      "raw_bytes": 18068,
+      "raw_sha256": "c9971802ed9c994595f20290cb80bb8e131587c6f7fbaea1269cc061a8699e6f",
+      "retained": "raw/budget-01/query-freeze.json.gz",
+      "retained_sha256": "9b970c2c16450ca3ce754445d81e3b08b6f8d2eaa33a2690a4c87c6939df1c6e"
+    },
+    "budget-02/game.log": {
+      "raw_bytes": 104985,
+      "raw_sha256": "62ffa18567ff95456e3e7af98c1c82f067248ee055c3d00ed4eae78b69f0a0dd",
+      "retained": "raw/budget-02/game.log.gz",
+      "retained_sha256": "ba112ce931c0aa51ff2aa97f53d901315f552b14085c00610a00d28afeca33e1"
+    },
+    "budget-02/gpu.csv": {
+      "raw_bytes": 2375,
+      "raw_sha256": "d12dfc2edca6c715e78a54817d259211ab8297fd70463c4390a4e72ac7c47a11",
+      "retained": "raw/budget-02/gpu.csv.gz",
+      "retained_sha256": "dc5c8e162f6642fc3156d7a9cae3b786f14f25b7888f6371958e483a9d0215cb"
+    },
+    "budget-02/networks-post.json": {
+      "raw_bytes": 12239413,
+      "raw_sha256": "234928d605e21e7ede90fa4a5d47c47ba69d8eb908943f4dea8a3925bf28fd8f",
+      "retained": "raw/budget-02/networks-post.json.gz",
+      "retained_sha256": "2b14e538458ec109264e638401f951d2121da14c11d3c53f8a4684b51c9f6d8e"
+    },
+    "budget-02/networks.json": {
+      "raw_bytes": 12239422,
+      "raw_sha256": "7bb9237a77baed3134ac7e1bf447b29ff6db21bd7c9e4720e705976c5b57296f",
+      "retained": "raw/budget-02/networks.json.gz",
+      "retained_sha256": "063e4740ef8f648151b3fbd53ae0f67b9f9df977c9deabd3c45c0882cd08acd9"
+    },
+    "budget-02/observation.json": {
+      "raw_bytes": 277180,
+      "raw_sha256": "7d93721d2df3a338b7ddc135345a11e1ac622c95c8753c1c7d0ad7e1ed078533",
+      "retained": "raw/budget-02/observation.json.gz",
+      "retained_sha256": "418a61fe2ccf3965843bc873dcfd6b7043e4da88425d67941972aea0ee2a7e91"
+    },
+    "budget-02/query-freeze.json": {
+      "raw_bytes": 2999,
+      "raw_sha256": "bdca24ef4ef8101b59084cd5d9905a4a745806af74bcac9e07d3c516fd6d36db",
+      "retained": "raw/budget-02/query-freeze.json.gz",
+      "retained_sha256": "d717f3645fb2b63b031282d326e53013d390a46ad92e862fda51681ba527c1f2"
+    },
+    "drivers/budget-01/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "ba9735d5140b65534237376487f683d28bfa474e8f7d24ff90e703cc551a8904",
+      "retained": "raw/drivers/budget-01/audit-completion.json.gz",
+      "retained_sha256": "c2ad0e5ab6d8e236557cfa2517c54ac29ac0956630e299d2ef23a13ee746834f"
+    },
+    "drivers/budget-01/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "9e8a4b12d4b2a025a86bfc52a38541e1364c2955914f4ee5f19e5bc4d003c67e",
+      "retained": "raw/drivers/budget-01/audit-source-freeze.json.gz",
+      "retained_sha256": "44e84ff88edb090878def21b3e68266b497b23a59cbfe9a02ca3acdb2719ca02"
+    },
+    "drivers/budget-01/auditor-launch.json": {
+      "raw_bytes": 674,
+      "raw_sha256": "79b74c3d06c5698efa963a78ee4309d169b69b2403bffa30488409b57d719b30",
+      "retained": "raw/drivers/budget-01/auditor-launch.json.gz",
+      "retained_sha256": "8875043846cfc52bbd94212b8f4f0b844ec4dbcfa39f88257b93a7e44055947d"
+    },
+    "drivers/budget-01/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "a2a1893784e1be9a06c095906518e7d0b2b93a6238af10a0e8f234b95c81f4e3",
+      "retained": "raw/drivers/budget-01/collector.log.gz",
+      "retained_sha256": "0a00db66e4489c8a64e6fbe4047a3642f4ad17324b07d1716102fc67fc00991d"
+    },
+    "drivers/budget-01/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "932812a7479cc85caecbd6b0e339230dbaed253962b1bb2cde2eb87ab051953d",
+      "retained": "raw/drivers/budget-01/completion.json.gz",
+      "retained_sha256": "59a58ced6ee56998b3353e6438ae7220c0322c78fa0dc55e8e6ffaf9727c5ec4"
+    },
+    "drivers/budget-01/launch.json": {
+      "raw_bytes": 874,
+      "raw_sha256": "a79a04f2f6bd510d67d9fcaf26f261423240f4479f759c36d1ac9066055f6e41",
+      "retained": "raw/drivers/budget-01/launch.json.gz",
+      "retained_sha256": "1e5567eec284782cdea56f7a7475b9acf52c11b2e10b5ff0ce62525646608803"
+    },
+    "drivers/budget-02/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "b6af63ecee3f5052b77eeeb3c3402af8d7ea44eda5df54856edd34bef4cff069",
+      "retained": "raw/drivers/budget-02/audit-completion.json.gz",
+      "retained_sha256": "fa13a52672729743018fce238d9340980f532364b7c08fc54a932a5d39f65773"
+    },
+    "drivers/budget-02/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "fcbff038ec3df559eb7106a7ed225f57f82b48de19b41e5c53645384bea6718b",
+      "retained": "raw/drivers/budget-02/audit-source-freeze.json.gz",
+      "retained_sha256": "e806ff6be35431b3161a2790d82a30df52b083d95d24790edeaa2614abaa1d28"
+    },
+    "drivers/budget-02/auditor-launch.json": {
+      "raw_bytes": 674,
+      "raw_sha256": "00b714d55f418eb4dce13be3e8a478ef9eb0f2cfea57c0c898e1bb5d53de377b",
+      "retained": "raw/drivers/budget-02/auditor-launch.json.gz",
+      "retained_sha256": "6134547bd28f39d8f0d046622d3e0b38ffc5dcab85038bdb2ea61b5295ea8dee"
+    },
+    "drivers/budget-02/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "c700f8b69a4cbd6b5bbeb6bd175c8150e5c4a8ac9b4859c7acacbb27a01d9c6f",
+      "retained": "raw/drivers/budget-02/collector.log.gz",
+      "retained_sha256": "9f315204f4a0b91538e0c2345c3804327811deb5845495d1fc833b700d5743bc"
+    },
+    "drivers/budget-02/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "b39b4c2c8f569726037c2cddbb53f2fa870de22f9256960277e3642813c87ff7",
+      "retained": "raw/drivers/budget-02/completion.json.gz",
+      "retained_sha256": "dc1579e97a523f0f43a7b6096ecb427f497be376e6b26a06b7fc3c2f39c33baa"
+    },
+    "drivers/budget-02/launch.json": {
+      "raw_bytes": 874,
+      "raw_sha256": "88296760b380c751cd4709bf335ad4e95eb2fc5eade23f77460adbf156c0d348",
+      "retained": "raw/drivers/budget-02/launch.json.gz",
+      "retained_sha256": "2df9e1ff964119c5948800f9b41dd2d0a646eca9321e9c58b89f5d126a0b29da"
+    },
+    "drivers/holdout-01/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "8777c9a22ff8275c802a690de8fb7f48ff51b301ed071b2982b30a03708d0948",
+      "retained": "raw/drivers/holdout-01/audit-completion.json.gz",
+      "retained_sha256": "6292b81cb5116b15735b72fa45fc8d6146684c53d3ee82191d92c7de8b5c5916"
+    },
+    "drivers/holdout-01/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "d92450d58efdebcb3e4c79c06a0467dca32677ec2a4bc1f1f5e5445d2a0c1653",
+      "retained": "raw/drivers/holdout-01/audit-source-freeze.json.gz",
+      "retained_sha256": "707b9c45beab39def45fc263aeec00d51110badc9944aa50e272b8b101252110"
+    },
+    "drivers/holdout-01/auditor-launch.json": {
+      "raw_bytes": 675,
+      "raw_sha256": "f667905f9179fa6613d023337cf84e3c9a1383679bbf0fd2eeba92f765d90efc",
+      "retained": "raw/drivers/holdout-01/auditor-launch.json.gz",
+      "retained_sha256": "e23281c4915e314a4ae02b39e6de9169081f884adb89d6f85c36bb8bd22fc233"
+    },
+    "drivers/holdout-01/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "8b58e7c02a8ea4b08abbcb966c81beee35a46c3dc39b7284a4839a1dbb84414f",
+      "retained": "raw/drivers/holdout-01/collector.log.gz",
+      "retained_sha256": "ff51bc1b994c8e1cbe5a39ce16e141e78007aada8b1d9194da618220251a467d"
+    },
+    "drivers/holdout-01/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "c902971afb66a7d9b297df11be9309b0d0b849a083763dc079e15c61f81e6663",
+      "retained": "raw/drivers/holdout-01/completion.json.gz",
+      "retained_sha256": "c458b4b85b1f0bfe8c0e4d511fcf585988a78b781ad5420fd109ad21d5924666"
+    },
+    "drivers/holdout-01/launch.json": {
+      "raw_bytes": 875,
+      "raw_sha256": "068c37bff01dd00179a114897a4655581a28aa38c5633c7bb303fbdd53c214b6",
+      "retained": "raw/drivers/holdout-01/launch.json.gz",
+      "retained_sha256": "ad79aea001676047da1de89aa849a486781c88020ab1b3e04798a371460872f9"
+    },
+    "drivers/holdout-02/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "1f922dbe1a14aab3f01c8bcc7b502718e3ce58471ce6c5e98eeae0efdc7ecc8b",
+      "retained": "raw/drivers/holdout-02/audit-completion.json.gz",
+      "retained_sha256": "217f3e3ed98ecc5257d8dd10e1accdd1787edc2044a7cfa5639f6e69feaf422e"
+    },
+    "drivers/holdout-02/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "3a420b6330afc4fda28f9ec46b09f643121e100a2c1e4ca36b854cd72678117e",
+      "retained": "raw/drivers/holdout-02/audit-source-freeze.json.gz",
+      "retained_sha256": "86dc4e78ee0b520d41227d715de8c69547032250bbce14ac96f5ac611a139d73"
+    },
+    "drivers/holdout-02/auditor-launch.json": {
+      "raw_bytes": 675,
+      "raw_sha256": "807bb25e82bd2d15654aaf16f0c4c3d4afe1e7c9c0657a5257c0e5d1c6400a90",
+      "retained": "raw/drivers/holdout-02/auditor-launch.json.gz",
+      "retained_sha256": "a7ce1e9d7a5562c2a98e906f178544d914dc56ded1e5a3cc77d79dff96c28b8f"
+    },
+    "drivers/holdout-02/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "da482cd35cc08a93304a0992d63d28c2f18fed684b8775eb40126463b944cada",
+      "retained": "raw/drivers/holdout-02/collector.log.gz",
+      "retained_sha256": "152fe2cf251b789fd319c3137cdb8d5222a5f8589cecf965136661e02da997f4"
+    },
+    "drivers/holdout-02/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "db24d16ebd599ac5395254690dd04825ff6d5728db8beefc26b3f223f647b65d",
+      "retained": "raw/drivers/holdout-02/completion.json.gz",
+      "retained_sha256": "37e302d739ecccf5fd5f1a7d5092e26063df23e670e889e63a59bc18e64fcec8"
+    },
+    "drivers/holdout-02/launch.json": {
+      "raw_bytes": 875,
+      "raw_sha256": "b73ecd837b107262b748399d7737655fc2cee42b1385bf852268b439629fb130",
+      "retained": "raw/drivers/holdout-02/launch.json.gz",
+      "retained_sha256": "b2e7fcbe6a158d3e657b26298e0aef12d9de8391321277ca3810aca61b997eb2"
+    },
+    "drivers/holdout-03/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "556b958ae7362faf1239b5429afe921ccf37cbdbb659298f76c950992b04dc4d",
+      "retained": "raw/drivers/holdout-03/audit-completion.json.gz",
+      "retained_sha256": "f09e15a18002dd4ae524fec02d8519457d09443bee5ad4f81fd85bdb9e1d4f35"
+    },
+    "drivers/holdout-03/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "8f3bdf1617752f4e2d3640babf3de92888cb51d0026e7c65ed2d7a09c1674a0b",
+      "retained": "raw/drivers/holdout-03/audit-source-freeze.json.gz",
+      "retained_sha256": "183cbec618c6dfb67beb828475d23c6aa29558ebe24e81b0fa542ffc32fa559b"
+    },
+    "drivers/holdout-03/auditor-launch.json": {
+      "raw_bytes": 675,
+      "raw_sha256": "6835ec7345e158ee0f14133b6fc0626a9dad9722917d074f45a8e40681a00548",
+      "retained": "raw/drivers/holdout-03/auditor-launch.json.gz",
+      "retained_sha256": "123c55d9430096c390b508060fcd96297db998919be7b8ef9518dfe3f492e4c2"
+    },
+    "drivers/holdout-03/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "4b171789cec008448433a3a312d3e72f0d873e773643fc355984f49833cf00e2",
+      "retained": "raw/drivers/holdout-03/collector.log.gz",
+      "retained_sha256": "caf8ee53f9e5a52ede3ffd9cfc1910a6e04b5216623a6f1da72dd778309d96b4"
+    },
+    "drivers/holdout-03/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "12903bc4d1af39d4065e610c8c86f49e79f4c6ba12ae6eeca01b01a158633522",
+      "retained": "raw/drivers/holdout-03/completion.json.gz",
+      "retained_sha256": "441557c15af47bb9dc8899a15be1ee7eac3c4528667cae74b65e1118338446c0"
+    },
+    "drivers/holdout-03/launch.json": {
+      "raw_bytes": 875,
+      "raw_sha256": "6c7d080fa29f05de1a45de3f62cfcb058d19a5d2879ec9386a6c1cdc732b8795",
+      "retained": "raw/drivers/holdout-03/launch.json.gz",
+      "retained_sha256": "47d14fc9e5ee5f5f757c8063a49f362ee94aad81838c38cea2aaa538b681052c"
+    },
+    "drivers/holdout-04/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "707dfe1b73f9e51d81013751c2a8fb7afe29833e43d9cf93653ed5ba441fa349",
+      "retained": "raw/drivers/holdout-04/audit-completion.json.gz",
+      "retained_sha256": "829b6963a951fe2faa12b1c27a81aabebe08bef7d3c2d308eb1dba1b158e9024"
+    },
+    "drivers/holdout-04/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "a5e9678e98c2fe9050795575934cb7264d0f988f15e871b4c51d710a521a4ea9",
+      "retained": "raw/drivers/holdout-04/audit-source-freeze.json.gz",
+      "retained_sha256": "976f4fe90d723baa6eddb7b6c564593b2e77d83cd7385c29cc53736e8f46c3fa"
+    },
+    "drivers/holdout-04/auditor-launch.json": {
+      "raw_bytes": 675,
+      "raw_sha256": "e4c468b4b6df4650f2414b7ab160f71f5afb7646812893a643bf6588ab511cfc",
+      "retained": "raw/drivers/holdout-04/auditor-launch.json.gz",
+      "retained_sha256": "2f5fcaabd4af50e80715ffa69181b41103cd2c1dc2a1128549ec4a1cac9f808f"
+    },
+    "drivers/holdout-04/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "e79858a08ab0854dc7d1f6e9110748638f4de3a0d0946a7da8b3570e9869888a",
+      "retained": "raw/drivers/holdout-04/collector.log.gz",
+      "retained_sha256": "fbd17327aa80569121515bb30b7cdea24cdcb9a5828023f61e1fca0910c59ec0"
+    },
+    "drivers/holdout-04/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "55951bdd98d2ffe8e8369acefbae40d24791f64b39ac8edff4464c9c92ec8c4a",
+      "retained": "raw/drivers/holdout-04/completion.json.gz",
+      "retained_sha256": "b147370f53ee40ccadb87166d9ca835fff11c73c2ba1cad1a25e613637a879c0"
+    },
+    "drivers/holdout-04/launch.json": {
+      "raw_bytes": 875,
+      "raw_sha256": "d7095f9c4c96c29b122a875c9c33d8a1ca1235124eeb07869ba05245a877b5b7",
+      "retained": "raw/drivers/holdout-04/launch.json.gz",
+      "retained_sha256": "ba739bc4a8534037bc39cc484c203b249e82d0fa2eeee5d8c933afedfe5cb0b6"
+    },
+    "drivers/holdout-05/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "7da9a2d68975c1d41e75192e95f56e3ab5e6cc3ebc5ac6a44383109d6ec3e39e",
+      "retained": "raw/drivers/holdout-05/audit-completion.json.gz",
+      "retained_sha256": "452c2fa4ef54025ebf46f0cd888f0ba5bacfd165e47f3053a590bf123f452f10"
+    },
+    "drivers/holdout-05/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "6a703b9fdfed734f457f6b823228fc217acdcfa8fb9a2cdd93cb6b56249210f3",
+      "retained": "raw/drivers/holdout-05/audit-source-freeze.json.gz",
+      "retained_sha256": "5b24662b2b419a9c1e8e9d44949c6c8a587b69e7f47f15f4c2aa72bb8ad62065"
+    },
+    "drivers/holdout-05/auditor-launch.json": {
+      "raw_bytes": 675,
+      "raw_sha256": "5bd67f872db992dd5e6d35f064a00343d87dddfb3aac3048e572f54d91ae41eb",
+      "retained": "raw/drivers/holdout-05/auditor-launch.json.gz",
+      "retained_sha256": "f40c93e2460d57ebc2bf7217c7bd6d5ca48ac7f55760fade22b189fbf903a863"
+    },
+    "drivers/holdout-05/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "e9b021677bcef52c9289e65f9002e9358a8d0bc6a47260d8f605f43b54ea9fc4",
+      "retained": "raw/drivers/holdout-05/collector.log.gz",
+      "retained_sha256": "95adaa347e410845f39a0eb727cd2a76268871d17328f6317acd9d2b5345cf9f"
+    },
+    "drivers/holdout-05/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "530800791788510690146b03e838c45d35e4130f3d6581f5afe8cd9a6c6c9518",
+      "retained": "raw/drivers/holdout-05/completion.json.gz",
+      "retained_sha256": "b6b179e3d567296b2b3a5a62e971a9e4df83e71f4aa9c04a51c32dc1f71356c3"
+    },
+    "drivers/holdout-05/launch.json": {
+      "raw_bytes": 875,
+      "raw_sha256": "0c37ad040f3efb99c5b0263be56a0c575516ddde2005548a39abda33eab0b6c0",
+      "retained": "raw/drivers/holdout-05/launch.json.gz",
+      "retained_sha256": "7d11aa981d7079445ac40c97771f93f9e30d3aca285ef2ae450d642ed35f86fb"
+    },
+    "drivers/stock-1/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "946b5ae3485d622730a15b21b963f5548ed5995796708bcc1cdded28c222f926",
+      "retained": "raw/drivers/stock-1/audit-completion.json.gz",
+      "retained_sha256": "39eaf900073eaa6229a9a17a49083c98e3208e44cece3fd81b67cd4597bc4140"
+    },
+    "drivers/stock-1/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "ae2169748a66e8507534d70d2f090406ce337b7549ce29c8c2f500fcdb174465",
+      "retained": "raw/drivers/stock-1/audit-source-freeze.json.gz",
+      "retained_sha256": "733775a4d4b589af6c2fb508e6decb08ca8d4ea4ddc7f542bd89fd6a680f8b21"
+    },
+    "drivers/stock-1/collector.log": {
+      "raw_bytes": 1699,
+      "raw_sha256": "34c5df2a6f33e6ce8c2ac165f6696e9c5c7f9a1ffb691bb8f35feb0f0fb9aa74",
+      "retained": "raw/drivers/stock-1/collector.log.gz",
+      "retained_sha256": "007fca01987a6155cccf9d91ca3c8ad5103fab4f98380459dd987503d9f79c20"
+    },
+    "drivers/stock-1/completion.json": {
+      "raw_bytes": 202,
+      "raw_sha256": "861d7a2e8c9d8c2a92c3504f646d138f4c38277477278d0045d5afec52283883",
+      "retained": "raw/drivers/stock-1/completion.json.gz",
+      "retained_sha256": "a4c50f4a78aedd77869187108f7eb8e049cedd60e159fcf938787577ff700711"
+    },
+    "drivers/stock-1/launch.json": {
+      "raw_bytes": 872,
+      "raw_sha256": "102afe9b5c862b6d2ee84830796e84d112b79a36c0a6c49ca65fd65c33e8531e",
+      "retained": "raw/drivers/stock-1/launch.json.gz",
+      "retained_sha256": "84c64dae93fa42f098b6209349aa8ed4b5eef6c63b370332e59ecf04b195ec9c"
+    },
+    "drivers/stock-2/audit-completion.json": {
+      "raw_bytes": 1042,
+      "raw_sha256": "1d4c153cafa2673006a249c585c135eaf1e532ac6c0853cc65360d236521678e",
+      "retained": "raw/drivers/stock-2/audit-completion.json.gz",
+      "retained_sha256": "3efdbc6cff42d8160cdef2ab8da8bac57c1e03490e7f6e83ef9a346cdbe68ace"
+    },
+    "drivers/stock-2/audit-source-freeze.json": {
+      "raw_bytes": 478,
+      "raw_sha256": "27714696e34d4bf1cb6f6bdc885d0849cf728b5ed96e7e3eae311f2697fc1a66",
+      "retained": "raw/drivers/stock-2/audit-source-freeze.json.gz",
+      "retained_sha256": "d6eeb97eb82400098cf740a9dc37bcc6a26a7cd2ad39ac32d9fc04d752801d0a"
+    },
+    "drivers/stock-2/auditor-launch.json": {
+      "raw_bytes": 672,
+      "raw_sha256": "c4abdb6f2fb343ea83cb17f1288f0697516780cd518b816d0840507f79a052d6",
+      "retained": "raw/drivers/stock-2/auditor-launch.json.gz",
+      "retained_sha256": "e0ba42a3e16debb7fe000aaa60350b819bd2526402565e94725b5678eaaebd51"
+    },
+    "drivers/stock-2/collector.log": {
+      "raw_bytes": 1998,
+      "raw_sha256": "7788f5318161eb7e2ba460c605d0729e61e51998bda26e5e801f0d6cff9cb994",
+      "retained": "raw/drivers/stock-2/collector.log.gz",
+      "retained_sha256": "22d2f0918bcb857ee461e62d06ca45b6f6d80a3c23a4e6bf4da9a28c4567fbfc"
+    },
+    "drivers/stock-2/completion.json": {
+      "raw_bytes": 352,
+      "raw_sha256": "51b4d88213480cbd0f0faa85b3e582fdbcf09aa218ea26541a6528d645129034",
+      "retained": "raw/drivers/stock-2/completion.json.gz",
+      "retained_sha256": "1543c62bcc62849ad8cfa6ef90a8531b7aa9cd740657a3aae58988867cf791f4"
+    },
+    "drivers/stock-2/launch.json": {
+      "raw_bytes": 872,
+      "raw_sha256": "a1a37d23ad2a543d7adb5438c37ccc781aec94634c52ee1bb51edc57e1d1a28b",
+      "retained": "raw/drivers/stock-2/launch.json.gz",
+      "retained_sha256": "df397fa430d392ba84a1223cb7ad530b36e7657c69266912632d59b1d6dcd2fe"
+    },
+    "holdout-01/game.log": {
+      "raw_bytes": 104851,
+      "raw_sha256": "2a34eb0e048c0d3751d05e9737596ff637e5ad15bcec3f0adfe7f7a9ca9e7117",
+      "retained": "raw/holdout-01/game.log.gz",
+      "retained_sha256": "ee773ee829f7bdad12203ca960518b7359e5b45ecdf38ea7e271792ca9b37ca6"
+    },
+    "holdout-01/gpu.csv": {
+      "raw_bytes": 2573,
+      "raw_sha256": "7d2301116f2ed3ff3bf6d9aff8bf7de6d53a24e0142e1db3a54844028fde5808",
+      "retained": "raw/holdout-01/gpu.csv.gz",
+      "retained_sha256": "55de9544297b5590c9ae3d8aad23b767290bb0cd20823fe59f59a40713f8e5d9"
+    },
+    "holdout-01/networks-post.json": {
+      "raw_bytes": 2996102,
+      "raw_sha256": "03961235a391b75e2549c5d5b3fb352af107ae998583b3ce9546f409cbd2946f",
+      "retained": "raw/holdout-01/networks-post.json.gz",
+      "retained_sha256": "7df3b848535c76f614bd6b7e4fda1e10f912f8e0f8b2d48472fb8d014515cf58"
+    },
+    "holdout-01/networks.json": {
+      "raw_bytes": 2996102,
+      "raw_sha256": "03961235a391b75e2549c5d5b3fb352af107ae998583b3ce9546f409cbd2946f",
+      "retained": "raw/holdout-01/networks.json.gz",
+      "retained_sha256": "7df3b848535c76f614bd6b7e4fda1e10f912f8e0f8b2d48472fb8d014515cf58"
+    },
+    "holdout-01/observation.json": {
+      "raw_bytes": 403238,
+      "raw_sha256": "b51fda63e382e68a485d2409785b8e48690256068260b6f812ff1f02249b58fd",
+      "retained": "raw/holdout-01/observation.json.gz",
+      "retained_sha256": "d6131c1af3dd52bab932bef054d84777ee8586c694e3462f44fbdaa03da91ff5"
+    },
+    "holdout-01/query-freeze.json": {
+      "raw_bytes": 9932,
+      "raw_sha256": "11f48b7edd4b9eb4516bc26b1bf38301ec360f2d07e4d341f232a5dc6a2154da",
+      "retained": "raw/holdout-01/query-freeze.json.gz",
+      "retained_sha256": "27cb60f2df726b62919001a2a83be9858fb55013e790903b422c271933901b8c"
+    },
+    "holdout-02/game.log": {
+      "raw_bytes": 104783,
+      "raw_sha256": "e7adf1b1c0a6813bbe2cae135cafdc2a2ded28933316cefa584774b32e3dec70",
+      "retained": "raw/holdout-02/game.log.gz",
+      "retained_sha256": "a1ad6a858914a585e527b8992a16ccb29c638338a87789f2061ede689454c454"
+    },
+    "holdout-02/gpu.csv": {
+      "raw_bytes": 2641,
+      "raw_sha256": "bb96baf404a122f65afc6df762ace4467d5a063a43d02534e3a44ec1b17c8091",
+      "retained": "raw/holdout-02/gpu.csv.gz",
+      "retained_sha256": "dff42e7e2600506b8ecb635fd0ed60cb54625bf0e1ece5040548015c3dd251c8"
+    },
+    "holdout-02/networks-post.json": {
+      "raw_bytes": 4450814,
+      "raw_sha256": "e6188e8433630215d7d2374d764fc7722aa6acf82e88c2d82b8a1d976a1a3309",
+      "retained": "raw/holdout-02/networks-post.json.gz",
+      "retained_sha256": "533d9f69926c3523b4781e0488d660e3390ed4d2a02c3e864981fe8665ff29a0"
+    },
+    "holdout-02/networks.json": {
+      "raw_bytes": 4450814,
+      "raw_sha256": "e6188e8433630215d7d2374d764fc7722aa6acf82e88c2d82b8a1d976a1a3309",
+      "retained": "raw/holdout-02/networks.json.gz",
+      "retained_sha256": "533d9f69926c3523b4781e0488d660e3390ed4d2a02c3e864981fe8665ff29a0"
+    },
+    "holdout-02/observation.json": {
+      "raw_bytes": 446138,
+      "raw_sha256": "c5799f64a07adeba5672c7e27aedeae985547ed68a621b3065842be248d0efb2",
+      "retained": "raw/holdout-02/observation.json.gz",
+      "retained_sha256": "faaccea8f3573295b3bff9b1623ee43677122006a0779df5479b8c616aa7c158"
+    },
+    "holdout-02/query-freeze.json": {
+      "raw_bytes": 14759,
+      "raw_sha256": "cd4f2d66643039ff3a97072c9c67aa831512e4d4711c91c8301b8c85caff3c75",
+      "retained": "raw/holdout-02/query-freeze.json.gz",
+      "retained_sha256": "304de54f04a7385d1d9397413781c2ccebc71682664e57e8dc7752fcee884d1f"
+    },
+    "holdout-03/game.log": {
+      "raw_bytes": 104977,
+      "raw_sha256": "1d1780c33db08f3dd1758a1b0af96e39fdbe8a1b14f6719612a1273d9e4ef5ef",
+      "retained": "raw/holdout-03/game.log.gz",
+      "retained_sha256": "b3ebc550b5a70580640945353bf4a5b5c236dd644d8aa0483f1b2acdabf2fcab"
+    },
+    "holdout-03/gpu.csv": {
+      "raw_bytes": 2511,
+      "raw_sha256": "d01b6b64f4b9425d8616046f8dc3131fc8d1035ec1f6024a064e170e5e1c92b0",
+      "retained": "raw/holdout-03/gpu.csv.gz",
+      "retained_sha256": "3e4d1be63fd1d6beb19284d9a9d378157c9db84ac4182539eac3e8c50bf5ae87"
+    },
+    "holdout-03/networks-post.json": {
+      "raw_bytes": 3001382,
+      "raw_sha256": "6f435be3bf96b308ff413c18a57d63aa63a100e23b5e282288a2068562c4712b",
+      "retained": "raw/holdout-03/networks-post.json.gz",
+      "retained_sha256": "379814f9bffdc9b2247e265176dfa955778c533f12a283b710671a227bd59c9d"
+    },
+    "holdout-03/networks.json": {
+      "raw_bytes": 3001407,
+      "raw_sha256": "3144935b19475c6f552edf0773001758edda4751ed7d58b34926d9aac625bab8",
+      "retained": "raw/holdout-03/networks.json.gz",
+      "retained_sha256": "eb056af9d914f311df254e64520b52fd05e5e5f1bad31f73fe4cb36084ba7e7d"
+    },
+    "holdout-03/observation.json": {
+      "raw_bytes": 434718,
+      "raw_sha256": "b0af8b2d74ce93c0b0425b1c9c8b075d5e9ea894a1b9944728f3805fbcf53647",
+      "retained": "raw/holdout-03/observation.json.gz",
+      "retained_sha256": "8b2627656003d20bab3ed7b2caca6caa6dd3fa50ff4c7f5ce865788e026ec2f5"
+    },
+    "holdout-03/query-freeze.json": {
+      "raw_bytes": 14709,
+      "raw_sha256": "a0b0cf99e8ec51c52151e33e1987224bf9cf33844322d607cd4e1d42cf0ab066",
+      "retained": "raw/holdout-03/query-freeze.json.gz",
+      "retained_sha256": "9609295a451dda1d771dd35f3e4bedbfcda5e2b9e19eb9b9bddbb8f73e47d0e5"
+    },
+    "holdout-04/game.log": {
+      "raw_bytes": 107119,
+      "raw_sha256": "d67766caa610fbb5d51c4a5e8c317903273816e43887e177fd691cff21f6d0e6",
+      "retained": "raw/holdout-04/game.log.gz",
+      "retained_sha256": "5f8074129048e9e7fc6aeae118a10edcb231e361dd8239867603c6442c032633"
+    },
+    "holdout-04/gpu.csv": {
+      "raw_bytes": 2103,
+      "raw_sha256": "7f3ed295571e2445e24c6a9190535dd4075c2dcc691a98b56f32603ca78a1ba4",
+      "retained": "raw/holdout-04/gpu.csv.gz",
+      "retained_sha256": "fb9df133da59b17ff62679e10cf42143b3bb060fd1c0611dcdfc371e0886088f"
+    },
+    "holdout-04/networks-post.json": {
+      "raw_bytes": 5668568,
+      "raw_sha256": "2827e0c9f3b9514fd13b9f314ba180900718fcd8459ea91701f57244dfe03199",
+      "retained": "raw/holdout-04/networks-post.json.gz",
+      "retained_sha256": "0525a4f85ccb3d9895f881b09dba61a308aee54444efee9cba212f061e33aea5"
+    },
+    "holdout-04/networks.json": {
+      "raw_bytes": 5668568,
+      "raw_sha256": "2827e0c9f3b9514fd13b9f314ba180900718fcd8459ea91701f57244dfe03199",
+      "retained": "raw/holdout-04/networks.json.gz",
+      "retained_sha256": "0525a4f85ccb3d9895f881b09dba61a308aee54444efee9cba212f061e33aea5"
+    },
+    "holdout-04/observation.json": {
+      "raw_bytes": 205953,
+      "raw_sha256": "fca06eb3848177ec01555d101c2decb3f17398f855d3db69c5fa91c40fa7eba4",
+      "retained": "raw/holdout-04/observation.json.gz",
+      "retained_sha256": "20abc30ce0eab839daf1b55a9ef83d83fca465c31ebc849be18b1a5bf6c21c4f"
+    },
+    "holdout-04/query-freeze.json": {
+      "raw_bytes": 487,
+      "raw_sha256": "fe60bf76a99338481f814675b630cebcf430f077a22fceb6b8229e3fa3466c4e",
+      "retained": "raw/holdout-04/query-freeze.json.gz",
+      "retained_sha256": "5d372bda59cd45eacb748dab9ffabfaf11796552d89d1e8b3e9c79395b7833a6"
+    },
+    "holdout-05/game.log": {
+      "raw_bytes": 106863,
+      "raw_sha256": "001563d11626fd6805af122c2c6bc3916b4496068aa3d15920df306fe8d49a36",
+      "retained": "raw/holdout-05/game.log.gz",
+      "retained_sha256": "d15f41f2fecf71593191f28c39f414e2988e51106837e1cbf8c8fbdfa9020806"
+    },
+    "holdout-05/gpu.csv": {
+      "raw_bytes": 2098,
+      "raw_sha256": "4500f71c10f3ecd9ce71f4d5dab9ffa8b769767b0ef427382c1471c7965aa40a",
+      "retained": "raw/holdout-05/gpu.csv.gz",
+      "retained_sha256": "aaf15388d4cffb765698c9cb47d4e7bb432811890b30cc41414e99232183b49e"
+    },
+    "holdout-05/networks-post.json": {
+      "raw_bytes": 4194915,
+      "raw_sha256": "ac03fec698170b8edb4229330edfb6365f6f13642be6d259ebcbfbe5acc79aec",
+      "retained": "raw/holdout-05/networks-post.json.gz",
+      "retained_sha256": "6e250688045e9c2e6763dcf8f31ea9c70499eb1546071aa38f96fbfdb0238146"
+    },
+    "holdout-05/networks.json": {
+      "raw_bytes": 4194915,
+      "raw_sha256": "ac03fec698170b8edb4229330edfb6365f6f13642be6d259ebcbfbe5acc79aec",
+      "retained": "raw/holdout-05/networks.json.gz",
+      "retained_sha256": "6e250688045e9c2e6763dcf8f31ea9c70499eb1546071aa38f96fbfdb0238146"
+    },
+    "holdout-05/observation.json": {
+      "raw_bytes": 205929,
+      "raw_sha256": "7512cc3d3e19056d863b616564978a54d4de813002b10eeaeccd16340c2b0af1",
+      "retained": "raw/holdout-05/observation.json.gz",
+      "retained_sha256": "08fd3031d16eaf75985dfbf671de32138c41113962f8d0ab04542a1330dff6e5"
+    },
+    "holdout-05/query-freeze.json": {
+      "raw_bytes": 487,
+      "raw_sha256": "84906c46416b45a5489d0c123c2d21df7278d316217fd0a8a7c34602c5962043",
+      "retained": "raw/holdout-05/query-freeze.json.gz",
+      "retained_sha256": "6cab910e5512c808f5542128a6817410b5d2a66ca3f13658d54b58fa4b9ba5aa"
+    },
+    "process-audit/audit.py.txt": {
+      "raw_bytes": 2137,
+      "raw_sha256": "fe9f34a90ad69adabd21ddd66a9dcc18ecebbe9ec2aae3366292f523a3ebcac0",
+      "retained": "raw/process-audit/audit.py.txt.gz",
+      "retained_sha256": "4a69f15d0364dfdbff274f02be76b8527ed8efe2c876886039ab045be6ce1c97"
+    },
+    "stock-1/game.log": {
+      "raw_bytes": 102714,
+      "raw_sha256": "cefecdd28711d8afc0e93c979147da3c1f2bf427da15e2f96ec35a49275fe19b",
+      "retained": "raw/stock-1/game.log.gz",
+      "retained_sha256": "ee1a2ee84e0d5b66ba39854763e5ce4f16d185fa80e0e8c084369615bab6d51f"
+    },
+    "stock-1/gpu.csv": {
+      "raw_bytes": 2164,
+      "raw_sha256": "10a33d734ee3beea3df77fae8e63486e6c3d8018f7c60e64b2fd3aae23518e6c",
+      "retained": "raw/stock-1/gpu.csv.gz",
+      "retained_sha256": "6c5dbb7cfdedd7cb9f1c6796a6c4379b670609ffc606410e3cf61e0809293b81"
+    },
+    "stock-1/observation.json": {
+      "raw_bytes": 148365,
+      "raw_sha256": "b818acf2ac123a7de13f9426b8fd4769ddc7620bfb897b78c2f07798751fb63c",
+      "retained": "raw/stock-1/observation.json.gz",
+      "retained_sha256": "1d2d07763eee7bc324c4446fbd8c1ae6396208a7cf36960f2470ec04a005e1fe"
+    },
+    "stock-2/game.log": {
+      "raw_bytes": 104916,
+      "raw_sha256": "efaf6c7eee432688e8322f392d6b903ef60b357bc460454cfd4d77c7864c43cd",
+      "retained": "raw/stock-2/game.log.gz",
+      "retained_sha256": "76c72be294d8e8ac83dce52a8b54d5e438d559e15be0b796840661c4427287c2"
+    },
+    "stock-2/gpu.csv": {
+      "raw_bytes": 2239,
+      "raw_sha256": "f0b6aaaa4a8d23366b063081243f218d0ec0a7f45b9f2c62281d1e8fffc533aa",
+      "retained": "raw/stock-2/gpu.csv.gz",
+      "retained_sha256": "01cdc3c8c106727d452541c0328478a5f8c86f32bf5dfd7dbfcbd56238f00a55"
+    },
+    "stock-2/networks-post.json": {
+      "raw_bytes": 3686823,
+      "raw_sha256": "f2412a6eaa16710021f9080dc3c82fc4eb416bc657e251ee19d32030dd053519",
+      "retained": "raw/stock-2/networks-post.json.gz",
+      "retained_sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885"
+    },
+    "stock-2/networks.json": {
+      "raw_bytes": 3686823,
+      "raw_sha256": "f2412a6eaa16710021f9080dc3c82fc4eb416bc657e251ee19d32030dd053519",
+      "retained": "raw/stock-2/networks.json.gz",
+      "retained_sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885"
+    },
+    "stock-2/observation.json": {
+      "raw_bytes": 256997,
+      "raw_sha256": "bbeb5e84d2e4169d022cfc093fce6a65d0621a777f2f04db7502475e71a30868",
+      "retained": "raw/stock-2/observation.json.gz",
+      "retained_sha256": "8bf98faf4daf2d4db7010876aff8260195e50f944e644ca735ccac3c896fffa3"
+    },
+    "stock-2/query-freeze.json": {
+      "raw_bytes": 2939,
+      "raw_sha256": "a8711e4aaa5e0b5ae0ffdc3ca32c282a135ac27c58b406167d73d83afefadc11",
+      "retained": "raw/stock-2/query-freeze.json.gz",
+      "retained_sha256": "2e00f776ddc34377190ab1822bb5b384481798d840e1c44e575fd9ff2f221cab"
+    }
+  },
+  "reports": {
+    "audit": {
+      "raw_sha256": "f5ee3f73178b8db719bdb9be55a95c6e95fab31cf4630757ded386b3b6164697",
+      "retained": "audit.json.gz",
+      "retained_sha256": "5c156f09b4860576937fd3e493a13298cd4bc20885a6e2175c255927e6d5f0f1"
+    },
+    "evaluation": {
+      "raw_sha256": "a2063c3658db88a4e23790cfa60fb6679f6b1b06689babeca4bb672cb319dd3a",
+      "retained": "evaluation.json.gz",
+      "retained_sha256": "167548e2a6ba88d13d4cd86ec3969755b67b99e4607b99c9ca464f2a1f58ae43"
+    }
+  },
+  "source_sha256": "c894887b0969cf743a9362290d505cc1379b74d15888db2d0414dd5654a7104f"
+}

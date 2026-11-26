@@ -1,0 +1,19 @@
+{
+  "source_head": "368c8f563d3736c112f8a0061759d3a1e6c53758",
+  "reader_sha256": "e34d146ef62b375f546578daaba7d5ec9340431e1fe5bff29caddb75a341fa61",
+  "files": {
+    "asheville-forest-types.json": "28e258ed0e9033f39cb36b2b8c43570250f5a73639b170b075d9eae95c754b86",
+    "asheville-forest-types.npy": "065598d65294bad554c074c9383dc94ab8b1a7a4e0f134bf1ef5379f0bdd2175",
+    "boreal-forest-types.json": "12c4b2058c475c841e62301b031afd8c64bb12d3799c144f9b12242464881878",
+    "boreal-forest-types.npy": "c02741c40666b5a9b392559b7ab49f203868a81beaf7aa2e659ce5986b4dd6ca",
+    "boston-forest-types.json": "6718a9ded45de361f94f77958508af141d3212b2b54a15b14ae94903cd1b8a8a",
+    "boston-forest-types.npy": "40d60515a450da1e5754527fdc7dcebbc7f49a95b40f109478139bc6584a2f67",
+    "charleston-forest-types.json": "c249a3b4e61799569f8c179ad1fc44f1c00c69f861d0a7848a9a7b0177c0f03e",
+    "charleston-forest-types.npy": "a908c89e86e946c4907bd91342519cb3f7108a6c723a8787c170b0f1a9f5c400",
+    "innsbruck-forest-types.json": "8b7a69e9d1c443aae35d960730fbc0e3b8ab496dee90189f843c5202ce0be56a",
+    "innsbruck-forest-types.npy": "4b7e9cae57c8e91b6f7c25b4085ed40f559507d5e45e0dc702f279299fcb6833",
+    "rio-forest-types.json": "8b05f160e7cbb9f060029eb25128902f217554ac34b374d0ea149b6182b18f51",
+    "rio-forest-types.npy": "062ed33539a11c7b435117eeea7b7cc2b7f6a664d4452874d03cd397cd9c8007"
+  },
+  "claim": "2019 raster pixel priors; not individual-tree traits or field-validated composition"
+}
