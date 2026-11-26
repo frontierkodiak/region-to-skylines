@@ -157,7 +157,7 @@ try {
       assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
       assert.match(await page.locator(".capability-detail").textContent(), /WorldCover sampling/);
-      assert.match(await page.locator(".capability-detail").textContent(), /Tree cover on 100% of the central tiles/);
+      assert.match(await page.locator(".capability-detail").textContent(), /Trees on 100% of the central land/);
       // Grassland below the tree candidate level is Unknown, and the fertility
       // detail names cropland separately from the weighted suitability.
       await page.evaluate(() => window.capabilityProbe.update({ lat: 7, lon: 0 }));

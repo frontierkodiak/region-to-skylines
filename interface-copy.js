@@ -11,23 +11,23 @@ export function planDetail(result) {
 }
 export function placeDetail(result) {
   const e=result?.evidence;if(!e)return null;
-  if(result.reason==='vegetation_suitability_candidate')return `Tree cover on ${pct(e.vegetation.tree_cover_share_of_central_land)} of central land.`;
-  if(result.reason==='tree_support_below_candidate_threshold')return `Tree support ${number(e.vegetation.tree_suitability)}, below ${number(e.vegetation.candidate_min)}.`;
-  if(result.reason==='fertile_land_suitability_candidate')return `Fertile suitability ${number(e.fertility.suitability)}, cropland ${pct(e.fertility.crop_share_of_central_land)}.`;
-  if(result.reason==='fertile_cover_below_candidate_threshold')return `Fertile suitability ${number(e.fertility.suitability)}, below ${number(e.fertility.candidate_min)}.`;
+  if(result.reason==='vegetation_suitability_candidate')return `Trees on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central land.`;
+  if(result.reason==='tree_support_below_candidate_threshold')return `Too little tree cover (${number(e.vegetation.tree_suitability)}; needs ${number(e.vegetation.candidate_min)}).`;
+  if(result.reason==='fertile_land_suitability_candidate')return `Cropland on ${pct(e.fertility.crop_share_of_central_land)} of the central land.`;
+  if(result.reason==='fertile_cover_below_candidate_threshold')return `Too little farmland (${number(e.fertility.suitability)}; needs ${number(e.fertility.candidate_min)}).`;
   return null;
 }
-export const waterDetail = result => result?.opportunity==='candidate'?'Mapped wet shore. Water stability is untested.':'Water stability is untested.';
-export const footprintDetail = result => result?.footprint==='candidate'?'384 × 384 m dry, gentle patch.':'No sampled 384 × 384 m patch.';
+export const waterDetail = result => result?.opportunity==='candidate'?'Mapped shoreline. Not tested in game.':'Not tested in game.';
+export const footprintDetail = result => result?.footprint==='candidate'?'A dry, gentle 384 × 384 m patch.':'No dry, gentle 384 × 384 m patch.';
 export function capabilityReason(id,result) {
-  if(result.reason==='mapped_water_width')return `Mapped corridor ${result.width_m} m. Needs ${result.threshold_m} m, with ${result.margin_m} m margin.`;
+  if(result.reason==='mapped_water_width')return `Mapped channel ${result.width_m} m wide; ships need ${result.threshold_m} m.`;
   if(result.reason==='mapped_edge_crossing')return id==='road'?'A motorway or trunk road crosses the edge.':'A mainline railway crosses the edge.';
   if(result.reason==='no_mapped_edge_crossing')return id==='road'?'No motorway or trunk road crosses the edge.':'No mainline railway crosses the edge.';
-  if(result.reason==='near_map_edge')return 'A mapped line ends within 32 m of the edge.';
+  if(result.reason==='near_map_edge')return 'A mapped line stops just short of the edge.';
   if(result.reason==='no_edge_waterway')return 'No connected mapped water reaches the edge.';
-  if(id==='air')return 'The exporter adds two plane entries.';
+  if(id==='air')return 'Planes arrive from two map edges.';
   if(id==='water')return waterDetail(result);
   return planDetail(result)??placeDetail(result)??'Data unavailable.';
 }
 export const stockLabels = {terrain_relief_m:'Relief',terrain_roughness_percent:'Roughness',central_terrain_diversity_m:'Height range'};
-export const stockReason = (label,value,p25,p75)=>`${label} ${value}. Middle half of stock maps ${p25} to ${p75}.`;
+export const stockReason = (label,value,p25,p75)=>`${label} ${value}. Most stock maps: ${p25} to ${p75}.`;

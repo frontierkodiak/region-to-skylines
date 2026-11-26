@@ -37,7 +37,7 @@ test("constructed footprint extent, threshold equality and missing coverage", ()
   assert.equal(missing.predicted, null);
   assert.match(
     footprintDetail(result),
-    /384 × 384 m dry, gentle patch/,
+    /A dry, gentle 384 × 384 m patch/,
   );
 });
 

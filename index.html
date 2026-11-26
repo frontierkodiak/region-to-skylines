@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Region to Skylines</title>
-  <meta name="description" content="Pick a square of real terrain and build a Cities: Skylines 1 map with mapped waterways, roads to the outside and real forests and farmland. Review its water-risk check before download. Runs in your browser, no account or key.">
+  <meta name="description" content="Pick a square of real terrain and get a Cities: Skylines map with its rivers, roads, forests and farmland. Runs in your browser.">
   <link rel="alternate" type="text/markdown" href="/agents.md" title="Instructions for AI agents">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
@@ -67,7 +67,7 @@
         <section id="water-risk" hidden aria-live="polite">
           <strong id="water-risk-title"></strong>
           <ul id="water-risk-reasons"></ul>
-          <details><summary>What this check covers</summary><p id="water-risk-calibration" class="note"></p></details>
+          <p id="water-risk-calibration" class="note"></p>
           <div class="dlrow">
             <button id="water-risk-continue" class="secondary" hidden>Download map anyway</button>
             <button id="water-risk-report" class="secondary">Water check (.json)</button>
@@ -120,7 +120,6 @@
 
       <section id="agent">
         <button id="agentcopy" type="button">Copy instructions for your AI agent</button>
-        <p class="note">Paste these instructions into your agent.</p>
         <textarea id="agentprompt" rows="6" readonly hidden aria-label="Instructions for your AI agent"></textarea>
       </section>
 
@@ -149,7 +148,6 @@
         </div>
         <details id="play">
           <summary>Heightmap settings</summary>
-          <p class="note">Heightmap export settings.</p>
           <div class="playgrid">
             <label>Smooth terrain
               <select id="sm">
@@ -188,7 +186,6 @@
 
         <details id="water">
           <summary>Water sources for the Map Editor</summary>
-          <p class="note">Water source positions for the Map Editor.</p>
           <ol id="sources"><li>Waiting for rivers and lakes…</li></ol>
         </details>
         <details id="editorhowto">
@@ -214,7 +211,7 @@
         Elevation: <a href="https://registry.opendata.aws/terrain-tiles/">Terrain Tiles</a> on AWS Open Data (Mapzen/Tilezen).
         Land cover in the map file: ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Ore and oil: <a href="https://mrdata.usgs.gov/mrds/">USGS MRDS</a> (public domain). The map writer runs on <a href="https://pyodide.org">Pyodide</a>.
         Rivers, lakes and basemap: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (ODbL), served by <a href="https://openfreemap.org">OpenFreeMap</a> in the <a href="https://openmaptiles.org">OpenMapTiles</a> schema (© OpenMapTiles).
-        Search: <a href="https://nominatim.org">Nominatim</a>, © OpenStreetMap contributors, used within the <a href="https://operations.osmfoundation.org/policies/nominatim/">usage policy</a> (search on Enter only, at most one per second).
+        Search: <a href="https://nominatim.org">Nominatim</a>, © OpenStreetMap contributors.
         <details>
           <summary>Elevation data credits</summary>
           <ul>

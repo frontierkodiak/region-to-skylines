@@ -53,7 +53,7 @@
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "750fe1bc6f487121ca7a9ce310ad8c86337bebddf3b932398b0a2ef9454693bd"
+      "current_sha256": "3489f386814e7311cefd445015b63aa296396301751c645bfab407268c118b5b"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
@@ -61,7 +61,7 @@
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
-      "current_sha256": "a6e4b82f5630102317d8135ac43cacfbb3343c3b018a5f816bc1b6b85c219569"
+      "current_sha256": "f05ddb380a981e636d06f2d246d87e130151e40a79eb578ade953c594799d0af"
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json",
@@ -75,7 +75,7 @@
   "added_files_sha256": {
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/package.json": "3356eeccec54bd29884be2db61abbac447edf7217a3b2df4b9667dc52c34c926",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/main-ci/.gitattributes": "825ee59283a7aca1c6f93872d40220b4587a3320a2b2a7e607b35565970c11a8",
-    "interface-copy.js": "fa7682137ed38345989fb58654abc78f53411cae5442d2153c7da1c582984229",
+    "interface-copy.js": "4258f21dd8907eb7718db5c9a748e2bc09089a14b2d213b7fb2c2e9999c19728",
     "test/player-ui-browser.mjs": "a30efb53c01fd393ae3febe863ad73604a396b6662c1904cf24b11ceed5dfa18",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
     "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72",

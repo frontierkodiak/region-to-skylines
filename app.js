@@ -387,7 +387,7 @@ function showWaterRisk(map, selection, key) {
   $("water-risk-reasons").replaceChildren(...decision.reasons.map((text) => {
     const li = document.createElement("li"); li.textContent = text; return li;
   }));
-  $("water-risk-calibration").textContent = "Checks use terrain and mapped water. Stability in the game is unverified.";
+  $("water-risk-calibration").textContent = "Based on terrain and mapped water, not a game test.";
   $("water-risk-continue").hidden = decision.action !== "review";
   pendingRiskMap = decision.action === "review" ? { map, selection, key } : null;
   return decision;
@@ -398,7 +398,7 @@ $("water-risk-continue").onclick = () => {
   save(new Blob([pending.map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
   pendingRiskMap = null;
   $("water-risk-continue").hidden = true;
-  setStatus(`Saved ${baseName()}.crp with the water-risk warning acknowledged`);
+  setStatus(`Saved ${baseName()}.crp`);
 };
 $("water-risk-report").onclick = () => {
   if (!lastWaterRisk || lastWaterRisk.selection !== result || lastWaterRisk.key !== selectionKey()) return;
@@ -456,7 +456,7 @@ $("dl").onclick = async () => {
         save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
         setStatus(`Saved ${baseName()}.crp: "${map.mapName}" in New Game`);
       } else setStatus(decision.action === "review" ? "Map built; review the water risk before downloading" : "Water check unavailable; choose another square or use the heightmap");
-    } else setStatus("Square changed; the previous map was not downloaded");
+    } else setStatus("Square changed; map not saved");
   } catch (err) {
     lastBuild = { error: err.message };
     fallback = "Map export failed. Download a heightmap.";
@@ -497,7 +497,7 @@ function agentPrompt() {
     `Instructions for AI agents: ${SITE}/agents.md`,
     `In short, run: npx -y ${CLI_TGZ} "${link()}" --install`,
     "If it stops with exit 5, show me the water-risk reasons; do not add --allow-water-risk without my agreement.",
-    "then tell me what it printed and what to do in the game.",
+    "Then tell me what it printed and what to do in the game.",
   ].join("\n");
 }
 $("agentcopy").onclick = async () => {
