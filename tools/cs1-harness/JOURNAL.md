@@ -3097,3 +3097,28 @@ All 8 final maps have full first-hour captures; raw runtime/startup/panel failur
 remain. New constructor is not a safe-water class or public-release approval.
 Five fixtures plus three remaining named presets were fixed before implementation;
 Old 12 holdout inputs unopened. All owned native jobs collected; no preview/tab/deploy.
+
+
+### 2026-11-26 — PL-1191 localized source-budget test
+
+Two guarded offline first hours on blade's disposable install. Actual clean
+runtime source `2f1e2974f1bdc2228bcd0cf98e4bd71d53007146`, fresh DLL
+`7110fbe740027e1de93840205899c0cecbe4214fdb9fe0ea805a49b1bb7a66b1`.
+Harness C# sources are unchanged from the prior calibration, but installed game
+assembly hashes changed; this is current-install validation, not an exact-engine
+causal A/B. New packages were prepared at source `8370299` before observation.
+
+| Map | Game min | Card peak/menu game MiB | Peak W/C | Observation wall s | Result |
+|---|---:|---:|---:|---:|---|
+| asheville | 60.137 | 10821/1576 | 147.51/68 | 1004.7 | water FAIL |
+| pittsburgh | 60.129 | 10821/1594 | 141.30/55 | 1000.6 | water FAIL |
+
+RTX 2080 Ti at 05:00.0. Card VRAM includes unrelated workloads; continuous
+game-only peak is unknown, menu game share is recorded instead. Actual power
+limit 200 W was left unchanged. Doctor/build/FIFO/offline/carbon guards passed;
+slot released after each run, all game/Steam/transient-unit teardown arrays empty.
+All 13 captures per map match the exact intended control identity/type/position/
+target/input/output table. Peak flooding 0.9357/1.0342 km² and minimum mapped-point
+retention 82.64%/84.96% fail unchanged stock-backed checks. No other six native runs,
+transform, bank raising, deployment or unowned cleanup. This journal is added only
+after collection; no native observation is claimed on its later commit.
