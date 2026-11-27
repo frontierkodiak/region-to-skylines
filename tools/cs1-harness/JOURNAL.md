@@ -3122,3 +3122,28 @@ target/input/output table. Peak flooding 0.9357/1.0342 km² and minimum mapped-p
 retention 82.64%/84.96% fail unchanged stock-backed checks. No other six native runs,
 transform, bank raising, deployment or unowned cleanup. This journal is added only
 after collection; no native observation is claimed on its later commit.
+
+
+### 2026-11-27 — PL-1191 continuous receiving channels
+
+Actual clean runtime source `30b0be68dcc0ff45b589e5c736d8da378437c5d0`,
+fresh DLL `7110fbe740027e1de93840205899c0cecbe4214fdb9fe0ea805a49b1bb7a66b1`.
+C#/DLL and on-disk game-reference hashes match the previous source-budget run.
+Physical packages frozen at `f83992d66f61bf0d4e0709f177da359d5ff0bf6a`.
+No full loaded/JIT identity or runtime-health claim. No bank raising or transform.
+
+- Asheville: 60.080 game min, 997.1 observation wall s;
+  card peak 10821 MiB / game-at-menu 1576 MiB;
+  peak 146.82 W / 67 C. Water FAIL: flooding
+  0.6625 km², original mapped-point retention 83.13%, surface movement 18.278 m.
+  All 259 source records match intended values in all 13 captures.
+- Pittsburgh: blocked BEFORE game by the normal carbon idle check. One exact
+  read-only guard diagnostic confirmed SSH connection timeout (exit255), not
+  proof of an active game. No bypass, retry, native sample or measured verdict.
+
+Blade / RTX2080Ti / 05:00.0; actual 200 W card limit unchanged. Card VRAM
+includes unowned workloads; continuous game-only peak unknown. FIFO/offline/
+carbon guards retained. Both teardown receipts have empty game/Steam/unit arrays,
+slot released. No other-six native run. This journal is after collection; no
+native observation is claimed on its later commit. Pittsburgh package/cohort
+remain prepared, awaiting a reachable carbon and a passing normal idle guard.
