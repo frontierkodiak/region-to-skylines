@@ -1,0 +1,37 @@
+{
+  "dll": "/home/caleb/scratch/2026-11-27-pl1328-ranking/source/tools/cs1-harness/.build/Cs1Harness.dll",
+  "dll_sha256": "279179268c6027f32f1142445eaa02571a29b474c6c0122eff9cd931df616636",
+  "sources": {
+    "CheckOps.cs": "b05f18afd257f73a93625f61667e37ed407541fb4ebe3313a6eb603111258011",
+    "CityOps.cs": "4ddb2546d4a5cb0fae442b38c34bebbb69d4edfe577d32511e44a98aa28051a4",
+    "CoreOps.cs": "34ba5ee7df619cade253a0cd8e2221a34e8dc79c9ac3bbf12a6d56cb44a717f5",
+    "DumpOps.cs": "02ac58f3c16150b2158fb380351cd273620fcf9e5d6dd7534676a9a7c695fcf9",
+    "EditorOps.cs": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536",
+    "Harness.cs": "2ee74196814770e30d1f37a00d700b4a3f01cd3adf8cbbca46061b19d3c708cc",
+    "Jobs.cs": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113",
+    "Json.cs": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884",
+    "NetworkOps.cs": "4902b4b0dc229f1e6aede279bf16068ed972b8ab255e4820d53a626ec8a3b6cb",
+    "PanelOps.cs": "724a2bc21faa0bd18aedc3a97279483adf32c9391e1fa3d2c1866c6aba50e9f3",
+    "Readback.cs": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e",
+    "ScenarioOps.cs": "00e1134484dc320685ed7a442422ca1e3c3e6e3654683f0e68b5ca778c973062",
+    "ScenarioWitness.cs": "e2c1fde36d58f7c5143ee10601a0b8e2b51f061ce089c388a89cc62457d0be69",
+    "SurfaceFixture.cs": "bef4297aec15520a9bc346268ef600d4b1b6ca27d8fb6c1cf5ee5b92a4fd70fd",
+    "TemplateOps.cs": "b8abeb4f5904d21dd029a81c98227f0ecc0c0b7c498961092f36f1d162a03f3f",
+    "TraceIL.cs": "1d75c1f5f6518ea6584346cbdade3aee69f76d2983a43c6524ec7b079f1cb6ef",
+    "TraceOps.cs": "fabb166d9a4a306a8e843f657f553bf8fb03f20f37793a6b2b590d3a170f96ba",
+    "TraceRecorder.cs": "42f879f776b91c675eefb2fa227314908515ba46d9ee4851df12802a3beb2fa4",
+    "VegetationOps.cs": "959516c8271769c6439ab4ec12eb92fb28a2dd9a7e73d25bbb2901c2c831685a",
+    "WorldOps.cs": "6a35766794c9252c5672d15955d3c5e616b36fc38b243f41effb59ed61d06da6"
+  },
+  "game_assemblies": {
+    "mscorlib.dll": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+    "System.dll": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+    "System.Core.dll": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+    "UnityEngine.dll": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+    "UnityEngine.UI.dll": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+    "ColossalManaged.dll": "661d8401e0b4c6bbef6c414e5f78b0a18d6f8a2a719b81a0f19181802a9d4ac7",
+    "ICities.dll": "d08c742eca81feeb45607c5fb80258a7560251349d37331efa92cd9de5300a18",
+    "Assembly-CSharp.dll": "1b902079cc437ee2eb19cf07b778d2b60b3587e3dbffb4c6338d6ec0c47b3a3e"
+  },
+  "trace": null
+}

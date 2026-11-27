@@ -4001,3 +4001,11 @@ acquisition; the owned waiter was removed and no game/Steam session started.
 No game GPU/VRAM/power/temperature peak or native bake-quality result is
 claimed. Frozen v8 is A evidence only. Native B/C2, snow and winner timing
 remain pending. The existing owner and its Steam work were left untouched.
+
+2026-11-27 UTC, PL-1328: one native-ranking slot on blade2080Ti,435.54s,
+39 single-tree frames from3 anchors and15 controls. Accepted harness source
+de93357, isolated task build; exact CRPs checked. Board sample peaks10821MiB,
+131.29W,68°C include an existing resident workload; game menu allocation1622MiB,
+game-specific peak unknown. Game/Steam/owned-unit cleanup empty. Inference ran
+after release on3090,54.35s. BioCLIP rank<=4/16 passes1/6 anchor-view checks;
+stopped before optimisation. No distant BioCLIP score, no paid calls.

@@ -1,5 +1,23 @@
 # Review and remaining acceptance
 
+## Latest result — native ranking fails, 2026-11-27 UTC
+
+See observations/native-ranking/REPORT.md. One slot produced 39 native
+single-tree frames: three anchors at three distances plus 15 frozen near-art
+broadleaf controls at close/gameplay. BioCLIP passed only Elm close (rank1).
+Elm gameplay ranks12; Kaiserlinde close/gameplay8/10; Bigleaf13/5. Each pool
+has16 trees; passing rank is at most4. No distant BioCLIP score was computed.
+No CMA-ES, model edits or DINO substitution followed. Stop pending the lead's
+next instruction; recommend qualifying DINOv3 on the same native ranking pool.
+Gleditsia remains without a native Workshop anchor and is untested here.
+
+Native output on blade/carbon: ~/experiments/PL-1328-native-ranking/.
+The 435.54-second slot is released, with no game, Steam or active owned units.
+Inference ran afterwards on the free3090 for54.35 seconds and exited.
+All39 local frame hashes and the executed scorer hash were verified. Eleven
+local tests and Ruff pass. This does not establish shape-target QA, B/C native
+quality, snow, a winner performance pass or full accepted-asset cost.
+
 ## Latest result — 2026-11-26: stop after failed anchor screen
 
 Read observations/anchor-test/REPORT.md and results.json. Exact accepted

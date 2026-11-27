@@ -1,0 +1,287 @@
+{
+  "source_revision": "de93357178fe706f83eed58c53106618e0805c3a",
+  "selection": "15 near-art>=3, standalone, leafy broadleaf controls; 8-25m; genus diversity then nearest 15m; exclude target genera; selected before any native scores",
+  "anchors": [
+    "2456536855.American Elm_Data",
+    "2928288862.Kaiserlinde 16m_Data",
+    "2402946167.Bigleaf Linden_Data"
+  ],
+  "controls": [
+    "664488801.London Planetree_Data",
+    "916605753.White Willow_Data",
+    "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+    "2242682818.Alder 05 14m_Data",
+    "2932179333.Norway Maple Young 11m_Data",
+    "2865601539.Eastern Cottonwood Summer's End_Data",
+    "1677577954.Small Smooth gum_Data",
+    "1774634417.Silver Birch 2_Data",
+    "1917483612.Canada Red Cherry_Data",
+    "708892511.Southern Live Oak_Data",
+    "941702678.Beech_Tree_Data",
+    "954067351.Olive Tree by pdelmo_Data",
+    "1729459252.Ornamental Pear Tree_Data",
+    "2079011018.Plane Street Tree Tall_Data",
+    "2244341705.Autumn Alder 05 14m_Data"
+  ],
+  "pass_rank_max": 4,
+  "pool_per_anchor": 16,
+  "views": {
+    "close": 52,
+    "gameplay": 140,
+    "billboard": 550
+  },
+  "trees": [
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "near_art": 4,
+      "height": 14.960259437561035,
+      "packages": [
+        {
+          "file": "American Elm.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2456536855/American Elm.crp",
+          "sha256": "1232315b88b706d644d99c95e97549db0a24bb539fef73f93ffea9f27f5d1ae4",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "near_art": 3,
+      "height": 16.478586196899414,
+      "packages": [
+        {
+          "file": "kaiserlinde-16m.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2928288862/kaiserlinde-16m.crp",
+          "sha256": "bec2cc7f0ace5518a285f6371409bbcdf36a03687e4911cc7b4a4ba04f592844",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "near_art": 4,
+      "height": 12.297269821166992,
+      "packages": [
+        {
+          "file": "Bigleaf Linden.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2402946167/Bigleaf Linden.crp",
+          "sha256": "6db20ba3ad399c32a2e22c1f172a2f5a4c5d7060ae2dfd617caedceee84e795a",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "664488801.London Planetree_Data",
+      "genus": "Platanus",
+      "near_art": 3,
+      "height": 15.01577091217041,
+      "packages": [
+        {
+          "file": "London Planetree.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/664488801/London Planetree.crp",
+          "sha256": "9df856cf402359e0f1b21cf56d34aeba97f88dd6a4353d3f950617c51c1a7137",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "916605753.White Willow_Data",
+      "genus": "Salix",
+      "near_art": 3,
+      "height": 15.08643627166748,
+      "packages": [
+        {
+          "file": "White Willow.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/916605753/White Willow.crp",
+          "sha256": "a20e026e12260faf5d4fb3186620ef6a1825ce2e6f664f936e40924cec195496",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+      "genus": "Ginkgo",
+      "near_art": 3,
+      "height": 14.761250495910645,
+      "packages": [
+        {
+          "file": "Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/3717614544/Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927.crp",
+          "sha256": "afb39aa6e60bde11334bb338de9d2116522d9286c44aabe789c4cc2efc6f5157",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2242682818.Alder 05 14m_Data",
+      "genus": "Alnus",
+      "near_art": 4,
+      "height": 14.739063262939453,
+      "packages": [
+        {
+          "file": "Alder 05 14m.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2242682818/Alder 05 14m.crp",
+          "sha256": "ef6afff64a0cffa1fc02bafa7ce9f5d22d4d10f4b8667d3d0bcdccb33a94e3d8",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2932179333.Norway Maple Young 11m_Data",
+      "genus": "Acer",
+      "near_art": 3,
+      "height": 14.403840065002441,
+      "packages": [
+        {
+          "file": "norway-maple-young-11m.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2932179333/norway-maple-young-11m.crp",
+          "sha256": "dcf02ab7a726940114c96af034383872623e3f770ba7affd17741c551ed53fe8",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2865601539.Eastern Cottonwood Summer's End_Data",
+      "genus": "Populus",
+      "near_art": 4,
+      "height": 15.786108016967773,
+      "packages": [
+        {
+          "file": "Eastern Cottonwood Summer's End.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2865601539/Eastern Cottonwood Summer's End.crp",
+          "sha256": "11b7fd91bd42df6b8f65ebe693c94078bdca4890d9ececc1939a323d962d1d0a",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "1677577954.Small Smooth gum_Data",
+      "genus": "Eucalyptus",
+      "near_art": 4,
+      "height": 15.8659086227417,
+      "packages": [
+        {
+          "file": "pd Small Smooth Gumtree.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/1677577954/pd Small Smooth Gumtree.crp",
+          "sha256": "0d9659a11d5fe130f36262270908e0173aec86b9c9ba833f632898ddeb79a952",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "1774634417.Silver Birch 2_Data",
+      "genus": "Betula",
+      "near_art": 4,
+      "height": 14.119412422180176,
+      "packages": [
+        {
+          "file": "Silver Birch 2.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/1774634417/Silver Birch 2.crp",
+          "sha256": "e482607e89bd42911e7b867fe0ab42e95599f22af04d61d0c7b68d7b5ca434b8",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "1917483612.Canada Red Cherry_Data",
+      "genus": "Prunus",
+      "near_art": 4,
+      "height": 13.839435577392578,
+      "packages": [
+        {
+          "file": "canada_red_cherry.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/1917483612/canada_red_cherry.crp",
+          "sha256": "5439cf3911d63c9f9915f2df5bcae89ac895ff20b4c39c89bc1e8788c0d4d071",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "708892511.Southern Live Oak_Data",
+      "genus": "Quercus",
+      "near_art": 3,
+      "height": 13.69832706451416,
+      "packages": [
+        {
+          "file": "Southern Live Oak.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/708892511/Southern Live Oak.crp",
+          "sha256": "f94c45143c422a0e772d4a09c66fb95232146ff319134797fa00acaa6cf64c1c",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "941702678.Beech_Tree_Data",
+      "genus": "Fagus",
+      "near_art": 4,
+      "height": 16.342866897583008,
+      "packages": [
+        {
+          "file": "Beech _Tree.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/941702678/Beech _Tree.crp",
+          "sha256": "efc664144d8c136ffeb22e1a30bb114af3bee271d82160124509e8c2783efd1d",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "954067351.Olive Tree by pdelmo_Data",
+      "genus": "Olea",
+      "near_art": 3,
+      "height": 13.556815147399902,
+      "packages": [
+        {
+          "file": "Olive Tree.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/954067351/Olive Tree.crp",
+          "sha256": "6909cdbb9ea7d4458fc0859615902a6176d4e466a73c031ece2d003e449a3957",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "1729459252.Ornamental Pear Tree_Data",
+      "genus": "Pyrus",
+      "near_art": 4,
+      "height": 8.65366268157959,
+      "packages": [
+        {
+          "file": "Ornamental Pear Tree.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/1729459252/Ornamental Pear Tree.crp",
+          "sha256": "b6791cae2bcc846c50007b0e766ee7f94e7719e3f24bdf0358b79559752a833a",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2079011018.Plane Street Tree Tall_Data",
+      "genus": "Platanus",
+      "near_art": 3,
+      "height": 14.75106430053711,
+      "packages": [
+        {
+          "file": "Plane Street Tree Tall.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2079011018/Plane Street Tree Tall.crp",
+          "sha256": "09b0ebb5b3b274747e9006876563002a75a75231840573e5e9803398666df937",
+          "checksum_mismatches": []
+        }
+      ]
+    },
+    {
+      "name": "2244341705.Autumn Alder 05 14m_Data",
+      "genus": "Alnus",
+      "near_art": 4,
+      "height": 14.739063262939453,
+      "packages": [
+        {
+          "file": "Autumn Alder 05 14m.crp",
+          "local_path": "/peach/Games/SteamLibrary/steamapps/workshop/content/255710/2244341705/Autumn Alder 05 14m.crp",
+          "sha256": "9354d6665e5e463154bf11d919c7e6021a9fe5fdba147ce75960b271e668d65c",
+          "checksum_mismatches": []
+        }
+      ]
+    }
+  ]
+}

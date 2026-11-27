@@ -1,0 +1,75 @@
+{
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": null,
+    "mem_used_before_mib": 8180,
+    "mem_total_mib": 11264
+  },
+  "game_gpu_at_menu": [
+    {
+      "bus": "05:00.0",
+      "pid": 854298,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1622
+    }
+  ],
+  "native_wall_seconds": 435.5423286720179,
+  "board_peak_mib": 10821.0,
+  "board_peak_watts": 131.29,
+  "board_peak_temperature_c": 68.0,
+  "game_peak_vram_mib": null,
+  "basis": "Board point samples include an existing resident workload; no game-specific peak is inferred by subtraction",
+  "executed_controller_sha256": "2409daa63aebd821e2b60b2c99b4c4140f25f509aa53d111cc4d093a752f6757",
+  "capture_output_adapter": {
+    "reason": "Driver.shot retains pixels in stage/shots; expose those exact bytes at controller output paths without restarting the slot",
+    "files": [
+      "00-close.png",
+      "00-gameplay.png",
+      "00-billboard.png",
+      "01-close.png",
+      "01-gameplay.png",
+      "01-billboard.png",
+      "02-close.png",
+      "02-gameplay.png",
+      "02-billboard.png",
+      "03-close.png",
+      "03-gameplay.png",
+      "04-close.png",
+      "04-gameplay.png",
+      "05-close.png",
+      "05-gameplay.png",
+      "06-close.png",
+      "06-gameplay.png",
+      "07-close.png",
+      "07-gameplay.png",
+      "08-close.png",
+      "08-gameplay.png",
+      "09-close.png",
+      "09-gameplay.png",
+      "10-close.png",
+      "10-gameplay.png",
+      "11-close.png",
+      "11-gameplay.png",
+      "12-close.png",
+      "12-gameplay.png",
+      "13-close.png",
+      "13-gameplay.png",
+      "14-close.png",
+      "14-gameplay.png",
+      "15-close.png",
+      "15-gameplay.png",
+      "16-close.png",
+      "16-gameplay.png",
+      "17-close.png",
+      "17-gameplay.png"
+    ]
+  }
+}

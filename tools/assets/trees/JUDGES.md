@@ -6,6 +6,18 @@ are historical opinions, not validated fitness or pipeline acceptance.
 
 ## First gate: Workshop anchors, before optimisation
 
+**Later November 26 direction: native ranking supersedes naming.** Capture
+the three available Workshop assets (Elm and both lindens) singly in one
+short native session, at close/gameplay/distant. Freeze 15 PL-1326 near-art
+broadleaf controls before scoring. For each anchor and close/gameplay view,
+rank its own genus probability against those 15 controls: a 16-tree pool,
+passing ranks 1–4. Equal-scoring controls count against the anchor. Require
+all available anchors to pass both views. Do not score distant images with
+BioCLIP. Gleditsia has no native Workshop anchor and remains unqualified by
+this ranking check. A native failure stops optimisation; DINOv3 would be the
+next proposed main signal, not an automatic substitution in this experiment.
+See observations/native-ranking/ for the frozen plan and actual result.
+
 **November 26 direction supersedes the fallback below.** Use both reviewed
 Tilia assets and American Elm from accepted PR103 `de93357`. There is no vetted
 Gleditsia Workshop match; the lead explicitly permits held-out iNat photos as

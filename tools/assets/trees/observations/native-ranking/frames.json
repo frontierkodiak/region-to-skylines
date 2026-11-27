@@ -1,0 +1,1055 @@
+[
+  {
+    "name": "2456536855.American Elm_Data",
+    "genus": "Ulmus",
+    "anchor": true,
+    "view": "close",
+    "file": "00-close.png",
+    "sha256": "1aa701b31ca0a376e1ee687c379193ef241f820ce25692f5f5b44fc2848f7449",
+    "camera": {
+      "position": [
+        0,
+        116.94385528564453,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20,
+      "size": 52,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3420202136039734,
+        0.9396926164627075
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2456536855.American Elm_Data",
+    "genus": "Ulmus",
+    "anchor": true,
+    "view": "gameplay",
+    "file": "00-gameplay.png",
+    "sha256": "d9903b0741278fcfbcdb147f93d43771ea5971041d6083f833dc2feac79826d6",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98698806762695,
+      "size": 139.9427490234375,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426137685775757,
+        0.7661903500556946
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2456536855.American Elm_Data",
+    "genus": "Ulmus",
+    "anchor": true,
+    "view": "billboard",
+    "file": "00-billboard.png",
+    "sha256": "676d78d50ea439680ac430774e80ac06dc534f54fa17cf3bfd1af3a0f2df91de",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 40,
+      "size": 549.9290161132812,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6427876353263855,
+        0.7660444378852844
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2928288862.Kaiserlinde 16m_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "close",
+    "file": "01-close.png",
+    "sha256": "688ac987b028383ee9870ec00be9876816b5f1c3aa537f79bc9682008d75da1d",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.003467559814453,
+      "size": 52.08635711669922,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34207701683044434,
+        0.9396719336509705
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2928288862.Kaiserlinde 16m_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "gameplay",
+    "file": "01-gameplay.png",
+    "sha256": "2bfe4d9a94907bae42c7935344919f6827e3386443bbe25c2f6a5a3ac8827830",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.990936279296875,
+      "size": 139.96011352539062,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426664590835571,
+        0.7661461234092712
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2928288862.Kaiserlinde 16m_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "billboard",
+    "file": "01-billboard.png",
+    "sha256": "e42a6986df938d20336482118ecb25f920b17051b5f7708110eff3dd540e8a64",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 40,
+      "size": 549.9305419921875,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6427876353263855,
+        0.7660444378852844
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2402946167.Bigleaf Linden_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "close",
+    "file": "02-close.png",
+    "sha256": "da0ec18ba93510d728d917216994633fecdceebf93079f8907f4c7626a90557e",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.0024471282959,
+      "size": 52.06092071533203,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34206029772758484,
+        0.9396780133247375
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2402946167.Bigleaf Linden_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "gameplay",
+    "file": "02-gameplay.png",
+    "sha256": "927879521c8e08b7679dfef5022cdc8805e4867b02f350f62b7bcb1278b50c34",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98395538330078,
+      "size": 139.9293975830078,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6425731182098389,
+        0.7662243843078613
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2402946167.Bigleaf Linden_Data",
+    "genus": "Tilia",
+    "anchor": true,
+    "view": "billboard",
+    "file": "02-billboard.png",
+    "sha256": "4ae3015bce4c8a7016f92a9ea6859b3154d95ed7a23916497d1c961ba97e6296",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 40,
+      "size": 549.946533203125,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6427876353263855,
+        0.7660444378852844
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "664488801.London Planetree_Data",
+    "genus": "Platanus",
+    "anchor": false,
+    "view": "close",
+    "file": "03-close.png",
+    "sha256": "26df6cbcd36d2fbd92bb169850cb2faca8d92b58a985908e63e579e406ddccc1",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.002464294433594,
+      "size": 52.06135177612305,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3420605957508087,
+        0.939677894115448
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "664488801.London Planetree_Data",
+    "genus": "Platanus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "03-gameplay.png",
+    "sha256": "529b62f1ee85edabbef1457c11187ba9ddc5ef340304840bc1dac9fe72e6ec9d",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.984378814697266,
+      "size": 139.93125915527344,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6425787806510925,
+        0.7662196159362793
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "916605753.White Willow_Data",
+    "genus": "Salix",
+    "anchor": false,
+    "view": "close",
+    "file": "04-close.png",
+    "sha256": "75885e2d63816152a825fc64ae35ea66aa0bc65c19f92ac848a36c1b772611ae",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.019784927368164,
+      "size": 52.08705139160156,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34234461188316345,
+        0.9395744800567627
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "916605753.White Willow_Data",
+    "genus": "Salix",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "04-gameplay.png",
+    "sha256": "69012cfb8ec4538775ef0341dffe3e85bbddbb99dc448825581eb3f6e5eca3a3",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.986392974853516,
+      "size": 139.94012451171875,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426057815551758,
+        0.7661970257759094
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+    "genus": "Ginkgo",
+    "anchor": false,
+    "view": "close",
+    "file": "05-close.png",
+    "sha256": "f159e22de64a6ff5729ef0523047850fbcabb164f70f80fd9abc5eb0c4f9fb6a",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.009733200073242,
+      "size": 52.042823791503906,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3421797752380371,
+        0.9396345019340515
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+    "genus": "Ginkgo",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "05-gameplay.png",
+    "sha256": "98a188b87f58799c167eba94853e481e41396f78fd027cfe0e16adb5c9618ced",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.99024200439453,
+      "size": 139.95706176757812,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426571607589722,
+        0.766153872013092
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2242682818.Alder 05 14m_Data",
+    "genus": "Alnus",
+    "anchor": false,
+    "view": "close",
+    "file": "06-close.png",
+    "sha256": "c75996760fafc93bb3a3b18774cc48397367ec0f9467237272af0e7fbc920c9b",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.010343551635742,
+      "size": 52.045509338378906,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34218987822532654,
+        0.9396308064460754
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2242682818.Alder 05 14m_Data",
+    "genus": "Alnus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "06-gameplay.png",
+    "sha256": "0aabd421c909f6c1d8c8e71d741a25466245d801a43561536c66be68038624db",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.99034118652344,
+      "size": 139.95750427246094,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.642658531665802,
+        0.7661527395248413
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2932179333.Norway Maple Young 11m_Data",
+    "genus": "Acer",
+    "anchor": false,
+    "view": "close",
+    "file": "07-close.png",
+    "sha256": "2fccf4e5958b695c909d105cfe97fb9a7a0d2a172dd442a50a5f8be7b6fd7e61",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.00957679748535,
+      "size": 52.04214096069336,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34217721223831177,
+        0.9396354556083679
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2932179333.Norway Maple Young 11m_Data",
+    "genus": "Acer",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "07-gameplay.png",
+    "sha256": "ebf4c679cb21eaf8108a4042285e3a916d3422c09097bdd11624bb47eb949854",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.9911994934082,
+      "size": 139.96128845214844,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426699757575989,
+        0.7661431431770325
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2865601539.Eastern Cottonwood Summer's End_Data",
+    "genus": "Populus",
+    "anchor": false,
+    "view": "close",
+    "file": "08-close.png",
+    "sha256": "c694d21061cc2685079c65932fe86163d32c37753a1742ca4a2927908d10f0fd",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.02147674560547,
+      "size": 52.09450149536133,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3423723578453064,
+        0.9395643472671509
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2865601539.Eastern Cottonwood Summer's End_Data",
+    "genus": "Populus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "08-gameplay.png",
+    "sha256": "b3d580cb9826d7baee82fd72e6da49cc0ce0a9bd47a98cd32983add4e2ad1ef2",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98072052001953,
+      "size": 139.91517639160156,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6425298452377319,
+        0.7662606835365295
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1677577954.Small Smooth gum_Data",
+    "genus": "Eucalyptus",
+    "anchor": false,
+    "view": "close",
+    "file": "09-close.png",
+    "sha256": "51bfbbd2a1f966f1c9b5e079d2abaab1b5b166a10f968244a6807fbbfdae2d26",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.01987648010254,
+      "size": 52.087459564208984,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3423461318016052,
+        0.9395738840103149
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1677577954.Small Smooth gum_Data",
+    "genus": "Eucalyptus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "09-gameplay.png",
+    "sha256": "e91f0b4510fcabb38438c7963b8fcdc139bdc7f3e29eeae582fc81f440c1ee08",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98623275756836,
+      "size": 139.93942260742188,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426035761833191,
+        0.7661988735198975
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1774634417.Silver Birch 2_Data",
+    "genus": "Betula",
+    "anchor": false,
+    "view": "close",
+    "file": "10-close.png",
+    "sha256": "f31a35ed6c6865f3dfa2afcbd2c016d9aba10752f247c99cb3f02b4a2786f9e6",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.011272430419922,
+      "size": 52.049598693847656,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3422050178050995,
+        0.9396253228187561
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1774634417.Silver Birch 2_Data",
+    "genus": "Betula",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "10-gameplay.png",
+    "sha256": "e475b3f0cfb7076366ec472a1b3755a09a5e4e07b95d66cf08f0241a193e342b",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.989925384521484,
+      "size": 139.95567321777344,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426529288291931,
+        0.7661574482917786
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1917483612.Canada Red Cherry_Data",
+    "genus": "Prunus",
+    "anchor": false,
+    "view": "close",
+    "file": "11-close.png",
+    "sha256": "ed26978e07931e5c725a141a46e473fb5605d9eaad30ae31c8866fc01a3b0451",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.01045036315918,
+      "size": 52.045982360839844,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34219157695770264,
+        0.9396302103996277
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1917483612.Canada Red Cherry_Data",
+    "genus": "Prunus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "11-gameplay.png",
+    "sha256": "483d982e11595b940aa02d6fedc20605c64d36f145a02fff3b343c6fa6196bb3",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98980712890625,
+      "size": 139.9551544189453,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.642651379108429,
+        0.7661587595939636
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "708892511.Southern Live Oak_Data",
+    "genus": "Quercus",
+    "anchor": false,
+    "view": "close",
+    "file": "12-close.png",
+    "sha256": "64c4b8d6a4fa6c80481b05364e1c749b6edefeb2c99648c175680614f2335d90",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.010143280029297,
+      "size": 52.04463195800781,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.3421865403652191,
+        0.9396320581436157
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "708892511.Southern Live Oak_Data",
+    "genus": "Quercus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "12-gameplay.png",
+    "sha256": "7ab90172cfca7a42fb21fdd14a270ca63817c8e2213db3060e59356e5c016926",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.99074172973633,
+      "size": 139.9592742919922,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426638960838318,
+        0.7661482691764832
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "941702678.Beech_Tree_Data",
+    "genus": "Fagus",
+    "anchor": false,
+    "view": "close",
+    "file": "13-close.png",
+    "sha256": "b0480ea4e9a79b9a1a3f58b0a9425d683c0ba78af618f1d24cfb33715cec12b7",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.009986877441406,
+      "size": 52.043941497802734,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34218400716781616,
+        0.9396329522132874
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "941702678.Beech_Tree_Data",
+    "genus": "Fagus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "13-gameplay.png",
+    "sha256": "e603326022adedec2a27121e854077b74831fb934049f5234e2ef966c66ef8a1",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.99038314819336,
+      "size": 139.95767211914062,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426590085029602,
+        0.7661523222923279
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "954067351.Olive Tree by pdelmo_Data",
+    "genus": "Olea",
+    "anchor": false,
+    "view": "close",
+    "file": "14-close.png",
+    "sha256": "583faad039a0b8ad189ebbd54339891d1131115e434650768295a7c932fc353e",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.010427474975586,
+      "size": 52.04587936401367,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.342191219329834,
+        0.9396303296089172
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "954067351.Olive Tree by pdelmo_Data",
+    "genus": "Olea",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "14-gameplay.png",
+    "sha256": "c469a933de6e7d9c9563e97f84544a8c7369b65fdb0777592c2093ec715d4061",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98978805541992,
+      "size": 139.95506286621094,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426511406898499,
+        0.766158938407898
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1729459252.Ornamental Pear Tree_Data",
+    "genus": "Pyrus",
+    "anchor": false,
+    "view": "close",
+    "file": "15-close.png",
+    "sha256": "afe9906ebad229222c0c4e7e397486ccc19b33bf66462e46cfbac82be08d610d",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.010955810546875,
+      "size": 52.04820251464844,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34219983220100403,
+        0.9396271705627441
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "1729459252.Ornamental Pear Tree_Data",
+    "genus": "Pyrus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "15-gameplay.png",
+    "sha256": "4c7b122730342ea1a9d8ca19f217b8e74c9bf72dd84ff0a5354e9b118a7f213b",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.9902458190918,
+      "size": 139.9570770263672,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426571607589722,
+        0.7661538124084473
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2079011018.Plane Street Tree Tall_Data",
+    "genus": "Platanus",
+    "anchor": false,
+    "view": "close",
+    "file": "16-close.png",
+    "sha256": "3ece34f8b52163ffe1cd516438995ca65388f629d4b080e8fc4225c4fb3c1f65",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.0107479095459,
+      "size": 52.04729080200195,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34219643473625183,
+        0.9396284222602844
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2079011018.Plane Street Tree Tall_Data",
+    "genus": "Platanus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "16-gameplay.png",
+    "sha256": "e234627e3b48cadd35dec01c736b69c0de9720f71988a2dbec47fd9084f91f75",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.98988723754883,
+      "size": 139.95550537109375,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426525115966797,
+        0.7661578059196472
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2244341705.Autumn Alder 05 14m_Data",
+    "genus": "Alnus",
+    "anchor": false,
+    "view": "close",
+    "file": "17-close.png",
+    "sha256": "e9534049730d056915d9ba4cd3e9502c0aa9e41b01564bf11a67b29f551b193a",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 20.01056671142578,
+      "size": 52.04649353027344,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.34219348430633545,
+        0.9396294951438904
+      ],
+      "ok": true
+    },
+    "instances": 1
+  },
+  {
+    "name": "2244341705.Autumn Alder 05 14m_Data",
+    "genus": "Alnus",
+    "anchor": false,
+    "view": "gameplay",
+    "file": "17-gameplay.png",
+    "sha256": "a506b1a8c20ef4bb8597b64dbd5187f626972418898120f4c0410b01adfdeac4",
+    "camera": {
+      "position": [
+        0,
+        116.9359130859375,
+        300
+      ],
+      "yaw": 0,
+      "heading_deg": 0,
+      "pitch": 39.99001693725586,
+      "size": 139.95606994628906,
+      "max_size": 4000,
+      "forward": [
+        0,
+        -0.6426541805267334,
+        0.7661563754081726
+      ],
+      "ok": true
+    },
+    "instances": 1
+  }
+]
