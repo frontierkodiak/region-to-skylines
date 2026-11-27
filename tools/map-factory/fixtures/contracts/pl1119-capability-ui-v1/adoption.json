@@ -5,12 +5,12 @@
     ".gitattributes": {
       "historical_file": "contracts/pl1119-capability-ui-v1/baseline/.gitattributes",
       "historical_sha256": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7",
-      "current_sha256": "4f31a7f4f07c735a54b91176a0a521538d5ffbb24affbe44648ddb6e64ab8025"
+      "current_sha256": "2e0a05d4d685d4ce60f20a1044ebd938c083212e62d55d2cdc66f2be8d97e596"
     },
     "mapgen.js": {
       "historical_file": "contracts/pl1119-capability-ui-v1/baseline/mapgen.js",
       "historical_sha256": "e3b99ce463519821b6a82012d8ff44a7493c4c0b76aef1ea126a58740ce80de3",
-      "current_sha256": "9914c6f923e27aa29259637e865bd573154f89c45b1163c2d3bcc3d524532bc5"
+      "current_sha256": "ff44e304ce796ccd5b7413f17c48214e29452b551cbe91c266cdd62740e85683"
     },
     "tools/map-factory/generate.py": {
       "historical_file": "contracts/pl1119-capability-ui-v1/baseline/generate.py",
@@ -57,7 +57,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "4a12cc3e98b90edc65b34d8d1708059ae8bbb77d467f6fc957349e7580f7658b"
+      "current_sha256": "f5ac60ac55b4e5873a9c798d2464f0aa99e00616b482be32d1db920a76112e9d"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -65,7 +65,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "5ab37460a483b6a9408f3b60b44c28ffdbae40dc4e6d440420b997753400a163"
+      "current_sha256": "0289a371145a17f17d0743e4dc1a37161dc95021fe92689af11098c15269acd3"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -83,9 +83,9 @@
     "vegetation-data/boston.json": "5373f844ccb3f09b74a7711421270a1be5f490fa577ea2c103b8ed309a24543e",
     "tools/map-factory/real_roads.py": "f2a0db7f46ff9224676b5ff5d5c53e29471dcfca94e9a4e7974ba550645a10d1",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
-    ".gitattributes": "4f31a7f4f07c735a54b91176a0a521538d5ffbb24affbe44648ddb6e64ab8025",
+    ".gitattributes": "2e0a05d4d685d4ce60f20a1044ebd938c083212e62d55d2cdc66f2be8d97e596",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/.gitattributes": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7",
-    "mapgen.js": "9914c6f923e27aa29259637e865bd573154f89c45b1163c2d3bcc3d524532bc5",
+    "mapgen.js": "ff44e304ce796ccd5b7413f17c48214e29452b551cbe91c266cdd62740e85683",
     "tools/map-factory/generate.py": "5a76b5dc10927b592b8d16f6a88ceafed65cb7b3a7a469bc21698d28997b8346",
     "tools/map-factory/network_writer.py": "3760363310082b920927183fbf23330e1f4de10a03c463ca2e41be2b58f133e8",
     "tools/map-factory/netcodec.py": "1312689a3b4149b045128e625cf486ac97f26fb5c329a4bedb11b423129d4512",
@@ -340,11 +340,11 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "0d1dcb791f0878d2a35e48a03e9fee0e4c3d18dc72edb9373c9d0e7a1535c729",
+    "capabilities.json": "7315a513797c19689e47b67b1b57bcefbb3315f7956a738b5703bb3660bbf834",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "f79fc038a3a27347e5c732f5aa0c585be27a5352292197927b48b1504bf0fa1e",
-    "capability-ledger.mjs": "7e5104ca3101ac2a229cf2a4df40696ace9095257b6fae33a286cb615a311baa",
+    "capability-ledger.mjs": "7e0508091112617196b26c14603e5f3df99a928c7778ed1d95a8f7e326efd132",
     "capability-model.js": "f0e925f72c2954df97814e0e8e34bbc659f6699c28315b6f9cca1742efe1940a",
     "capability-ui.js": "1a142825988923796a5e22b1305251923bdc57265b428ccc75ce5fb2353c10e2",
     "tools/map-factory/capabilities.py": "9a155584a86d4215adf9b20ef31f0cb7a00683e918e162c248b41a0b172891bb",

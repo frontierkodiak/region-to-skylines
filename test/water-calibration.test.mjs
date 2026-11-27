@@ -31,29 +31,30 @@ test("saved study deterministically projects original bytes, distinct from histo
 });
 
 test("the new failed packages do not invent six observations or a cleared-water prediction", () => {
-  const trial = JSON.parse(read("tools/map-factory/capability-evidence/pl1191-stock-water/verdicts.json"));
+  const trial = JSON.parse(read("tools/map-factory/capability-evidence/pl1191-continuous-water/verdicts.json"));
   assert.equal(trial.rows.length, 8);
-  for (const study of ["pl1191-stock-water", "pl1191-local-budget"]) {
+  for (const study of ["pl1191-stock-water", "pl1191-local-budget", "pl1191-continuous-water"]) {
     const observed = cap.game_agreement.filter(row => row.study === study);
-    assert.deepEqual(observed.map(row => row.square), ["asheville", "pittsburgh"]);
+    assert.deepEqual(observed.map(row => row.square), study === "pl1191-continuous-water" ? ["asheville"] : ["asheville", "pittsburgh"]);
     for (const row of observed) {
       const raw = read(row.evidence[0]), verdict = JSON.parse(raw);
       assert.equal(row.verdict_json_sha256, sha(raw));
       assert.equal(row.artifact_sha256, verdict.artifact_sha256);
       assert.notEqual(row.artifact_sha256, row.verdict_json_sha256);
-      assert.equal(row.observed, false);
+      assert.equal(row.observed, verdict.water_verdict === "pass");
       assert.equal(row.predicted, null);
-      if (study === "pl1191-local-budget") {
+      if (study === "pl1191-continuous-water") {
         const latest = trial.rows.find(r => r.slug === row.square);
         assert.equal(latest.artifact_sha256, verdict.artifact_sha256);
         assert.equal(latest.flood_km2, verdict.flood_km2);
         assert.equal(latest.minimum_original_point_retention, verdict.minimum_original_point_retention);
-        assert.ok(read(`tools/map-factory/capability-evidence/pl1191-local-budget/${row.square}-overlay.png`).length > 1000);
+        assert.ok(read(`tools/map-factory/capability-evidence/pl1191-continuous-water/${row.square}-overlay.png`).length > 1000);
       }
     }
   }
   const unrun = trial.rows.filter(row => row.observed_at === null);
-  assert.equal(unrun.length, 6);
+  assert.equal(unrun.length, 7);
+  assert.match(unrun.find(row => row.slug === "pittsburgh").reason, /carbon.*SSH/);
   assert.ok(unrun.every(row => row.water_verdict === "unknown"));
 });
 

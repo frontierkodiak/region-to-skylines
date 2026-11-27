@@ -36718,6 +36718,22 @@
           "predicted": null,
           "verdict": "fail",
           "reason": "1.0342 km\u00b2 flooding beyond the margin; 85.0% minimum mapped-water retention; 20.99 m wet-surface movement."
+        },
+        {
+          "study": "pl1191-continuous-water",
+          "square": "asheville",
+          "observed_at": "2026-11-27T05:22:48.976889Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "f83992d66f61bf0d4e0709f177da359d5ff0bf6a",
+          "artifact_sha256": "06c2b3c8c69416b31cd4ab122f96abc9e2868abc964ab30e8e92751206937e23",
+          "verdict_json_sha256": "9e378d4e83b6550fef402c44734ecc68f8dc0943d1c5ea44b1ea1981d039f1da",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-continuous-water/asheville-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "0.6625 km\u00b2 flooding; 83.1% minimum original mapped-point retention; 18.28 m surface movement."
         }
       ],
       "calibration": {
