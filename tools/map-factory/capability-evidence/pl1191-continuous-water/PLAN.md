@@ -40,3 +40,16 @@ blade disposable install only, fresh build/doctor/offline/carbon/FIFO guards,
 full retained original query cohort plus new authored sources/body samples,
 collected teardown and release between maps. Results acceptance after measurement,
 not pre-native permission. No game run for an unprepared/incomplete package.
+
+## CPU preparation correction, before any native outcome
+
+First source `110b708` prepared Asheville/Pittsburgh/Innsbruck, then Rio's
+unchanged transport writer refused one fitted x coordinate outside the square.
+Retain that attempt and raw error; no guard relaxation. Remaining fixed cases
+will still be attempted, with any packaging refusal explicitly unknown.
+
+The first channel tree used shortest-path visitation. Replace it with a
+lowest-spill priority flood restricted to the declared channel domain: a long
+low receiving route must be explored before a short high ridge. This avoids
+unnecessary ridge cuts without a new depth/rate sweep or changing bank caps,
+geometry cohort, gap bounds, thresholds or probes. Commit before fresh packages.

@@ -8,6 +8,21 @@ from channel_network import connect_channels, continuous_stage
 
 
 class ChannelNetworkTest(unittest.TestCase):
+    def test_low_receiving_route_is_used_before_a_short_high_ridge(self):
+        mask = np.zeros((10, 11), bool)
+        mask[4, :9] = True
+        mask[4:8, 0] = True
+        mask[4:8, 8] = True
+        mask[7, :9] = True
+        ceiling = np.full(mask.shape, 100.0)
+        ceiling[4:8, 0] = 20
+        ceiling[4:8, 8] = 20
+        ceiling[7, :9] = 20
+        ceiling[4, 0] = 10
+        stage, _ = continuous_stage(mask, ceiling)
+        self.assertEqual(stage[4, 4], 100)
+        self.assertEqual(stage[4, 8], 20)
+
     def test_an_isolated_unfed_stream_is_not_hand_filled(self):
         line = np.zeros((15, 15), bool)
         line[5, 5:10] = True

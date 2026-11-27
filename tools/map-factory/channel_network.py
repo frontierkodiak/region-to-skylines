@@ -4,7 +4,7 @@ D8 parents and channel trees specify authoring, not observed hydraulic flow.
 No native outcomes, names, or replacement source geometry select these paths.
 """
 
-from collections import deque
+from heapq import heappop, heappush
 
 import numpy as np
 from scipy import ndimage
@@ -124,9 +124,9 @@ def continuous_stage(mask, ceiling, receiving=None):
             continue
         root = min(boundary, key=lambda i: (values[i], i))
         parent[root] = -1
-        queue, order = deque([root]), []
+        queue, order = [(int(values[root]), root)], []
         while queue:
-            current = queue.popleft()
+            spill, current = heappop(queue)
             order.append(current)
             r, c = divmod(current, cols)
             for dr, dc in NEIGHBORS:
@@ -135,7 +135,7 @@ def continuous_stage(mask, ceiling, receiving=None):
                     neighbor = nr * cols + nc
                     if parent[neighbor] == -2 and labels[nr, nc] == identity:
                         parent[neighbor] = current
-                        queue.append(neighbor)
+                        heappush(queue, (max(spill, int(values[neighbor])), neighbor))
         assert len(order) == len(indices)
         for current in reversed(order):
             if parent[current] != -1:
