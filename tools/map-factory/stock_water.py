@@ -12,6 +12,7 @@ from PIL import Image, ImageDraw
 from scipy import ndimage
 
 from catchment import local_catchment_area
+from channel_network import connect_channels, continuous_stage
 from prepare import pixel
 from surface_water import surface_geometry
 
@@ -123,11 +124,18 @@ def hydrology(ground, banks, geometry, design):
     river_area = raster(square, geometry.get("riverAreas", []), True)
     lakes = raster(square, geometry.get("lakes", []), True)
     sea = geometry.get("seaLevel")
+    line, receiving_routes, routed_area = connect_channels(
+        line, river_area, ocean, lakes, banks
+    )
     stage = np.zeros_like(ground)
     footprint = np.zeros_like(line)
     river = np.zeros_like(line)
     broad_channel = np.zeros_like(line)
-    areas = local_catchment_area(banks) if line.any() else np.zeros_like(ground)
+    areas = (
+        (routed_area if routed_area is not None else local_catchment_area(banks))
+        if line.any()
+        else np.zeros_like(ground)
+    )
 
     if line.any():
         distance, nearest = ndimage.distance_transform_edt(~line, return_indices=True)
@@ -222,6 +230,30 @@ def hydrology(ground, banks, geometry, design):
             ground, ocean, stage, design.lake_depth_m, np.clip(inside / 192, 0, 1)
         )
         footprint |= ocean
+    profile_records = []
+    if river.any():
+        joined_lakes, _ = ndimage.label(footprint & ~ocean, np.ones((3, 3)))
+        river_ids = np.unique(joined_lakes[river])
+        profile_domain = np.isin(joined_lakes, river_ids[river_ids != 0])
+        # Keep the already-declared cross sections; only the receiving potential
+        # changes. Recut where necessary, never fill an old cut or raise a bank.
+        stage, profile_records = continuous_stage(
+            profile_domain, stage, ndimage.binary_dilation(ocean)
+        )
+        channel_depth = np.where(river, design.river_depth_m * taper, 0)
+        channel_depth = np.maximum(
+            channel_depth,
+            np.where(
+                lakes & footprint,
+                design.lake_depth_m
+                * np.clip(ndimage.distance_transform_edt(lakes) * SPACING / 48, 0, 1),
+                0,
+            ),
+        )
+        ground[profile_domain] = np.minimum(
+            ground[profile_domain],
+            np.maximum(0, stage - channel_depth)[profile_domain],
+        )
     depth = np.where(footprint, np.maximum(0, stage - ground), 0)
     labels, count = ndimage.label(depth > 0.1, np.ones((3, 3)))
     edge = np.zeros_like(line)
@@ -345,6 +377,30 @@ def hydrology(ground, banks, geometry, design):
             row, col = np.unravel_index(np.argmax(distance), body.shape)
             source(int(row), int(col), design.lake_setting, "lake-level", component)
 
+    # An authored body without a feed is not left as a hand-filled promise.
+    body_routes = []
+    source_components = set()
+    for item in sources:
+        x, _, z = item["position"]
+        source_components.add(
+            int(labels[round((HALF - z) / SPACING), round((x + HALF) / SPACING)])
+        )
+    for identity, region in enumerate(ndimage.find_objects(labels), 1):
+        body = labels[region] == identity
+        whole = labels == identity
+        if (whole & ocean).any() or identity in source_components:
+            route = (
+                "connected to fed channel"
+                if (whole & river).any() or (whole & ocean).any()
+                else "own lake source"
+            )
+        else:
+            route = "dry ground/marsh"
+            ground[whole] = original[whole]
+            depth[whole] = 0
+        body_routes.append(
+            {"component": identity, "nodes": int(body.sum()), "route": route}
+        )
     for field in ["rivers", "streams"]:
         for index, feature in enumerate(geometry.get(field, [])):
             coords = [pixel(square, p) for p in feature["pts"]]
@@ -367,6 +423,9 @@ def hydrology(ground, banks, geometry, design):
         "construction": "stock-style cut-only trial",
         "design": vars(design),
         "ports": ports,
+        "receiving_routes": receiving_routes,
+        "channel_profiles": profile_records,
+        "authored_body_routes": body_routes,
         "lake_components": lake_records,
         "water_max_cut_m": float((original - ground).max()),
         "water_max_raise_m": 0,
@@ -375,6 +434,6 @@ def hydrology(ground, banks, geometry, design):
             (all_streams & (depth <= 0.1)).sum()
         ),
         "mapped_lake_components": lake_count,
-        "wet_components": count,
+        "wet_components": int(ndimage.label(depth > 0.1, np.ones((3, 3)))[1]),
         "unmodeled_short_surface_reaches": [],
     }

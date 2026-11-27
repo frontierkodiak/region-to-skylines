@@ -22,6 +22,7 @@
     "tools/map-factory/region.py",
     "tools/map-factory/prepare.py",
     "tools/map-factory/stock_water.py",
+    "tools/map-factory/channel_network.py",
     "tools/map-factory/catchment.py",
     "tools/map-factory/surface_water.py",
     "tools/map-factory/crp.py",
