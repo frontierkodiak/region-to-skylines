@@ -620,13 +620,28 @@ class Session(contextlib.AbstractContextManager):
             "ps -axo pid=,comm= | awk '/Cities|steamapps\\/common/ {found=1} "
             'END {if(!found) print "NO_STEAM_GAME_PROCESS_FOUND"}\''
         )
-        result = sh("ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "carbon", command, check=False)
+        try:
+            result = sh(
+                "ssh",
+                "-o",
+                "BatchMode=yes",
+                "-o",
+                "ConnectTimeout=60",
+                "carbon",
+                command,
+                check=False,
+                timeout=90,
+            )
+        except subprocess.TimeoutExpired as error:
+            raise Blocked("carbon's read-only Steam process check timed out", EX_TEMPFAIL) from error
         if result.returncode or result.stdout.strip() != "NO_STEAM_GAME_PROCESS_FOUND":
             raise Blocked(
                 "carbon has a Steam game running, or its read-only process check was inconclusive", EX_TEMPFAIL
             )
         self.receipt["carbon_preflight"] = {
             "idle": True,
+            "connect_timeout_seconds": 60,
+            "total_timeout_seconds": 90,
             "checked_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         }
 
