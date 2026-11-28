@@ -1,5 +1,30 @@
 # cs1-harness journal
 
+## 2026-11-28 — PL-1191 prepared Pittsburgh resumed
+
+One unchanged prepared Pittsburgh package5433abf6 completed60.068892 game minutes,
+13 samples/grids, on clean runtimea7c4b75ed0d08f357023ce9b60d8c13bfcb41a40.
+DLL7110fbe740027e1de93840205899c0cecbe4214fdb9fe0ea805a49b1bb7a66b1;
+fresh build/doctor and unchanged C#/game-reference hashes. Requested slow-host
+guard change only: carbon SSH connect60s/total90s; the exact idle sentinel is
+still required, and active-game/error/unexpected/timeout all block (3 tests).
+Normal offline/Steam/FIFO/GPU guards; carbon returned idle01:24:24Z. No retry,
+account/config/power change, other-job cleanup, or Asheville game run.
+
+Blade RTX2080Ti05:00.0: other-work baseline8180MiB, menu game1576MiB, card peak
+10821/11264MiB,137.54W,54C. Late game snapshot2572MiB; continuous game-only peak
+unknown. Existing200W card limit unchanged. Observationwall998.010s. Owned
+game738972 ignored quit and used the normal exact-PID grace fallback; collected
+game/Steam/unit teardown arrays all empty, shared slot released.
+
+Pittsburgh FAILS unchanged checks: flood0.1057km², minimum ALL-original-point
+retention75.19%,3 losing authored bodies, max wet-surface movement p95 20.173m.
+All88 source identities/types/positions/targets/input/output settings match in
+all13 captures. Other6 fixed maps unrun after Asheville's retained failure.
+Raw panel/startup/advisory errors retained. Not full loaded/JIT/runtime-health,
+human visual, populated, long-term or holdout qualification. This journal edit
+follows collection; no native observation on the later journal head is claimed.
+
 ## 2026-11-24 — PL-1191 stock references and cut-only first-two trial
 
 Seven complete 60-game-minute unpopulated observations on clean runtime
