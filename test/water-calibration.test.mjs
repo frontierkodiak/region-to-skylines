@@ -35,7 +35,7 @@ test("the new failed packages do not invent six observations or a cleared-water 
   assert.equal(trial.rows.length, 8);
   for (const study of ["pl1191-stock-water", "pl1191-local-budget", "pl1191-continuous-water"]) {
     const observed = cap.game_agreement.filter(row => row.study === study);
-    assert.deepEqual(observed.map(row => row.square), study === "pl1191-continuous-water" ? ["asheville"] : ["asheville", "pittsburgh"]);
+    assert.deepEqual(observed.map(row => row.square), ["asheville", "pittsburgh"]);
     for (const row of observed) {
       const raw = read(row.evidence[0]), verdict = JSON.parse(raw);
       assert.equal(row.verdict_json_sha256, sha(raw));
@@ -48,13 +48,19 @@ test("the new failed packages do not invent six observations or a cleared-water 
         assert.equal(latest.artifact_sha256, verdict.artifact_sha256);
         assert.equal(latest.flood_km2, verdict.flood_km2);
         assert.equal(latest.minimum_original_point_retention, verdict.minimum_original_point_retention);
-        assert.ok(read(`tools/map-factory/capability-evidence/pl1191-continuous-water/${row.square}-overlay.png`).length > 1000);
+        const overlay = row.square === "asheville" ? "asheville-construction-overlay.png" : "pittsburgh-overlay.png";
+        assert.ok(read(`tools/map-factory/capability-evidence/pl1191-continuous-water/${overlay}`).length > 1000);
       }
     }
   }
   const unrun = trial.rows.filter(row => row.observed_at === null);
-  assert.equal(unrun.length, 7);
-  assert.match(unrun.find(row => row.slug === "pittsburgh").reason, /carbon.*SSH/);
+  assert.equal(unrun.length, 6);
+  const resumed = trial.rows.find(row => row.slug === "pittsburgh");
+  assert.ok(resumed.game_minutes >= 60);
+  const controls = JSON.parse(read("tools/map-factory/capability-evidence/pl1191-continuous-water/pittsburgh-controls-verified.json"));
+  assert.equal(controls.sources, 88);
+  assert.equal(controls.captures, 13);
+  assert.equal(controls.all_record_id_type_position_target_input_output_match, true);
   assert.ok(unrun.every(row => row.water_verdict === "unknown"));
 });
 

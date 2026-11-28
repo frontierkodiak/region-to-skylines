@@ -1,0 +1,79 @@
+{
+  "scope": "Necessary sampled-raster geometry only: every path is restricted to the unchanged initial >=7q wet domain and a literal wet map edge. A fit is not outlet capacity, hydraulic direction or a steady-flow proof.",
+  "source_and_actual_floor_checks": [
+    {
+      "floor": "serialized_source",
+      "body": 1,
+      "nodes": 255,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "serialized_source",
+      "body": 5,
+      "nodes": 90366,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "serialized_source",
+      "body": 20,
+      "nodes": 946,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "serialized_source",
+      "body": 21,
+      "nodes": 1080,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "serialized_source",
+      "body": 27,
+      "nodes": 460,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "observed_t000_current",
+      "body": 1,
+      "nodes": 255,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "observed_t000_current",
+      "body": 5,
+      "nodes": 90366,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "observed_t000_current",
+      "body": 20,
+      "nodes": 946,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "observed_t000_current",
+      "body": 21,
+      "nodes": 1080,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    },
+    {
+      "floor": "observed_t000_current",
+      "body": 27,
+      "nodes": 460,
+      "nodes_without_wet_4adj_edge_path": 0,
+      "nodes_where_required_spill_exceeds_own_initial_head": 0
+    }
+  ],
+  "native_floor_difference_nodes": 50,
+  "native_floor_difference_wet_nodes": 9,
+  "maximum_native_floor_raise_m": 59.828125,
+  "decision": "No common blocked-edge or immediate bank-spill defect established for the three large flood patches and three losing bodies. Do not infer one causal correction or rerun Asheville from construction proximity alone."
+}

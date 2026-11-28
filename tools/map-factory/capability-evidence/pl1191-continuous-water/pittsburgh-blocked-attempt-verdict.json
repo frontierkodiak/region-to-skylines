@@ -1,0 +1,24 @@
+{
+  "square": "Pittsburgh",
+  "slug": "pittsburgh",
+  "water_verdict": "unknown",
+  "observed_at": null,
+  "source_sha": "f83992d66f61bf0d4e0709f177da359d5ff0bf6a",
+  "artifact_sha256": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5",
+  "reason": "Not observed: carbon read-only Steam check was inconclusive (SSH connection timed out); game never launched.",
+  "construction_counts": {
+    "square": "pittsburgh",
+    "sources": 88,
+    "actual_wet_components": 15,
+    "source_components": 15,
+    "fed_channel_bodies": 12,
+    "own_source_lake_bodies": 3,
+    "restored_dry_authored_bodies": 7,
+    "unsupported_mapped_channel_decisions": 127,
+    "small_lake_dry_decisions": 100,
+    "connected_gap_decisions": 49,
+    "water_max_raise_m": 0,
+    "water_max_cut_m": 110.62535095214844,
+    "package_sha256": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5"
+  }
+}

@@ -36734,6 +36734,22 @@
           "predicted": null,
           "verdict": "fail",
           "reason": "0.6625 km\u00b2 flooding; 83.1% minimum original mapped-point retention; 18.28 m surface movement."
+        },
+        {
+          "study": "pl1191-continuous-water",
+          "square": "pittsburgh",
+          "observed_at": "2026-11-28T01:43:19.247696Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "f83992d66f61bf0d4e0709f177da359d5ff0bf6a",
+          "artifact_sha256": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5",
+          "verdict_json_sha256": "07329fda012162868ec9296567e7388bf0ec45f27aab1d5217261f7a1b149bfe",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-continuous-water/pittsburgh-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "0.1057 km\u00b2 flooding; 75.2% minimum original mapped-point retention; 20.17 m surface movement."
         }
       ],
       "calibration": {

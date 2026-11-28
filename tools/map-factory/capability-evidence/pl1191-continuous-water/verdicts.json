@@ -1,5 +1,5 @@
 {
-  "scope": "Continuous receiving-channel trial on the same fixed eight. One measured map; Pittsburgh blocked before game by the carbon safety check; six others not run after Asheville failure. Earlier study summaries and exact-package verdicts stay in their own folders.",
+  "scope": "Continuous receiving-channel trial, same fixed eight. Asheville retained from November 27; unchanged prepared Pittsburgh first observed November 28 after the carbon guard passed. Six other maps remain unobserved. Earlier studies and the prior blocked attempt remain separate.",
   "checks": {
     "scope": "Gameplay water during an unpopulated 60-game-minute run; not a geographic safe class, pumping or long-term promise. Chosen after all five reference results and BEFORE any new-constructor native result.",
     "flood_limit_km2": 0.05,
@@ -77,12 +77,17 @@
     },
     {
       "square": "Pittsburgh",
-      "slug": "pittsburgh",
-      "water_verdict": "unknown",
-      "observed_at": null,
-      "source_sha": "f83992d66f61bf0d4e0709f177da359d5ff0bf6a",
+      "water_verdict": "fail",
+      "reason": "0.1057 km\u00b2 flooding; 75.2% minimum original mapped-point retention; 20.17 m surface movement.",
       "artifact_sha256": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5",
-      "reason": "Not observed: carbon read-only Steam check was inconclusive (SSH connection timed out); game never launched.",
+      "source_sha": "f83992d66f61bf0d4e0709f177da359d5ff0bf6a",
+      "runtime_source": "a7c4b75ed0d08f357023ce9b60d8c13bfcb41a40",
+      "observed_at": "2026-11-28T01:43:19.247696Z",
+      "game_minutes": 60.068892021725574,
+      "flood_km2": 0.1057,
+      "minimum_original_point_retention": 0.7518597236981934,
+      "authored_bodies_below_retention": 3,
+      "maximum_surface_movement_p95_m": 20.17343749999999,
       "construction_counts": {
         "square": "pittsburgh",
         "sources": 88,
@@ -97,7 +102,9 @@
         "water_max_raise_m": 0,
         "water_max_cut_m": 110.62535095214844,
         "package_sha256": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5"
-      }
+      },
+      "scope": "Sampled unpopulated first hour only. All original points retained. Previous blocked attempt preserved separately; not a geographic safe class or long-term promise.",
+      "slug": "pittsburgh"
     },
     {
       "square": "Charleston",

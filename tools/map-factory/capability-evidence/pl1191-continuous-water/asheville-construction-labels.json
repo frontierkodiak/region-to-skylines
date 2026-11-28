@@ -1,0 +1,60 @@
+{
+  "flood": [
+    {
+      "marker": "A",
+      "name": "Gashes Creek",
+      "construction_context": "Fed-channel cut beside a captured surface/tunnel interface.",
+      "flood_component": 14,
+      "peak_capture_nodes": 954,
+      "peak_capture_area_km2": 0.244224,
+      "causal_status": "Construction/contact localization, not established exclusive cause."
+    },
+    {
+      "marker": "B",
+      "name": "French Broad / Long Valley Branch",
+      "construction_context": "Broad-river cut at a tributary junction.",
+      "flood_component": 7,
+      "peak_capture_nodes": 844,
+      "peak_capture_area_km2": 0.21606399999999998,
+      "causal_status": "Construction/contact localization, not established exclusive cause."
+    },
+    {
+      "marker": "C",
+      "name": "Swannanoa River",
+      "construction_context": "Broad-river cut beside a minor-branch junction.",
+      "flood_component": 10,
+      "peak_capture_nodes": 446,
+      "peak_capture_area_km2": 0.114176,
+      "causal_status": "Construction/contact localization, not established exclusive cause."
+    }
+  ],
+  "loss": [
+    {
+      "marker": "1",
+      "initial_body": 21,
+      "name": "West edge: Ragsdale Creek channel",
+      "construction": "64 m minor-channel cut with literal edge outlet(s), not an own-source lake",
+      "minimum_retention": 0.9009259259259259,
+      "source_count": 4
+    },
+    {
+      "marker": "2",
+      "initial_body": 1,
+      "name": "Southwest corner: minor channels",
+      "construction": "64 m minor-channel cut with literal edge outlet(s), not an own-source lake",
+      "minimum_retention": 0.6235294117647059,
+      "source_count": 2
+    },
+    {
+      "marker": "3",
+      "initial_body": 27,
+      "name": "North edge: minor channels",
+      "construction": "64 m minor-channel cut with literal edge outlet(s), not an own-source lake",
+      "minimum_retention": 0.8152173913043478,
+      "source_count": 2
+    }
+  ],
+  "all_flood_patches_shown": 57,
+  "peak_capture_index": 4,
+  "three_patch_peak_fraction": 0.8670788253477589
+}

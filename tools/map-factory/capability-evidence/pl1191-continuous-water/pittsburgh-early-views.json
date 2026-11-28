@@ -1,0 +1,28 @@
+[
+  {
+    "label": "PR110 BEFORE",
+    "file": "local-budget-20261126/native/pittsburgh-attempt-1/shots/t005-overview.png",
+    "sha256": "00447dc16541d7d56bde08285281346b2f59349371621c8a6ee04789add081f6",
+    "camera": {
+      "name": "overview",
+      "x": 0,
+      "z": 0,
+      "size": 4000,
+      "yaw": 0,
+      "pitch": 70
+    }
+  },
+  {
+    "label": "PR111 AFTER",
+    "file": "continuous-resume-20261128/native/pittsburgh-attempt-2/shots/t005-overview.png",
+    "sha256": "9ed6dfc8da133eab760d5c4df0fc0ab8b5f7eb4414f3ed3822a0e69773683cfb",
+    "camera": {
+      "name": "overview",
+      "x": 0,
+      "z": 0,
+      "size": 4000,
+      "yaw": 0,
+      "pitch": 70
+    }
+  }
+]
