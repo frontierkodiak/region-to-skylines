@@ -1,0 +1,1193 @@
+{
+  "checks": {
+    "scope": "Gameplay water during an unpopulated 60-game-minute run; not a geographic safe class, pumping or long-term promise. Chosen after all five reference results and BEFORE any new-constructor native result.",
+    "flood_limit_km2": 0.05,
+    "minimum_natural_point_fraction": 0.95,
+    "minimum_checked_body_nodes": 54,
+    "minimum_body_retained_fraction": 0.95,
+    "maximum_surface_movement_p95_m": 3,
+    "stock_maximum_surface_movement_p95_m": 1.4375,
+    "retention_definition": "Same >0.1m/<=64m nearby-water predicate. Aggregate ALL original natural-point occurrences, not any failed sector causing whole-map failure. Original per-sector outcomes stay unchanged.",
+    "body_definition": "All pre-native authored wet native nodes; >=7q/<=64m. Check each component >=54 nodes; this is the predeclared construction body-size policy, not a learned safe class. Every original geographic point remains in the aggregate.",
+    "surface_definition": "Maximum across captures of the 95th percentile absolute change from t0 among paired positive-depth/wet API samples. Dry/missing remain separate; this is not prescribed boundary stage or flow. Tolerance is twice the largest observed stock movement, rounded UP to whole metres.",
+    "excluded_from_water_verdict": [
+      "new_game_panel",
+      "startup_views"
+    ],
+    "exclusion_reason": "All three stock maps hit missing image-review/authored-camera expectations too. Raw checks and screenshots remain; these are not water failures.",
+    "capture": {
+      "game_minutes": 60,
+      "sample_every": 5,
+      "dump_every": 5,
+      "screenshot_every": 15
+    },
+    "reference_cases": [
+      "gray-waters",
+      "weaving-waters",
+      "mountain-meadows",
+      "shipping-asheville",
+      "shipping-pittsburgh"
+    ]
+  },
+  "rows": [
+    {
+      "square": "asheville",
+      "kind": "continuous-fed-channels",
+      "game_minutes": 60.08028091120844,
+      "observation_complete": true,
+      "flood_km2": 0.6625,
+      "legacy_flood_status": "fail",
+      "natural_contracts": 2069,
+      "natural_contract_states": {
+        "pass": 1598,
+        "fail": 471
+      },
+      "natural_point_occurrence_fractions": [
+        {
+          "label": "t000",
+          "wet": 8043,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8384238507244866
+        },
+        {
+          "label": "t005",
+          "wet": 8128,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8472844782654019
+        },
+        {
+          "label": "t010",
+          "wet": 8108,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.845199624726363
+        },
+        {
+          "label": "t015",
+          "wet": 8065,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8407171896174294
+        },
+        {
+          "label": "t020",
+          "wet": 8029,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8369644532471594
+        },
+        {
+          "label": "t025",
+          "wet": 8002,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8341499009694568
+        },
+        {
+          "label": "t030",
+          "wet": 7998,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8337329302616491
+        },
+        {
+          "label": "t035",
+          "wet": 7992,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8331074741999375
+        },
+        {
+          "label": "t040",
+          "wet": 7990,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8328989888460335
+        },
+        {
+          "label": "t045",
+          "wet": 7984,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8322735327843219
+        },
+        {
+          "label": "t050",
+          "wet": 7982,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.832065047430418
+        },
+        {
+          "label": "t055",
+          "wet": 7976,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8314395913687064
+        },
+        {
+          "label": "t060",
+          "wet": 7975,
+          "total": 9593,
+          "missing": 0,
+          "fraction": 0.8313353486917544
+        }
+      ],
+      "minimum_point_occurrence_wet_fraction": 0.8313353486917544,
+      "raw_failed_checks": [
+        "new_game_panel",
+        "startup_views",
+        "probes_wet_end",
+        "probes_wet_throughout",
+        "no_flooding"
+      ],
+      "panel_view_problems": {
+        "new_game_panel": [
+          "screenshot unreviewed (requires hash, reviewer and notes)",
+          "rendered map_name unconfirmed/mismatched",
+          "rendered author unconfirmed/mismatched",
+          "rendered buildableArea unconfirmed/mismatched",
+          "rendered preview_matches_map unconfirmed/mismatched",
+          "rendered resources_match unconfirmed/mismatched",
+          "rendered connections_match unconfirmed/mismatched",
+          "rendered selected_map_visible unconfirmed/mismatched"
+        ],
+        "startup_views": [
+          "screenshots unreviewed (requires reviewer and notes)",
+          "opening screenshot content unreviewed/mismatched",
+          "area_zoom screenshot content unreviewed/mismatched"
+        ]
+      },
+      "sampled_surface_traces": [
+        {
+          "label": "t000",
+          "wet_heads": 8019,
+          "dry": 1574,
+          "missing": 0,
+          "paired_initial_wet_heads": 8019,
+          "delta_p10_p50_p90_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "absolute_delta_p95_m": 0.0
+        },
+        {
+          "label": "t005",
+          "wet_heads": 7653,
+          "dry": 1940,
+          "missing": 0,
+          "paired_initial_wet_heads": 7551,
+          "delta_p10_p50_p90_m": [
+            -11.71875,
+            -2.828125,
+            7.0625
+          ],
+          "absolute_delta_p95_m": 13.09375
+        },
+        {
+          "label": "t010",
+          "wet_heads": 7590,
+          "dry": 2003,
+          "missing": 0,
+          "paired_initial_wet_heads": 7483,
+          "delta_p10_p50_p90_m": [
+            -12.1875,
+            -6.890625,
+            7.325000000000003
+          ],
+          "absolute_delta_p95_m": 13.482812499999994
+        },
+        {
+          "label": "t015",
+          "wet_heads": 7533,
+          "dry": 2060,
+          "missing": 0,
+          "paired_initial_wet_heads": 7441,
+          "delta_p10_p50_p90_m": [
+            -12.40625,
+            -7.5625,
+            6.84375
+          ],
+          "absolute_delta_p95_m": 13.796875
+        },
+        {
+          "label": "t020",
+          "wet_heads": 7519,
+          "dry": 2074,
+          "missing": 0,
+          "paired_initial_wet_heads": 7427,
+          "delta_p10_p50_p90_m": [
+            -12.65625,
+            -7.71875,
+            5.121875000000017
+          ],
+          "absolute_delta_p95_m": 14.635937499999997
+        },
+        {
+          "label": "t025",
+          "wet_heads": 7515,
+          "dry": 2078,
+          "missing": 0,
+          "paired_initial_wet_heads": 7424,
+          "delta_p10_p50_p90_m": [
+            -12.828125,
+            -8.1875,
+            3.875
+          ],
+          "absolute_delta_p95_m": 15.807812499999983
+        },
+        {
+          "label": "t030",
+          "wet_heads": 7525,
+          "dry": 2068,
+          "missing": 0,
+          "paired_initial_wet_heads": 7433,
+          "delta_p10_p50_p90_m": [
+            -13.125,
+            -8.671875,
+            2.703125
+          ],
+          "absolute_delta_p95_m": 16.353124999999977
+        },
+        {
+          "label": "t035",
+          "wet_heads": 7489,
+          "dry": 2104,
+          "missing": 0,
+          "paired_initial_wet_heads": 7399,
+          "delta_p10_p50_p90_m": [
+            -13.159374999999999,
+            -8.921875,
+            1.296875
+          ],
+          "absolute_delta_p95_m": 17.221874999999983
+        },
+        {
+          "label": "t040",
+          "wet_heads": 7485,
+          "dry": 2108,
+          "missing": 0,
+          "paired_initial_wet_heads": 7395,
+          "delta_p10_p50_p90_m": [
+            -13.087499999999999,
+            -9.109375,
+            0.984375
+          ],
+          "absolute_delta_p95_m": 18.06718749999999
+        },
+        {
+          "label": "t045",
+          "wet_heads": 7458,
+          "dry": 2135,
+          "missing": 0,
+          "paired_initial_wet_heads": 7368,
+          "delta_p10_p50_p90_m": [
+            -13.28125,
+            -9.125,
+            -0.4437499999999943
+          ],
+          "absolute_delta_p95_m": 17.670312499999966
+        },
+        {
+          "label": "t050",
+          "wet_heads": 7462,
+          "dry": 2131,
+          "missing": 0,
+          "paired_initial_wet_heads": 7373,
+          "delta_p10_p50_p90_m": [
+            -13.21875,
+            -9.359375,
+            -1.875
+          ],
+          "absolute_delta_p95_m": 18.078125
+        },
+        {
+          "label": "t055",
+          "wet_heads": 7434,
+          "dry": 2159,
+          "missing": 0,
+          "paired_initial_wet_heads": 7345,
+          "delta_p10_p50_p90_m": [
+            -13.359375,
+            -9.625,
+            -2.921875
+          ],
+          "absolute_delta_p95_m": 18.27812499999999
+        },
+        {
+          "label": "t060",
+          "wet_heads": 7482,
+          "dry": 2111,
+          "missing": 0,
+          "paired_initial_wet_heads": 7392,
+          "delta_p10_p50_p90_m": [
+            -13.65625,
+            -9.8125,
+            -3.375
+          ],
+          "absolute_delta_p95_m": 18.007031249999997
+        }
+      ],
+      "authored_water_footprint": {
+        "scope": "Complete serialized authored-water footprint; >=7q, <=64m native-grid circle. Nodes/areas are raster proxies. Reads are separate from API samples, not asserted atomic.",
+        "traces": [
+          {
+            "label": "t000",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 105656,
+            "fraction": 1.0
+          },
+          {
+            "label": "t005",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 105472,
+            "fraction": 0.9982584992806844
+          },
+          {
+            "label": "t010",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 105179,
+            "fraction": 0.995485348678731
+          },
+          {
+            "label": "t015",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104926,
+            "fraction": 0.9930907851896722
+          },
+          {
+            "label": "t020",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104591,
+            "fraction": 0.9899201181191792
+          },
+          {
+            "label": "t025",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104317,
+            "fraction": 0.9873267963958506
+          },
+          {
+            "label": "t030",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104263,
+            "fraction": 0.9868157037934429
+          },
+          {
+            "label": "t035",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104219,
+            "fraction": 0.9863992579692588
+          },
+          {
+            "label": "t040",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104207,
+            "fraction": 0.9862856818353903
+          },
+          {
+            "label": "t045",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104153,
+            "fraction": 0.9857745892329826
+          },
+          {
+            "label": "t050",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104108,
+            "fraction": 0.985348678730976
+          },
+          {
+            "label": "t055",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104027,
+            "fraction": 0.9845820398273643
+          },
+          {
+            "label": "t060",
+            "planned_wet_nodes": 105656,
+            "retained_nearby_nodes": 104038,
+            "fraction": 0.9846861512834103
+          }
+        ],
+        "components": [
+          {
+            "id": 1,
+            "initial_nodes": 255,
+            "node_area_km2": 0.06528,
+            "minimum_retained_fraction": 0.6235294117647059,
+            "worst_label": "t055"
+          },
+          {
+            "id": 2,
+            "initial_nodes": 212,
+            "node_area_km2": 0.054272,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 3,
+            "initial_nodes": 588,
+            "node_area_km2": 0.150528,
+            "minimum_retained_fraction": 0.9965986394557823,
+            "worst_label": "t040"
+          },
+          {
+            "id": 4,
+            "initial_nodes": 66,
+            "node_area_km2": 0.016896,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 5,
+            "initial_nodes": 90366,
+            "node_area_km2": 23.133696,
+            "minimum_retained_fraction": 0.9858353805634863,
+            "worst_label": "t055"
+          },
+          {
+            "id": 6,
+            "initial_nodes": 99,
+            "node_area_km2": 0.025344,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 7,
+            "initial_nodes": 1343,
+            "node_area_km2": 0.343808,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 8,
+            "initial_nodes": 44,
+            "node_area_km2": 0.011264,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 9,
+            "initial_nodes": 214,
+            "node_area_km2": 0.054784,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 10,
+            "initial_nodes": 1666,
+            "node_area_km2": 0.426496,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 11,
+            "initial_nodes": 162,
+            "node_area_km2": 0.041472,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 12,
+            "initial_nodes": 737,
+            "node_area_km2": 0.188672,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 13,
+            "initial_nodes": 112,
+            "node_area_km2": 0.028672,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 14,
+            "initial_nodes": 37,
+            "node_area_km2": 0.009472,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 15,
+            "initial_nodes": 187,
+            "node_area_km2": 0.047872,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 16,
+            "initial_nodes": 48,
+            "node_area_km2": 0.012288,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 17,
+            "initial_nodes": 263,
+            "node_area_km2": 0.067328,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 18,
+            "initial_nodes": 63,
+            "node_area_km2": 0.016128,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 19,
+            "initial_nodes": 136,
+            "node_area_km2": 0.034816,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 20,
+            "initial_nodes": 946,
+            "node_area_km2": 0.242176,
+            "minimum_retained_fraction": 0.985200845665962,
+            "worst_label": "t010"
+          },
+          {
+            "id": 21,
+            "initial_nodes": 1080,
+            "node_area_km2": 0.27648,
+            "minimum_retained_fraction": 0.9009259259259259,
+            "worst_label": "t050"
+          },
+          {
+            "id": 22,
+            "initial_nodes": 173,
+            "node_area_km2": 0.044288,
+            "minimum_retained_fraction": 0.9653179190751445,
+            "worst_label": "t005"
+          },
+          {
+            "id": 23,
+            "initial_nodes": 91,
+            "node_area_km2": 0.023296,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 24,
+            "initial_nodes": 125,
+            "node_area_km2": 0.032,
+            "minimum_retained_fraction": 0.992,
+            "worst_label": "t005"
+          },
+          {
+            "id": 25,
+            "initial_nodes": 2787,
+            "node_area_km2": 0.713472,
+            "minimum_retained_fraction": 0.9899533548618586,
+            "worst_label": "t020"
+          },
+          {
+            "id": 26,
+            "initial_nodes": 2675,
+            "node_area_km2": 0.6848,
+            "minimum_retained_fraction": 0.9981308411214953,
+            "worst_label": "t005"
+          },
+          {
+            "id": 27,
+            "initial_nodes": 460,
+            "node_area_km2": 0.11776,
+            "minimum_retained_fraction": 0.8152173913043478,
+            "worst_label": "t020"
+          },
+          {
+            "id": 28,
+            "initial_nodes": 217,
+            "node_area_km2": 0.055552,
+            "minimum_retained_fraction": 0.9953917050691244,
+            "worst_label": "t005"
+          },
+          {
+            "id": 29,
+            "initial_nodes": 238,
+            "node_area_km2": 0.060928,
+            "minimum_retained_fraction": 0.9831932773109243,
+            "worst_label": "t005"
+          },
+          {
+            "id": 30,
+            "initial_nodes": 152,
+            "node_area_km2": 0.038912,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 31,
+            "initial_nodes": 114,
+            "node_area_km2": 0.029184,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          }
+        ]
+      },
+      "maximum_surface_movement_p95_m": 18.27812499999999,
+      "checked_bodies_below_retention": [
+        {
+          "id": 1,
+          "initial_nodes": 255,
+          "node_area_km2": 0.06528,
+          "minimum_retained_fraction": 0.6235294117647059,
+          "worst_label": "t055"
+        },
+        {
+          "id": 21,
+          "initial_nodes": 1080,
+          "node_area_km2": 0.27648,
+          "minimum_retained_fraction": 0.9009259259259259,
+          "worst_label": "t050"
+        },
+        {
+          "id": 27,
+          "initial_nodes": 460,
+          "node_area_km2": 0.11776,
+          "minimum_retained_fraction": 0.8152173913043478,
+          "worst_label": "t020"
+        }
+      ],
+      "water_verdict": "fail",
+      "failures": [
+        "flooding",
+        "mapped-water retention",
+        "authored-body retention",
+        "surface movement"
+      ]
+    },
+    {
+      "square": "pittsburgh",
+      "kind": "continuous-fed-channels",
+      "game_minutes": 60.068892021725574,
+      "observation_complete": true,
+      "flood_km2": 0.1057,
+      "legacy_flood_status": "fail",
+      "natural_contracts": 1214,
+      "natural_contract_states": {
+        "pass": 672,
+        "fail": 542
+      },
+      "natural_point_occurrence_fractions": [
+        {
+          "label": "t000",
+          "wet": 5730,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7611583421891605
+        },
+        {
+          "label": "t005",
+          "wet": 5746,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7632837407013815
+        },
+        {
+          "label": "t010",
+          "wet": 5783,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7681987247608927
+        },
+        {
+          "label": "t015",
+          "wet": 5778,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7675345377258236
+        },
+        {
+          "label": "t020",
+          "wet": 5707,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7581030818278427
+        },
+        {
+          "label": "t025",
+          "wet": 5682,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7547821466524973
+        },
+        {
+          "label": "t030",
+          "wet": 5684,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7550478214665249
+        },
+        {
+          "label": "t035",
+          "wet": 5668,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7529224229543039
+        },
+        {
+          "label": "t040",
+          "wet": 5666,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7526567481402763
+        },
+        {
+          "label": "t045",
+          "wet": 5660,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7518597236981934
+        },
+        {
+          "label": "t050",
+          "wet": 5664,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7523910733262487
+        },
+        {
+          "label": "t055",
+          "wet": 5670,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7531880977683315
+        },
+        {
+          "label": "t060",
+          "wet": 5667,
+          "total": 7528,
+          "missing": 0,
+          "fraction": 0.7527895855472901
+        }
+      ],
+      "minimum_point_occurrence_wet_fraction": 0.7518597236981934,
+      "raw_failed_checks": [
+        "new_game_panel",
+        "startup_views",
+        "probes_wet_end",
+        "probes_wet_throughout",
+        "no_flooding"
+      ],
+      "panel_view_problems": {
+        "new_game_panel": [
+          "screenshot unreviewed (requires hash, reviewer and notes)",
+          "rendered map_name unconfirmed/mismatched",
+          "rendered author unconfirmed/mismatched",
+          "rendered buildableArea unconfirmed/mismatched",
+          "rendered preview_matches_map unconfirmed/mismatched",
+          "rendered resources_match unconfirmed/mismatched",
+          "rendered connections_match unconfirmed/mismatched",
+          "rendered selected_map_visible unconfirmed/mismatched"
+        ],
+        "startup_views": [
+          "screenshots unreviewed (requires reviewer and notes)",
+          "opening screenshot content unreviewed/mismatched",
+          "area_zoom screenshot content unreviewed/mismatched"
+        ]
+      },
+      "sampled_surface_traces": [
+        {
+          "label": "t000",
+          "wet_heads": 5712,
+          "dry": 1816,
+          "missing": 0,
+          "paired_initial_wet_heads": 5712,
+          "delta_p10_p50_p90_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "absolute_delta_p95_m": 0.0
+        },
+        {
+          "label": "t005",
+          "wet_heads": 5534,
+          "dry": 1994,
+          "missing": 0,
+          "paired_initial_wet_heads": 5503,
+          "delta_p10_p50_p90_m": [
+            -8.6875,
+            -0.3125,
+            2.918750000000003
+          ],
+          "absolute_delta_p95_m": 12.1875
+        },
+        {
+          "label": "t010",
+          "wet_heads": 5544,
+          "dry": 1984,
+          "missing": 0,
+          "paired_initial_wet_heads": 5472,
+          "delta_p10_p50_p90_m": [
+            -9.4359375,
+            -1.875,
+            2.5
+          ],
+          "absolute_delta_p95_m": 13.614843749999991
+        },
+        {
+          "label": "t015",
+          "wet_heads": 5513,
+          "dry": 2015,
+          "missing": 0,
+          "paired_initial_wet_heads": 5447,
+          "delta_p10_p50_p90_m": [
+            -9.90625,
+            -2.25,
+            2.078125
+          ],
+          "absolute_delta_p95_m": 15.578125
+        },
+        {
+          "label": "t020",
+          "wet_heads": 5481,
+          "dry": 2047,
+          "missing": 0,
+          "paired_initial_wet_heads": 5444,
+          "delta_p10_p50_p90_m": [
+            -9.890625,
+            -2.671875,
+            2.125
+          ],
+          "absolute_delta_p95_m": 17.29453124999999
+        },
+        {
+          "label": "t025",
+          "wet_heads": 5479,
+          "dry": 2049,
+          "missing": 0,
+          "paired_initial_wet_heads": 5441,
+          "delta_p10_p50_p90_m": [
+            -10.328125,
+            -4.015625,
+            2.3125
+          ],
+          "absolute_delta_p95_m": 18.59375
+        },
+        {
+          "label": "t030",
+          "wet_heads": 5474,
+          "dry": 2054,
+          "missing": 0,
+          "paired_initial_wet_heads": 5444,
+          "delta_p10_p50_p90_m": [
+            -10.40625,
+            -4.59375,
+            2.589062499999997
+          ],
+          "absolute_delta_p95_m": 18.120312499999983
+        },
+        {
+          "label": "t035",
+          "wet_heads": 5469,
+          "dry": 2059,
+          "missing": 0,
+          "paired_initial_wet_heads": 5443,
+          "delta_p10_p50_p90_m": [
+            -10.703125,
+            -4.203125,
+            2.340625000000003
+          ],
+          "absolute_delta_p95_m": 19.28125
+        },
+        {
+          "label": "t040",
+          "wet_heads": 5460,
+          "dry": 2068,
+          "missing": 0,
+          "paired_initial_wet_heads": 5440,
+          "delta_p10_p50_p90_m": [
+            -11.176562500000001,
+            -4.0625,
+            1.3125
+          ],
+          "absolute_delta_p95_m": 20.032812500000006
+        },
+        {
+          "label": "t045",
+          "wet_heads": 5461,
+          "dry": 2067,
+          "missing": 0,
+          "paired_initial_wet_heads": 5443,
+          "delta_p10_p50_p90_m": [
+            -11.374999999999996,
+            -4.015625,
+            0.046875
+          ],
+          "absolute_delta_p95_m": 18.826562499999994
+        },
+        {
+          "label": "t050",
+          "wet_heads": 5456,
+          "dry": 2072,
+          "missing": 0,
+          "paired_initial_wet_heads": 5437,
+          "delta_p10_p50_p90_m": [
+            -11.059375,
+            -4.03125,
+            -1.40625
+          ],
+          "absolute_delta_p95_m": 19.328125
+        },
+        {
+          "label": "t055",
+          "wet_heads": 5453,
+          "dry": 2075,
+          "missing": 0,
+          "paired_initial_wet_heads": 5438,
+          "delta_p10_p50_p90_m": [
+            -11.2390625,
+            -4.3125,
+            -2.0625
+          ],
+          "absolute_delta_p95_m": 19.5
+        },
+        {
+          "label": "t060",
+          "wet_heads": 5459,
+          "dry": 2069,
+          "missing": 0,
+          "paired_initial_wet_heads": 5439,
+          "delta_p10_p50_p90_m": [
+            -11.296875,
+            -4.625,
+            -2.140625
+          ],
+          "absolute_delta_p95_m": 20.17343749999999
+        }
+      ],
+      "authored_water_footprint": {
+        "scope": "Complete serialized authored-water footprint; >=7q, <=64m native-grid circle. Nodes/areas are raster proxies. Reads are separate from API samples, not asserted atomic.",
+        "traces": [
+          {
+            "label": "t000",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 88061,
+            "fraction": 1.0
+          },
+          {
+            "label": "t005",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 87755,
+            "fraction": 0.9965251359852829
+          },
+          {
+            "label": "t010",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 87520,
+            "fraction": 0.9938565312680983
+          },
+          {
+            "label": "t015",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 87197,
+            "fraction": 0.9901886192525635
+          },
+          {
+            "label": "t020",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86876,
+            "fraction": 0.9865434187665368
+          },
+          {
+            "label": "t025",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86768,
+            "fraction": 0.9853169961731073
+          },
+          {
+            "label": "t030",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86767,
+            "fraction": 0.9853056404083533
+          },
+          {
+            "label": "t035",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86713,
+            "fraction": 0.9846924291116386
+          },
+          {
+            "label": "t040",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86722,
+            "fraction": 0.9847946309944243
+          },
+          {
+            "label": "t045",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86732,
+            "fraction": 0.984908188641964
+          },
+          {
+            "label": "t050",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86735,
+            "fraction": 0.984942255936226
+          },
+          {
+            "label": "t055",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86719,
+            "fraction": 0.9847605637001624
+          },
+          {
+            "label": "t060",
+            "planned_wet_nodes": 88061,
+            "retained_nearby_nodes": 86713,
+            "fraction": 0.9846924291116386
+          }
+        ],
+        "components": [
+          {
+            "id": 1,
+            "initial_nodes": 200,
+            "node_area_km2": 0.0512,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 2,
+            "initial_nodes": 256,
+            "node_area_km2": 0.065536,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 3,
+            "initial_nodes": 2853,
+            "node_area_km2": 0.730368,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 4,
+            "initial_nodes": 178,
+            "node_area_km2": 0.045568,
+            "minimum_retained_fraction": 0.9831460674157303,
+            "worst_label": "t005"
+          },
+          {
+            "id": 5,
+            "initial_nodes": 80929,
+            "node_area_km2": 20.717824,
+            "minimum_retained_fraction": 0.9873716467520913,
+            "worst_label": "t035"
+          },
+          {
+            "id": 6,
+            "initial_nodes": 159,
+            "node_area_km2": 0.040704,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 7,
+            "initial_nodes": 150,
+            "node_area_km2": 0.0384,
+            "minimum_retained_fraction": 0.52,
+            "worst_label": "t020"
+          },
+          {
+            "id": 8,
+            "initial_nodes": 355,
+            "node_area_km2": 0.09088,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 9,
+            "initial_nodes": 73,
+            "node_area_km2": 0.018688,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 10,
+            "initial_nodes": 295,
+            "node_area_km2": 0.07552,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 11,
+            "initial_nodes": 727,
+            "node_area_km2": 0.186112,
+            "minimum_retained_fraction": 0.9917469050894085,
+            "worst_label": "t040"
+          },
+          {
+            "id": 12,
+            "initial_nodes": 454,
+            "node_area_km2": 0.116224,
+            "minimum_retained_fraction": 0.8788546255506607,
+            "worst_label": "t020"
+          },
+          {
+            "id": 13,
+            "initial_nodes": 1135,
+            "node_area_km2": 0.29056,
+            "minimum_retained_fraction": 0.8317180616740089,
+            "worst_label": "t025"
+          },
+          {
+            "id": 14,
+            "initial_nodes": 244,
+            "node_area_km2": 0.062464,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          },
+          {
+            "id": 15,
+            "initial_nodes": 53,
+            "node_area_km2": 0.013568,
+            "minimum_retained_fraction": 1.0,
+            "worst_label": null
+          }
+        ]
+      },
+      "maximum_surface_movement_p95_m": 20.17343749999999,
+      "checked_bodies_below_retention": [
+        {
+          "id": 7,
+          "initial_nodes": 150,
+          "node_area_km2": 0.0384,
+          "minimum_retained_fraction": 0.52,
+          "worst_label": "t020"
+        },
+        {
+          "id": 12,
+          "initial_nodes": 454,
+          "node_area_km2": 0.116224,
+          "minimum_retained_fraction": 0.8788546255506607,
+          "worst_label": "t020"
+        },
+        {
+          "id": 13,
+          "initial_nodes": 1135,
+          "node_area_km2": 0.29056,
+          "minimum_retained_fraction": 0.8317180616740089,
+          "worst_label": "t025"
+        }
+      ],
+      "water_verdict": "fail",
+      "failures": [
+        "flooding",
+        "mapped-water retention",
+        "authored-body retention",
+        "surface movement"
+      ]
+    }
+  ],
+  "scope": "Asheville is the unchanged retained November 27 result, not rerun. Pittsburgh is the prepared package first observed November 28. Other six remain unobserved."
+}

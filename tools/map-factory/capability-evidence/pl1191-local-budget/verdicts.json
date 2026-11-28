@@ -1,0 +1,107 @@
+{
+  "scope": "Latest network-budget trial on the same fixed eight. Two measured maps; six not run after failure. Original PR107 observations are preserved separately.",
+  "checks": {
+    "scope": "Gameplay water during an unpopulated 60-game-minute run; not a geographic safe class, pumping or long-term promise. Chosen after all five reference results and BEFORE any new-constructor native result.",
+    "flood_limit_km2": 0.05,
+    "minimum_natural_point_fraction": 0.95,
+    "minimum_checked_body_nodes": 54,
+    "minimum_body_retained_fraction": 0.95,
+    "maximum_surface_movement_p95_m": 3,
+    "stock_maximum_surface_movement_p95_m": 1.4375,
+    "retention_definition": "Same >0.1m/<=64m nearby-water predicate. Aggregate ALL original natural-point occurrences, not any failed sector causing whole-map failure. Original per-sector outcomes stay unchanged.",
+    "body_definition": "All pre-native authored wet native nodes; >=7q/<=64m. Check each component >=54 nodes; this is the predeclared construction body-size policy, not a learned safe class. Every original geographic point remains in the aggregate.",
+    "surface_definition": "Maximum across captures of the 95th percentile absolute change from t0 among paired positive-depth/wet API samples. Dry/missing remain separate; this is not prescribed boundary stage or flow. Tolerance is twice the largest observed stock movement, rounded UP to whole metres.",
+    "excluded_from_water_verdict": [
+      "new_game_panel",
+      "startup_views"
+    ],
+    "exclusion_reason": "All three stock maps hit missing image-review/authored-camera expectations too. Raw checks and screenshots remain; these are not water failures.",
+    "capture": {
+      "game_minutes": 60,
+      "sample_every": 5,
+      "dump_every": 5,
+      "screenshot_every": 15
+    },
+    "reference_cases": [
+      "gray-waters",
+      "weaving-waters",
+      "mountain-meadows",
+      "shipping-asheville",
+      "shipping-pittsburgh"
+    ]
+  },
+  "rows": [
+    {
+      "square": "Asheville",
+      "slug": "asheville",
+      "water_verdict": "fail",
+      "reason": "0.9357 km\u00b2 flooding beyond the margin; 82.6% minimum mapped-water retention; 17.60 m wet-surface movement.",
+      "source_sha": "83702990610aa4d011efdb4dc322c9f787544342",
+      "artifact_sha256": "2f6e66404fcf09cf0cf20ae8184d32d9810c11d1b45ab494c4b222e3c6e89940",
+      "observed_at": "2026-11-26T19:31:46.503469Z",
+      "game_minutes": 60.137225358622764,
+      "flood_km2": 0.9357,
+      "minimum_original_point_retention": 0.826435942875013,
+      "authored_bodies_below_retention": 48,
+      "maximum_surface_movement_p95_m": 17.59765625,
+      "scope": "Current-install first hour only; not an exact-runtime causal A/B, geographic safe class or long-term promise."
+    },
+    {
+      "square": "Innsbruck",
+      "slug": "innsbruck",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    },
+    {
+      "square": "Rio de Janeiro",
+      "slug": "rio",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    },
+    {
+      "square": "Pittsburgh",
+      "slug": "pittsburgh",
+      "water_verdict": "fail",
+      "reason": "1.0342 km\u00b2 flooding beyond the margin; 85.0% minimum mapped-water retention; 20.99 m wet-surface movement.",
+      "source_sha": "83702990610aa4d011efdb4dc322c9f787544342",
+      "artifact_sha256": "74005daae1548fd8c88692169237a0932a76303ed7a7f348b45806c5f4331f33",
+      "observed_at": "2026-11-26T19:56:17.663563Z",
+      "game_minutes": 60.129169802647084,
+      "flood_km2": 1.0342,
+      "minimum_original_point_retention": 0.8496280552603613,
+      "authored_bodies_below_retention": 60,
+      "maximum_surface_movement_p95_m": 20.986718749999994,
+      "scope": "Current-install first hour only; not an exact-runtime causal A/B, geographic safe class or long-term promise."
+    },
+    {
+      "square": "Charleston",
+      "slug": "charleston",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    },
+    {
+      "square": "Grand Canyon",
+      "slug": "grand-canyon",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    },
+    {
+      "square": "Hong Kong",
+      "slug": "hong-kong",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    },
+    {
+      "square": "Yosemite Valley",
+      "slug": "yosemite",
+      "water_verdict": "unknown",
+      "observed_at": null,
+      "reason": "Not run: the first-two-map check failed."
+    }
+  ]
+}

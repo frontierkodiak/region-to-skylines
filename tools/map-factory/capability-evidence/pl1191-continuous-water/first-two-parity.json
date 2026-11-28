@@ -1,0 +1,14 @@
+[
+  {
+    "square": "asheville",
+    "expected": "06c2b3c8c69416b31cd4ab122f96abc9e2868abc964ab30e8e92751206937e23",
+    "actual": "06c2b3c8c69416b31cd4ab122f96abc9e2868abc964ab30e8e92751206937e23",
+    "bytes": 7555494
+  },
+  {
+    "square": "pittsburgh",
+    "expected": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5",
+    "actual": "5433abf6a2625c472ec6e3b30bb4b4377847acebfd3c5d2d82de7f843c469ec5",
+    "bytes": 6905145
+  }
+]

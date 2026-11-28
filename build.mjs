@@ -85,7 +85,7 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
   }
 }
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
-for (const study of ["pl1191-stock-water", "pl1191-local-budget"]) {
+for (const study of ["pl1191-stock-water", "pl1191-local-budget", "pl1191-continuous-water"]) {
   const waterTrial = `tools/map-factory/capability-evidence/${study}`;
   mkdirSync(`dist/${waterTrial}`, { recursive: true });
   for (const name of readdirSync(waterTrial)) copyFileSync(`${waterTrial}/${name}`, `dist/${waterTrial}/${name}`);
