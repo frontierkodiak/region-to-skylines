@@ -1,0 +1,1514 @@
+{
+  "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+  "revision": "ea8dc2863c51be0a264bab82070e3e8836b02d51",
+  "weights_sha256": "dcb2e45127cccbf1601e5f42fef165eea275c8e5213197e8dcf3f48822718179",
+  "config_sha256": "135ecd23e34a70b6fbed8b083fdecb319b7e3a54e3d849258bbe4ddcf1783bb5",
+  "processor_sha256": "960c41d1f3a7778b936365769a2d90550b318a6c0a53a0296957adacfe5e0dd7",
+  "scorer_sha256": "e089991ed2b147c96b564ef12339110d7771c99ec6148b9ab307696cf49e6f77",
+  "processor": {
+    "data_format": "channels_first",
+    "default_to_square": true,
+    "do_normalize": true,
+    "do_rescale": true,
+    "do_resize": true,
+    "image_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "image_processor_type": "DINOv3ViTImageProcessor",
+    "image_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "resample": 2,
+    "rescale_factor": 0.00392156862745098,
+    "size": {
+      "height": 224,
+      "width": 224
+    }
+  },
+  "dtype": "fp32",
+  "device": "cuda:0",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.10.2",
+    "torchvision": "0.26.0+cu130"
+  },
+  "photo_manifest_sha256": "8274dbfea9f81db7a147b4237f969fa9538faba05423054a98ee27fe84d6838d",
+  "reference_photos": [
+    {
+      "photo_id": 7874496,
+      "genus": "Tilia",
+      "split": "val",
+      "media_sha256": "db290c43884150c31c6565ff55a997e518586b2b4c3b413ff8b659e7e9203702"
+    },
+    {
+      "photo_id": 8932440,
+      "genus": "Gleditsia",
+      "split": "test",
+      "media_sha256": "c4fcb7d88ecee11a80c007103bfb7f384f2d3006320202025a6a11e6ab9d52cf"
+    },
+    {
+      "photo_id": 48578731,
+      "genus": "Tilia",
+      "split": "test",
+      "media_sha256": "1913e471201535248ad51a34b31efde144ad99601881137f06760d7b34e1fa8e"
+    },
+    {
+      "photo_id": 88384107,
+      "genus": "Tilia",
+      "split": "val",
+      "media_sha256": "d5459ef2a708ba954663535347d6b4a718ca1f5f5db0fdeff2e1dffc04bc6e7d"
+    },
+    {
+      "photo_id": 203128146,
+      "genus": "Gleditsia",
+      "split": "test",
+      "media_sha256": "a7c0b0acb7d23fdf7cf435867c2c8e9e3e859eeb546a2983a548b56e9d0a8f1a"
+    },
+    {
+      "photo_id": 219645101,
+      "genus": "Tilia",
+      "split": "test",
+      "media_sha256": "1d5306b722272d59c20059ef659733c10c6a973da650811ab2045239fa5ee9e0"
+    },
+    {
+      "photo_id": 383108490,
+      "genus": "Tilia",
+      "split": "val",
+      "media_sha256": "81f56d721339f704e5d498748b9ce5aa7dcb0265ad7f44ba39a18520ecf245c4"
+    },
+    {
+      "photo_id": 401480934,
+      "genus": "Tilia",
+      "split": "val",
+      "media_sha256": "91804d97e7f615baf3718e2c6abc924226b624b2b9e0ceccd4d8ffd514a1cc7f"
+    },
+    {
+      "photo_id": 435313157,
+      "genus": "Ulmus",
+      "split": "test",
+      "media_sha256": "0e1ad84614fe46afa94c8cf38957f9c788a51e097062199e558bfb2c74c7f2a2"
+    },
+    {
+      "photo_id": 456197154,
+      "genus": "Gleditsia",
+      "split": "test",
+      "media_sha256": "ba4c18b1b1274f3cae6955157dcd604633ec74967a1f3e3716f416dbe222e3aa"
+    },
+    {
+      "photo_id": 621206775,
+      "genus": "Ulmus",
+      "split": "val",
+      "media_sha256": "a354b00563a31e10282d2ca232beda5f57a5251230b207036da652b74660e3b5"
+    },
+    {
+      "photo_id": 753836942,
+      "genus": "Ulmus",
+      "split": "val",
+      "media_sha256": "de5329b6f66a05d3a7059e0728fc5de4b1a6acd318e94923440851b0630b7f49"
+    }
+  ],
+  "rows": [
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "anchor": true,
+      "view": "close",
+      "file": "00-close.png",
+      "sha256": "1aa701b31ca0a376e1ee687c379193ef241f820ce25692f5f5b44fc2848f7449",
+      "camera": {
+        "position": [
+          0,
+          116.94385528564453,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20,
+        "size": 52,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3420202136039734,
+          0.9396926164627075
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.017929121231039364,
+        "Tilia": -0.009249631315469742,
+        "Ulmus": 0.006250000869234403
+      },
+      "scores": {
+        "Gleditsia": 0.019428936454157032,
+        "Tilia": -0.021339192365606625,
+        "Ulmus": 0.0019102559114495916
+      }
+    },
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "anchor": true,
+      "view": "gameplay",
+      "file": "00-gameplay.png",
+      "sha256": "d9903b0741278fcfbcdb147f93d43771ea5971041d6083f833dc2feac79826d6",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98698806762695,
+        "size": 139.9427490234375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426137685775757,
+          0.7661903500556946
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.009021940330664316,
+        "Tilia": -8.554539332787196e-05,
+        "Ulmus": -0.025961666678388912
+      },
+      "scores": {
+        "Gleditsia": 0.0040016657051940765,
+        "Tilia": 0.017406258111198742,
+        "Ulmus": -0.021407923816392817
+      }
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "anchor": true,
+      "view": "close",
+      "file": "01-close.png",
+      "sha256": "688ac987b028383ee9870ec00be9876816b5f1c3aa537f79bc9682008d75da1d",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.003467559814453,
+        "size": 52.08635711669922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34207701683044434,
+          0.9396719336509705
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.00312761589884758,
+        "Tilia": -0.012774177050838867,
+        "Ulmus": 0.006806834290424983
+      },
+      "scores": {
+        "Gleditsia": 0.0061112872790545225,
+        "Tilia": -0.01774140214547515,
+        "Ulmus": 0.011630114866420627
+      }
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "anchor": true,
+      "view": "gameplay",
+      "file": "01-gameplay.png",
+      "sha256": "2bfe4d9a94907bae42c7935344919f6827e3386443bbe25c2f6a5a3ac8827830",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.990936279296875,
+        "size": 139.96011352539062,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426664590835571,
+          0.7661461234092712
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.017333400746186573,
+        "Tilia": -0.0011648957928021748,
+        "Ulmus": -0.024713920739789803
+      },
+      "scores": {
+        "Gleditsia": -0.004393992479890585,
+        "Tilia": 0.019858764950186014,
+        "Ulmus": -0.01546477247029543
+      }
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "anchor": true,
+      "view": "close",
+      "file": "02-close.png",
+      "sha256": "da0ec18ba93510d728d917216994633fecdceebf93079f8907f4c7626a90557e",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.0024471282959,
+        "size": 52.06092071533203,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34206029772758484,
+          0.9396780133247375
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.0011882496376832326,
+        "Tilia": -0.013444690965116024,
+        "Ulmus": 0.005707800077895324
+      },
+      "scores": {
+        "Gleditsia": 0.005056695081293583,
+        "Tilia": -0.016892715822905302,
+        "Ulmus": 0.011836020741611719
+      }
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "anchor": true,
+      "view": "gameplay",
+      "file": "02-gameplay.png",
+      "sha256": "927879521c8e08b7679dfef5022cdc8805e4867b02f350f62b7bcb1278b50c34",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98395538330078,
+        "size": 139.9293975830078,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6425731182098389,
+          0.7662243843078613
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.016988053917884827,
+        "Tilia": -0.0010482296347618103,
+        "Ulmus": -0.031221332649389904
+      },
+      "scores": {
+        "Gleditsia": -0.0008532727758089678,
+        "Tilia": 0.023056463648875557,
+        "Ulmus": -0.022203190873066585
+      }
+    },
+    {
+      "name": "664488801.London Planetree_Data",
+      "genus": "Platanus",
+      "anchor": false,
+      "view": "close",
+      "file": "03-close.png",
+      "sha256": "26df6cbcd36d2fbd92bb169850cb2faca8d92b58a985908e63e579e406ddccc1",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.002464294433594,
+        "size": 52.06135177612305,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3420605957508087,
+          0.939677894115448
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.008569749693075815,
+        "Tilia": -0.011102745619912943,
+        "Ulmus": 0.012985633220523596
+      },
+      "scores": {
+        "Gleditsia": 0.007628305892770489,
+        "Tilia": -0.021880437076712646,
+        "Ulmus": 0.01425213118394216
+      }
+    },
+    {
+      "name": "664488801.London Planetree_Data",
+      "genus": "Platanus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "03-gameplay.png",
+      "sha256": "529b62f1ee85edabbef1457c11187ba9ddc5ef340304840bc1dac9fe72e6ec9d",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.984378814697266,
+        "size": 139.93125915527344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6425787806510925,
+          0.7662196159362793
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.01246212050318718,
+        "Tilia": -0.005320519208908081,
+        "Ulmus": -0.021535734956463177
+      },
+      "scores": {
+        "Gleditsia": 0.0009660065794984494,
+        "Tilia": 0.011678408520917095,
+        "Ulmus": -0.012644415100415547
+      }
+    },
+    {
+      "name": "916605753.White Willow_Data",
+      "genus": "Salix",
+      "anchor": false,
+      "view": "close",
+      "file": "04-close.png",
+      "sha256": "75885e2d63816152a825fc64ae35ea66aa0bc65c19f92ac848a36c1b772611ae",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.019784927368164,
+        "size": 52.08705139160156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34234461188316345,
+          0.9395744800567627
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.018539388198405504,
+        "Tilia": -0.0009211553260684013,
+        "Ulmus": 0.018269887349257868
+      },
+      "scores": {
+        "Gleditsia": 0.009865022186810771,
+        "Tilia": -0.01932579309990009,
+        "Ulmus": 0.009460770913089316
+      }
+    },
+    {
+      "name": "916605753.White Willow_Data",
+      "genus": "Salix",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "04-gameplay.png",
+      "sha256": "69012cfb8ec4538775ef0341dffe3e85bbddbb99dc448825581eb3f6e5eca3a3",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.986392974853516,
+        "size": 139.94012451171875,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426057815551758,
+          0.7661970257759094
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.013192799563209215,
+        "Tilia": -0.007542963450153668,
+        "Ulmus": -0.02958805797000726
+      },
+      "scores": {
+        "Gleditsia": 0.005372711146871248,
+        "Tilia": 0.01384746531645457,
+        "Ulmus": -0.019220176463325817
+      }
+    },
+    {
+      "name": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+      "genus": "Ginkgo",
+      "anchor": false,
+      "view": "close",
+      "file": "05-close.png",
+      "sha256": "f159e22de64a6ff5729ef0523047850fbcabb164f70f80fd9abc5eb0c4f9fb6a",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.009733200073242,
+        "size": 52.042823791503906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3421797752380371,
+          0.9396345019340515
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.0038350156197945275,
+        "Tilia": -0.013710211341579756,
+        "Ulmus": 0.01037627924233675
+      },
+      "scores": {
+        "Gleditsia": -0.0021680495701730247,
+        "Tilia": -0.016980843152850866,
+        "Ulmus": 0.01914889272302389
+      }
+    },
+    {
+      "name": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+      "genus": "Ginkgo",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "05-gameplay.png",
+      "sha256": "98a188b87f58799c167eba94853e481e41396f78fd027cfe0e16adb5c9618ced",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.99024200439453,
+        "size": 139.95706176757812,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426571607589722,
+          0.766153872013092
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.01675478120644887,
+        "Tilia": -0.005898326635360718,
+        "Ulmus": -0.04062009478608767
+      },
+      "scores": {
+        "Gleditsia": 0.006504429504275322,
+        "Tilia": 0.022789111360907555,
+        "Ulmus": -0.029293540865182877
+      }
+    },
+    {
+      "name": "2242682818.Alder 05 14m_Data",
+      "genus": "Alnus",
+      "anchor": false,
+      "view": "close",
+      "file": "06-close.png",
+      "sha256": "c75996760fafc93bb3a3b18774cc48397367ec0f9467237272af0e7fbc920c9b",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.010343551635742,
+        "size": 52.045509338378906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34218987822532654,
+          0.9396308064460754
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.006781795993447304,
+        "Tilia": -0.017473349037269752,
+        "Ulmus": -0.004030033325155576
+      },
+      "scores": {
+        "Gleditsia": 0.00396989518776536,
+        "Tilia": -0.012067434377968313,
+        "Ulmus": 0.008097539190202951
+      }
+    },
+    {
+      "name": "2242682818.Alder 05 14m_Data",
+      "genus": "Alnus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "06-gameplay.png",
+      "sha256": "0aabd421c909f6c1d8c8e71d741a25466245d801a43561536c66be68038624db",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.99034118652344,
+        "size": 139.95750427246094,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.642658531665802,
+          0.7661527395248413
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.014928058410684267,
+        "Tilia": -0.0005550393834710121,
+        "Ulmus": -0.0312558983763059
+      },
+      "scores": {
+        "Gleditsia": 0.0009774104692041891,
+        "Tilia": 0.02253693901002407,
+        "Ulmus": -0.02351434947922826
+      }
+    },
+    {
+      "name": "2932179333.Norway Maple Young 11m_Data",
+      "genus": "Acer",
+      "anchor": false,
+      "view": "close",
+      "file": "07-close.png",
+      "sha256": "2fccf4e5958b695c909d105cfe97fb9a7a0d2a172dd442a50a5f8be7b6fd7e61",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.00957679748535,
+        "size": 52.04214096069336,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34217721223831177,
+          0.9396354556083679
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.0007829777896404266,
+        "Tilia": -0.011176505746940771,
+        "Ulmus": 0.0039768389736612635
+      },
+      "scores": {
+        "Gleditsia": 0.002816855596999327,
+        "Tilia": -0.01277343633895119,
+        "Ulmus": 0.009956580741951862
+      }
+    },
+    {
+      "name": "2932179333.Norway Maple Young 11m_Data",
+      "genus": "Acer",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "07-gameplay.png",
+      "sha256": "ebf4c679cb21eaf8108a4042285e3a916d3422c09097bdd11624bb47eb949854",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.9911994934082,
+        "size": 139.96128845214844,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426699757575989,
+          0.7661431431770325
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.012879612545172373,
+        "Tilia": 0.0011527848740418751,
+        "Ulmus": -0.025421123951673508
+      },
+      "scores": {
+        "Gleditsia": -0.000745443006356556,
+        "Tilia": 0.020303153122464813,
+        "Ulmus": -0.01955771011610826
+      }
+    },
+    {
+      "name": "2865601539.Eastern Cottonwood Summer's End_Data",
+      "genus": "Populus",
+      "anchor": false,
+      "view": "close",
+      "file": "08-close.png",
+      "sha256": "c694d21061cc2685079c65932fe86163d32c37753a1742ca4a2927908d10f0fd",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.02147674560547,
+        "size": 52.09450149536133,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3423723578453064,
+          0.9395643472671509
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.000398459533850352,
+        "Tilia": -0.013273460945735375,
+        "Ulmus": 0.019928177973876398
+      },
+      "scores": {
+        "Gleditsia": -0.00292889898022016,
+        "Tilia": -0.023436779699598752,
+        "Ulmus": 0.02636567867981891
+      }
+    },
+    {
+      "name": "2865601539.Eastern Cottonwood Summer's End_Data",
+      "genus": "Populus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "08-gameplay.png",
+      "sha256": "b3d580cb9826d7baee82fd72e6da49cc0ce0a9bd47a98cd32983add4e2ad1ef2",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98072052001953,
+        "size": 139.91517639160156,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6425298452377319,
+          0.7662606835365295
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.015198382238547007,
+        "Tilia": -0.011743296248217424,
+        "Ulmus": -0.03028834828486045
+      },
+      "scores": {
+        "Gleditsia": 0.00581744002799193,
+        "Tilia": 0.011000069013486305,
+        "Ulmus": -0.016817509041478235
+      }
+    },
+    {
+      "name": "1677577954.Small Smooth gum_Data",
+      "genus": "Eucalyptus",
+      "anchor": false,
+      "view": "close",
+      "file": "09-close.png",
+      "sha256": "51bfbbd2a1f966f1c9b5e079d2abaab1b5b166a10f968244a6807fbbfdae2d26",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.01987648010254,
+        "size": 52.087459564208984,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3423461318016052,
+          0.9395738840103149
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.006077508131663005,
+        "Tilia": -0.013070683615903059,
+        "Ulmus": 0.007506274618208408
+      },
+      "scores": {
+        "Gleditsia": 0.00885971263051033,
+        "Tilia": -0.019862574990838766,
+        "Ulmus": 0.011002862360328436
+      }
+    },
+    {
+      "name": "1677577954.Small Smooth gum_Data",
+      "genus": "Eucalyptus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "09-gameplay.png",
+      "sha256": "e91f0b4510fcabb38438c7963b8fcdc139bdc7f3e29eeae582fc81f440c1ee08",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98623275756836,
+        "size": 139.93942260742188,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426035761833191,
+          0.7661988735198975
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.020795985435446102,
+        "Tilia": 0.00035245126734177273,
+        "Ulmus": -0.023394641155997913
+      },
+      "scores": {
+        "Gleditsia": -0.009274890491118033,
+        "Tilia": 0.02244776456306378,
+        "Ulmus": -0.013172874071945749
+      }
+    },
+    {
+      "name": "1774634417.Silver Birch 2_Data",
+      "genus": "Betula",
+      "anchor": false,
+      "view": "close",
+      "file": "10-close.png",
+      "sha256": "f31a35ed6c6865f3dfa2afcbd2c016d9aba10752f247c99cb3f02b4a2786f9e6",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.011272430419922,
+        "size": 52.049598693847656,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3422050178050995,
+          0.9396253228187561
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.0056453316162029905,
+        "Tilia": -0.006644485828777154,
+        "Ulmus": 0.004817202687263489
+      },
+      "scores": {
+        "Gleditsia": 0.0065589731869598236,
+        "Tilia": -0.011875752980510395,
+        "Ulmus": 0.0053167797935505705
+      }
+    },
+    {
+      "name": "1774634417.Silver Birch 2_Data",
+      "genus": "Betula",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "10-gameplay.png",
+      "sha256": "e475b3f0cfb7076366ec472a1b3755a09a5e4e07b95d66cf08f0241a193e342b",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.989925384521484,
+        "size": 139.95567321777344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426529288291931,
+          0.7661574482917786
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.008573248361547789,
+        "Tilia": -0.0008000278224547704,
+        "Ulmus": -0.03780861819783846
+      },
+      "scores": {
+        "Gleditsia": 0.01073107464859883,
+        "Tilia": 0.022390905457238357,
+        "Ulmus": -0.03312198010583718
+      }
+    },
+    {
+      "name": "1917483612.Canada Red Cherry_Data",
+      "genus": "Prunus",
+      "anchor": false,
+      "view": "close",
+      "file": "11-close.png",
+      "sha256": "ed26978e07931e5c725a141a46e473fb5605d9eaad30ae31c8866fc01a3b0451",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.01045036315918,
+        "size": 52.045982360839844,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34219157695770264,
+          0.9396302103996277
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.0025470368564128876,
+        "Tilia": -0.015500507007042566,
+        "Ulmus": 0.004220022354274988
+      },
+      "scores": {
+        "Gleditsia": 0.008187279182796676,
+        "Tilia": -0.018884036612386502,
+        "Ulmus": 0.010696757429589827
+      }
+    },
+    {
+      "name": "1917483612.Canada Red Cherry_Data",
+      "genus": "Prunus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "11-gameplay.png",
+      "sha256": "483d982e11595b940aa02d6fedc20605c64d36f145a02fff3b343c6fa6196bb3",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98980712890625,
+        "size": 139.9551544189453,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.642651379108429,
+          0.7661587595939636
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.021159213036298752,
+        "Tilia": -0.01095187027628223,
+        "Ulmus": -0.02690415581067403
+      },
+      "scores": {
+        "Gleditsia": -0.0022311999928206205,
+        "Tilia": 0.013079814147204159,
+        "Ulmus": -0.01084861415438354
+      }
+    },
+    {
+      "name": "708892511.Southern Live Oak_Data",
+      "genus": "Quercus",
+      "anchor": false,
+      "view": "close",
+      "file": "12-close.png",
+      "sha256": "64c4b8d6a4fa6c80481b05364e1c749b6edefeb2c99648c175680614f2335d90",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.010143280029297,
+        "size": 52.04463195800781,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.3421865403652191,
+          0.9396320581436157
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.02152580798914035,
+        "Tilia": -0.020388432933638494,
+        "Ulmus": 0.004537727062900861
+      },
+      "scores": {
+        "Gleditsia": 0.029451160924509168,
+        "Tilia": -0.0334202004596591,
+        "Ulmus": 0.003969039535149933
+      }
+    },
+    {
+      "name": "708892511.Southern Live Oak_Data",
+      "genus": "Quercus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "12-gameplay.png",
+      "sha256": "7ab90172cfca7a42fb21fdd14a270ca63817c8e2213db3060e59356e5c016926",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.99074172973633,
+        "size": 139.9592742919922,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426638960838318,
+          0.7661482691764832
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.0028832058111826577,
+        "Tilia": -0.007515139256914456,
+        "Ulmus": -0.01798201600710551
+      },
+      "scores": {
+        "Gleditsia": 0.009865371820827326,
+        "Tilia": 0.0029174716522296284,
+        "Ulmus": -0.012782843473056953
+      }
+    },
+    {
+      "name": "941702678.Beech_Tree_Data",
+      "genus": "Fagus",
+      "anchor": false,
+      "view": "close",
+      "file": "13-close.png",
+      "sha256": "b0480ea4e9a79b9a1a3f58b0a9425d683c0ba78af618f1d24cfb33715cec12b7",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.009986877441406,
+        "size": 52.043941497802734,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34218400716781616,
+          0.9396329522132874
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.0026282543937365213,
+        "Tilia": -0.013763440617670616,
+        "Ulmus": 0.01082451269030571
+      },
+      "scores": {
+        "Gleditsia": -0.0011587904300540681,
+        "Tilia": -0.01786156976595521,
+        "Ulmus": 0.01902036019600928
+      }
+    },
+    {
+      "name": "941702678.Beech_Tree_Data",
+      "genus": "Fagus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "13-gameplay.png",
+      "sha256": "e603326022adedec2a27121e854077b74831fb934049f5234e2ef966c66ef8a1",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.99038314819336,
+        "size": 139.95767211914062,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426590085029602,
+          0.7661523222923279
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.02728406960765521,
+        "Tilia": -0.0030297053356965384,
+        "Ulmus": -0.021827874705195427
+      },
+      "scores": {
+        "Gleditsia": -0.014855279587209226,
+        "Tilia": 0.021526266820728782,
+        "Ulmus": -0.006670987233519554
+      }
+    },
+    {
+      "name": "954067351.Olive Tree by pdelmo_Data",
+      "genus": "Olea",
+      "anchor": false,
+      "view": "close",
+      "file": "14-close.png",
+      "sha256": "583faad039a0b8ad189ebbd54339891d1131115e434650768295a7c932fc353e",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.010427474975586,
+        "size": 52.04587936401367,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.342191219329834,
+          0.9396303296089172
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.006706855104615291,
+        "Tilia": -0.01382771817346414,
+        "Ulmus": 0.012836027580002943
+      },
+      "scores": {
+        "Gleditsia": 0.007202700401345889,
+        "Tilia": -0.02359915951577326,
+        "Ulmus": 0.01639645911442737
+      }
+    },
+    {
+      "name": "954067351.Olive Tree by pdelmo_Data",
+      "genus": "Olea",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "14-gameplay.png",
+      "sha256": "c469a933de6e7d9c9563e97f84544a8c7369b65fdb0777592c2093ec715d4061",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98978805541992,
+        "size": 139.95506286621094,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426511406898499,
+          0.766158938407898
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.01798231527209282,
+        "Tilia": -0.008018923612932364,
+        "Ulmus": -0.025590720896919567
+      },
+      "scores": {
+        "Gleditsia": -0.001177493017166853,
+        "Tilia": 0.013767594471573828,
+        "Ulmus": -0.012590101454406977
+      }
+    },
+    {
+      "name": "1729459252.Ornamental Pear Tree_Data",
+      "genus": "Pyrus",
+      "anchor": false,
+      "view": "close",
+      "file": "15-close.png",
+      "sha256": "afe9906ebad229222c0c4e7e397486ccc19b33bf66462e46cfbac82be08d610d",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.010955810546875,
+        "size": 52.04820251464844,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34219983220100403,
+          0.9396271705627441
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.002981682618459066,
+        "Tilia": -0.014312724582850933,
+        "Ulmus": 0.012728568476935228
+      },
+      "scores": {
+        "Gleditsia": -0.0021896045655012135,
+        "Tilia": -0.019186167512089014,
+        "Ulmus": 0.021375772077590227
+      }
+    },
+    {
+      "name": "1729459252.Ornamental Pear Tree_Data",
+      "genus": "Pyrus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "15-gameplay.png",
+      "sha256": "4c7b122730342ea1a9d8ca19f217b8e74c9bf72dd84ff0a5354e9b118a7f213b",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.9902458190918,
+        "size": 139.9570770263672,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426571607589722,
+          0.7661538124084473
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.010832381745179495,
+        "Tilia": -0.0058556487783789635,
+        "Ulmus": -0.02977598396440347
+      },
+      "scores": {
+        "Gleditsia": 0.00698343462621172,
+        "Tilia": 0.014448534076412518,
+        "Ulmus": -0.02143196870262424
+      }
+    },
+    {
+      "name": "2079011018.Plane Street Tree Tall_Data",
+      "genus": "Platanus",
+      "anchor": false,
+      "view": "close",
+      "file": "16-close.png",
+      "sha256": "3ece34f8b52163ffe1cd516438995ca65388f629d4b080e8fc4225c4fb3c1f65",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.0107479095459,
+        "size": 52.04729080200195,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34219643473625183,
+          0.9396284222602844
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": 0.0022598846505085626,
+        "Tilia": -0.011515367776155472,
+        "Ulmus": 0.0009611002169549465
+      },
+      "scores": {
+        "Gleditsia": 0.007537018430108825,
+        "Tilia": -0.013125860209887227,
+        "Ulmus": 0.005588841779778401
+      }
+    },
+    {
+      "name": "2079011018.Plane Street Tree Tall_Data",
+      "genus": "Platanus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "16-gameplay.png",
+      "sha256": "e234627e3b48cadd35dec01c736b69c0de9720f71988a2dbec47fd9084f91f75",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.98988723754883,
+        "size": 139.95550537109375,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426525115966797,
+          0.7661578059196472
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.019361534466346104,
+        "Tilia": -0.009811795006195704,
+        "Ulmus": -0.026182205726703007
+      },
+      "scores": {
+        "Gleditsia": -0.0013645340998967477,
+        "Tilia": 0.012960075090328852,
+        "Ulmus": -0.011595540990432102
+      }
+    },
+    {
+      "name": "2244341705.Autumn Alder 05 14m_Data",
+      "genus": "Alnus",
+      "anchor": false,
+      "view": "close",
+      "file": "17-close.png",
+      "sha256": "e9534049730d056915d9ba4cd3e9502c0aa9e41b01564bf11a67b29f551b193a",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 20.01056671142578,
+        "size": 52.04649353027344,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.34219348430633545,
+          0.9396294951438904
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.004075674340128899,
+        "Tilia": -0.022476920392364264,
+        "Ulmus": -0.005289150091509025
+      },
+      "scores": {
+        "Gleditsia": 0.009807360901807746,
+        "Tilia": -0.0177945081765453,
+        "Ulmus": 0.007987147274737556
+      }
+    },
+    {
+      "name": "2244341705.Autumn Alder 05 14m_Data",
+      "genus": "Alnus",
+      "anchor": false,
+      "view": "gameplay",
+      "file": "17-gameplay.png",
+      "sha256": "a506b1a8c20ef4bb8597b64dbd5187f626972418898120f4c0410b01adfdeac4",
+      "camera": {
+        "position": [
+          0,
+          116.9359130859375,
+          300
+        ],
+        "yaw": 0,
+        "heading_deg": 0,
+        "pitch": 39.99001693725586,
+        "size": 139.95606994628906,
+        "max_size": 4000,
+        "forward": [
+          0,
+          -0.6426541805267334,
+          0.7661563754081726
+        ],
+        "ok": true
+      },
+      "instances": 1,
+      "mean_cosine": {
+        "Gleditsia": -0.017287644868095715,
+        "Tilia": -0.006939605809748173,
+        "Ulmus": -0.03418498858809471
+      },
+      "scores": {
+        "Gleditsia": 0.0032746523308257273,
+        "Tilia": 0.01879671091834704,
+        "Ulmus": -0.02207136324917277
+      }
+    }
+  ],
+  "ranks": [
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "view": "close",
+      "score": 0.0019102559114495916,
+      "rank": 16,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "view": "gameplay",
+      "score": -0.021407923816392817,
+      "rank": 11,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "view": "close",
+      "score": -0.01774140214547515,
+      "rank": 6,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "view": "gameplay",
+      "score": 0.019858764950186014,
+      "rank": 7,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "view": "close",
+      "score": -0.016892715822905302,
+      "rank": 5,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "view": "gameplay",
+      "score": 0.023056463648875557,
+      "rank": 1,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": true
+    }
+  ],
+  "passed_available_anchors": false,
+  "wall_seconds": 7.038187954109162,
+  "cma_es_started": false,
+  "policy": "Full frames; official 224x224 processor; normalized pooled CLS vectors; mean own-genus cosine minus equally weighted means of two other genera. No tuning, training or distant score."
+}

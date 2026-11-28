@@ -6,6 +6,21 @@ are historical opinions, not validated fitness or pipeline acceptance.
 
 ## First gate: Workshop anchors, before optimisation
 
+**November 27 result: neither genus recipe qualifies.** The control audit
+found no elm/linden among the 15 retained controls' exact prefab identities
+and archived creator titles. BioCLIP ranks therefore remain unchanged.
+DINOv3 ViT-L/16 target-photo cosine minus equally weighted other-genus means
+passes only Bigleaf gameplay: ranks16/11 for Elm,6/7 for Kaiserlinde,5/1 for
+Bigleaf at close/gameplay. Both recipes pass1/6 checks, not a reliable native
+genus fitness. See observations/dino-ranking/REPORT.md for scope and limits.
+
+The next fitness specification is measured crown width/height, gap fraction
+and leaf-colour distributions against qualified iNat targets, with Caleb's
+blind pairs as the external check. Do not use BioCLIP or DINO genus scores
+as fitness on this bench. No CMA-ES was started, as explicitly instructed.
+This run stops at that conclusion; whole-crown/mask QA and the blind pack
+remain future work, not implemented or accepted by these measurements.
+
 **Later November 26 direction: native ranking supersedes naming.** Capture
 the three available Workshop assets (Elm and both lindens) singly in one
 short native session, at close/gameplay/distant. Freeze 15 PL-1326 near-art

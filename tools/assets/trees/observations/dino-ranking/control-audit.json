@@ -1,0 +1,186 @@
+{
+  "source_revision": "de93357178fe706f83eed58c53106618e0805c3a",
+  "index_sha256": "5c8eb1dfd5d44dcde1d7f7bfca7d385c4439ddc6afafbd1270d7c5c69987da9d",
+  "controls": [
+    {
+      "prefab": "664488801.London Planetree_Data",
+      "creator_title": "London Planetree",
+      "genus": "Platanus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=664488801",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "916605753.White Willow_Data",
+      "creator_title": "White Willow",
+      "genus": "Salix",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=916605753",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "3717614544.Ginkgo tree-big (green) \u94f6\u674f\u6811-\u5927_Data",
+      "creator_title": "Ginkgo tree (green) \u94f6\u674f\u6811",
+      "genus": "Ginkgo",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3717614544",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "2242682818.Alder 05 14m_Data",
+      "creator_title": "Alder Tree Pack",
+      "genus": "Alnus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2242682818",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "2932179333.Norway Maple Young 11m_Data",
+      "creator_title": "Norway Maple Variations",
+      "genus": "Acer",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2932179333",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "2865601539.Eastern Cottonwood Summer's End_Data",
+      "creator_title": "Eastern Cottonwood Autumn Set",
+      "genus": "Populus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2865601539",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "1677577954.Small Smooth gum_Data",
+      "creator_title": "Gum Trees",
+      "genus": "Eucalyptus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1677577954",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "1774634417.Silver Birch 2_Data",
+      "creator_title": "Silver Birch 2",
+      "genus": "Betula",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1774634417",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "1917483612.Canada Red Cherry_Data",
+      "creator_title": "Canada Red Cherry Tree",
+      "genus": "Prunus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1917483612",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "708892511.Southern Live Oak_Data",
+      "creator_title": "Southern Live Oak",
+      "genus": "Quercus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=708892511",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "941702678.Beech_Tree_Data",
+      "creator_title": "Beech_Tree",
+      "genus": "Fagus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=941702678",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "954067351.Olive Tree by pdelmo_Data",
+      "creator_title": "Olive Tree v1 HD",
+      "genus": "Olea",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=954067351",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "1729459252.Ornamental Pear Tree_Data",
+      "creator_title": "Ornamental Pear Tree",
+      "genus": "Pyrus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1729459252",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "2079011018.Plane Street Tree Tall_Data",
+      "creator_title": "Street Plane Trees",
+      "genus": "Platanus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2079011018",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    },
+    {
+      "prefab": "2244341705.Autumn Alder 05 14m_Data",
+      "creator_title": "Autumn Alder Tree Pack",
+      "genus": "Alnus",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2244341705",
+      "excluded": false,
+      "basis": "Exact prefab/common name and archived creator Workshop title; no author-representation fidelity claim"
+    }
+  ],
+  "excluded": [],
+  "bioclip_source_score_sha256": "8d88823baaf702187f742dd7924b8de95db340cc20dabf9ba4518200dd36a7da",
+  "bioclip_ranks": [
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "view": "close",
+      "rank": 1,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": true
+    },
+    {
+      "name": "2456536855.American Elm_Data",
+      "genus": "Ulmus",
+      "view": "gameplay",
+      "rank": 12,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "view": "close",
+      "rank": 8,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2928288862.Kaiserlinde 16m_Data",
+      "genus": "Tilia",
+      "view": "gameplay",
+      "rank": 10,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "view": "close",
+      "rank": 13,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    },
+    {
+      "name": "2402946167.Bigleaf Linden_Data",
+      "genus": "Tilia",
+      "view": "gameplay",
+      "rank": 5,
+      "pool": 16,
+      "cutoff": 4,
+      "pass": false
+    }
+  ],
+  "bioclip_reinferenced": false,
+  "basis": "Recomputed rankings from frozen per-frame probability vectors after control audit; no control removals required."
+}

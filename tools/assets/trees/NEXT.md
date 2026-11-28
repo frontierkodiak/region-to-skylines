@@ -1,5 +1,28 @@
 # Review and remaining acceptance
 
+## Latest result — November 27: stop genus scoring; use measured targets next
+
+Read observations/dino-ranking/REPORT.md. The 15-control identity audit
+excludes no asset: creator titles and exact prefab names are all other genera.
+Recomputed BioCLIP ranks stay1/12,8/10,13/5 (close/gameplay per anchor).
+DINOv3 ViT-L/16 on the same native pool and 12 reserved iNat photos ranks
+16/11,6/7,5/1. Both recipes pass only1/6 checks with cutoff4/16.
+Neither is admitted as a reliable native genus-fitness signal. No CMA-ES,
+new native slot, prompt/crop search or parameter optimisation followed.
+
+The next fitness is measured crown shape, gaps and leaf colour against
+qualified iNat targets, checked by Caleb's blind pairs. Whole-crown/mask QA
+and that phone pack remain to be built. Stop this run per lead direction;
+the issue's overall asset-quality/full-cost work is not complete.
+
+Retained DINO output: ~/experiments/PL-1328-dino-ranking/ on blade/carbon.
+The frozen local model ran FP32 on the free blade3090 in7.04 seconds (load
+and48 encodings, excluding preflight hashing) and exited. Reference photos
+stayed on blade and were re-resolved through Cabinet layout.object_path.
+All36 native image hashes,12 reference byte hashes and the scorer identity
+were checked. Thirteen tests and Ruff pass. The native-v1 frames are reused,
+not a newly acquired game witness. Leave in_progress for the next increment.
+
 ## Latest result — native ranking fails, 2026-11-27 UTC
 
 See observations/native-ranking/REPORT.md. One slot produced 39 native
